@@ -5,14 +5,14 @@
 **Research hub:** this Cloud Agent environment  
 **Method:** primary sources first; publication dates and event dates recorded separately; every time-sensitive claim has a source URL.
 
-This is a live test of the research hub. Tavily was unavailable in this run because `TAVILY_API_KEY` is not injected. Firecrawl search and scrape ran on the keyless free tier. Context7 MCP quota was exhausted; the Context7 HTTP API still returned library metadata and current docs snippets. GitHub `gh` and Vercel Labs `agent-browser` worked.
+This is a live test of the research hub. After Cloud Secrets were added, Tavily and Firecrawl authenticated from `TAVILY_API_KEY` and `FIRECRAWL_API_KEY` with no interactive login. Context7 MCP quota was exhausted; the Context7 HTTP API still returned library metadata and current docs snippets. GitHub `gh` and Vercel Labs `agent-browser` worked. `npm run test:smoke` passed.
 
 ---
 
 ## Executive takeaways
 
-1. **OpenAI spent the week on infrastructure, safety disclosure, and go-to-market, not a new flagship model.** The two developer-facing API changes inside the window are per-request regional processing and a GPT-5.6 Sol price cut. The public narrative is Jalapeño (first-party inference silicon with measured results), the Hugging Face incident technical report, ChatGPT for Teachers expansion, and a Brazil commercial launch.
-2. **Anthropic spent the week pushing agents into the physical world, the enterprise CRM stack, and scientific labs.** The newsroom lead is the Model Hardware Standard research preview (27 August). Salesforce announced Claudeforce (26 August). Product surfaces that moved this week include Claude in Chrome GA, a built-in Cowork browser, a 10,000-seat scientist plan, and a $5 million wellbeing-eval grant program.
+1. **OpenAI spent the week on infrastructure, safety disclosure, education, and go-to-market, not a new flagship model.** The two developer-facing API changes inside the window are per-request regional processing and a GPT-5.6 Sol price cut. The public narrative is Jalapeño (first-party inference silicon with measured results), the Hugging Face incident technical report, ChatGPT for Teachers and back-to-school research, and a Brazil commercial launch.
+2. **Anthropic spent the week pushing agents into the physical world, the enterprise CRM stack, and scientific labs.** The newsroom lead is the Model Hardware Standard research preview (27 August). Salesforce announced Claudeforce (26 August). Product surfaces that moved this week include Claude in Chrome GA, a built-in Cowork browser, shared chat/Cowork memory, a 10,000-seat scientist plan, and a $5 million wellbeing-eval grant program.
 3. **Both companies are shipping agent administration and SDK surface, not just chat models.** OpenAI released an Admin plugin for ChatGPT Work and Codex. Anthropic put the Admin API into the `ant` CLI and major SDKs, and the language SDKs dropped dated Files/Skills beta header pins after last week's GA.
 4. **Safety and control remain first-class product news.** OpenAI published a full Hugging Face incident report and called the event a “warning shot.” Anthropic published an August 2026 risk report and funded independent wellbeing evaluations.
 
@@ -111,7 +111,13 @@ OpenAI worked with CrowdStrike. Independent alignment analysis was published the
 
 55 additional school systems across 20 states; **100,000+** more educators and staff. OpenAI now works with **100+** K–12 organizations across **30** states and says it provides free access and training to **300,000+** educators and staff. A 16-state National Data Privacy Agreement via the Student Data Privacy Consortium is new; listed states: IL, IA, ME, MA, MO, NE, NH, NJ, NY, OH, RI, TN, TX, VT, VA, WA (California covered separately). ChatGPT for Teachers stays free for verified U.S. K–12 educators through **June 2028**. Workspace data is not used for training by default.
 
-The OpenAI news index also listed [Learning never stops](https://openai.com/index/learning-never-stops/) on 26 August 2026. That page was not fully extracted in this run.
+### 26 August 2026 — Learning never stops report
+
+**Publication date:** 26 August 2026  
+**Event date:** same (report release)  
+**Sources:** [Learning never stops](https://openai.com/index/learning-never-stops/), [PDF report](https://cdn.openai.com/pdf/learning-never-stops-back-to-school-report-august-2026.pdf)
+
+Privacy-preserving analysis: up to **70 million** ChatGPT conversations per week across age groups devoted to testing knowledge (misconception checks, more practice). In the U.S., classwork/homework prompts peak above **460 million** messages per week during the school year (Sunday-evening climb) and stay above **180 million** in summer. OpenAI says AI should not replace teacher judgment.
 
 ### 27 August 2026 — Commercial operations in Brazil
 
@@ -121,7 +127,13 @@ The OpenAI news index also listed [Learning never stops](https://openai.com/inde
 
 São Paulo commercial team. Brazil is one of ChatGPT’s three largest markets by weekly active users; ~**215 million** ChatGPT messages per day from Brazil; users nearly doubled year over year. June 2026: 35% of classified Brazil individual-account messages were work-related vs 30% globally. Brazil ranks **second globally** by developers using the OpenAI API and is Codex’s largest Latin America market. Weekly Codex users in Brazil grew more than 11× since the start of 2026; daily interactions nearly 30×. ChatGPT Enterprise seats in Brazil increased fivefold year over year. An OpenAI-funded RegLab study estimates AI could add nearly **R$1 trillion** to Brazil’s economy by 2030.
 
-The news index also listed [What students gain from ChatGPT and critical-thinking training](https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training/) on 27 August 2026. That page was not fully extracted in this run.
+### 27 August 2026 — ChatGPT plus critical-thinking training (Bocconi RCT)
+
+**Publication date:** 27 August 2026  
+**Event date:** same (paper/blog)  
+**Sources:** [What students gain from ChatGPT and critical-thinking training](https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training/), [paper PDF](https://cdn.openai.com/pdf/novices-and-llm-august-2026.pdf)
+
+Bocconi University + OpenAI Economic Research randomized **1,000+** first-year students on a merchandise-store marketing case into ChatGPT (GPT-4o), causal-reasoning training, both, or neither. ChatGPT access raised human-graded quality by almost a full point on a five-point rubric and made answers more expert-like. Causal-reasoning training increased uniqueness of ideas. Combined treatment showed both effects.
 
 ### GitHub / SDK activity this week
 
@@ -165,6 +177,14 @@ Python SDK **v1.0.0** shipped 20 August 2026: HTTP layer moves to httpx2, Python
 **Source:** [Funding better evaluations of AI’s impact on wellbeing](https://www.anthropic.com/news/wellbeing-research-grants)
 
 $5 million for independent, open-source wellbeing evaluations. Anthropic will also give model access and technical support. Grantees work independently. Accompanying [Safeguards guidance PDF](https://www-cdn.anthropic.com/files/4zrzovbb/website/5ecb637cb206057cb93cf4a9e72e843fda5e9892.pdf). Desired eval traits: clear pass/fail, clinical involvement, both overcompliance and overrefusal, multi-turn realistic use, graders validated against experts.
+
+### 25 August 2026 — Shared memory across chat and Cowork
+
+**Publication date:** 25 August 2026  
+**Event date:** same  
+**Source:** [Claude's memory works everywhere, and you decide what's in it](https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it)
+
+Chat memory and Cowork memory are now the same store. Claude updates topics during a conversation rather than summarizing after. Users edit or delete items under Settings > Memory. Sensitive topics (health, beliefs, etc.) stay out of memory unless the user turns them on; some fields (SSN, criminal history, immigration status, AUP violations) are never stored. On by default for Free, Pro, and Max; off by default for Team/Enterprise until the user or admin enables it.
 
 ### 26 August 2026 — Salesforce Claudeforce
 
@@ -270,11 +290,11 @@ These appeared in Firecrawl news results. They are **not** treated as confirmed 
 
 | Tool | Used? | Result |
 | --- | --- | --- |
-| **Tavily (`tvly`)** | Attempted | CLI 0.1.6 installed. `tvly --status` = not authenticated. `TAVILY_API_KEY` is **not** in `CLOUD_AGENT_INJECTED_SECRET_NAMES`. Secrets were requested via Cloud environment setup actions. |
-| **Firecrawl (`firecrawl`)** | Yes | CLI 1.23.3. Keyless search + scrape succeeded (news + official pages + developer index). `search-feedback` prompted for login (account-only). `FIRECRAWL_API_KEY` missing. |
+| **Tavily (`tvly`)** | Yes | CLI 0.1.6 authenticated via `TAVILY_API_KEY`. Week news + official-domain searches and `tvly research --model mini` completed. Domain-filtered search matched official OpenAI/Anthropic pages. The mini research pass under-counted OpenAI because it read a filtered company-announcements URL; do not treat Tavily synthesis as a substitute for official scrapes. |
+| **Firecrawl (`firecrawl`)** | Yes | CLI 1.23.3 authenticated via `FIRECRAWL_API_KEY`. Credits at proof time: 4,019 / 5,000 remaining this cycle. Search, scrape, developer index, and `credit-usage` succeeded. |
 | **Context7** | Partial | MCP `resolve-library-id` / `query-docs` returned monthly quota exceeded. HTTP `GET https://context7.com/api/v2/libs/search` and `GET .../api/v2/context` worked with the injected `CONTEXT7_API_KEY`. Live hits: `/websites/developers_openai_api` (lastUpdateDate 2026-08-25) and `/websites/platform_claude_en_api`. |
 | **GitHub (`gh`)** | Yes | `gh` 2.91.0 authenticated. Used org repo lists, release JSON, and merged-PR search on `anthropics/*`. |
-| **Vercel agent-browser** | Yes | 0.35.1. Anthropic newsroom rendered and was snapshotted. `openai.com/news/` stayed on a Cloudflare “verify you are human” interstitial (HTTP 403 on `read`). Firecrawl scrape of the same OpenAI news URL succeeded. |
+| **Vercel agent-browser** | Yes | 0.35.1. Anthropic newsroom rendered and was snapshotted. `openai.com/news/` stayed on a Cloudflare “verify you are human” interstitial (HTTP 403 on `read`). Firecrawl scrape of the same OpenAI news URL succeeded. Smoke test navigated `https://example.com` and saved a screenshot. |
 
 Raw fetches live in gitignored `.firecrawl/` and `artifacts/research-2026-08-28/`. Do not commit them.
 
@@ -282,11 +302,9 @@ Raw fetches live in gitignored `.firecrawl/` and `artifacts/research-2026-08-28/
 
 ## Environment findings from this run
 
-1. Binaries and skills verify cleanly (`npm run verify:environment` passed).
-2. `npm run verify:secrets` failed: missing `TAVILY_API_KEY` and `FIRECRAWL_API_KEY`.
-3. Present secrets: `CONTEXT7_API_KEY`, `GITHUB_PERSONAL_ACCESS_TOKEN`.
+1. `npm run verify:environment` and `npm run verify:secrets` both pass after the Tavily and Firecrawl keys were injected.
+2. Both CLIs authenticate from the environment variables. No `tvly login` / `firecrawl login` write to disk is required.
+3. `npm run test:smoke` passed: Tavily search, Firecrawl search, and agent-browser title/screenshot of example.com.
 4. Context7 MCP quota is exhausted even with a key; HTTP still works. Later agents should prefer HTTP or a higher-quota key.
-5. Firecrawl keyless is enough for one-off search/scrape but not for feedback, crawl, map, or a durable hub.
-6. `openai.com` bot challenges make agent-browser a poor first fetch for that domain; Firecrawl scrape is the reliable path.
-
-Recommended hub secrets (already requested): `TAVILY_API_KEY`, `FIRECRAWL_API_KEY`.
+5. `openai.com` bot challenges make agent-browser a poor first fetch for that domain; Firecrawl scrape is the reliable path.
+6. A draft Cloud environment build of this branch succeeded (`bld-20260828-45554718-7183-4d76-8c03-fa32182b5033`).

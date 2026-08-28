@@ -76,6 +76,35 @@ for (const name of optionalSecrets) {
   }
 }
 
+function cliAuthenticated(command, args) {
+  const result = spawnSync(command, args, {
+    encoding: "utf8",
+    shell: process.platform === "win32"
+  });
+  const text = `${result.stdout ?? ""}${result.stderr ?? ""}`;
+  return /authenticated/i.test(text) && !/not authenticated/i.test(text);
+}
+
+if (process.env.TAVILY_API_KEY) {
+  if (cliAuthenticated("tvly", ["--status"])) {
+    console.log("ok tvly authenticated via environment (key hidden)");
+  } else if (requireSecrets) {
+    failures.push("tvly is not authenticated even though TAVILY_API_KEY is set");
+  } else {
+    console.log("warn tvly did not report authentication");
+  }
+}
+
+if (process.env.FIRECRAWL_API_KEY) {
+  if (cliAuthenticated("firecrawl", ["--status"])) {
+    console.log("ok firecrawl authenticated via environment (key hidden)");
+  } else if (requireSecrets) {
+    failures.push("firecrawl is not authenticated even though FIRECRAWL_API_KEY is set");
+  } else {
+    console.log("warn firecrawl did not report authentication");
+  }
+}
+
 if (failures.length > 0) {
   console.error("\nEnvironment verification failed:");
   for (const failure of failures) console.error(`- ${failure}`);

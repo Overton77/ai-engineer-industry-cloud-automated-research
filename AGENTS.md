@@ -17,9 +17,9 @@ Portable Cursor Cloud research hub for current AI-industry briefs. Skills live i
 
 | Need | Tool | Notes |
 | --- | --- | --- |
-| Discover last-week news | `tvly search --time-range week --topic news` | Requires `TAVILY_API_KEY` |
+| Discover last-week news | `tvly search --time-range week --topic news` | Reads `TAVILY_API_KEY` from the environment; no interactive login |
 | Multi-source synthesis | `tvly research` | Same key |
-| Search + scrape official pages | `firecrawl search`, `firecrawl scrape` | Keyless works; `FIRECRAWL_API_KEY` is required for credits, crawl, map, and feedback |
+| Search + scrape official pages | `firecrawl search`, `firecrawl scrape` | Reads `FIRECRAWL_API_KEY` when set; keyless search/scrape still works |
 | SDK / issue / README evidence | `firecrawl developer` | Developer index, not general web |
 | Papers | `firecrawl research` | Paper index, not `--categories research` |
 | Current API/docs contract | Context7 MCP or `https://context7.com/api/v2/context` | MCP can 429 on quota while HTTP still works |
