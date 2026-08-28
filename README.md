@@ -23,6 +23,8 @@ All skill sources are copied into `.agents/skills` and pinned by `skills-lock.js
 
 The Build verification intentionally checks binaries and skill files without requiring API keys. Runtime API access is checked separately with `npm run verify:secrets`.
 
+Finished briefs are committed under `reports/`. Disposable fetches stay in `.firecrawl/` and `artifacts/`. See `AGENTS.md` for tool routing and `reports/README.md` for the brief template.
+
 ## First authenticated proof
 
 After the two API keys are available to the Cloud Agent, run:

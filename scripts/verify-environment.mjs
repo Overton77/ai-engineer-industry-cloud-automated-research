@@ -11,7 +11,7 @@ if (major < 24) {
   console.log(`ok node ${process.version}`);
 }
 
-for (const command of ["tvly", "firecrawl", "agent-browser"]) {
+for (const command of ["tvly", "firecrawl", "agent-browser", "gh"]) {
   const result = spawnSync(command, ["--version"], {
     encoding: "utf8",
     shell: process.platform === "win32"
@@ -22,7 +22,7 @@ for (const command of ["tvly", "firecrawl", "agent-browser"]) {
     continue;
   }
 
-  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim();
+  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim().split("\n")[0];
   console.log(`ok ${command} ${version}`);
 }
 
@@ -55,13 +55,24 @@ if (installedSkills.length > 0) {
   console.log(`ok ${installedSkills.length} project skills discovered`);
 }
 
-if (requireSecrets) {
-  for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"]) {
-    if (!process.env[name]) {
-      failures.push(`required runtime secret is missing: ${name}`);
-    } else {
-      console.log(`ok ${name} is set (value hidden)`);
-    }
+const requiredSecrets = ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"];
+const optionalSecrets = ["CONTEXT7_API_KEY", "GITHUB_PERSONAL_ACCESS_TOKEN"];
+
+for (const name of requiredSecrets) {
+  if (process.env[name]) {
+    console.log(`ok ${name} is set (value hidden)`);
+  } else if (requireSecrets) {
+    failures.push(`required runtime secret is missing: ${name}`);
+  } else {
+    console.log(`warn ${name} is unset (keyless / unauthenticated mode only)`);
+  }
+}
+
+for (const name of optionalSecrets) {
+  if (process.env[name]) {
+    console.log(`ok ${name} is set (value hidden)`);
+  } else {
+    console.log(`warn optional ${name} is unset`);
   }
 }
 
