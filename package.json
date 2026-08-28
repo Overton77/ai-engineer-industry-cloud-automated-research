@@ -1,0 +1,14 @@
+{
+  "name": "ai-engineer-industry-cloud-automated-research",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Cursor Cloud Agent environment for current AI-industry research.",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "verify:environment": "node scripts/verify-environment.mjs",
+    "verify:secrets": "node scripts/verify-environment.mjs --require-secrets",
+    "test:smoke": "bash scripts/cloud-smoke-test.sh"
+  }
+}

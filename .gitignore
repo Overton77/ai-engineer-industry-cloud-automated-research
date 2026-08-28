@@ -1,0 +1,10 @@
+node_modules/
+.npm-cache-temp/
+.firecrawl/
+artifacts/
+
+.env
+.env.*
+!.env.example
+
+*.log
