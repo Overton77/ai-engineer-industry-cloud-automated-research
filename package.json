@@ -9,6 +9,7 @@
   "scripts": {
     "verify:environment": "node scripts/verify-environment.mjs",
     "verify:secrets": "node scripts/verify-environment.mjs --require-secrets",
-    "test:smoke": "bash scripts/cloud-smoke-test.sh"
+    "test:smoke": "bash scripts/cloud-smoke-test.sh",
+    "research:verify": "node scripts/verify-environment.mjs && mkdir -p artifacts .firecrawl reports"
   }
 }

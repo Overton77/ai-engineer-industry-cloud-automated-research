@@ -11,7 +11,7 @@ if (major < 24) {
   console.log(`ok node ${process.version}`);
 }
 
-for (const command of ["tvly", "firecrawl", "agent-browser"]) {
+for (const command of ["tvly", "firecrawl", "agent-browser", "gh"]) {
   const result = spawnSync(command, ["--version"], {
     encoding: "utf8",
     shell: process.platform === "win32"
@@ -22,7 +22,7 @@ for (const command of ["tvly", "firecrawl", "agent-browser"]) {
     continue;
   }
 
-  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim();
+  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim().split("\n")[0];
   console.log(`ok ${command} ${version}`);
 }
 
@@ -55,13 +55,53 @@ if (installedSkills.length > 0) {
   console.log(`ok ${installedSkills.length} project skills discovered`);
 }
 
-if (requireSecrets) {
-  for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"]) {
-    if (!process.env[name]) {
-      failures.push(`required runtime secret is missing: ${name}`);
-    } else {
-      console.log(`ok ${name} is set (value hidden)`);
-    }
+const requiredSecrets = ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"];
+const optionalSecrets = ["CONTEXT7_API_KEY", "GITHUB_PERSONAL_ACCESS_TOKEN"];
+
+for (const name of requiredSecrets) {
+  if (process.env[name]) {
+    console.log(`ok ${name} is set (value hidden)`);
+  } else if (requireSecrets) {
+    failures.push(`required runtime secret is missing: ${name}`);
+  } else {
+    console.log(`warn ${name} is unset (keyless / unauthenticated mode only)`);
+  }
+}
+
+for (const name of optionalSecrets) {
+  if (process.env[name]) {
+    console.log(`ok ${name} is set (value hidden)`);
+  } else {
+    console.log(`warn optional ${name} is unset`);
+  }
+}
+
+function cliAuthenticated(command, args) {
+  const result = spawnSync(command, args, {
+    encoding: "utf8",
+    shell: process.platform === "win32"
+  });
+  const text = `${result.stdout ?? ""}${result.stderr ?? ""}`;
+  return /authenticated/i.test(text) && !/not authenticated/i.test(text);
+}
+
+if (process.env.TAVILY_API_KEY) {
+  if (cliAuthenticated("tvly", ["--status"])) {
+    console.log("ok tvly authenticated via environment (key hidden)");
+  } else if (requireSecrets) {
+    failures.push("tvly is not authenticated even though TAVILY_API_KEY is set");
+  } else {
+    console.log("warn tvly did not report authentication");
+  }
+}
+
+if (process.env.FIRECRAWL_API_KEY) {
+  if (cliAuthenticated("firecrawl", ["--status"])) {
+    console.log("ok firecrawl authenticated via environment (key hidden)");
+  } else if (requireSecrets) {
+    failures.push("firecrawl is not authenticated even though FIRECRAWL_API_KEY is set");
+  } else {
+    console.log("warn firecrawl did not report authentication");
   }
 }
 

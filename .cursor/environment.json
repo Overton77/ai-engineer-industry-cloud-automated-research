@@ -2,5 +2,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "install": "npm run verify:environment"
+  "install": "mkdir -p artifacts .firecrawl reports && npm run verify:environment"
 }
