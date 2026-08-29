@@ -14,6 +14,7 @@ RUN apt-get update \
         jq \
         pipx \
         poppler-utils \
+        postgresql-client \
         python3 \
         python3-venv \
         ripgrep \
@@ -31,4 +32,5 @@ RUN npm install --global \
     && firecrawl --version \
     && tvly --version \
     && ffmpeg -version \
-    && pdftotext -v
+    && pdftotext -v \
+    && psql --version

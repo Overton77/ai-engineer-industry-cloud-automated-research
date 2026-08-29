@@ -25,55 +25,73 @@ npm run test:smoke
 
 The Cloud environment is repository-managed at `.cursor/environment.json`. Do **not** use `npm ci` in `install`: this repo has no `package-lock.json` and no npm dependencies. `install` only verifies pinned CLIs and skill files. `start` creates `artifacts/` and `.firecrawl/`.
 
-## Research sources on Google Drive
+## Research sources (Supabase)
 
-This Cloud environment has **no live Postgres**. Query Drive first. Official catalog ingest into `research_starter_videos` lives in a separate app (`research_starter_pre_research_agent` → `npm run catalog:sync`).
+Query the **Supabase Postgres tables**, not Google Drive. Drive may appear because a Google Drive MCP is attached in Cursor user/team settings. Ignore it for catalog, pre-research, and ingestion work.
 
-| Asset | Drive ID | URL |
+Required secrets (already injected on this Cloud environment): `SUPABASE_URL`, `SUPABASE_SECRET_KEY` or `SUPABASE_SERVICE_ROLE_KEY`, and `POSTGRES_URL_NON_POOLING`.
+
+There is **no Supabase MCP** in this agent. Use PostgREST or `psql`:
+
+```bash
+# REST (never print the URL or keys)
+curl -sS "$SUPABASE_URL/rest/v1/research_starter_videos?video_id=eq.CEvIs9y1uog&select=video_id,title,pre_research_complete" \
+  -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
+  -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY"
+
+# SQL
+psql "$POSTGRES_URL_NON_POOLING" -c "select video_id, title, pre_research_complete from research_starter_videos where video_id = 'CEvIs9y1uog';"
+```
+
+Starter / pre-research tables (live counts as of 2026-08-29):
+
+| Table | Role | Rows |
 | --- | --- | --- |
-| Application resources root | `1ghIrTjEWhOzqRdM9YJfpRSB_CMP8fV2x` | https://drive.google.com/drive/folders/1ghIrTjEWhOzqRdM9YJfpRSB_CMP8fV2x |
-| Pre-research share reports (920 videos) | `1C6vHOhIGL3ifC7gVDd2jBd1r_Ylb3Kbq` | https://drive.google.com/drive/folders/1C6vHOhIGL3ifC7gVDd2jBd1r_Ylb3Kbq |
-| Share catalog | `1_Tubjz_WlW47Eie0D5SGnh2GoSalnDM7` | https://drive.google.com/file/d/1_Tubjz_WlW47Eie0D5SGnh2GoSalnDM7/view |
-| Local research-starter pipeline outputs | `17uYtsCUpiW9PUWoRjh1TDDXjigWhsmNM` | https://drive.google.com/drive/folders/17uYtsCUpiW9PUWoRjh1TDDXjigWhsmNM |
-| First research video workspace `CEvIs9y1uog` | `1td2ozTI6OyWoDmeatwWFw63MAWJwbgqM` | https://drive.google.com/drive/folders/1td2ozTI6OyWoDmeatwWFw63MAWJwbgqM |
+| `research_starter_videos` | YouTube catalog | 1132 |
+| `research_pre_research_video_state` | Eligibility + pipeline status | 1132 |
+| `research_pre_research_run` | Pre-research runs | 1109 |
+| `research_pre_research_session` | Research sessions | 898 |
+| `research_pre_research_artifact` | Stored packet files | 12684 |
+| `research_pre_research_stage_execution` | Stage ledger | 8928 |
+| `research_ingestion_intent` | Apply/reject ledger | 1055 |
+| `research_video_analysis` | Structured talk analysis | 1024 |
+| `research_video_category` | Taxonomy assignments (via `analysis_id`) | — |
+| `research_video_lifecycle` | Stage (`research`, …) | 2038 |
+| `research_category_definition` | Taxonomy codes | 17 |
+| `research_taxonomy_version` | Active taxonomy | 1 |
 
-Queryable stand-ins for the starter / pre-research tables:
-
-- `catalog.md` plus per-video `report.json` / `03-organizations.json` / `04-technologies.json` / `06-sources-and-evidence.json`
-- Per-video `db_inspection.md` files (entity kinds: `youtube_video`, `organization`, `person`, `library`, `product`, `repo`, `paper`)
-- Channel dump `ai_engineer_aidotengineer_channel_videos.json` (1049 videos as of 2026-08-14)
+Related candidate tables for later entity ingestion: `research_entity_candidate`, `research_organization_candidate`, `research_resource_candidate`, `research_evidence_anchor`, `research_organization_source`.
 
 ## First research / ingestion video
 
-Last-opened vault target, and the first video whose research DAG nodes were left skipped:
+From `research_starter_videos` / `research_pre_research_video_state` / `research_pre_research_run`:
 
 - **Video:** Don't Build Agents, Build Skills Instead — Barry Zhang & Mahesh Murag, Anthropic
 - **YouTube ID:** `CEvIs9y1uog`
 - **URL:** https://www.youtube.com/watch?v=CEvIs9y1uog
-- **Vault bucket:** `agent_orchestration`
-- **Pre-research primary taxonomy:** `agent_architecture_harnesses` (label: Agent Architecture & Harnesses). Treat this mismatch as real: vault layout uses `agent_orchestration`; share reports use the newer taxonomy.
-- **Published:** 2025-12-08 (event date). Channel: AI Engineer (`@aiDotEngineer`). Duration: 16m22s.
-- **DB inspection:** 18 EXISTS / 0 MISSING as of 2026-05-04 (`chunk_rows_existing: 12`). Entity kinds present: 1 video, 5 orgs, 3 people, 3 libraries, 3 products, 3 repos.
-- **Research DAG nodes skipped by config:** `entities.extract`, `research.plan`, `research.people_orgs`, `research.docs_web`, `research.libs_repos_products`, `research.papers_news`, `research.synthesize`, `summary.initial`, `summary.optimize`, `course.outline`
-- **Pre-research share folder:** `16ulkpHU8LB_ksu1IIoSSuDuokbpP3335` — contains `report.json` (`1JqDhdcMmYX1UmmF2nO07oo8vkSavIh4u`, schema `pre-research-share-report/1.0.0`, run applied 2026-08-21) plus `01-summary`, `02-taxonomy`, `03-organizations`, `04-technologies`, `05-curriculum`, `06-sources-and-evidence`
-- **Local pipeline packets:** `17uYtsCUpiW9PUWoRjh1TDDXjigWhsmNM` → `pre-research` → `v2` (`1ZDQnnFECfIzy7JvR4j_X7MV1tQZQKmeQ`)
-- **Obsidian/vault workspace folder:** `1td2ozTI6OyWoDmeatwWFw63MAWJwbgqM`
+- **Published:** 2025-12-08. Channel: AI Engineer (`@aiDotEngineer`). Duration: 16m22s.
+- **Catalog:** `pre_research_complete=true`, `transcript_status=stored` (19110 chars)
+- **Pre-research state:** `pipeline_status=finished` (2026-08-21). `eligibility_status=ineligible` with reason `already_live_for_current_transcript` — do not re-run pre-research for the same transcript SHA.
+- **Applied run:** `296363d2-1483-471e-bc87-d41b52e50ce4` (`status=applied`, model `zai/glm-5.2`, bundle `pre-research-2.0.0`)
+- **Failed prior run:** `c8a25c4b-389f-455e-a3b6-8c5b2a997452` (`LEASE_EXPIRED`)
+- **Analysis:** `153c5f79-5817-40d1-aaf9-6d39da81d23f` — talk, intermediate, `production_system`, confidence 0.92
+- **Primary category:** `agent_architecture_harnesses` (secondaries: `tools_protocols_integrations`, `context_engineering_memory`, `ai_platforms_developer_tooling`)
 
-Workspace files already on Drive for `CEvIs9y1uog` (do not re-ingest blindly): `_project.md`, `transcript.txt`, `summary.md`, `summary.optimized.md`, `entities.json` (manual+web research, 2026-04-20), `entities.raw.json`, `db_inspection.md`, `chunks.jsonl`, `module-draft.md`, `notes.md`, plus `*.agent-skipped.md` markers for every skipped DAG node. `entities.json` already lists Barry Zhang, Mahesh Murag, Keith Lazuka, Anthropic, Browserbase, Notion, Cadence, Microsoft, Claude Agent SDK, Stagehand, Playwright, Claude Code, and `anthropics/skills`.
+The video-scoped research DAG (`entities.extract`, `research.plan`, `research.people_orgs`, `research.docs_web`, `research.libs_repos_products`, `research.papers_news`, `research.synthesize`, summaries, `course.outline`) is the **next** ingestion work, not a Cursor Task type.
 
 ## Workspaces
 
 1. **This Cloud repo** — tooling, skills, and environment only.
-2. **Drive `AIEngineerApplicationResources`** — shareable pre-research reports grouped by primary taxonomy.
-3. **Obsidian `ai-intelligence` vault** (Drive mirror) — buckets, entities, catalogs, and per-video research folders under `01_buckets/<bucket>/videos/<video_id>/`.
-4. **Prior Cloud Agent** — `Openai anthropic weekly developments` at https://cursor.com/agents/bc-dd217119-b6d6-4a34-a1dc-5522473d7cde
+2. **Supabase** — catalog, pre-research, and ingestion tables (source of truth).
+3. **Obsidian `ai-intelligence` vault** — buckets, entities, and per-video research folders under `01_buckets/<bucket>/videos/<video_id>/`.
+4. **Prior Cloud Agent** — `Openai anthropic weekly developments`
 
 ## MCP servers
 
 | Server | Use for |
 | --- | --- |
-| Google Drive | Catalogs, video workspaces, `db_inspection.md`, share reports |
-| Context7 | Library/API docs. `CONTEXT7_API_KEY` is present, but as of 2026-08-29 both `resolve-library-id` and `query-docs` returned **monthly quota exceeded**. Raise the Context7 plan or wait for reset before relying on it in ingestion. |
+| *(none for tables)* | Query Supabase via REST or `psql`. A Google Drive MCP may be loaded from user settings — do not use it for starter/pre-research tables. |
+| Context7 | Library/API docs. `CONTEXT7_API_KEY` is present, but as of 2026-08-29 both `resolve-library-id` and `query-docs` returned **monthly quota exceeded**. |
 | cursor-cloud | Environment info, builds, prior agents |
 | cursor-subscriptions | GitHub CI/PR, Slack, Linear, timers. None are required for the first research run |
 | Native `cursor` tools | Goals and image generation only when the user explicitly asks |
@@ -82,7 +100,7 @@ GitHub MCP is not loaded. Use `gh` for read-only GitHub inspection.
 
 ## Subagents
 
-Use Cursor Task subagents for isolation, not as a substitute for Drive/table lookup:
+Use Cursor Task subagents for isolation, not as a substitute for Supabase table lookup:
 
 | Subagent | When |
 | --- | --- |

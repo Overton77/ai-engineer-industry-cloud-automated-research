@@ -21,7 +21,8 @@ const commands = [
   ["git", ["--version"]],
   ["curl", ["--version"]],
   ["ffmpeg", ["-version"]],
-  ["pdftotext", ["-v"]]
+  ["pdftotext", ["-v"]],
+  ["psql", ["--version"]]
 ];
 
 for (const [command, args] of commands) {
@@ -94,14 +95,23 @@ for (const dir of ["artifacts", ".firecrawl", "artifacts/smoke", "artifacts/vali
 console.log("ok artifact directories ready");
 
 if (requireSecrets) {
-  for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"]) {
+  for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY", "SUPABASE_URL"]) {
     if (!process.env[name]) {
       failures.push(`required runtime secret is missing: ${name}`);
     } else {
       console.log(`ok ${name} is set (value hidden)`);
     }
   }
-
+  if (!process.env.POSTGRES_URL_NON_POOLING && !process.env.POSTGRES_URL) {
+    failures.push("required runtime secret is missing: POSTGRES_URL_NON_POOLING or POSTGRES_URL");
+  } else {
+    console.log("ok Postgres connection is set (value hidden)");
+  }
+  if (!process.env.SUPABASE_SECRET_KEY && !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    failures.push("required runtime secret is missing: SUPABASE_SECRET_KEY or SUPABASE_SERVICE_ROLE_KEY");
+  } else {
+    console.log("ok Supabase server key is set (value hidden)");
+  }
   if (process.env.CONTEXT7_API_KEY) {
     console.log("ok CONTEXT7_API_KEY is set (value hidden)");
   } else {
