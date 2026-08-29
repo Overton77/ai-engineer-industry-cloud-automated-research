@@ -1,0 +1,3761 @@
+{
+  "columns": [
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "staging.candidate_status",
+      "default_expression": "'discovered'::staging.candidate_status",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 4,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "raw",
+      "nullable": false,
+      "position": 5,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "discovered_by_attempt_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "discovery_method",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provider",
+      "nullable": true,
+      "position": 8,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capture_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "locator_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 13,
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'agent_skill'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "distribution",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_url",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "skill_format",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'ai_model'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provider_name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "model_slug",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "display_name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "family",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'ai_protocol'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "spec_url",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_benchmark",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'benchmark'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_benchmark",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_benchmark",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "task_domain",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_benchmark",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "homepage_url",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_benchmark",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'case_study'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_name",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "published_on",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_url",
+      "nullable": true,
+      "position": 8,
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_concept",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'concept'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_concept",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "preferred_label",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_concept",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "definition",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_concept",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "aliases",
+      "nullable": false,
+      "position": 5,
+      "relation": "candidate_concept",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_dataset",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'dataset'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_dataset",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "host",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_dataset",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "external_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_dataset",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_dataset",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'library'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ecosystem",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "package_name",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "display_name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "homepage_url",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "primary_language",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'mcp_server'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "registry_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ecosystem",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "package_name",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_url",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "transport_kinds",
+      "nullable": false,
+      "position": 8,
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'organization'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "display_name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "legal_name",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "website_url",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "identifiers",
+      "nullable": false,
+      "position": 6,
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'paper'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "doi",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "arxiv_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "openreview_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "published_on",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'person'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "display_name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "given_name",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "family_name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "headline",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "identifiers",
+      "nullable": false,
+      "position": 7,
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_product",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'product'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_product",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "display_name",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_product",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "vendor_name",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_product",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "homepage_url",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_product",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'repository'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "host",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "owner",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "primary_language",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'talk'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "event_slug",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "event_name",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "delivered_on",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'technical_record'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "record_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "statement",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "structured",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "scope",
+      "nullable": false,
+      "position": 7,
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'video'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_kind",
+      "nullable": false,
+      "position": 2,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "platform",
+      "nullable": true,
+      "position": 3,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "external_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": true,
+      "position": 5,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "channel",
+      "nullable": true,
+      "position": 6,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "published_at",
+      "nullable": true,
+      "position": 7,
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "person_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "library_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "paper_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "talk_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "video_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "concept_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dataset_id",
+      "nullable": true,
+      "position": 12,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": true,
+      "position": 13,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_id",
+      "nullable": true,
+      "position": 14,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_protocol_id",
+      "nullable": true,
+      "position": 15,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mcp_server_id",
+      "nullable": true,
+      "position": 16,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_skill_id",
+      "nullable": true,
+      "position": 17,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "match_method",
+      "nullable": false,
+      "position": 19,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "corpus.confidence",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "score",
+      "nullable": true,
+      "position": 20,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "false",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decided",
+      "nullable": false,
+      "position": 21,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 22,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": true,
+      "position": 23,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "\nCASE\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    ELSE NULL::text\nEND",
+      "description": null,
+      "generated_expression": "\nCASE\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    ELSE NULL::text\nEND",
+      "identity_kind": null,
+      "name": "target_kind",
+      "nullable": true,
+      "position": 24,
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "appeared_in_capture_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "snippet_locator_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "surface_form",
+      "nullable": true,
+      "position": 5,
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "identity_match_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "staging.resolution_outcome",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "outcome",
+      "nullable": false,
+      "position": 4,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rationale",
+      "nullable": true,
+      "position": 5,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "intent_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decided_by_attempt_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decided_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "candidate_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "staging.vetting_outcome",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "outcome",
+      "nullable": false,
+      "position": 3,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rationale",
+      "nullable": false,
+      "position": 4,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "review_task_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decided_by_attempt_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decided_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "vetting_decision",
+      "schema": "staging"
+    }
+  ],
+  "constraints": [
+    {
+      "definition": "CHECK (candidate_kind = ANY (ARRAY['library'::text, 'repository'::text, 'person'::text, 'organization'::text, 'paper'::text, 'video'::text, 'talk'::text, 'product'::text, 'case_study'::text, 'concept'::text, 'dataset'::text, 'benchmark'::text, 'ai_model'::text, 'ai_protocol'::text, 'mcp_server'::text, 'agent_skill'::text, 'technical_record'::text]))",
+      "name": "candidate_candidate_kind_check",
+      "references": null,
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (capture_id) REFERENCES evidence.source_capture(id)",
+      "name": "candidate_capture_id_fkey",
+      "references": "evidence.source_capture",
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (discovered_by_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "candidate_discovered_by_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)",
+      "name": "candidate_locator_id_fkey",
+      "references": "evidence.locator",
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL",
+      "name": "candidate_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "candidate_pkey",
+      "references": null,
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (id, candidate_kind)",
+      "name": "candidate_id_candidate_kind_key",
+      "references": null,
+      "relation": "candidate",
+      "schema": "staging",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'agent_skill'::text)",
+      "name": "candidate_agent_skill_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_agent_skill",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_agent_skill_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_agent_skill",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_agent_skill_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_agent_skill",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_agent_skill_pkey",
+      "references": null,
+      "relation": "candidate_agent_skill",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'ai_model'::text)",
+      "name": "candidate_ai_model_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_ai_model",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_ai_model_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_ai_model",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_ai_model_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_ai_model",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_ai_model_pkey",
+      "references": null,
+      "relation": "candidate_ai_model",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'ai_protocol'::text)",
+      "name": "candidate_ai_protocol_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_ai_protocol_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_ai_protocol",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_ai_protocol_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_ai_protocol",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_ai_protocol_pkey",
+      "references": null,
+      "relation": "candidate_ai_protocol",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'benchmark'::text)",
+      "name": "candidate_benchmark_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_benchmark",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_benchmark_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_benchmark",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_benchmark_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_benchmark",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_benchmark_pkey",
+      "references": null,
+      "relation": "candidate_benchmark",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'case_study'::text)",
+      "name": "candidate_case_study_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_case_study",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_case_study_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_case_study",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_case_study_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_case_study",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_case_study_pkey",
+      "references": null,
+      "relation": "candidate_case_study",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'concept'::text)",
+      "name": "candidate_concept_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_concept",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_concept_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_concept",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_concept_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_concept",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_concept_pkey",
+      "references": null,
+      "relation": "candidate_concept",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'dataset'::text)",
+      "name": "candidate_dataset_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_dataset",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_dataset_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_dataset",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_dataset_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_dataset",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_dataset_pkey",
+      "references": null,
+      "relation": "candidate_dataset",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'library'::text)",
+      "name": "candidate_library_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_library",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_library_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_library",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_library_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_library",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_library_pkey",
+      "references": null,
+      "relation": "candidate_library",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'mcp_server'::text)",
+      "name": "candidate_mcp_server_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_mcp_server",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_mcp_server_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_mcp_server",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_mcp_server_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_mcp_server",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_mcp_server_pkey",
+      "references": null,
+      "relation": "candidate_mcp_server",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'organization'::text)",
+      "name": "candidate_organization_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_organization",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_organization_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_organization",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_organization_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_organization",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_organization_pkey",
+      "references": null,
+      "relation": "candidate_organization",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'paper'::text)",
+      "name": "candidate_paper_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_paper",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_paper_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_paper",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_paper_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_paper",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_paper_pkey",
+      "references": null,
+      "relation": "candidate_paper",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'person'::text)",
+      "name": "candidate_person_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_person",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_person_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_person",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_person_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_person",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_person_pkey",
+      "references": null,
+      "relation": "candidate_person",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'product'::text)",
+      "name": "candidate_product_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_product",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_product_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_product",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_product_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_product",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_product_pkey",
+      "references": null,
+      "relation": "candidate_product",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'repository'::text)",
+      "name": "candidate_repository_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_repository",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_repository_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_repository",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_repository_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_repository",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_repository_pkey",
+      "references": null,
+      "relation": "candidate_repository",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'talk'::text)",
+      "name": "candidate_talk_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_talk",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_talk_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_talk",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_talk_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_talk",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_talk_pkey",
+      "references": null,
+      "relation": "candidate_talk",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'technical_record'::text)",
+      "name": "candidate_technical_record_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_technical_record",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (record_kind = ANY (ARRAY['technical_problem'::text, 'solution_pattern'::text, 'advanced_usage_pattern'::text, 'implementation_example'::text, 'failure_mode'::text, 'benchmark_result'::text, 'compatibility_constraint'::text, 'operational_practice'::text, 'security_consideration'::text]))",
+      "name": "candidate_technical_record_record_kind_check",
+      "references": null,
+      "relation": "candidate_technical_record",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_technical_record_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_technical_record",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_technical_record_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_technical_record",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_technical_record_pkey",
+      "references": null,
+      "relation": "candidate_technical_record",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (candidate_kind = 'video'::text)",
+      "name": "candidate_video_candidate_kind_check",
+      "references": null,
+      "relation": "candidate_video",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id, candidate_kind) REFERENCES staging.candidate(id, candidate_kind)",
+      "name": "candidate_video_candidate_id_candidate_kind_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_video",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "candidate_video_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "candidate_video",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (candidate_id)",
+      "name": "candidate_video_pkey",
+      "references": null,
+      "relation": "candidate_video",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (num_nonnulls(organization_id, person_id, library_id, repository_id, paper_id, talk_id, video_id, product_id, case_study_id, concept_id, dataset_id, benchmark_id, ai_model_id, ai_protocol_id, mcp_server_id, agent_skill_id) = 1)",
+      "name": "identity_match_exactly_one_target",
+      "references": null,
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (match_method = ANY (ARRAY['exact'::text, 'normalized'::text, 'model'::text, 'human'::text]))",
+      "name": "identity_match_match_method_check",
+      "references": null,
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_skill_id) REFERENCES corpus.agent_skill(id)",
+      "name": "identity_match_agent_skill_id_fkey",
+      "references": "corpus.agent_skill",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id)",
+      "name": "identity_match_ai_model_id_fkey",
+      "references": "corpus.ai_model",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_protocol_id) REFERENCES corpus.ai_protocol(id)",
+      "name": "identity_match_ai_protocol_id_fkey",
+      "references": "corpus.ai_protocol",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id)",
+      "name": "identity_match_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "identity_match_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id)",
+      "name": "identity_match_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (concept_id) REFERENCES corpus.concept(id)",
+      "name": "identity_match_concept_id_fkey",
+      "references": "corpus.concept",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id)",
+      "name": "identity_match_dataset_id_fkey",
+      "references": "corpus.dataset",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (library_id) REFERENCES corpus.library(id)",
+      "name": "identity_match_library_id_fkey",
+      "references": "corpus.library",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mcp_server_id) REFERENCES corpus.mcp_server(id)",
+      "name": "identity_match_mcp_server_id_fkey",
+      "references": "corpus.mcp_server",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id)",
+      "name": "identity_match_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (paper_id) REFERENCES corpus.paper(id)",
+      "name": "identity_match_paper_id_fkey",
+      "references": "corpus.paper",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (person_id) REFERENCES corpus.person(id)",
+      "name": "identity_match_person_id_fkey",
+      "references": "corpus.person",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id)",
+      "name": "identity_match_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id)",
+      "name": "identity_match_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (talk_id) REFERENCES corpus.talk(id)",
+      "name": "identity_match_talk_id_fkey",
+      "references": "corpus.talk",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (video_id) REFERENCES corpus.video(id)",
+      "name": "identity_match_video_id_fkey",
+      "references": "corpus.video",
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "identity_match_pkey",
+      "references": null,
+      "relation": "identity_match",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (appeared_in_capture_id) REFERENCES evidence.source_capture(id)",
+      "name": "mention_appeared_in_capture_id_fkey",
+      "references": "evidence.source_capture",
+      "relation": "mention",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "mention_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "mention",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (snippet_locator_id) REFERENCES evidence.locator(id)",
+      "name": "mention_snippet_locator_id_fkey",
+      "references": "evidence.locator",
+      "relation": "mention",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "mention_pkey",
+      "references": null,
+      "relation": "mention",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK ((outcome <> ALL (ARRAY['update'::staging.resolution_outcome, 'link'::staging.resolution_outcome, 'merge'::staging.resolution_outcome, 'supersede'::staging.resolution_outcome])) OR identity_match_id IS NOT NULL)",
+      "name": "resolution_target_requires_match",
+      "references": null,
+      "relation": "resolution_decision",
+      "schema": "staging",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "resolution_decision_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "resolution_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (decided_by_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "resolution_decision_decided_by_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "resolution_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (identity_match_id) REFERENCES staging.identity_match(id)",
+      "name": "resolution_decision_identity_match_id_fkey",
+      "references": "staging.identity_match",
+      "relation": "resolution_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (intent_id) REFERENCES orchestration.operation_intent(id)",
+      "name": "resolution_decision_intent_id_fkey",
+      "references": "orchestration.operation_intent",
+      "relation": "resolution_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "resolution_decision_pkey",
+      "references": null,
+      "relation": "resolution_decision",
+      "schema": "staging",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (candidate_id) REFERENCES staging.candidate(id) ON DELETE CASCADE",
+      "name": "vetting_decision_candidate_id_fkey",
+      "references": "staging.candidate",
+      "relation": "vetting_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (decided_by_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "vetting_decision_decided_by_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "vetting_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (review_task_id) REFERENCES evaluation.review_task(id)",
+      "name": "vetting_decision_review_task_fk",
+      "references": "evaluation.review_task",
+      "relation": "vetting_decision",
+      "schema": "staging",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "vetting_decision_pkey",
+      "references": null,
+      "relation": "vetting_decision",
+      "schema": "staging",
+      "type": "primary_key"
+    }
+  ],
+  "enums": [
+    {
+      "name": "candidate_status",
+      "schema": "staging",
+      "values": [
+        "discovered",
+        "enriched",
+        "matched",
+        "resolved",
+        "promoted",
+        "quarantined",
+        "rejected"
+      ]
+    },
+    {
+      "name": "resolution_outcome",
+      "schema": "staging",
+      "values": [
+        "insert",
+        "update",
+        "link",
+        "merge",
+        "supersede",
+        "no_op",
+        "quarantine",
+        "reject",
+        "review"
+      ]
+    },
+    {
+      "name": "vetting_outcome",
+      "schema": "staging",
+      "values": [
+        "approved_for_metrics",
+        "approved_for_research",
+        "approved_provisionally",
+        "deferred",
+        "insufficient_evidence",
+        "out_of_scope",
+        "rejected"
+      ]
+    }
+  ],
+  "functions": [],
+  "indexes": [
+    {
+      "definition": "CREATE INDEX candidate_attempt_idx ON staging.candidate USING btree (discovered_by_attempt_id)",
+      "name": "candidate_attempt_idx",
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_id_candidate_kind_key ON staging.candidate USING btree (id, candidate_kind)",
+      "name": "candidate_id_candidate_kind_key",
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX candidate_kind_status_idx ON staging.candidate USING btree (candidate_kind, status)",
+      "name": "candidate_kind_status_idx",
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX candidate_mission_idx ON staging.candidate USING btree (mission_id)",
+      "name": "candidate_mission_idx",
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_pkey ON staging.candidate USING btree (id)",
+      "name": "candidate_pkey",
+      "relation": "candidate",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_agent_skill_pkey ON staging.candidate_agent_skill USING btree (candidate_id)",
+      "name": "candidate_agent_skill_pkey",
+      "relation": "candidate_agent_skill",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_ai_model_pkey ON staging.candidate_ai_model USING btree (candidate_id)",
+      "name": "candidate_ai_model_pkey",
+      "relation": "candidate_ai_model",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_ai_protocol_pkey ON staging.candidate_ai_protocol USING btree (candidate_id)",
+      "name": "candidate_ai_protocol_pkey",
+      "relation": "candidate_ai_protocol",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_benchmark_pkey ON staging.candidate_benchmark USING btree (candidate_id)",
+      "name": "candidate_benchmark_pkey",
+      "relation": "candidate_benchmark",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX candidate_case_study_kind_fk_idx ON staging.candidate_case_study USING btree (candidate_id, candidate_kind)",
+      "name": "candidate_case_study_kind_fk_idx",
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_case_study_pkey ON staging.candidate_case_study USING btree (candidate_id)",
+      "name": "candidate_case_study_pkey",
+      "relation": "candidate_case_study",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_concept_pkey ON staging.candidate_concept USING btree (candidate_id)",
+      "name": "candidate_concept_pkey",
+      "relation": "candidate_concept",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_dataset_pkey ON staging.candidate_dataset USING btree (candidate_id)",
+      "name": "candidate_dataset_pkey",
+      "relation": "candidate_dataset",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_library_pkey ON staging.candidate_library USING btree (candidate_id)",
+      "name": "candidate_library_pkey",
+      "relation": "candidate_library",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_mcp_server_pkey ON staging.candidate_mcp_server USING btree (candidate_id)",
+      "name": "candidate_mcp_server_pkey",
+      "relation": "candidate_mcp_server",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_organization_pkey ON staging.candidate_organization USING btree (candidate_id)",
+      "name": "candidate_organization_pkey",
+      "relation": "candidate_organization",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_paper_pkey ON staging.candidate_paper USING btree (candidate_id)",
+      "name": "candidate_paper_pkey",
+      "relation": "candidate_paper",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_person_pkey ON staging.candidate_person USING btree (candidate_id)",
+      "name": "candidate_person_pkey",
+      "relation": "candidate_person",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_product_pkey ON staging.candidate_product USING btree (candidate_id)",
+      "name": "candidate_product_pkey",
+      "relation": "candidate_product",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_repository_pkey ON staging.candidate_repository USING btree (candidate_id)",
+      "name": "candidate_repository_pkey",
+      "relation": "candidate_repository",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_talk_pkey ON staging.candidate_talk USING btree (candidate_id)",
+      "name": "candidate_talk_pkey",
+      "relation": "candidate_talk",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_technical_record_pkey ON staging.candidate_technical_record USING btree (candidate_id)",
+      "name": "candidate_technical_record_pkey",
+      "relation": "candidate_technical_record",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX candidate_video_pkey ON staging.candidate_video USING btree (candidate_id)",
+      "name": "candidate_video_pkey",
+      "relation": "candidate_video",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_agent_skill_id_idx ON staging.identity_match USING btree (agent_skill_id) WHERE (agent_skill_id IS NOT NULL)",
+      "name": "identity_match_agent_skill_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_ai_model_id_idx ON staging.identity_match USING btree (ai_model_id) WHERE (ai_model_id IS NOT NULL)",
+      "name": "identity_match_ai_model_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_ai_protocol_id_idx ON staging.identity_match USING btree (ai_protocol_id) WHERE (ai_protocol_id IS NOT NULL)",
+      "name": "identity_match_ai_protocol_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_benchmark_id_idx ON staging.identity_match USING btree (benchmark_id) WHERE (benchmark_id IS NOT NULL)",
+      "name": "identity_match_benchmark_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_candidate_idx ON staging.identity_match USING btree (candidate_id, decided)",
+      "name": "identity_match_candidate_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_case_study_id_idx ON staging.identity_match USING btree (case_study_id) WHERE (case_study_id IS NOT NULL)",
+      "name": "identity_match_case_study_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_concept_id_idx ON staging.identity_match USING btree (concept_id) WHERE (concept_id IS NOT NULL)",
+      "name": "identity_match_concept_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_dataset_id_idx ON staging.identity_match USING btree (dataset_id) WHERE (dataset_id IS NOT NULL)",
+      "name": "identity_match_dataset_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_library_id_idx ON staging.identity_match USING btree (library_id) WHERE (library_id IS NOT NULL)",
+      "name": "identity_match_library_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_mcp_server_id_idx ON staging.identity_match USING btree (mcp_server_id) WHERE (mcp_server_id IS NOT NULL)",
+      "name": "identity_match_mcp_server_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_organization_id_idx ON staging.identity_match USING btree (organization_id) WHERE (organization_id IS NOT NULL)",
+      "name": "identity_match_organization_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_paper_id_idx ON staging.identity_match USING btree (paper_id) WHERE (paper_id IS NOT NULL)",
+      "name": "identity_match_paper_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_person_id_idx ON staging.identity_match USING btree (person_id) WHERE (person_id IS NOT NULL)",
+      "name": "identity_match_person_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX identity_match_pkey ON staging.identity_match USING btree (id)",
+      "name": "identity_match_pkey",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_product_id_idx ON staging.identity_match USING btree (product_id) WHERE (product_id IS NOT NULL)",
+      "name": "identity_match_product_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_repository_id_idx ON staging.identity_match USING btree (repository_id) WHERE (repository_id IS NOT NULL)",
+      "name": "identity_match_repository_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_talk_id_idx ON staging.identity_match USING btree (talk_id) WHERE (talk_id IS NOT NULL)",
+      "name": "identity_match_talk_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_target_idx ON staging.identity_match USING btree (target_kind)",
+      "name": "identity_match_target_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX identity_match_video_id_idx ON staging.identity_match USING btree (video_id) WHERE (video_id IS NOT NULL)",
+      "name": "identity_match_video_id_idx",
+      "relation": "identity_match",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX mention_candidate_idx ON staging.mention USING btree (candidate_id)",
+      "name": "mention_candidate_idx",
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX mention_capture_idx ON staging.mention USING btree (appeared_in_capture_id)",
+      "name": "mention_capture_idx",
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX mention_pkey ON staging.mention USING btree (id)",
+      "name": "mention_pkey",
+      "relation": "mention",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX resolution_decision_candidate_idx ON staging.resolution_decision USING btree (candidate_id)",
+      "name": "resolution_decision_candidate_idx",
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX resolution_decision_outcome_idx ON staging.resolution_decision USING btree (outcome, decided_at DESC)",
+      "name": "resolution_decision_outcome_idx",
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX resolution_decision_pkey ON staging.resolution_decision USING btree (id)",
+      "name": "resolution_decision_pkey",
+      "relation": "resolution_decision",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX vetting_decision_candidate_idx ON staging.vetting_decision USING btree (candidate_id)",
+      "name": "vetting_decision_candidate_idx",
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE INDEX vetting_decision_outcome_idx ON staging.vetting_decision USING btree (outcome, decided_at DESC)",
+      "name": "vetting_decision_outcome_idx",
+      "relation": "vetting_decision",
+      "schema": "staging"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX vetting_decision_pkey ON staging.vetting_decision USING btree (id)",
+      "name": "vetting_decision_pkey",
+      "relation": "vetting_decision",
+      "schema": "staging"
+    }
+  ],
+  "policies": [
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_agent_skill",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_ai_model",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_ai_protocol",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_benchmark",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_case_study",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_concept",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_dataset",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_library",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_mcp_server",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_organization",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_paper",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_person",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_product",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_repository",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_talk",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_technical_record",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "candidate_video",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "identity_match",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "mention",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "resolution_decision",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "vetting_decision",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "staging",
+      "using_expression": "true"
+    }
+  ],
+  "relations": [
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_agent_skill",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_ai_model",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_ai_protocol",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_benchmark",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_case_study",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_concept",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_dataset",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_library",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_mcp_server",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_organization",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_paper",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_person",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_product",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_repository",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_talk",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_technical_record",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "candidate_video",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "identity_match",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "mention",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "resolution_decision",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "vetting_decision",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "staging"
+    }
+  ],
+  "schema": "staging"
+}

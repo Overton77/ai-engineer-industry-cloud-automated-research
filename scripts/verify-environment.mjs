@@ -12,10 +12,15 @@ if (major < 24) {
 }
 
 for (const command of ["tvly", "firecrawl", "agent-browser"]) {
-  const result = spawnSync(command, ["--version"], {
-    encoding: "utf8",
-    shell: process.platform === "win32"
-  });
+  const candidates = process.platform === "win32"
+    ? spawnSync("where.exe", [command], { encoding: "utf8" }).stdout?.split(/\r?\n/).filter(Boolean) ?? []
+    : [];
+  const located = candidates.find((candidate) => candidate.toLowerCase().endsWith(".cmd")) ?? candidates[0];
+  const executable = located ?? command;
+  const powershellLiteral = executable.replaceAll("'", "''");
+  const result = process.platform === "win32"
+    ? spawnSync("powershell.exe", ["-NoLogo", "-NoProfile", "-NonInteractive", "-Command", `& '${powershellLiteral}' --version`], { encoding: "utf8" })
+    : spawnSync(executable, ["--version"], { encoding: "utf8" });
 
   if (result.status !== 0) {
     failures.push(`${command} is unavailable or failed its version check`);
@@ -28,6 +33,7 @@ for (const command of ["tvly", "firecrawl", "agent-browser"]) {
 
 const requiredSkills = [
   "agent-browser",
+  "ai-engineer-cloud-research",
   "firecrawl",
   "firecrawl-developer-index",
   "firecrawl-research-index",
@@ -56,12 +62,22 @@ if (installedSkills.length > 0) {
 }
 
 if (requireSecrets) {
-  for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"]) {
+  for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY", "SUPABASE_URL"]) {
     if (!process.env[name]) {
       failures.push(`required runtime secret is missing: ${name}`);
     } else {
       console.log(`ok ${name} is set (value hidden)`);
     }
+  }
+  if (!process.env.POSTGRES_URL_NON_POOLING && !process.env.POSTGRES_URL) {
+    failures.push("required runtime secret is missing: POSTGRES_URL_NON_POOLING or POSTGRES_URL");
+  } else {
+    console.log("ok Postgres connection is set (value hidden)");
+  }
+  if (!process.env.SUPABASE_SECRET_KEY && !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    failures.push("required runtime secret is missing: SUPABASE_SECRET_KEY or SUPABASE_SERVICE_ROLE_KEY");
+  } else {
+    console.log("ok Supabase server key is set (value hidden)");
   }
 }
 

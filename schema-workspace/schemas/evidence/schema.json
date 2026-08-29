@@ -1,0 +1,4724 @@
+{
+  "columns": [
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_type",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "statement",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "structured",
+      "nullable": true,
+      "position": 5,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "evidence.claim_status",
+      "default_expression": "'proposed'::evidence.claim_status",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 6,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "false",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "composite",
+      "nullable": false,
+      "position": 7,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "atomized_from_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "producer_attempt_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "superseded_by_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 13,
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_skill_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "concept_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_a_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_b_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "conflict_kind",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "detected_by",
+      "nullable": false,
+      "position": 5,
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "detected_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dataset_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "locator_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "evidence.support_verdict",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "support_verdict",
+      "nullable": true,
+      "position": 5,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "authority_assessment",
+      "nullable": true,
+      "position": 6,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "verified_by_run_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "library_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mcp_server_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "paper_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "person_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_protocol_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "talk_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "technical_problem_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "solution_pattern_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "advanced_usage_pattern_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "implementation_example_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "failure_mode_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_result_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "compatibility_constraint_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "operational_practice_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "security_consideration_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "\nCASE\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (implementation_example_id IS NOT NULL) THEN 'implementation_example'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (benchmark_result_id IS NOT NULL) THEN 'benchmark_result'::text\n    WHEN (compatibility_constraint_id IS NOT NULL) THEN 'compatibility_constraint'::text\n    WHEN (operational_practice_id IS NOT NULL) THEN 'operational_practice'::text\n    WHEN (security_consideration_id IS NOT NULL) THEN 'security_consideration'::text\n    ELSE NULL::text\nEND",
+      "description": null,
+      "generated_expression": "\nCASE\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (implementation_example_id IS NOT NULL) THEN 'implementation_example'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (benchmark_result_id IS NOT NULL) THEN 'benchmark_result'::text\n    WHEN (compatibility_constraint_id IS NOT NULL) THEN 'compatibility_constraint'::text\n    WHEN (operational_practice_id IS NOT NULL) THEN 'operational_practice'::text\n    WHEN (security_consideration_id IS NOT NULL) THEN 'security_consideration'::text\n    ELSE NULL::text\nEND",
+      "identity_kind": null,
+      "name": "record_kind",
+      "nullable": true,
+      "position": 12,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 13,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 14,
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_type",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_type",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_type",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "video_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "conflict_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "outcome",
+      "nullable": false,
+      "position": 3,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rationale",
+      "nullable": false,
+      "position": 4,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "review_task_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decided_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "reason",
+      "nullable": false,
+      "position": 3,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "what_was_seen",
+      "nullable": false,
+      "position": 4,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "attempted_methods",
+      "nullable": false,
+      "position": 5,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approved_by_review_task_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approved_at",
+      "nullable": true,
+      "position": 7,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_url",
+      "nullable": true,
+      "position": 2,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "commit_sha",
+      "nullable": true,
+      "position": 3,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "image_digest",
+      "nullable": true,
+      "position": 4,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lockfile_hashes",
+      "nullable": false,
+      "position": 5,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "commands",
+      "nullable": false,
+      "position": 6,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "exit_codes",
+      "nullable": false,
+      "position": 7,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "log_artifact_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "assurance_level",
+      "nullable": false,
+      "position": 9,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "trace_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "executed_at",
+      "nullable": false,
+      "position": 11,
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "locator_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "signature_sha256",
+      "nullable": false,
+      "position": 3,
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "produced_by_attempt_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capture_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "media_type",
+      "nullable": false,
+      "position": 3,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "selector",
+      "nullable": false,
+      "position": 4,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "selected_content_sha256",
+      "nullable": true,
+      "position": 5,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "normalized_value",
+      "nullable": true,
+      "position": 6,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "context_fingerprint",
+      "nullable": true,
+      "position": 7,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "extractor_name",
+      "nullable": false,
+      "position": 8,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "extractor_version",
+      "nullable": false,
+      "position": 9,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "extraction_params",
+      "nullable": false,
+      "position": 10,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 11,
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "policy_id",
+      "nullable": true,
+      "position": 2,
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "trigger_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "affected_refs",
+      "nullable": false,
+      "position": 4,
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "fired_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 2,
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "applies_to",
+      "nullable": false,
+      "position": 3,
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rules",
+      "nullable": false,
+      "position": 4,
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "interval",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "max_age",
+      "nullable": true,
+      "position": 5,
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_class",
+      "nullable": false,
+      "position": 3,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "canonical_url",
+      "nullable": true,
+      "position": 4,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "url_pattern",
+      "nullable": true,
+      "position": 5,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "publisher",
+      "nullable": true,
+      "position": 6,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'public'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "sensitivity",
+      "nullable": false,
+      "position": 7,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "license_spdx",
+      "nullable": true,
+      "position": 8,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "license_notes",
+      "nullable": true,
+      "position": 9,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "terms_url",
+      "nullable": true,
+      "position": 10,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "robots_policy",
+      "nullable": true,
+      "position": 11,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 13,
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "artifact_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "content_sha256",
+      "nullable": false,
+      "position": 5,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "media_type",
+      "nullable": false,
+      "position": 6,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "captured_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capture_method",
+      "nullable": false,
+      "position": 8,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capture_method_version",
+      "nullable": false,
+      "position": 9,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "request_url",
+      "nullable": true,
+      "position": 10,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "http_status",
+      "nullable": true,
+      "position": 11,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "http_headers",
+      "nullable": true,
+      "position": 12,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "context",
+      "nullable": false,
+      "position": 13,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "produced_by_attempt_id",
+      "nullable": true,
+      "position": 14,
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "run_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "evidence.support_verdict",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "verdict",
+      "nullable": false,
+      "position": 4,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rationale",
+      "nullable": true,
+      "position": 5,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "false",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "deterministic",
+      "nullable": false,
+      "position": 6,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "replay_signature_match",
+      "nullable": true,
+      "position": 7,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "verification_run",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": true,
+      "position": 2,
+      "relation": "verification_run",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "verifier_attempt_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "verification_run",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "policy_version",
+      "nullable": false,
+      "position": 4,
+      "relation": "verification_run",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "started_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "verification_run",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ended_at",
+      "nullable": true,
+      "position": 6,
+      "relation": "verification_run",
+      "schema": "evidence"
+    }
+  ],
+  "constraints": [
+    {
+      "definition": "FOREIGN KEY (atomized_from_id) REFERENCES evidence.claim(id)",
+      "name": "claim_atomized_from_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_type) REFERENCES evidence.claim_type(code)",
+      "name": "claim_claim_type_fkey",
+      "references": "evidence.claim_type",
+      "relation": "claim",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "claim_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "claim",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (producer_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "claim_producer_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "claim",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (superseded_by_id) REFERENCES evidence.claim(id)",
+      "name": "claim_superseded_by_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "claim_pkey",
+      "references": null,
+      "relation": "claim",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_agent_skill_version_role_in_claim_check",
+      "references": null,
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_skill_version_id) REFERENCES corpus.agent_skill_version(id) ON DELETE CASCADE",
+      "name": "claim_agent_skill_version_agent_skill_version_id_fkey",
+      "references": "corpus.agent_skill_version",
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_agent_skill_version_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, agent_skill_version_id, role_in_claim)",
+      "name": "claim_agent_skill_version_pkey",
+      "references": null,
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_ai_model_version_role_in_claim_check",
+      "references": null,
+      "relation": "claim_ai_model_version",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE",
+      "name": "claim_ai_model_version_ai_model_version_id_fkey",
+      "references": "corpus.ai_model_version",
+      "relation": "claim_ai_model_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_ai_model_version_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_ai_model_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, ai_model_version_id, role_in_claim)",
+      "name": "claim_ai_model_version_pkey",
+      "references": null,
+      "relation": "claim_ai_model_version",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_benchmark_role_in_claim_check",
+      "references": null,
+      "relation": "claim_benchmark",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE",
+      "name": "claim_benchmark_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "claim_benchmark",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_benchmark_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_benchmark",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, benchmark_id, role_in_claim)",
+      "name": "claim_benchmark_pkey",
+      "references": null,
+      "relation": "claim_benchmark",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'comparison'::text]))",
+      "name": "claim_case_study_role_in_claim_check",
+      "references": null,
+      "relation": "claim_case_study",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE",
+      "name": "claim_case_study_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "claim_case_study",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_case_study_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_case_study",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, case_study_id, role_in_claim)",
+      "name": "claim_case_study_pkey",
+      "references": null,
+      "relation": "claim_case_study",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_concept_role_in_claim_check",
+      "references": null,
+      "relation": "claim_concept",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_concept_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_concept",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (concept_id) REFERENCES corpus.concept(id) ON DELETE CASCADE",
+      "name": "claim_concept_concept_id_fkey",
+      "references": "corpus.concept",
+      "relation": "claim_concept",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, concept_id, role_in_claim)",
+      "name": "claim_concept_pkey",
+      "references": null,
+      "relation": "claim_concept",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (conflict_kind = ANY (ARRAY['contradiction'::text, 'scope_mismatch'::text, 'staleness'::text, 'measurement'::text, 'definitional'::text]))",
+      "name": "claim_conflict_conflict_kind_check",
+      "references": null,
+      "relation": "claim_conflict",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (claim_a_id <> claim_b_id)",
+      "name": "claim_conflict_distinct",
+      "references": null,
+      "relation": "claim_conflict",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_a_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_conflict_claim_a_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_conflict",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_b_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_conflict_claim_b_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_conflict",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "claim_conflict_pkey",
+      "references": null,
+      "relation": "claim_conflict",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (claim_a_id, claim_b_id, conflict_kind)",
+      "name": "claim_conflict_claim_a_id_claim_b_id_conflict_kind_key",
+      "references": null,
+      "relation": "claim_conflict",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_dataset_role_in_claim_check",
+      "references": null,
+      "relation": "claim_dataset",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_dataset_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_dataset",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE",
+      "name": "claim_dataset_dataset_id_fkey",
+      "references": "corpus.dataset",
+      "relation": "claim_dataset",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, dataset_id, role_in_claim)",
+      "name": "claim_dataset_pkey",
+      "references": null,
+      "relation": "claim_dataset",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role = ANY (ARRAY['supports'::text, 'contradicts'::text, 'qualifies'::text, 'context'::text]))",
+      "name": "claim_evidence_link_role_check",
+      "references": null,
+      "relation": "claim_evidence_link",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_evidence_link_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_evidence_link",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)",
+      "name": "claim_evidence_link_locator_id_fkey",
+      "references": "evidence.locator",
+      "relation": "claim_evidence_link",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (verified_by_run_id) REFERENCES evidence.verification_run(id)",
+      "name": "claim_evidence_link_verified_by_run_id_fkey",
+      "references": "evidence.verification_run",
+      "relation": "claim_evidence_link",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "claim_evidence_link_pkey",
+      "references": null,
+      "relation": "claim_evidence_link",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (claim_id, locator_id, role)",
+      "name": "claim_evidence_link_claim_id_locator_id_role_key",
+      "references": null,
+      "relation": "claim_evidence_link",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_library_role_in_claim_check",
+      "references": null,
+      "relation": "claim_library",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_library_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_library",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE",
+      "name": "claim_library_library_id_fkey",
+      "references": "corpus.library",
+      "relation": "claim_library",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, library_id, role_in_claim)",
+      "name": "claim_library_pkey",
+      "references": null,
+      "relation": "claim_library",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_mcp_server_version_role_in_claim_check",
+      "references": null,
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_mcp_server_version_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mcp_server_version_id) REFERENCES corpus.mcp_server_version(id) ON DELETE CASCADE",
+      "name": "claim_mcp_server_version_mcp_server_version_id_fkey",
+      "references": "corpus.mcp_server_version",
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, mcp_server_version_id, role_in_claim)",
+      "name": "claim_mcp_server_version_pkey",
+      "references": null,
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_organization_role_in_claim_check",
+      "references": null,
+      "relation": "claim_organization",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_organization_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_organization",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE",
+      "name": "claim_organization_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "claim_organization",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, organization_id, role_in_claim)",
+      "name": "claim_organization_pkey",
+      "references": null,
+      "relation": "claim_organization",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_paper_role_in_claim_check",
+      "references": null,
+      "relation": "claim_paper",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_paper_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_paper",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE",
+      "name": "claim_paper_paper_id_fkey",
+      "references": "corpus.paper",
+      "relation": "claim_paper",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, paper_id, role_in_claim)",
+      "name": "claim_paper_pkey",
+      "references": null,
+      "relation": "claim_paper",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_person_role_in_claim_check",
+      "references": null,
+      "relation": "claim_person",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_person_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_person",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (person_id) REFERENCES corpus.person(id) ON DELETE CASCADE",
+      "name": "claim_person_person_id_fkey",
+      "references": "corpus.person",
+      "relation": "claim_person",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, person_id, role_in_claim)",
+      "name": "claim_person_pkey",
+      "references": null,
+      "relation": "claim_person",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_product_role_in_claim_check",
+      "references": null,
+      "relation": "claim_product",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_product_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_product",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "claim_product_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "claim_product",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, product_id, role_in_claim)",
+      "name": "claim_product_pkey",
+      "references": null,
+      "relation": "claim_product",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_protocol_version_role_in_claim_check",
+      "references": null,
+      "relation": "claim_protocol_version",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_protocol_version_id) REFERENCES corpus.ai_protocol_version(id) ON DELETE CASCADE",
+      "name": "claim_protocol_version_ai_protocol_version_id_fkey",
+      "references": "corpus.ai_protocol_version",
+      "relation": "claim_protocol_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_protocol_version_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_protocol_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, ai_protocol_version_id, role_in_claim)",
+      "name": "claim_protocol_version_pkey",
+      "references": null,
+      "relation": "claim_protocol_version",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_repository_role_in_claim_check",
+      "references": null,
+      "relation": "claim_repository",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_repository_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_repository",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE",
+      "name": "claim_repository_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "claim_repository",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, repository_id, role_in_claim)",
+      "name": "claim_repository_pkey",
+      "references": null,
+      "relation": "claim_repository",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_talk_role_in_claim_check",
+      "references": null,
+      "relation": "claim_talk",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_talk_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_talk",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (talk_id) REFERENCES corpus.talk(id) ON DELETE CASCADE",
+      "name": "claim_talk_talk_id_fkey",
+      "references": "corpus.talk",
+      "relation": "claim_talk",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, talk_id, role_in_claim)",
+      "name": "claim_talk_pkey",
+      "references": null,
+      "relation": "claim_talk",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (num_nonnulls(technical_problem_id, solution_pattern_id, advanced_usage_pattern_id, implementation_example_id, failure_mode_id, benchmark_result_id, compatibility_constraint_id, operational_practice_id, security_consideration_id) = 1)",
+      "name": "claim_technical_record_exactly_one",
+      "references": null,
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_technical_record_role_in_claim_check",
+      "references": null,
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (advanced_usage_pattern_id) REFERENCES knowledge.advanced_usage_pattern(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_advanced_usage_pattern_id_fkey",
+      "references": "knowledge.advanced_usage_pattern",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_result_id) REFERENCES knowledge.benchmark_result(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_benchmark_result_id_fkey",
+      "references": "knowledge.benchmark_result",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (compatibility_constraint_id) REFERENCES knowledge.compatibility_constraint(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_compatibility_constraint_id_fkey",
+      "references": "knowledge.compatibility_constraint",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (failure_mode_id) REFERENCES knowledge.failure_mode(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_failure_mode_id_fkey",
+      "references": "knowledge.failure_mode",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (implementation_example_id) REFERENCES knowledge.implementation_example(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_implementation_example_id_fkey",
+      "references": "knowledge.implementation_example",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (operational_practice_id) REFERENCES knowledge.operational_practice(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_operational_practice_id_fkey",
+      "references": "knowledge.operational_practice",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (security_consideration_id) REFERENCES knowledge.security_consideration(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_security_consideration_id_fkey",
+      "references": "knowledge.security_consideration",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (solution_pattern_id) REFERENCES knowledge.solution_pattern(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_solution_pattern_id_fkey",
+      "references": "knowledge.solution_pattern",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (technical_problem_id) REFERENCES knowledge.technical_problem(id) ON DELETE CASCADE",
+      "name": "claim_technical_record_technical_problem_id_fkey",
+      "references": "knowledge.technical_problem",
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "claim_technical_record_pkey",
+      "references": null,
+      "relation": "claim_technical_record",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (code)",
+      "name": "claim_type_pkey",
+      "references": null,
+      "relation": "claim_type",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "name": "claim_video_role_in_claim_check",
+      "references": null,
+      "relation": "claim_video",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_video_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_video",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (video_id) REFERENCES corpus.video(id) ON DELETE CASCADE",
+      "name": "claim_video_video_id_fkey",
+      "references": "corpus.video",
+      "relation": "claim_video",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, video_id, role_in_claim)",
+      "name": "claim_video_pkey",
+      "references": null,
+      "relation": "claim_video",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (outcome = ANY (ARRAY['reject'::text, 'supersede'::text, 'scope'::text, 'retain_dispute'::text, 'experiment'::text, 'review'::text]))",
+      "name": "conflict_reconciliation_outcome_check",
+      "references": null,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (conflict_id) REFERENCES evidence.claim_conflict(id) ON DELETE CASCADE",
+      "name": "conflict_reconciliation_conflict_id_fkey",
+      "references": "evidence.claim_conflict",
+      "relation": "conflict_reconciliation",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (review_task_id) REFERENCES evaluation.review_task(id)",
+      "name": "conflict_reconciliation_review_task_fk",
+      "references": "evaluation.review_task",
+      "relation": "conflict_reconciliation",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "conflict_reconciliation_pkey",
+      "references": null,
+      "relation": "conflict_reconciliation",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (approved_by_review_task_id) REFERENCES evaluation.review_task(id)",
+      "name": "degraded_assurance_review_task_fk",
+      "references": "evaluation.review_task",
+      "relation": "degraded_assurance",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (source_id) REFERENCES evidence.source(id)",
+      "name": "degraded_assurance_source_id_fkey",
+      "references": "evidence.source",
+      "relation": "degraded_assurance",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "degraded_assurance_pkey",
+      "references": null,
+      "relation": "degraded_assurance",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (log_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "executable_verification_log_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "executable_verification",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "executable_verification_pkey",
+      "references": null,
+      "relation": "executable_verification",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (signature_sha256 ~ '^[0-9a-f]{64}$'::text)",
+      "name": "extraction_signature_signature_sha256_check",
+      "references": null,
+      "relation": "extraction_signature",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)",
+      "name": "extraction_signature_locator_id_fkey",
+      "references": "evidence.locator",
+      "relation": "extraction_signature",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (produced_by_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "extraction_signature_produced_by_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "extraction_signature",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "extraction_signature_pkey",
+      "references": null,
+      "relation": "extraction_signature",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (locator_id, signature_sha256)",
+      "name": "extraction_signature_locator_id_signature_sha256_key",
+      "references": null,
+      "relation": "extraction_signature",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (selected_content_sha256 ~ '^[0-9a-f]{64}$'::text)",
+      "name": "locator_selected_content_sha256_check",
+      "references": null,
+      "relation": "locator",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (capture_id) REFERENCES evidence.source_capture(id)",
+      "name": "locator_capture_id_fkey",
+      "references": "evidence.source_capture",
+      "relation": "locator",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "locator_pkey",
+      "references": null,
+      "relation": "locator",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (trigger_kind = ANY (ARRAY['time'::text, 'release'::text, 'source_change'::text, 'security'::text, 'retraction'::text, 'contradiction'::text, 'eval_failure'::text, 'downstream_use'::text, 'manual'::text]))",
+      "name": "revalidation_event_trigger_kind_check",
+      "references": null,
+      "relation": "revalidation_event",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (policy_id) REFERENCES evidence.revalidation_policy(id)",
+      "name": "revalidation_event_policy_id_fkey",
+      "references": "evidence.revalidation_policy",
+      "relation": "revalidation_event",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id)",
+      "name": "revalidation_event_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "revalidation_event",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "revalidation_event_pkey",
+      "references": null,
+      "relation": "revalidation_event",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "revalidation_policy_pkey",
+      "references": null,
+      "relation": "revalidation_policy",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (slug)",
+      "name": "revalidation_policy_slug_key",
+      "references": null,
+      "relation": "revalidation_policy",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (sensitivity = ANY (ARRAY['public'::text, 'restricted'::text, 'confidential'::text]))",
+      "name": "source_sensitivity_check",
+      "references": null,
+      "relation": "source",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (source_class = ANY (ARRAY['web_page'::text, 'api'::text, 'repository'::text, 'pdf'::text, 'transcript'::text, 'dataset'::text, 'registry'::text, 'other'::text]))",
+      "name": "source_source_class_check",
+      "references": null,
+      "relation": "source",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "source_pkey",
+      "references": null,
+      "relation": "source",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (content_sha256 ~ '^[0-9a-f]{64}$'::text)",
+      "name": "source_capture_content_sha256_check",
+      "references": null,
+      "relation": "source_capture",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "source_capture_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "source_capture",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (produced_by_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "source_capture_produced_by_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "source_capture",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (source_id) REFERENCES evidence.source(id)",
+      "name": "source_capture_source_id_fkey",
+      "references": "evidence.source",
+      "relation": "source_capture",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "source_capture_pkey",
+      "references": null,
+      "relation": "source_capture",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "verification_finding_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "verification_finding",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (run_id) REFERENCES evidence.verification_run(id) ON DELETE CASCADE",
+      "name": "verification_finding_run_id_fkey",
+      "references": "evidence.verification_run",
+      "relation": "verification_finding",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "verification_finding_pkey",
+      "references": null,
+      "relation": "verification_finding",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (run_id, claim_id)",
+      "name": "verification_finding_run_id_claim_id_key",
+      "references": null,
+      "relation": "verification_finding",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (verifier_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "verification_run_verifier_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "verification_run",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id)",
+      "name": "verification_run_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "verification_run",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "verification_run_pkey",
+      "references": null,
+      "relation": "verification_run",
+      "schema": "evidence",
+      "type": "primary_key"
+    }
+  ],
+  "enums": [
+    {
+      "name": "claim_status",
+      "schema": "evidence",
+      "values": [
+        "proposed",
+        "verified",
+        "disputed",
+        "retracted",
+        "superseded"
+      ]
+    },
+    {
+      "name": "support_verdict",
+      "schema": "evidence",
+      "values": [
+        "directly_supported",
+        "supported_with_qualification",
+        "partially_supported",
+        "context_only",
+        "contradicted",
+        "not_supported",
+        "unverifiable"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "arguments": "",
+      "description": null,
+      "name": "enforce_producer_not_verifier",
+      "returns": "trigger",
+      "schema": "evidence",
+      "security_definer": false,
+      "volatility": "volatile"
+    }
+  ],
+  "indexes": [
+    {
+      "definition": "CREATE UNIQUE INDEX claim_pkey ON evidence.claim USING btree (id)",
+      "name": "claim_pkey",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_producer_idx ON evidence.claim USING btree (producer_attempt_id)",
+      "name": "claim_producer_idx",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_status_idx ON evidence.claim USING btree (status, created_at DESC)",
+      "name": "claim_status_idx",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_type_idx ON evidence.claim USING btree (claim_type)",
+      "name": "claim_type_idx",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_agent_skill_version_pkey ON evidence.claim_agent_skill_version USING btree (claim_id, agent_skill_version_id, role_in_claim)",
+      "name": "claim_agent_skill_version_pkey",
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_agent_skill_version_target_idx ON evidence.claim_agent_skill_version USING btree (agent_skill_version_id)",
+      "name": "claim_agent_skill_version_target_idx",
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_ai_model_version_pkey ON evidence.claim_ai_model_version USING btree (claim_id, ai_model_version_id, role_in_claim)",
+      "name": "claim_ai_model_version_pkey",
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_ai_model_version_target_idx ON evidence.claim_ai_model_version USING btree (ai_model_version_id)",
+      "name": "claim_ai_model_version_target_idx",
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_benchmark_pkey ON evidence.claim_benchmark USING btree (claim_id, benchmark_id, role_in_claim)",
+      "name": "claim_benchmark_pkey",
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_benchmark_target_idx ON evidence.claim_benchmark USING btree (benchmark_id)",
+      "name": "claim_benchmark_target_idx",
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_case_study_pkey ON evidence.claim_case_study USING btree (claim_id, case_study_id, role_in_claim)",
+      "name": "claim_case_study_pkey",
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_case_study_target_idx ON evidence.claim_case_study USING btree (case_study_id)",
+      "name": "claim_case_study_target_idx",
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_concept_pkey ON evidence.claim_concept USING btree (claim_id, concept_id, role_in_claim)",
+      "name": "claim_concept_pkey",
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_concept_target_idx ON evidence.claim_concept USING btree (concept_id)",
+      "name": "claim_concept_target_idx",
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_conflict_claim_a_id_claim_b_id_conflict_kind_key ON evidence.claim_conflict USING btree (claim_a_id, claim_b_id, conflict_kind)",
+      "name": "claim_conflict_claim_a_id_claim_b_id_conflict_kind_key",
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_conflict_pkey ON evidence.claim_conflict USING btree (id)",
+      "name": "claim_conflict_pkey",
+      "relation": "claim_conflict",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_dataset_pkey ON evidence.claim_dataset USING btree (claim_id, dataset_id, role_in_claim)",
+      "name": "claim_dataset_pkey",
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_dataset_target_idx ON evidence.claim_dataset USING btree (dataset_id)",
+      "name": "claim_dataset_target_idx",
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_evidence_link_claim_id_locator_id_role_key ON evidence.claim_evidence_link USING btree (claim_id, locator_id, role)",
+      "name": "claim_evidence_link_claim_id_locator_id_role_key",
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_evidence_link_locator_idx ON evidence.claim_evidence_link USING btree (locator_id)",
+      "name": "claim_evidence_link_locator_idx",
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_evidence_link_pkey ON evidence.claim_evidence_link USING btree (id)",
+      "name": "claim_evidence_link_pkey",
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_library_pkey ON evidence.claim_library USING btree (claim_id, library_id, role_in_claim)",
+      "name": "claim_library_pkey",
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_library_target_idx ON evidence.claim_library USING btree (library_id)",
+      "name": "claim_library_target_idx",
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_mcp_server_version_pkey ON evidence.claim_mcp_server_version USING btree (claim_id, mcp_server_version_id, role_in_claim)",
+      "name": "claim_mcp_server_version_pkey",
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_mcp_server_version_target_idx ON evidence.claim_mcp_server_version USING btree (mcp_server_version_id)",
+      "name": "claim_mcp_server_version_target_idx",
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_organization_pkey ON evidence.claim_organization USING btree (claim_id, organization_id, role_in_claim)",
+      "name": "claim_organization_pkey",
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_organization_target_idx ON evidence.claim_organization USING btree (organization_id)",
+      "name": "claim_organization_target_idx",
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_paper_pkey ON evidence.claim_paper USING btree (claim_id, paper_id, role_in_claim)",
+      "name": "claim_paper_pkey",
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_paper_target_idx ON evidence.claim_paper USING btree (paper_id)",
+      "name": "claim_paper_target_idx",
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_person_pkey ON evidence.claim_person USING btree (claim_id, person_id, role_in_claim)",
+      "name": "claim_person_pkey",
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_person_target_idx ON evidence.claim_person USING btree (person_id)",
+      "name": "claim_person_target_idx",
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_product_pkey ON evidence.claim_product USING btree (claim_id, product_id, role_in_claim)",
+      "name": "claim_product_pkey",
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_product_target_idx ON evidence.claim_product USING btree (product_id)",
+      "name": "claim_product_target_idx",
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_protocol_version_pkey ON evidence.claim_protocol_version USING btree (claim_id, ai_protocol_version_id, role_in_claim)",
+      "name": "claim_protocol_version_pkey",
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_protocol_version_target_idx ON evidence.claim_protocol_version USING btree (ai_protocol_version_id)",
+      "name": "claim_protocol_version_target_idx",
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_repository_pkey ON evidence.claim_repository USING btree (claim_id, repository_id, role_in_claim)",
+      "name": "claim_repository_pkey",
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_repository_target_idx ON evidence.claim_repository USING btree (repository_id)",
+      "name": "claim_repository_target_idx",
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_talk_pkey ON evidence.claim_talk USING btree (claim_id, talk_id, role_in_claim)",
+      "name": "claim_talk_pkey",
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_talk_target_idx ON evidence.claim_talk USING btree (talk_id)",
+      "name": "claim_talk_target_idx",
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_technical_record_claim_idx ON evidence.claim_technical_record USING btree (claim_id)",
+      "name": "claim_technical_record_claim_idx",
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_technical_record_kind_idx ON evidence.claim_technical_record USING btree (record_kind)",
+      "name": "claim_technical_record_kind_idx",
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_technical_record_pkey ON evidence.claim_technical_record USING btree (id)",
+      "name": "claim_technical_record_pkey",
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_type_pkey ON evidence.claim_type USING btree (code)",
+      "name": "claim_type_pkey",
+      "relation": "claim_type",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_video_pkey ON evidence.claim_video USING btree (claim_id, video_id, role_in_claim)",
+      "name": "claim_video_pkey",
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_video_target_idx ON evidence.claim_video USING btree (video_id)",
+      "name": "claim_video_target_idx",
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX conflict_reconciliation_pkey ON evidence.conflict_reconciliation USING btree (id)",
+      "name": "conflict_reconciliation_pkey",
+      "relation": "conflict_reconciliation",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX degraded_assurance_pkey ON evidence.degraded_assurance USING btree (id)",
+      "name": "degraded_assurance_pkey",
+      "relation": "degraded_assurance",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX executable_verification_pkey ON evidence.executable_verification USING btree (id)",
+      "name": "executable_verification_pkey",
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX extraction_signature_locator_id_signature_sha256_key ON evidence.extraction_signature USING btree (locator_id, signature_sha256)",
+      "name": "extraction_signature_locator_id_signature_sha256_key",
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX extraction_signature_pkey ON evidence.extraction_signature USING btree (id)",
+      "name": "extraction_signature_pkey",
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX locator_capture_idx ON evidence.locator USING btree (capture_id)",
+      "name": "locator_capture_idx",
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX locator_pkey ON evidence.locator USING btree (id)",
+      "name": "locator_pkey",
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX revalidation_event_fired_idx ON evidence.revalidation_event USING btree (fired_at DESC)",
+      "name": "revalidation_event_fired_idx",
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX revalidation_event_pkey ON evidence.revalidation_event USING btree (id)",
+      "name": "revalidation_event_pkey",
+      "relation": "revalidation_event",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX revalidation_policy_pkey ON evidence.revalidation_policy USING btree (id)",
+      "name": "revalidation_policy_pkey",
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX revalidation_policy_slug_key ON evidence.revalidation_policy USING btree (slug)",
+      "name": "revalidation_policy_slug_key",
+      "relation": "revalidation_policy",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_canonical_url_uq ON evidence.source USING btree (canonical_url) WHERE (canonical_url IS NOT NULL)",
+      "name": "source_canonical_url_uq",
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_pkey ON evidence.source USING btree (id)",
+      "name": "source_pkey",
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_capture_pkey ON evidence.source_capture USING btree (id)",
+      "name": "source_capture_pkey",
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_capture_sha_idx ON evidence.source_capture USING btree (content_sha256)",
+      "name": "source_capture_sha_idx",
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_capture_source_idx ON evidence.source_capture USING btree (source_id, captured_at DESC)",
+      "name": "source_capture_source_idx",
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX verification_finding_pkey ON evidence.verification_finding USING btree (id)",
+      "name": "verification_finding_pkey",
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX verification_finding_run_id_claim_id_key ON evidence.verification_finding USING btree (run_id, claim_id)",
+      "name": "verification_finding_run_id_claim_id_key",
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX verification_run_attempt_idx ON evidence.verification_run USING btree (verifier_attempt_id)",
+      "name": "verification_run_attempt_idx",
+      "relation": "verification_run",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX verification_run_pkey ON evidence.verification_run USING btree (id)",
+      "name": "verification_run_pkey",
+      "relation": "verification_run",
+      "schema": "evidence"
+    }
+  ],
+  "policies": [
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_agent_skill_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_ai_model_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_benchmark",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_case_study",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_concept",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_conflict",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_dataset",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_evidence_link",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_library",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_mcp_server_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_organization",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_paper",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_person",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_product",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_protocol_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_repository",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_talk",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_technical_record",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_type",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_video",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "conflict_reconciliation",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "degraded_assurance",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "executable_verification",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "extraction_signature",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "locator",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "revalidation_event",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "revalidation_policy",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "source",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "source_capture",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "verification_finding",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "verification_run",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    }
+  ],
+  "relations": [
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_agent_skill_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_ai_model_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_benchmark",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_case_study",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_concept",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_conflict",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_dataset",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_evidence_link",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_library",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_mcp_server_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_organization",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_paper",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_person",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_product",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_protocol_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_repository",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_talk",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_technical_record",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_type",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "claim_video",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "conflict_reconciliation",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "degraded_assurance",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "executable_verification",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "extraction_signature",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "locator",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "revalidation_event",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "revalidation_policy",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "source",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "source_capture",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "verification_finding",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "verification_run",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    }
+  ],
+  "schema": "evidence"
+}

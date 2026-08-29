@@ -9,6 +9,27 @@
   "scripts": {
     "verify:environment": "node scripts/verify-environment.mjs",
     "verify:secrets": "node scripts/verify-environment.mjs --require-secrets",
-    "test:smoke": "bash scripts/cloud-smoke-test.sh"
+    "verify:research": "node scripts/research-cloud.mjs verify",
+    "db:contract:vendor": "node scripts/vendor-database-contract.mjs",
+    "db:types": "node scripts/sync-database-types.mjs",
+    "db:types:check": "node scripts/sync-database-types.mjs --check",
+    "schema:workspace": "node scripts/build-schema-workspace.mjs",
+    "schema:workspace:check": "node scripts/build-schema-workspace.mjs --check",
+    "schema:refresh": "npm run db:types && npm run schema:workspace",
+    "typecheck": "tsc --noEmit",
+    "research:cloud": "node scripts/research-cloud.mjs",
+    "test:smoke": "bash scripts/cloud-smoke-test.sh",
+    "neo4j:ping": "node scripts/check-neo4j-aura.mjs"
+  },
+  "dependencies": {
+    "@aiengineer/database-contract": "file:vendor/database-contract.tgz",
+    "@supabase/supabase-js": "2.112.4",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "neo4j-driver": "^6.2.0",
+    "pg": "8.23.0"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
   }
 }

@@ -1,0 +1,3247 @@
+{
+  "columns": [
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_kind",
+      "nullable": false,
+      "position": 4,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "purpose",
+      "nullable": false,
+      "position": 5,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "definition",
+      "nullable": true,
+      "position": 6,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "inclusion_rules",
+      "nullable": false,
+      "position": 7,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "exclusion_rules",
+      "nullable": false,
+      "position": 8,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "ranking.approval_state",
+      "default_expression": "'draft'::ranking.approval_state",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "review_state",
+      "nullable": false,
+      "position": 9,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 10,
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "entity_group_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_group_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "entity_group_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version",
+      "nullable": false,
+      "position": 3,
+      "relation": "entity_group_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "entity_group_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 2,
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "1",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version",
+      "nullable": false,
+      "position": 3,
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "expression",
+      "nullable": false,
+      "position": 4,
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "inputs",
+      "nullable": false,
+      "position": 5,
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "feature_definition_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "numeric",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "value_numeric",
+      "nullable": true,
+      "position": 5,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "value_jsonb",
+      "nullable": true,
+      "position": 6,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "input_lineage",
+      "nullable": false,
+      "position": 7,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "computed_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "group_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "library_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "person_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "paper_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "video_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_version_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mcp_server_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_skill_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": true,
+      "position": 12,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (ai_model_version_id IS NOT NULL) THEN 'ai_model_version'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    ELSE NULL::text\nEND",
+      "description": null,
+      "generated_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (ai_model_version_id IS NOT NULL) THEN 'ai_model_version'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    ELSE NULL::text\nEND",
+      "identity_kind": null,
+      "name": "entity_kind",
+      "nullable": true,
+      "position": 13,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_from",
+      "nullable": false,
+      "position": 14,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_to",
+      "nullable": true,
+      "position": 15,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 16,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 17,
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "group_version_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "policy_version_id",
+      "nullable": false,
+      "position": 5,
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "leaderboard_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ranking_run_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "edition_no",
+      "nullable": false,
+      "position": 4,
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "published_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "group_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "members",
+      "nullable": false,
+      "position": 3,
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "member_count",
+      "nullable": false,
+      "position": 4,
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "frozen_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "label",
+      "nullable": false,
+      "position": 4,
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "metric_definition_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version",
+      "nullable": false,
+      "position": 3,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "semantics",
+      "nullable": false,
+      "position": 4,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "unit",
+      "nullable": true,
+      "position": 5,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_field",
+      "nullable": true,
+      "position": 6,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "acquisition",
+      "nullable": true,
+      "position": 7,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "locator_method",
+      "nullable": true,
+      "position": 8,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "interval",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "cadence",
+      "nullable": true,
+      "position": 9,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "missingness_policy",
+      "nullable": true,
+      "position": 10,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "gaming_risk",
+      "nullable": true,
+      "position": 11,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decay_policy",
+      "nullable": false,
+      "position": 12,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "permitted_ranking_purposes",
+      "nullable": false,
+      "position": 13,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "ranking.approval_state",
+      "default_expression": "'draft'::ranking.approval_state",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approval_state",
+      "nullable": false,
+      "position": 14,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 15,
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "definition_version_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "library_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "person_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "paper_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "video_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_version_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mcp_server_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_skill_id",
+      "nullable": true,
+      "position": 12,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": true,
+      "position": 13,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "observed_at",
+      "nullable": false,
+      "position": 15,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "numeric",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "value_numeric",
+      "nullable": true,
+      "position": 16,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "value_text",
+      "nullable": true,
+      "position": 17,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "value_jsonb",
+      "nullable": true,
+      "position": 18,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "locator_id",
+      "nullable": true,
+      "position": 19,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "run_id",
+      "nullable": true,
+      "position": 20,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 21,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dataset_id",
+      "nullable": true,
+      "position": 22,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": true,
+      "position": 23,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "talk_id",
+      "nullable": true,
+      "position": 24,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_id",
+      "nullable": true,
+      "position": 25,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "collected_at",
+      "nullable": false,
+      "position": 26,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "observation_window",
+      "nullable": true,
+      "position": 27,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dimensions",
+      "nullable": false,
+      "position": 28,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "measurement_kind",
+      "nullable": true,
+      "position": 29,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "false",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "is_estimate",
+      "nullable": false,
+      "position": 30,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'public'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "visibility",
+      "nullable": false,
+      "position": 31,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "access_tier",
+      "nullable": true,
+      "position": 32,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": "Immutable raw provider response whose SHA-256 and storage pointer establish metric provenance.",
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "raw_capture_id",
+      "nullable": true,
+      "position": 33,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "collector_version",
+      "nullable": true,
+      "position": 34,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_policy_version",
+      "nullable": true,
+      "position": 35,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "quality_flags",
+      "nullable": false,
+      "position": 36,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance",
+      "nullable": false,
+      "position": 37,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": "Explicit missingness. Unavailable observations are recorded as null, never coerced to zero.",
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "unavailable_reason",
+      "nullable": true,
+      "position": 38,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": true,
+      "position": 40,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_model_version_id IS NOT NULL) THEN 'ai_model_version'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    ELSE NULL::text\nEND",
+      "description": null,
+      "generated_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_model_version_id IS NOT NULL) THEN 'ai_model_version'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    ELSE NULL::text\nEND",
+      "identity_kind": null,
+      "name": "entity_kind",
+      "nullable": true,
+      "position": 41,
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "purpose",
+      "nullable": false,
+      "position": 4,
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ranking_policy_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version",
+      "nullable": false,
+      "position": 3,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "weights",
+      "nullable": false,
+      "position": 4,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "penalties",
+      "nullable": false,
+      "position": 5,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "ranking.approval_state",
+      "default_expression": "'draft'::ranking.approval_state",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approval_state",
+      "nullable": false,
+      "position": 6,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "run_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rank",
+      "nullable": false,
+      "position": 5,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "numeric",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "score",
+      "nullable": false,
+      "position": 6,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "contributions",
+      "nullable": false,
+      "position": 7,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "penalties",
+      "nullable": false,
+      "position": 8,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "numeric",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "uncertainty",
+      "nullable": true,
+      "position": 9,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "explanation",
+      "nullable": true,
+      "position": 10,
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "policy_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "snapshot_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "feature_set_hash",
+      "nullable": true,
+      "position": 4,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code_ref",
+      "nullable": true,
+      "position": 5,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "executed_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "run_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "purpose",
+      "nullable": false,
+      "position": 4,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "selected",
+      "nullable": false,
+      "position": 5,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "diversity_rationale",
+      "nullable": true,
+      "position": 6,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "coverage_rationale",
+      "nullable": true,
+      "position": 7,
+      "relation": "selection",
+      "schema": "ranking"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "selection",
+      "schema": "ranking"
+    }
+  ],
+  "constraints": [
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "entity_group_pkey",
+      "references": null,
+      "relation": "entity_group",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "entity_group_tenant_id_slug_key",
+      "references": null,
+      "relation": "entity_group",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (entity_group_id) REFERENCES ranking.entity_group(id) ON DELETE CASCADE",
+      "name": "entity_group_version_entity_group_id_fkey",
+      "references": "ranking.entity_group",
+      "relation": "entity_group_version",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "entity_group_version_pkey",
+      "references": null,
+      "relation": "entity_group_version",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (entity_group_id, version)",
+      "name": "entity_group_version_entity_group_id_version_key",
+      "references": null,
+      "relation": "entity_group_version",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "feature_definition_pkey",
+      "references": null,
+      "relation": "feature_definition",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (slug)",
+      "name": "feature_definition_slug_key",
+      "references": null,
+      "relation": "feature_definition",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (feature_definition_id) REFERENCES ranking.feature_definition(id)",
+      "name": "feature_value_feature_definition_id_fkey",
+      "references": "ranking.feature_definition",
+      "relation": "feature_value",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "feature_value_pkey",
+      "references": null,
+      "relation": "feature_value",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (feature_definition_id, entity_kind, entity_id, computed_at)",
+      "name": "feature_value_feature_definition_id_entity_kind_entity_id_c_key",
+      "references": null,
+      "relation": "feature_value",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (num_nonnulls(library_id, repository_id, person_id, organization_id, paper_id, video_id, ai_model_version_id, mcp_server_id, agent_skill_id, product_id) = 1)",
+      "name": "group_membership_exactly_one_entity",
+      "references": null,
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_skill_id) REFERENCES corpus.agent_skill(id)",
+      "name": "group_membership_agent_skill_id_fkey",
+      "references": "corpus.agent_skill",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id)",
+      "name": "group_membership_ai_model_version_id_fkey",
+      "references": "corpus.ai_model_version",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (group_version_id) REFERENCES ranking.entity_group_version(id) ON DELETE CASCADE",
+      "name": "group_membership_group_version_id_fkey",
+      "references": "ranking.entity_group_version",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (library_id) REFERENCES corpus.library(id)",
+      "name": "group_membership_library_id_fkey",
+      "references": "corpus.library",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mcp_server_id) REFERENCES corpus.mcp_server(id)",
+      "name": "group_membership_mcp_server_id_fkey",
+      "references": "corpus.mcp_server",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id)",
+      "name": "group_membership_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (paper_id) REFERENCES corpus.paper(id)",
+      "name": "group_membership_paper_id_fkey",
+      "references": "corpus.paper",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (person_id) REFERENCES corpus.person(id)",
+      "name": "group_membership_person_id_fkey",
+      "references": "corpus.person",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id)",
+      "name": "group_membership_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "group_membership_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id)",
+      "name": "group_membership_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (video_id) REFERENCES corpus.video(id)",
+      "name": "group_membership_video_id_fkey",
+      "references": "corpus.video",
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "group_membership_pkey",
+      "references": null,
+      "relation": "group_membership",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (group_version_id) REFERENCES ranking.entity_group_version(id)",
+      "name": "leaderboard_group_version_id_fkey",
+      "references": "ranking.entity_group_version",
+      "relation": "leaderboard",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (policy_version_id) REFERENCES ranking.ranking_policy_version(id)",
+      "name": "leaderboard_policy_version_id_fkey",
+      "references": "ranking.ranking_policy_version",
+      "relation": "leaderboard",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "leaderboard_pkey",
+      "references": null,
+      "relation": "leaderboard",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "leaderboard_tenant_id_slug_key",
+      "references": null,
+      "relation": "leaderboard",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (leaderboard_id) REFERENCES ranking.leaderboard(id) ON DELETE CASCADE",
+      "name": "leaderboard_edition_leaderboard_id_fkey",
+      "references": "ranking.leaderboard",
+      "relation": "leaderboard_edition",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ranking_run_id) REFERENCES ranking.ranking_run(id)",
+      "name": "leaderboard_edition_ranking_run_id_fkey",
+      "references": "ranking.ranking_run",
+      "relation": "leaderboard_edition",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "leaderboard_edition_pkey",
+      "references": null,
+      "relation": "leaderboard_edition",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (leaderboard_id, edition_no)",
+      "name": "leaderboard_edition_leaderboard_id_edition_no_key",
+      "references": null,
+      "relation": "leaderboard_edition",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (group_version_id) REFERENCES ranking.entity_group_version(id)",
+      "name": "membership_snapshot_group_version_id_fkey",
+      "references": "ranking.entity_group_version",
+      "relation": "membership_snapshot",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "membership_snapshot_pkey",
+      "references": null,
+      "relation": "membership_snapshot",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "metric_definition_pkey",
+      "references": null,
+      "relation": "metric_definition",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "metric_definition_tenant_id_slug_key",
+      "references": null,
+      "relation": "metric_definition",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (metric_definition_id) REFERENCES ranking.metric_definition(id) ON DELETE CASCADE",
+      "name": "metric_definition_version_metric_definition_id_fkey",
+      "references": "ranking.metric_definition",
+      "relation": "metric_definition_version",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "metric_definition_version_pkey",
+      "references": null,
+      "relation": "metric_definition_version",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (metric_definition_id, version)",
+      "name": "metric_definition_version_metric_definition_id_version_key",
+      "references": null,
+      "relation": "metric_definition_version",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (num_nonnulls(library_id, repository_id, person_id, organization_id, paper_id, video_id, talk_id, dataset_id, benchmark_id, ai_model_id, ai_model_version_id, mcp_server_id, agent_skill_id, product_id, case_study_id) = 1)",
+      "name": "metric_observation_exactly_one_entity",
+      "references": null,
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (num_nonnulls(value_numeric, value_text, value_jsonb) >= 1 OR unavailable_reason IS NOT NULL)",
+      "name": "metric_observation_has_value_or_unavailable",
+      "references": null,
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (collected_at >= observed_at)",
+      "name": "metric_observation_time_order",
+      "references": null,
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_skill_id) REFERENCES corpus.agent_skill(id)",
+      "name": "metric_observation_agent_skill_id_fkey",
+      "references": "corpus.agent_skill",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id)",
+      "name": "metric_observation_ai_model_id_fkey",
+      "references": "corpus.ai_model",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id)",
+      "name": "metric_observation_ai_model_version_id_fkey",
+      "references": "corpus.ai_model_version",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id)",
+      "name": "metric_observation_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id)",
+      "name": "metric_observation_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id)",
+      "name": "metric_observation_dataset_id_fkey",
+      "references": "corpus.dataset",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (definition_version_id) REFERENCES ranking.metric_definition_version(id)",
+      "name": "metric_observation_definition_version_id_fkey",
+      "references": "ranking.metric_definition_version",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (library_id) REFERENCES corpus.library(id)",
+      "name": "metric_observation_library_id_fkey",
+      "references": "corpus.library",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)",
+      "name": "metric_observation_locator_id_fkey",
+      "references": "evidence.locator",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mcp_server_id) REFERENCES corpus.mcp_server(id)",
+      "name": "metric_observation_mcp_server_id_fkey",
+      "references": "corpus.mcp_server",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id)",
+      "name": "metric_observation_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (paper_id) REFERENCES corpus.paper(id)",
+      "name": "metric_observation_paper_id_fkey",
+      "references": "corpus.paper",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (person_id) REFERENCES corpus.person(id)",
+      "name": "metric_observation_person_id_fkey",
+      "references": "corpus.person",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id)",
+      "name": "metric_observation_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (raw_capture_id) REFERENCES evidence.source_capture(id)",
+      "name": "metric_observation_raw_capture_id_fkey",
+      "references": "evidence.source_capture",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id)",
+      "name": "metric_observation_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (run_id) REFERENCES ranking.ranking_run(id)",
+      "name": "metric_observation_run_fk",
+      "references": "ranking.ranking_run",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (talk_id) REFERENCES corpus.talk(id)",
+      "name": "metric_observation_talk_id_fkey",
+      "references": "corpus.talk",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (video_id) REFERENCES corpus.video(id)",
+      "name": "metric_observation_video_id_fkey",
+      "references": "corpus.video",
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "metric_observation_pkey",
+      "references": null,
+      "relation": "metric_observation",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (purpose = ANY (ARRAY['research_priority'::text, 'curriculum_value'::text, 'production_readiness'::text, 'frontier_monitoring'::text, 'challenge_feasibility'::text, 'verification_priority'::text, 'underexplored_discovery'::text]))",
+      "name": "ranking_policy_purpose_check",
+      "references": null,
+      "relation": "ranking_policy",
+      "schema": "ranking",
+      "type": "check"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "ranking_policy_pkey",
+      "references": null,
+      "relation": "ranking_policy",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "ranking_policy_tenant_id_slug_key",
+      "references": null,
+      "relation": "ranking_policy",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (ranking_policy_id) REFERENCES ranking.ranking_policy(id) ON DELETE CASCADE",
+      "name": "ranking_policy_version_ranking_policy_id_fkey",
+      "references": "ranking.ranking_policy",
+      "relation": "ranking_policy_version",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "ranking_policy_version_pkey",
+      "references": null,
+      "relation": "ranking_policy_version",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (ranking_policy_id, version)",
+      "name": "ranking_policy_version_ranking_policy_id_version_key",
+      "references": null,
+      "relation": "ranking_policy_version",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (run_id) REFERENCES ranking.ranking_run(id) ON DELETE CASCADE",
+      "name": "ranking_result_run_id_fkey",
+      "references": "ranking.ranking_run",
+      "relation": "ranking_result",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "ranking_result_pkey",
+      "references": null,
+      "relation": "ranking_result",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (run_id, entity_kind, entity_id)",
+      "name": "ranking_result_run_id_entity_kind_entity_id_key",
+      "references": null,
+      "relation": "ranking_result",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "UNIQUE (run_id, rank)",
+      "name": "ranking_result_run_id_rank_key",
+      "references": null,
+      "relation": "ranking_result",
+      "schema": "ranking",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (policy_version_id) REFERENCES ranking.ranking_policy_version(id)",
+      "name": "ranking_run_policy_version_id_fkey",
+      "references": "ranking.ranking_policy_version",
+      "relation": "ranking_run",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (snapshot_id) REFERENCES ranking.membership_snapshot(id)",
+      "name": "ranking_run_snapshot_id_fkey",
+      "references": "ranking.membership_snapshot",
+      "relation": "ranking_run",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id)",
+      "name": "ranking_run_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "ranking_run",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "ranking_run_pkey",
+      "references": null,
+      "relation": "ranking_run",
+      "schema": "ranking",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (run_id) REFERENCES ranking.ranking_run(id)",
+      "name": "selection_run_id_fkey",
+      "references": "ranking.ranking_run",
+      "relation": "selection",
+      "schema": "ranking",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "selection_pkey",
+      "references": null,
+      "relation": "selection",
+      "schema": "ranking",
+      "type": "primary_key"
+    }
+  ],
+  "enums": [
+    {
+      "name": "approval_state",
+      "schema": "ranking",
+      "values": [
+        "draft",
+        "proposed",
+        "approved",
+        "deprecated",
+        "rejected"
+      ]
+    }
+  ],
+  "functions": [],
+  "indexes": [
+    {
+      "definition": "CREATE UNIQUE INDEX entity_group_pkey ON ranking.entity_group USING btree (id)",
+      "name": "entity_group_pkey",
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX entity_group_tenant_id_slug_key ON ranking.entity_group USING btree (tenant_id, slug)",
+      "name": "entity_group_tenant_id_slug_key",
+      "relation": "entity_group",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX entity_group_version_entity_group_id_version_key ON ranking.entity_group_version USING btree (entity_group_id, version)",
+      "name": "entity_group_version_entity_group_id_version_key",
+      "relation": "entity_group_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX entity_group_version_pkey ON ranking.entity_group_version USING btree (id)",
+      "name": "entity_group_version_pkey",
+      "relation": "entity_group_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX feature_definition_pkey ON ranking.feature_definition USING btree (id)",
+      "name": "feature_definition_pkey",
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX feature_definition_slug_key ON ranking.feature_definition USING btree (slug)",
+      "name": "feature_definition_slug_key",
+      "relation": "feature_definition",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX feature_value_entity_idx ON ranking.feature_value USING btree (entity_kind, entity_id)",
+      "name": "feature_value_entity_idx",
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX feature_value_feature_definition_id_entity_kind_entity_id_c_key ON ranking.feature_value USING btree (feature_definition_id, entity_kind, entity_id, computed_at)",
+      "name": "feature_value_feature_definition_id_entity_kind_entity_id_c_key",
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX feature_value_pkey ON ranking.feature_value USING btree (id)",
+      "name": "feature_value_pkey",
+      "relation": "feature_value",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX group_membership_pkey ON ranking.group_membership USING btree (id)",
+      "name": "group_membership_pkey",
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX group_membership_version_idx ON ranking.group_membership USING btree (group_version_id)",
+      "name": "group_membership_version_idx",
+      "relation": "group_membership",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX leaderboard_pkey ON ranking.leaderboard USING btree (id)",
+      "name": "leaderboard_pkey",
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX leaderboard_tenant_id_slug_key ON ranking.leaderboard USING btree (tenant_id, slug)",
+      "name": "leaderboard_tenant_id_slug_key",
+      "relation": "leaderboard",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX leaderboard_edition_leaderboard_id_edition_no_key ON ranking.leaderboard_edition USING btree (leaderboard_id, edition_no)",
+      "name": "leaderboard_edition_leaderboard_id_edition_no_key",
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX leaderboard_edition_pkey ON ranking.leaderboard_edition USING btree (id)",
+      "name": "leaderboard_edition_pkey",
+      "relation": "leaderboard_edition",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX membership_snapshot_pkey ON ranking.membership_snapshot USING btree (id)",
+      "name": "membership_snapshot_pkey",
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX metric_definition_pkey ON ranking.metric_definition USING btree (id)",
+      "name": "metric_definition_pkey",
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX metric_definition_tenant_id_slug_key ON ranking.metric_definition USING btree (tenant_id, slug)",
+      "name": "metric_definition_tenant_id_slug_key",
+      "relation": "metric_definition",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX metric_definition_one_approved ON ranking.metric_definition_version USING btree (metric_definition_id) WHERE (approval_state = 'approved'::ranking.approval_state)",
+      "name": "metric_definition_one_approved",
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX metric_definition_version_metric_definition_id_version_key ON ranking.metric_definition_version USING btree (metric_definition_id, version)",
+      "name": "metric_definition_version_metric_definition_id_version_key",
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX metric_definition_version_pkey ON ranking.metric_definition_version USING btree (id)",
+      "name": "metric_definition_version_pkey",
+      "relation": "metric_definition_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_agent_skill_id_idx ON ranking.metric_observation USING btree (agent_skill_id, observed_at DESC) WHERE (agent_skill_id IS NOT NULL)",
+      "name": "metric_observation_agent_skill_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_ai_model_id_idx ON ranking.metric_observation USING btree (ai_model_id, observed_at DESC) WHERE (ai_model_id IS NOT NULL)",
+      "name": "metric_observation_ai_model_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_ai_model_version_id_idx ON ranking.metric_observation USING btree (ai_model_version_id, observed_at DESC) WHERE (ai_model_version_id IS NOT NULL)",
+      "name": "metric_observation_ai_model_version_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_benchmark_id_idx ON ranking.metric_observation USING btree (benchmark_id, observed_at DESC) WHERE (benchmark_id IS NOT NULL)",
+      "name": "metric_observation_benchmark_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_capture_idx ON ranking.metric_observation USING btree (raw_capture_id) WHERE (raw_capture_id IS NOT NULL)",
+      "name": "metric_observation_capture_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_case_study_id_idx ON ranking.metric_observation USING btree (case_study_id, observed_at DESC) WHERE (case_study_id IS NOT NULL)",
+      "name": "metric_observation_case_study_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_dataset_id_idx ON ranking.metric_observation USING btree (dataset_id, observed_at DESC) WHERE (dataset_id IS NOT NULL)",
+      "name": "metric_observation_dataset_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_def_time_idx ON ranking.metric_observation USING btree (definition_version_id, observed_at DESC)",
+      "name": "metric_observation_def_time_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_entity_idx ON ranking.metric_observation USING btree (entity_kind, observed_at DESC)",
+      "name": "metric_observation_entity_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_library_id_idx ON ranking.metric_observation USING btree (library_id, observed_at DESC) WHERE (library_id IS NOT NULL)",
+      "name": "metric_observation_library_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_locator_idx ON ranking.metric_observation USING btree (locator_id) WHERE (locator_id IS NOT NULL)",
+      "name": "metric_observation_locator_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_mcp_server_id_idx ON ranking.metric_observation USING btree (mcp_server_id, observed_at DESC) WHERE (mcp_server_id IS NOT NULL)",
+      "name": "metric_observation_mcp_server_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_organization_id_idx ON ranking.metric_observation USING btree (organization_id, observed_at DESC) WHERE (organization_id IS NOT NULL)",
+      "name": "metric_observation_organization_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_paper_id_idx ON ranking.metric_observation USING btree (paper_id, observed_at DESC) WHERE (paper_id IS NOT NULL)",
+      "name": "metric_observation_paper_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_person_id_idx ON ranking.metric_observation USING btree (person_id, observed_at DESC) WHERE (person_id IS NOT NULL)",
+      "name": "metric_observation_person_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX metric_observation_pkey ON ranking.metric_observation USING btree (id)",
+      "name": "metric_observation_pkey",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_product_id_idx ON ranking.metric_observation USING btree (product_id, observed_at DESC) WHERE (product_id IS NOT NULL)",
+      "name": "metric_observation_product_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_repository_id_idx ON ranking.metric_observation USING btree (repository_id, observed_at DESC) WHERE (repository_id IS NOT NULL)",
+      "name": "metric_observation_repository_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_run_idx ON ranking.metric_observation USING btree (run_id) WHERE (run_id IS NOT NULL)",
+      "name": "metric_observation_run_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_talk_id_idx ON ranking.metric_observation USING btree (talk_id, observed_at DESC) WHERE (talk_id IS NOT NULL)",
+      "name": "metric_observation_talk_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX metric_observation_video_id_idx ON ranking.metric_observation USING btree (video_id, observed_at DESC) WHERE (video_id IS NOT NULL)",
+      "name": "metric_observation_video_id_idx",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_policy_pkey ON ranking.ranking_policy USING btree (id)",
+      "name": "ranking_policy_pkey",
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_policy_tenant_id_slug_key ON ranking.ranking_policy USING btree (tenant_id, slug)",
+      "name": "ranking_policy_tenant_id_slug_key",
+      "relation": "ranking_policy",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_policy_version_pkey ON ranking.ranking_policy_version USING btree (id)",
+      "name": "ranking_policy_version_pkey",
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_policy_version_ranking_policy_id_version_key ON ranking.ranking_policy_version USING btree (ranking_policy_id, version)",
+      "name": "ranking_policy_version_ranking_policy_id_version_key",
+      "relation": "ranking_policy_version",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE INDEX ranking_result_entity_idx ON ranking.ranking_result USING btree (entity_kind, entity_id)",
+      "name": "ranking_result_entity_idx",
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_result_pkey ON ranking.ranking_result USING btree (id)",
+      "name": "ranking_result_pkey",
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_result_run_id_entity_kind_entity_id_key ON ranking.ranking_result USING btree (run_id, entity_kind, entity_id)",
+      "name": "ranking_result_run_id_entity_kind_entity_id_key",
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_result_run_id_rank_key ON ranking.ranking_result USING btree (run_id, rank)",
+      "name": "ranking_result_run_id_rank_key",
+      "relation": "ranking_result",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX ranking_run_pkey ON ranking.ranking_run USING btree (id)",
+      "name": "ranking_run_pkey",
+      "relation": "ranking_run",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX selection_pkey ON ranking.selection USING btree (id)",
+      "name": "selection_pkey",
+      "relation": "selection",
+      "schema": "ranking"
+    }
+  ],
+  "policies": [
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "entity_group",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "entity_group_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "feature_definition",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "feature_value",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "group_membership",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "leaderboard",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "leaderboard_edition",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "membership_snapshot",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "metric_definition",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "metric_definition_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "metric_observation",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "ranking_policy",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "ranking_policy_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "ranking_result",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "ranking_run",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "selection",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "ranking",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    }
+  ],
+  "relations": [
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "entity_group",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "entity_group_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "feature_definition",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "feature_value",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "group_membership",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "leaderboard",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "leaderboard_edition",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "membership_snapshot",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "metric_definition",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "metric_definition_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "metric_observation",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "ranking_policy",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "ranking_policy_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "ranking_result",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "ranking_run",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "selection",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "ranking"
+    }
+  ],
+  "schema": "ranking"
+}

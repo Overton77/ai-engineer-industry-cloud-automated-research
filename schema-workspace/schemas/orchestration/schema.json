@@ -1,0 +1,4058 @@
+{
+  "columns": [
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "eve_session_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_deployment",
+      "nullable": false,
+      "position": 5,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "0",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "compaction_count",
+      "nullable": false,
+      "position": 6,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rotated_from_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'active'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 8,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "started_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ended_at",
+      "nullable": true,
+      "position": 10,
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "artifact_type",
+      "nullable": false,
+      "position": 3,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "1",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "schema_version",
+      "nullable": false,
+      "position": 4,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "sha256",
+      "nullable": false,
+      "position": 5,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "orchestration.bucket_class",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "bucket_class",
+      "nullable": false,
+      "position": 6,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "storage_bucket",
+      "nullable": false,
+      "position": 7,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "object_path",
+      "nullable": false,
+      "position": 8,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "media_type",
+      "nullable": true,
+      "position": 9,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "bigint",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "size_bytes",
+      "nullable": true,
+      "position": 10,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "producer_attempt_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 12,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "superseded_by_id",
+      "nullable": true,
+      "position": 13,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 14,
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 2,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "required",
+      "nullable": false,
+      "position": 4,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "produced",
+      "nullable": false,
+      "position": 5,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "omitted",
+      "nullable": false,
+      "position": 6,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "failed",
+      "nullable": false,
+      "position": 7,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "deferred",
+      "nullable": false,
+      "position": 8,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "artifact_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 2,
+      "relation": "artifact_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 3,
+      "relation": "artifact_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "attempt_no",
+      "nullable": false,
+      "position": 4,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_deployment_id",
+      "nullable": false,
+      "position": 5,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_session_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "eve_turn_ids",
+      "nullable": false,
+      "position": 7,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "remote_child_ids",
+      "nullable": false,
+      "position": 8,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "orchestration.attempt_outcome",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "outcome",
+      "nullable": true,
+      "position": 9,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "numeric(12,4)",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "cost_usd",
+      "nullable": true,
+      "position": 10,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "bigint",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "latency_ms",
+      "nullable": true,
+      "position": 11,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "bigint",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "token_input",
+      "nullable": true,
+      "position": 12,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "bigint",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "token_output",
+      "nullable": true,
+      "position": 13,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "started_at",
+      "nullable": false,
+      "position": 14,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ended_at",
+      "nullable": true,
+      "position": 15,
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "kind",
+      "nullable": false,
+      "position": 4,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "purpose",
+      "nullable": false,
+      "position": 5,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text[]",
+      "default_expression": "'{}'::text[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "operations",
+      "nullable": false,
+      "position": 6,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "packages_mcp_server_version_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "capability_kind",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 2,
+      "relation": "capability_kind",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 3,
+      "relation": "capability_kind",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "purpose",
+      "nullable": false,
+      "position": 4,
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 5,
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "profile_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "capability_profile_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capability_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "capability_profile_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'available'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "activation",
+      "nullable": false,
+      "position": 3,
+      "relation": "capability_profile_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capability_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version_label",
+      "nullable": false,
+      "position": 3,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'draft'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lifecycle",
+      "nullable": false,
+      "position": 4,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "eval_suite_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "network_requirements",
+      "nullable": false,
+      "position": 6,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "secret_requirements",
+      "nullable": false,
+      "position": 7,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approval_policy",
+      "nullable": false,
+      "position": 8,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_session_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "constraints_section",
+      "nullable": false,
+      "position": 4,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "decisions",
+      "nullable": false,
+      "position": 5,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "completed",
+      "nullable": false,
+      "position": 6,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "active",
+      "nullable": false,
+      "position": 7,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "blocked",
+      "nullable": false,
+      "position": 8,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "failed_approaches",
+      "nullable": false,
+      "position": 9,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "pending_approvals",
+      "nullable": false,
+      "position": 10,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "digests",
+      "nullable": false,
+      "position": 11,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "refs",
+      "nullable": false,
+      "position": 12,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'unverified'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "verification_status",
+      "nullable": false,
+      "position": 13,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "package_artifact_id",
+      "nullable": true,
+      "position": 14,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 15,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "intent_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 2,
+      "relation": "intent_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "1",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "schema_version",
+      "nullable": false,
+      "position": 3,
+      "relation": "intent_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "intent_type",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": true,
+      "position": 3,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "goal",
+      "nullable": false,
+      "position": 4,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "research_questions",
+      "nullable": false,
+      "position": 5,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "acceptance_criteria",
+      "nullable": false,
+      "position": 6,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "selection_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capability_profile_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "numeric(12,4)",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_cost_usd",
+      "nullable": true,
+      "position": 9,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_wall_seconds",
+      "nullable": true,
+      "position": 10,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_max_fanout",
+      "nullable": true,
+      "position": 11,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_max_depth",
+      "nullable": true,
+      "position": 12,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_max_retries",
+      "nullable": true,
+      "position": 13,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "orchestration.mission_status",
+      "default_expression": "'created'::orchestration.mission_status",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 14,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "terminal_reason",
+      "nullable": true,
+      "position": 15,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "started_at",
+      "nullable": true,
+      "position": 16,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ended_at",
+      "nullable": true,
+      "position": 17,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 18,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 19,
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "orchestration.mission_status",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "from_status",
+      "nullable": true,
+      "position": 3,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "orchestration.mission_status",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "to_status",
+      "nullable": false,
+      "position": 4,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "actor",
+      "nullable": false,
+      "position": 5,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "reason",
+      "nullable": true,
+      "position": 6,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "causation_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "payload",
+      "nullable": false,
+      "position": 8,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "occurred_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "intent_type",
+      "nullable": false,
+      "position": 3,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "1",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "schema_version",
+      "nullable": false,
+      "position": 4,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "payload",
+      "nullable": false,
+      "position": 5,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "preconditions",
+      "nullable": false,
+      "position": 6,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "idempotency_key",
+      "nullable": false,
+      "position": 7,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "proposed_by_attempt",
+      "nullable": true,
+      "position": 8,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'pending'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approval_state",
+      "nullable": false,
+      "position": 10,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "policy_decision",
+      "nullable": true,
+      "position": 11,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "intent_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "executor_version",
+      "nullable": false,
+      "position": 3,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "precondition_results",
+      "nullable": false,
+      "position": 4,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "outcome",
+      "nullable": false,
+      "position": 5,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "changes_summary",
+      "nullable": false,
+      "position": 6,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "affected_refs",
+      "nullable": false,
+      "position": 7,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "applied_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "bigint",
+      "default_expression": "nextval('orchestration.outbox_event_id_seq'::regclass)",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "topic",
+      "nullable": false,
+      "position": 2,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "payload",
+      "nullable": false,
+      "position": 3,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "causation_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "published_at",
+      "nullable": true,
+      "position": 6,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "abstract_operation",
+      "nullable": false,
+      "position": 2,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provider",
+      "nullable": false,
+      "position": 3,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "1",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "policy_version",
+      "nullable": false,
+      "position": 4,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "selection_rules",
+      "nullable": false,
+      "position": 5,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "100",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "priority",
+      "nullable": false,
+      "position": 6,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "true",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "enabled",
+      "nullable": false,
+      "position": 7,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "failure_rollup",
+      "nullable": false,
+      "position": 8,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "kind",
+      "nullable": false,
+      "position": 4,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "spec",
+      "nullable": false,
+      "position": 5,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "orchestration.work_item_status",
+      "default_expression": "'pending'::orchestration.work_item_status",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 6,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capability_profile_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "numeric(12,4)",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_cost_usd",
+      "nullable": true,
+      "position": 8,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "budget_wall_seconds",
+      "nullable": true,
+      "position": 9,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "3",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "max_attempts",
+      "nullable": false,
+      "position": 10,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "0",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "attempt_count",
+      "nullable": false,
+      "position": 11,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "terminal_evidence",
+      "nullable": true,
+      "position": 12,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 13,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 14,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "idempotency_key",
+      "nullable": true,
+      "position": 15,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lease_owner",
+      "nullable": true,
+      "position": 16,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lease_expires_at",
+      "nullable": true,
+      "position": 17,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "heartbeat_at",
+      "nullable": true,
+      "position": 18,
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "work_item_artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "artifact_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "work_item_artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role",
+      "nullable": false,
+      "position": 3,
+      "relation": "work_item_artifact",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "work_item_dependency",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "depends_on_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "work_item_dependency",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'completion'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dependency_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "work_item_dependency",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "work_item_dependency",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "attempt_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "event_type",
+      "nullable": false,
+      "position": 5,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "actor",
+      "nullable": false,
+      "position": 6,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "message",
+      "nullable": true,
+      "position": 7,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "payload",
+      "nullable": false,
+      "position": 8,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "occurred_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "work_item_kind",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 2,
+      "relation": "work_item_kind",
+      "schema": "orchestration"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 3,
+      "relation": "work_item_kind",
+      "schema": "orchestration"
+    }
+  ],
+  "constraints": [
+    {
+      "definition": "CHECK (status = ANY (ARRAY['active'::text, 'rotated'::text, 'closed'::text, 'failed'::text]))",
+      "name": "agent_session_status_check",
+      "references": null,
+      "relation": "agent_session",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL",
+      "name": "agent_session_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "agent_session",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (rotated_from_id) REFERENCES orchestration.agent_session(id)",
+      "name": "agent_session_rotated_from_id_fkey",
+      "references": "orchestration.agent_session",
+      "relation": "agent_session",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "agent_session_pkey",
+      "references": null,
+      "relation": "agent_session",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (eve_session_id)",
+      "name": "agent_session_eve_session_id_key",
+      "references": null,
+      "relation": "agent_session",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (sha256 ~ '^[0-9a-f]{64}$'::text)",
+      "name": "artifact_sha256_check",
+      "references": null,
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (size_bytes >= 0)",
+      "name": "artifact_size_bytes_check",
+      "references": null,
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (artifact_type) REFERENCES orchestration.artifact_type(code)",
+      "name": "artifact_artifact_type_fkey",
+      "references": "orchestration.artifact_type",
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL",
+      "name": "artifact_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (producer_attempt_id) REFERENCES orchestration.attempt(id)",
+      "name": "artifact_producer_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (superseded_by_id) REFERENCES orchestration.artifact(id)",
+      "name": "artifact_superseded_by_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "artifact_pkey",
+      "references": null,
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (sha256, artifact_type)",
+      "name": "artifact_sha256_artifact_type_key",
+      "references": null,
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "UNIQUE (storage_bucket, object_path)",
+      "name": "artifact_storage_bucket_object_path_key",
+      "references": null,
+      "relation": "artifact",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (num_nonnulls(mission_id, work_item_id) >= 1)",
+      "name": "artifact_manifest_scope",
+      "references": null,
+      "relation": "artifact_manifest",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "artifact_manifest_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "artifact_manifest",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "artifact_manifest_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "artifact_manifest",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "artifact_manifest_pkey",
+      "references": null,
+      "relation": "artifact_manifest",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (code)",
+      "name": "artifact_type_pkey",
+      "references": null,
+      "relation": "artifact_type",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_session_id) REFERENCES orchestration.agent_session(id)",
+      "name": "attempt_agent_session_id_fkey",
+      "references": "orchestration.agent_session",
+      "relation": "attempt",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "attempt_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "attempt",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "attempt_pkey",
+      "references": null,
+      "relation": "attempt",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (work_item_id, attempt_no)",
+      "name": "attempt_work_item_id_attempt_no_key",
+      "references": null,
+      "relation": "attempt",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (kind) REFERENCES orchestration.capability_kind(code)",
+      "name": "capability_kind_fkey",
+      "references": "orchestration.capability_kind",
+      "relation": "capability",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (packages_mcp_server_version_id) REFERENCES corpus.mcp_server_version(id)",
+      "name": "capability_packages_mcp_server_version_fk",
+      "references": "corpus.mcp_server_version",
+      "relation": "capability",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "capability_pkey",
+      "references": null,
+      "relation": "capability",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "capability_tenant_id_slug_key",
+      "references": null,
+      "relation": "capability",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "PRIMARY KEY (code)",
+      "name": "capability_kind_pkey",
+      "references": null,
+      "relation": "capability_kind",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "capability_profile_pkey",
+      "references": null,
+      "relation": "capability_profile",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "capability_profile_tenant_id_slug_key",
+      "references": null,
+      "relation": "capability_profile",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (activation = ANY (ARRAY['available'::text, 'preloaded'::text, 'on_demand'::text, 'disabled'::text]))",
+      "name": "capability_profile_item_activation_check",
+      "references": null,
+      "relation": "capability_profile_item",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (capability_version_id) REFERENCES orchestration.capability_version(id) ON DELETE CASCADE",
+      "name": "capability_profile_item_capability_version_id_fkey",
+      "references": "orchestration.capability_version",
+      "relation": "capability_profile_item",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (profile_id) REFERENCES orchestration.capability_profile(id) ON DELETE CASCADE",
+      "name": "capability_profile_item_profile_id_fkey",
+      "references": "orchestration.capability_profile",
+      "relation": "capability_profile_item",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (profile_id, capability_version_id)",
+      "name": "capability_profile_item_pkey",
+      "references": null,
+      "relation": "capability_profile_item",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (lifecycle = ANY (ARRAY['draft'::text, 'candidate'::text, 'active'::text, 'deprecated'::text, 'retired'::text]))",
+      "name": "capability_version_lifecycle_check",
+      "references": null,
+      "relation": "capability_version",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (capability_id) REFERENCES orchestration.capability(id) ON DELETE CASCADE",
+      "name": "capability_version_capability_id_fkey",
+      "references": "orchestration.capability",
+      "relation": "capability_version",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (eval_suite_id) REFERENCES evaluation.eval_dataset(id)",
+      "name": "capability_version_eval_suite_fk",
+      "references": "evaluation.eval_dataset",
+      "relation": "capability_version",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "capability_version_pkey",
+      "references": null,
+      "relation": "capability_version",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (capability_id, version_label)",
+      "name": "capability_version_capability_id_version_label_key",
+      "references": null,
+      "relation": "capability_version",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (verification_status = ANY (ARRAY['unverified'::text, 'verified'::text, 'failed'::text]))",
+      "name": "continuation_checkpoint_verification_status_check",
+      "references": null,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_session_id) REFERENCES orchestration.agent_session(id)",
+      "name": "continuation_checkpoint_agent_session_id_fkey",
+      "references": "orchestration.agent_session",
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "continuation_checkpoint_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (package_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "continuation_checkpoint_package_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "continuation_checkpoint_pkey",
+      "references": null,
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (code)",
+      "name": "intent_type_pkey",
+      "references": null,
+      "relation": "intent_type",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK ((status = ANY (ARRAY['succeeded'::orchestration.mission_status, 'failed'::orchestration.mission_status, 'cancelled'::orchestration.mission_status, 'superseded'::orchestration.mission_status])) = (ended_at IS NOT NULL))",
+      "name": "mission_terminal_has_end",
+      "references": null,
+      "relation": "mission",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (capability_profile_id) REFERENCES orchestration.capability_profile(id)",
+      "name": "mission_capability_profile_fk",
+      "references": "orchestration.capability_profile",
+      "relation": "mission",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (selection_id) REFERENCES ranking.selection(id)",
+      "name": "mission_selection_fk",
+      "references": "ranking.selection",
+      "relation": "mission",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "mission_pkey",
+      "references": null,
+      "relation": "mission",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "mission_slug_uq",
+      "references": null,
+      "relation": "mission",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "mission_event_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "mission_event",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "mission_event_pkey",
+      "references": null,
+      "relation": "mission_event",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (approval_state = ANY (ARRAY['pending'::text, 'approved'::text, 'budgeted'::text, 'denied'::text, 'escalated'::text]))",
+      "name": "operation_intent_approval_state_check",
+      "references": null,
+      "relation": "operation_intent",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (intent_type) REFERENCES orchestration.intent_type(code)",
+      "name": "operation_intent_intent_type_fkey",
+      "references": "orchestration.intent_type",
+      "relation": "operation_intent",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL",
+      "name": "operation_intent_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "operation_intent",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (proposed_by_attempt) REFERENCES orchestration.attempt(id)",
+      "name": "operation_intent_proposed_by_attempt_fkey",
+      "references": "orchestration.attempt",
+      "relation": "operation_intent",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "operation_intent_pkey",
+      "references": null,
+      "relation": "operation_intent",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (idempotency_key)",
+      "name": "operation_intent_idempotency_key_key",
+      "references": null,
+      "relation": "operation_intent",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (outcome = ANY (ARRAY['applied'::text, 'rejected'::text, 'noop'::text, 'partial'::text]))",
+      "name": "operation_receipt_outcome_check",
+      "references": null,
+      "relation": "operation_receipt",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (intent_id) REFERENCES orchestration.operation_intent(id)",
+      "name": "operation_receipt_intent_id_fkey",
+      "references": "orchestration.operation_intent",
+      "relation": "operation_receipt",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "operation_receipt_pkey",
+      "references": null,
+      "relation": "operation_receipt",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (intent_id)",
+      "name": "operation_receipt_intent_id_key",
+      "references": null,
+      "relation": "operation_receipt",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "outbox_event_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "outbox_event",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "outbox_event_pkey",
+      "references": null,
+      "relation": "outbox_event",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "provider_route_pkey",
+      "references": null,
+      "relation": "provider_route",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (abstract_operation, provider, policy_version)",
+      "name": "provider_route_abstract_operation_provider_policy_version_key",
+      "references": null,
+      "relation": "provider_route",
+      "schema": "orchestration",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (attempt_count >= 0 AND max_attempts > 0)",
+      "name": "work_item_attempts_sane",
+      "references": null,
+      "relation": "work_item",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (status = 'running'::orchestration.work_item_status AND lease_owner IS NOT NULL AND lease_expires_at IS NOT NULL OR status <> 'running'::orchestration.work_item_status AND lease_owner IS NULL AND lease_expires_at IS NULL)",
+      "name": "work_item_lease_consistent",
+      "references": null,
+      "relation": "work_item",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (capability_profile_id) REFERENCES orchestration.capability_profile(id)",
+      "name": "work_item_capability_profile_fk",
+      "references": "orchestration.capability_profile",
+      "relation": "work_item",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (kind) REFERENCES orchestration.work_item_kind(code)",
+      "name": "work_item_kind_fkey",
+      "references": "orchestration.work_item_kind",
+      "relation": "work_item",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "work_item_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "work_item",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "work_item_pkey",
+      "references": null,
+      "relation": "work_item",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role = ANY (ARRAY['produced'::text, 'consumed'::text]))",
+      "name": "work_item_artifact_role_check",
+      "references": null,
+      "relation": "work_item_artifact",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (artifact_id) REFERENCES orchestration.artifact(id) ON DELETE CASCADE",
+      "name": "work_item_artifact_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "work_item_artifact",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "work_item_artifact_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "work_item_artifact",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (work_item_id, artifact_id, role)",
+      "name": "work_item_artifact_pkey",
+      "references": null,
+      "relation": "work_item_artifact",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (dependency_kind = ANY (ARRAY['completion'::text, 'artifact'::text, 'approval'::text, 'data'::text]))",
+      "name": "work_item_dependency_dependency_kind_check",
+      "references": null,
+      "relation": "work_item_dependency",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (work_item_id <> depends_on_id)",
+      "name": "work_item_dependency_no_self",
+      "references": null,
+      "relation": "work_item_dependency",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (depends_on_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "work_item_dependency_depends_on_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "work_item_dependency",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "work_item_dependency_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "work_item_dependency",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (work_item_id, depends_on_id)",
+      "name": "work_item_dependency_pkey",
+      "references": null,
+      "relation": "work_item_dependency",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (event_type = ANY (ARRAY['created'::text, 'ready'::text, 'claimed'::text, 'heartbeat'::text, 'checkpoint'::text, 'blocked'::text, 'released'::text, 'succeeded'::text, 'failed'::text, 'cancelled'::text, 'skipped'::text]))",
+      "name": "work_item_event_event_type_check",
+      "references": null,
+      "relation": "work_item_event",
+      "schema": "orchestration",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (attempt_id) REFERENCES orchestration.attempt(id) ON DELETE SET NULL",
+      "name": "work_item_event_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "work_item_event",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "work_item_event_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "work_item_event",
+      "schema": "orchestration",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "work_item_event_pkey",
+      "references": null,
+      "relation": "work_item_event",
+      "schema": "orchestration",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (code)",
+      "name": "work_item_kind_pkey",
+      "references": null,
+      "relation": "work_item_kind",
+      "schema": "orchestration",
+      "type": "primary_key"
+    }
+  ],
+  "enums": [
+    {
+      "name": "attempt_outcome",
+      "schema": "orchestration",
+      "values": [
+        "succeeded",
+        "failed",
+        "timeout",
+        "cancelled",
+        "rejected"
+      ]
+    },
+    {
+      "name": "bucket_class",
+      "schema": "orchestration",
+      "values": [
+        "source_captures",
+        "candidate",
+        "accepted",
+        "ledger",
+        "published"
+      ]
+    },
+    {
+      "name": "mission_status",
+      "schema": "orchestration",
+      "values": [
+        "created",
+        "planning",
+        "running",
+        "paused",
+        "blocked",
+        "succeeded",
+        "failed",
+        "cancelled",
+        "superseded"
+      ]
+    },
+    {
+      "name": "work_item_status",
+      "schema": "orchestration",
+      "values": [
+        "pending",
+        "ready",
+        "running",
+        "blocked",
+        "succeeded",
+        "failed",
+        "cancelled",
+        "skipped"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "arguments": "",
+      "description": null,
+      "name": "artifact_guard",
+      "returns": "trigger",
+      "schema": "orchestration",
+      "security_definer": false,
+      "volatility": "volatile"
+    }
+  ],
+  "indexes": [
+    {
+      "definition": "CREATE UNIQUE INDEX agent_session_eve_session_id_key ON orchestration.agent_session USING btree (eve_session_id)",
+      "name": "agent_session_eve_session_id_key",
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX agent_session_mission_idx ON orchestration.agent_session USING btree (mission_id)",
+      "name": "agent_session_mission_idx",
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX agent_session_pkey ON orchestration.agent_session USING btree (id)",
+      "name": "agent_session_pkey",
+      "relation": "agent_session",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX artifact_mission_idx ON orchestration.artifact USING btree (mission_id)",
+      "name": "artifact_mission_idx",
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX artifact_pkey ON orchestration.artifact USING btree (id)",
+      "name": "artifact_pkey",
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX artifact_sha256_artifact_type_key ON orchestration.artifact USING btree (sha256, artifact_type)",
+      "name": "artifact_sha256_artifact_type_key",
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX artifact_storage_bucket_object_path_key ON orchestration.artifact USING btree (storage_bucket, object_path)",
+      "name": "artifact_storage_bucket_object_path_key",
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX artifact_type_idx ON orchestration.artifact USING btree (artifact_type, created_at DESC)",
+      "name": "artifact_type_idx",
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX artifact_manifest_pkey ON orchestration.artifact_manifest USING btree (id)",
+      "name": "artifact_manifest_pkey",
+      "relation": "artifact_manifest",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX artifact_type_pkey ON orchestration.artifact_type USING btree (code)",
+      "name": "artifact_type_pkey",
+      "relation": "artifact_type",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX attempt_deployment_idx ON orchestration.attempt USING btree (agent_deployment_id)",
+      "name": "attempt_deployment_idx",
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX attempt_pkey ON orchestration.attempt USING btree (id)",
+      "name": "attempt_pkey",
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX attempt_session_idx ON orchestration.attempt USING btree (agent_session_id)",
+      "name": "attempt_session_idx",
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX attempt_work_item_id_attempt_no_key ON orchestration.attempt USING btree (work_item_id, attempt_no)",
+      "name": "attempt_work_item_id_attempt_no_key",
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_pkey ON orchestration.capability USING btree (id)",
+      "name": "capability_pkey",
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_tenant_id_slug_key ON orchestration.capability USING btree (tenant_id, slug)",
+      "name": "capability_tenant_id_slug_key",
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_kind_pkey ON orchestration.capability_kind USING btree (code)",
+      "name": "capability_kind_pkey",
+      "relation": "capability_kind",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_profile_pkey ON orchestration.capability_profile USING btree (id)",
+      "name": "capability_profile_pkey",
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_profile_tenant_id_slug_key ON orchestration.capability_profile USING btree (tenant_id, slug)",
+      "name": "capability_profile_tenant_id_slug_key",
+      "relation": "capability_profile",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_profile_item_pkey ON orchestration.capability_profile_item USING btree (profile_id, capability_version_id)",
+      "name": "capability_profile_item_pkey",
+      "relation": "capability_profile_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_version_capability_id_version_label_key ON orchestration.capability_version USING btree (capability_id, version_label)",
+      "name": "capability_version_capability_id_version_label_key",
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX capability_version_pkey ON orchestration.capability_version USING btree (id)",
+      "name": "capability_version_pkey",
+      "relation": "capability_version",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX continuation_checkpoint_mission_idx ON orchestration.continuation_checkpoint USING btree (mission_id, created_at DESC)",
+      "name": "continuation_checkpoint_mission_idx",
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX continuation_checkpoint_pkey ON orchestration.continuation_checkpoint USING btree (id)",
+      "name": "continuation_checkpoint_pkey",
+      "relation": "continuation_checkpoint",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX intent_type_pkey ON orchestration.intent_type USING btree (code)",
+      "name": "intent_type_pkey",
+      "relation": "intent_type",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX mission_pkey ON orchestration.mission USING btree (id)",
+      "name": "mission_pkey",
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX mission_slug_uq ON orchestration.mission USING btree (tenant_id, slug)",
+      "name": "mission_slug_uq",
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX mission_status_idx ON orchestration.mission USING btree (status, created_at DESC)",
+      "name": "mission_status_idx",
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX mission_event_mission_idx ON orchestration.mission_event USING btree (mission_id, occurred_at)",
+      "name": "mission_event_mission_idx",
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX mission_event_pkey ON orchestration.mission_event USING btree (id)",
+      "name": "mission_event_pkey",
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX operation_intent_idempotency_key_key ON orchestration.operation_intent USING btree (idempotency_key)",
+      "name": "operation_intent_idempotency_key_key",
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX operation_intent_mission_idx ON orchestration.operation_intent USING btree (mission_id)",
+      "name": "operation_intent_mission_idx",
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX operation_intent_pkey ON orchestration.operation_intent USING btree (id)",
+      "name": "operation_intent_pkey",
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX operation_intent_state_idx ON orchestration.operation_intent USING btree (approval_state, created_at)",
+      "name": "operation_intent_state_idx",
+      "relation": "operation_intent",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX operation_receipt_applied_idx ON orchestration.operation_receipt USING btree (applied_at DESC)",
+      "name": "operation_receipt_applied_idx",
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX operation_receipt_intent_id_key ON orchestration.operation_receipt USING btree (intent_id)",
+      "name": "operation_receipt_intent_id_key",
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX operation_receipt_pkey ON orchestration.operation_receipt USING btree (id)",
+      "name": "operation_receipt_pkey",
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX outbox_event_pkey ON orchestration.outbox_event USING btree (id)",
+      "name": "outbox_event_pkey",
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX outbox_event_unpublished_idx ON orchestration.outbox_event USING btree (created_at) WHERE (published_at IS NULL)",
+      "name": "outbox_event_unpublished_idx",
+      "relation": "outbox_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX provider_route_abstract_operation_provider_policy_version_key ON orchestration.provider_route USING btree (abstract_operation, provider, policy_version)",
+      "name": "provider_route_abstract_operation_provider_policy_version_key",
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX provider_route_pkey ON orchestration.provider_route USING btree (id)",
+      "name": "provider_route_pkey",
+      "relation": "provider_route",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX work_item_idempotency_uq ON orchestration.work_item USING btree (tenant_id, idempotency_key) WHERE (idempotency_key IS NOT NULL)",
+      "name": "work_item_idempotency_uq",
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX work_item_lease_idx ON orchestration.work_item USING btree (status, lease_expires_at, created_at) WHERE (status = ANY (ARRAY['pending'::orchestration.work_item_status, 'ready'::orchestration.work_item_status, 'running'::orchestration.work_item_status]))",
+      "name": "work_item_lease_idx",
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX work_item_mission_idx ON orchestration.work_item USING btree (mission_id, status)",
+      "name": "work_item_mission_idx",
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX work_item_pkey ON orchestration.work_item USING btree (id)",
+      "name": "work_item_pkey",
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX work_item_ready_idx ON orchestration.work_item USING btree (status, created_at) WHERE (status = ANY (ARRAY['pending'::orchestration.work_item_status, 'ready'::orchestration.work_item_status]))",
+      "name": "work_item_ready_idx",
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX work_item_artifact_pkey ON orchestration.work_item_artifact USING btree (work_item_id, artifact_id, role)",
+      "name": "work_item_artifact_pkey",
+      "relation": "work_item_artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX work_item_dependency_pkey ON orchestration.work_item_dependency USING btree (work_item_id, depends_on_id)",
+      "name": "work_item_dependency_pkey",
+      "relation": "work_item_dependency",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX work_item_dependency_reverse_idx ON orchestration.work_item_dependency USING btree (depends_on_id)",
+      "name": "work_item_dependency_reverse_idx",
+      "relation": "work_item_dependency",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX work_item_event_attempt_idx ON orchestration.work_item_event USING btree (attempt_id) WHERE (attempt_id IS NOT NULL)",
+      "name": "work_item_event_attempt_idx",
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE INDEX work_item_event_item_idx ON orchestration.work_item_event USING btree (work_item_id, occurred_at)",
+      "name": "work_item_event_item_idx",
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX work_item_event_pkey ON orchestration.work_item_event USING btree (id)",
+      "name": "work_item_event_pkey",
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX work_item_kind_pkey ON orchestration.work_item_kind USING btree (code)",
+      "name": "work_item_kind_pkey",
+      "relation": "work_item_kind",
+      "schema": "orchestration"
+    }
+  ],
+  "policies": [
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "agent_session",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "artifact",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "artifact_manifest",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "artifact_type",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "attempt",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "capability",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "capability_kind",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "capability_profile",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "capability_profile_item",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "capability_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "continuation_checkpoint",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "intent_type",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "mission",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "mission_event",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "operation_intent",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "operation_receipt",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "outbox_event",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "provider_route",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "work_item",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "work_item_artifact",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "work_item_dependency",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "work_item_event",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "work_item_kind",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "orchestration",
+      "using_expression": "true"
+    }
+  ],
+  "relations": [
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "agent_session",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "artifact",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "artifact_manifest",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "artifact_type",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "attempt",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "capability",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "capability_kind",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "capability_profile",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "capability_profile_item",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "capability_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "continuation_checkpoint",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "intent_type",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "mission",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "mission_event",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "operation_intent",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "operation_receipt",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "outbox_event",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "provider_route",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "work_item",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "work_item_artifact",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "work_item_dependency",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": "Append-only cross-agent progress ledger. Lease state remains on work_item; every transition and checkpoint is recorded here.",
+      "kind": "table",
+      "name": "work_item_event",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "work_item_kind",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "orchestration"
+    }
+  ],
+  "schema": "orchestration"
+}
