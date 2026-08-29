@@ -1,4 +1,4 @@
-import { readdirSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 
 const requireSecrets = process.argv.includes("--require-secrets");
@@ -11,36 +11,66 @@ if (major < 24) {
   console.log(`ok node ${process.version}`);
 }
 
-for (const command of ["tvly", "firecrawl", "agent-browser"]) {
-  const result = spawnSync(command, ["--version"], {
+const commands = [
+  ["tvly", ["--version"]],
+  ["firecrawl", ["--version"]],
+  ["agent-browser", ["--version"]],
+  ["jq", ["--version"]],
+  ["rg", ["--version"]],
+  ["python3", ["--version"]],
+  ["git", ["--version"]],
+  ["curl", ["--version"]],
+  ["ffmpeg", ["-version"]],
+  ["pdftotext", ["-v"]]
+];
+
+for (const [command, args] of commands) {
+  const result = spawnSync(command, args, {
     encoding: "utf8",
     shell: process.platform === "win32"
   });
 
-  if (result.status !== 0) {
+  if (result.status !== 0 && result.status !== null) {
+    // pdftotext -v writes to stderr and may use a non-zero exit on some builds
+    const combined = `${result.stdout ?? ""}${result.stderr ?? ""}`;
+    if (command === "pdftotext" && /pdftotext/i.test(combined)) {
+      console.log(`ok ${command} ${combined.trim().split("\n")[0]}`);
+      continue;
+    }
     failures.push(`${command} is unavailable or failed its version check`);
     continue;
   }
 
-  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim();
+  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim().split("\n")[0];
   console.log(`ok ${command} ${version}`);
 }
 
-const requiredSkills = [
-  "agent-browser",
-  "firecrawl",
-  "firecrawl-developer-index",
-  "firecrawl-research-index",
-  "tavily-cli",
-  "tavily-research",
-  "tavily-search"
-];
+let lockSkills = [];
+try {
+  const lock = JSON.parse(readFileSync("skills-lock.json", "utf8"));
+  lockSkills = Object.keys(lock.skills ?? {}).sort();
+} catch {
+  failures.push("skills-lock.json is missing or invalid");
+}
+
+const requiredSkills = lockSkills.length > 0
+  ? lockSkills
+  : [
+      "agent-browser",
+      "firecrawl",
+      "firecrawl-developer-index",
+      "firecrawl-research-index",
+      "tavily-cli",
+      "tavily-research",
+      "tavily-search"
+    ];
 
 let installedSkills = [];
 try {
   installedSkills = readdirSync(".agents/skills", { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
+    .map((entry) => entry.name)
+    .sort();
 } catch {
   failures.push(".agents/skills is missing");
 }
@@ -55,6 +85,14 @@ if (installedSkills.length > 0) {
   console.log(`ok ${installedSkills.length} project skills discovered`);
 }
 
+for (const dir of ["artifacts", ".firecrawl", "artifacts/smoke", "artifacts/validation"]) {
+  mkdirSync(dir, { recursive: true });
+  if (!existsSync(dir)) {
+    failures.push(`could not create ${dir}`);
+  }
+}
+console.log("ok artifact directories ready");
+
 if (requireSecrets) {
   for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY"]) {
     if (!process.env[name]) {
@@ -62,6 +100,12 @@ if (requireSecrets) {
     } else {
       console.log(`ok ${name} is set (value hidden)`);
     }
+  }
+
+  if (process.env.CONTEXT7_API_KEY) {
+    console.log("ok CONTEXT7_API_KEY is set (value hidden)");
+  } else {
+    console.log("note CONTEXT7_API_KEY is unset; Context7 MCP may hit the monthly free quota");
   }
 }
 

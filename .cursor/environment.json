@@ -1,6 +1,14 @@
 {
+  "name": "AI Engineer Industry Research",
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "install": "npm run verify:environment"
+  "install": "npm run verify:environment",
+  "start": "mkdir -p artifacts .firecrawl artifacts/smoke artifacts/validation",
+  "ports": [
+    {
+      "name": "agent-browser dashboard",
+      "port": 4848
+    }
+  ]
 }
