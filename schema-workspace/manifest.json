@@ -1,0 +1,61 @@
+{
+  "format": "ai-engineer-schema-workspace/2",
+  "schemas": [
+    {
+      "name": "public",
+      "path": "schemas/public/README.md",
+      "relations": 40
+    },
+    {
+      "name": "api",
+      "path": "schemas/api/README.md",
+      "relations": 9
+    },
+    {
+      "name": "orchestration",
+      "path": "schemas/orchestration/README.md",
+      "relations": 23
+    },
+    {
+      "name": "evidence",
+      "path": "schemas/evidence/README.md",
+      "relations": 37
+    },
+    {
+      "name": "taxonomy",
+      "path": "schemas/taxonomy/README.md",
+      "relations": 8
+    },
+    {
+      "name": "corpus",
+      "path": "schemas/corpus/README.md",
+      "relations": 76
+    },
+    {
+      "name": "staging",
+      "path": "schemas/staging/README.md",
+      "relations": 22
+    },
+    {
+      "name": "ranking",
+      "path": "schemas/ranking/README.md",
+      "relations": 16
+    },
+    {
+      "name": "research",
+      "path": "schemas/research/README.md",
+      "relations": 8
+    }
+  ],
+  "totals": {
+    "columns": 2319,
+    "constraints": 1210,
+    "enums": 30,
+    "functions": 15,
+    "indexes": 570,
+    "policies": 190,
+    "relations": 239,
+    "schemas": 9,
+    "triggers": 94
+  }
+}

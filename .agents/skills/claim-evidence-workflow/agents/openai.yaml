@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claim Evidence Workflow"
+  short_description: "Extract and independently verify AI claims"
+  default_prompt: "Use $claim-evidence-workflow to extract atomic claims with exact evidence and independently verify them."

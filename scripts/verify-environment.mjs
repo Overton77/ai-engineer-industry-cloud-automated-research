@@ -1,5 +1,9 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
+import { resolve } from "node:path";
+
+const envPath = process.env.AI_ENGINEER_ENV_FILE ?? resolve(".env");
+if (existsSync(envPath) && typeof process.loadEnvFile === "function") process.loadEnvFile(envPath);
 
 const requireSecrets = process.argv.includes("--require-secrets");
 const failures = [];
@@ -9,6 +13,25 @@ if (major < 24) {
   failures.push(`Node 24+ is required; found ${process.version}`);
 } else {
   console.log(`ok node ${process.version}`);
+}
+
+function runVersionCheck(command, args) {
+  if (process.platform === "win32") {
+    const candidates = spawnSync("where.exe", [command], { encoding: "utf8" }).stdout?.split(/\r?\n/).filter(Boolean) ?? [];
+    const located = candidates.find((candidate) => candidate.toLowerCase().endsWith(".cmd")) ?? candidates[0];
+    const executable = located ?? command;
+    const powershellLiteral = executable.replaceAll("'", "''");
+    const argLiteral = args.map((arg) => `'${String(arg).replaceAll("'", "''")}'`).join(" ");
+    return spawnSync("powershell.exe", [
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-Command",
+      `& '${powershellLiteral}' ${argLiteral}`
+    ], { encoding: "utf8" });
+  }
+
+  return spawnSync(command, args, { encoding: "utf8" });
 }
 
 const commands = [
@@ -26,13 +49,9 @@ const commands = [
 ];
 
 for (const [command, args] of commands) {
-  const result = spawnSync(command, args, {
-    encoding: "utf8",
-    shell: process.platform === "win32"
-  });
+  const result = runVersionCheck(command, args);
 
   if (result.status !== 0 && result.status !== null) {
-    // pdftotext -v writes to stderr and may use a non-zero exit on some builds
     const combined = `${result.stdout ?? ""}${result.stderr ?? ""}`;
     if (command === "pdftotext" && /pdftotext/i.test(combined)) {
       console.log(`ok ${command} ${combined.trim().split("\n")[0]}`);
@@ -46,25 +65,25 @@ for (const [command, args] of commands) {
   console.log(`ok ${command} ${version}`);
 }
 
-let lockSkills = [];
+const requiredSkills = [
+  "agent-browser",
+  "ai-engineer-cloud-research",
+  "firecrawl",
+  "firecrawl-developer-index",
+  "firecrawl-research-index",
+  "tavily-cli",
+  "tavily-research",
+  "tavily-search"
+];
+
 try {
   const lock = JSON.parse(readFileSync("skills-lock.json", "utf8"));
-  lockSkills = Object.keys(lock.skills ?? {}).sort();
+  for (const skill of Object.keys(lock.skills ?? {})) {
+    if (!requiredSkills.includes(skill)) requiredSkills.push(skill);
+  }
 } catch {
   failures.push("skills-lock.json is missing or invalid");
 }
-
-const requiredSkills = lockSkills.length > 0
-  ? lockSkills
-  : [
-      "agent-browser",
-      "firecrawl",
-      "firecrawl-developer-index",
-      "firecrawl-research-index",
-      "tavily-cli",
-      "tavily-research",
-      "tavily-search"
-    ];
 
 let installedSkills = [];
 try {

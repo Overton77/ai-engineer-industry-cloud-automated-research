@@ -1,0 +1,1289 @@
+{
+  "columns": [
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "bundle_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "bundle_artifact",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "artifact_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "bundle_artifact",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role",
+      "nullable": false,
+      "position": 3,
+      "relation": "bundle_artifact",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": false,
+      "position": 3,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_kind",
+      "nullable": false,
+      "position": 4,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid[]",
+      "default_expression": "'{}'::uuid[]",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_ids",
+      "nullable": false,
+      "position": 5,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'[]'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dimensions",
+      "nullable": false,
+      "position": 6,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "verdicts",
+      "nullable": false,
+      "position": 7,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "target_pipeline",
+      "nullable": false,
+      "position": 3,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "payload_artifact_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "consumed_by_work_item_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'pending'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 6,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "consumed_at",
+      "nullable": true,
+      "position": 8,
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": false,
+      "position": 3,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "statement",
+      "nullable": false,
+      "position": 4,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "structured",
+      "nullable": true,
+      "position": 5,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "proposed_record_kind",
+      "nullable": true,
+      "position": 6,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "research.finding_resolution",
+      "default_expression": "'pending'::research.finding_resolution",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "resolution",
+      "nullable": false,
+      "position": 7,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "resolved_record_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rejection_reason",
+      "nullable": true,
+      "position": 9,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 11,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "resolved_at",
+      "nullable": true,
+      "position": 12,
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 4,
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "title",
+      "nullable": false,
+      "position": 5,
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "report_version_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "report_claim",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "report_claim",
+      "schema": "research"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'supports'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role",
+      "nullable": false,
+      "position": 3,
+      "relation": "report_claim",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "report_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version",
+      "nullable": false,
+      "position": 3,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "markdown_artifact_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "json_artifact_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "synthesis_consistency_eval_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "assurance_summary",
+      "nullable": false,
+      "position": 7,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "published_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "1",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "bundle_version",
+      "nullable": false,
+      "position": 4,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "manifest_artifact_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "research.bundle_status",
+      "default_expression": "'assembling'::research.bundle_status",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 6,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "research_bundle",
+      "schema": "research"
+    }
+  ],
+  "constraints": [
+    {
+      "definition": "FOREIGN KEY (artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "bundle_artifact_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "bundle_artifact",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (bundle_id) REFERENCES research.research_bundle(id) ON DELETE CASCADE",
+      "name": "bundle_artifact_bundle_id_fkey",
+      "references": "research.research_bundle",
+      "relation": "bundle_artifact",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (bundle_id, artifact_id, role)",
+      "name": "bundle_artifact_pkey",
+      "references": null,
+      "relation": "bundle_artifact",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "comparison_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "comparison",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "comparison_pkey",
+      "references": null,
+      "relation": "comparison",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (status = ANY (ARRAY['pending'::text, 'consumed'::text, 'failed'::text, 'cancelled'::text]))",
+      "name": "downstream_handoff_status_check",
+      "references": null,
+      "relation": "downstream_handoff",
+      "schema": "research",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (target_pipeline = ANY (ARRAY['curriculum'::text, 'challenge'::text, 'retrieval'::text, 'ranking'::text, 'publication'::text]))",
+      "name": "downstream_handoff_target_pipeline_check",
+      "references": null,
+      "relation": "downstream_handoff",
+      "schema": "research",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (consumed_by_work_item_id) REFERENCES orchestration.work_item(id)",
+      "name": "downstream_handoff_consumed_by_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "downstream_handoff",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "downstream_handoff_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "downstream_handoff",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (payload_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "downstream_handoff_payload_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "downstream_handoff",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "downstream_handoff_pkey",
+      "references": null,
+      "relation": "downstream_handoff",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK ((resolution = 'promoted'::research.finding_resolution) = (resolved_record_id IS NOT NULL))",
+      "name": "finding_promoted_has_record",
+      "references": null,
+      "relation": "finding",
+      "schema": "research",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (proposed_record_kind = ANY (ARRAY['technical_problem'::text, 'solution_pattern'::text, 'advanced_usage_pattern'::text, 'implementation_example'::text, 'failure_mode'::text, 'benchmark_result'::text, 'compatibility_constraint'::text, 'operational_practice'::text, 'security_consideration'::text]))",
+      "name": "finding_proposed_record_kind_check",
+      "references": null,
+      "relation": "finding",
+      "schema": "research",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (resolution <> 'rejected'::research.finding_resolution OR rejection_reason IS NOT NULL)",
+      "name": "finding_rejected_has_reason",
+      "references": null,
+      "relation": "finding",
+      "schema": "research",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "finding_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "finding",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "finding_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "finding",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "finding_pkey",
+      "references": null,
+      "relation": "finding",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL",
+      "name": "report_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "report",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "report_pkey",
+      "references": null,
+      "relation": "report",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "report_tenant_id_slug_key",
+      "references": null,
+      "relation": "report",
+      "schema": "research",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (role = ANY (ARRAY['supports'::text, 'context'::text, 'caveat'::text, 'contradicts'::text]))",
+      "name": "report_claim_role_check",
+      "references": null,
+      "relation": "report_claim",
+      "schema": "research",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id)",
+      "name": "report_claim_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "report_claim",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (report_version_id) REFERENCES research.report_version(id) ON DELETE CASCADE",
+      "name": "report_claim_report_version_id_fkey",
+      "references": "research.report_version",
+      "relation": "report_claim",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (report_version_id, claim_id, role)",
+      "name": "report_claim_pkey",
+      "references": null,
+      "relation": "report_claim",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (synthesis_consistency_eval_id) REFERENCES evaluation.eval_run(id)",
+      "name": "report_version_consistency_eval_fk",
+      "references": "evaluation.eval_run",
+      "relation": "report_version",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (json_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "report_version_json_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "report_version",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (markdown_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "report_version_markdown_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "report_version",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (report_id) REFERENCES research.report(id) ON DELETE CASCADE",
+      "name": "report_version_report_id_fkey",
+      "references": "research.report",
+      "relation": "report_version",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "report_version_pkey",
+      "references": null,
+      "relation": "report_version",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (report_id, version)",
+      "name": "report_version_report_id_version_key",
+      "references": null,
+      "relation": "report_version",
+      "schema": "research",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (manifest_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "research_bundle_manifest_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "research_bundle",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "research_bundle_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "research_bundle",
+      "schema": "research",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "research_bundle_pkey",
+      "references": null,
+      "relation": "research_bundle",
+      "schema": "research",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (mission_id, bundle_version)",
+      "name": "research_bundle_mission_id_bundle_version_key",
+      "references": null,
+      "relation": "research_bundle",
+      "schema": "research",
+      "type": "unique"
+    }
+  ],
+  "enums": [
+    {
+      "name": "bundle_status",
+      "schema": "research",
+      "values": [
+        "assembling",
+        "complete",
+        "failed",
+        "superseded"
+      ]
+    },
+    {
+      "name": "finding_resolution",
+      "schema": "research",
+      "values": [
+        "pending",
+        "promoted",
+        "rejected",
+        "deferred",
+        "merged"
+      ]
+    }
+  ],
+  "functions": [],
+  "indexes": [
+    {
+      "definition": "CREATE UNIQUE INDEX bundle_artifact_pkey ON research.bundle_artifact USING btree (bundle_id, artifact_id, role)",
+      "name": "bundle_artifact_pkey",
+      "relation": "bundle_artifact",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX comparison_pkey ON research.comparison USING btree (id)",
+      "name": "comparison_pkey",
+      "relation": "comparison",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE INDEX downstream_handoff_pending_idx ON research.downstream_handoff USING btree (target_pipeline, created_at) WHERE (status = 'pending'::text)",
+      "name": "downstream_handoff_pending_idx",
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX downstream_handoff_pkey ON research.downstream_handoff USING btree (id)",
+      "name": "downstream_handoff_pkey",
+      "relation": "downstream_handoff",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE INDEX finding_mission_idx ON research.finding USING btree (mission_id, resolution)",
+      "name": "finding_mission_idx",
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX finding_pkey ON research.finding USING btree (id)",
+      "name": "finding_pkey",
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE INDEX finding_unresolved_idx ON research.finding USING btree (created_at) WHERE (resolution = 'pending'::research.finding_resolution)",
+      "name": "finding_unresolved_idx",
+      "relation": "finding",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX report_pkey ON research.report USING btree (id)",
+      "name": "report_pkey",
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX report_tenant_id_slug_key ON research.report USING btree (tenant_id, slug)",
+      "name": "report_tenant_id_slug_key",
+      "relation": "report",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE INDEX report_claim_claim_idx ON research.report_claim USING btree (claim_id)",
+      "name": "report_claim_claim_idx",
+      "relation": "report_claim",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX report_claim_pkey ON research.report_claim USING btree (report_version_id, claim_id, role)",
+      "name": "report_claim_pkey",
+      "relation": "report_claim",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX report_version_pkey ON research.report_version USING btree (id)",
+      "name": "report_version_pkey",
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX report_version_report_id_version_key ON research.report_version USING btree (report_id, version)",
+      "name": "report_version_report_id_version_key",
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX research_bundle_mission_id_bundle_version_key ON research.research_bundle USING btree (mission_id, bundle_version)",
+      "name": "research_bundle_mission_id_bundle_version_key",
+      "relation": "research_bundle",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX research_bundle_pkey ON research.research_bundle USING btree (id)",
+      "name": "research_bundle_pkey",
+      "relation": "research_bundle",
+      "schema": "research"
+    }
+  ],
+  "policies": [
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "bundle_artifact",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "comparison",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "downstream_handoff",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "finding",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "report",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "report_claim",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "report_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "research_bundle",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "research",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    }
+  ],
+  "relations": [
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "bundle_artifact",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "comparison",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "downstream_handoff",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "finding",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "report",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "report_claim",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "report_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "research_bundle",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "research"
+    }
+  ],
+  "schema": "research",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER report_version_immutable BEFORE DELETE OR UPDATE ON research.report_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "report_version_immutable",
+      "relation": "report_version",
+      "schema": "research"
+    },
+    {
+      "definition": "CREATE TRIGGER research_bundle_set_updated_at BEFORE UPDATE ON research.research_bundle FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "research_bundle_set_updated_at",
+      "relation": "research_bundle",
+      "schema": "research"
+    }
+  ]
+}

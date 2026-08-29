@@ -1,0 +1,308 @@
+{
+  "facet_versions": [
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d8b-739c-a20f-186e50580e50",
+      "id": "01a03a49-0d93-7f65-b748-8f1b948a0f70",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-708f-9915-58954634d865",
+      "id": "01a03a49-0d9c-7d79-ac2b-ddc4089fbadf",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-71a4-8ef7-179cc2ea6e94",
+      "id": "01a03a49-0d9c-7064-b576-d30297b473b9",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-733b-9069-aca5ea72abe1",
+      "id": "01a03a49-0d9c-7bbe-8817-356a6680643b",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-783c-ab81-6df2671b61c8",
+      "id": "01a03a49-0d9c-7461-b981-a5947370ef0e",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-78cb-bc31-081192d1d757",
+      "id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-79f6-af46-7b3ad6fabe5d",
+      "id": "01a03a49-0d9c-7884-890d-692529afaa2c",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-7e8d-90a2-8138e75821fe",
+      "id": "01a03a49-0d9c-7ca1-97ae-0fca8cde136a",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    },
+    {
+      "approved_at": null,
+      "facet_id": "01a03a49-0d93-7f57-8e9f-fa2afd2ee788",
+      "id": "01a03a49-0d9b-7ada-b5d8-296a0b8f5403",
+      "notes": null,
+      "status": "active",
+      "version": 1
+    }
+  ],
+  "facets": [
+    {
+      "cardinality": "multi",
+      "description": "Role an item plays in a system (agent-framework, eval-harness, vector-store, ...)",
+      "id": "01a03a49-0d93-78cb-bc31-081192d1d757",
+      "label": "Architecture role",
+      "slug": "architecture_role"
+    },
+    {
+      "cardinality": "multi",
+      "description": "Subject area the item belongs to",
+      "id": "01a03a49-0d8b-739c-a20f-186e50580e50",
+      "label": "Domain",
+      "slug": "domain"
+    },
+    {
+      "cardinality": "single",
+      "description": "Strength of the evidence backing the item",
+      "id": "01a03a49-0d93-79f6-af46-7b3ad6fabe5d",
+      "label": "Evidence state",
+      "slug": "evidence_state"
+    },
+    {
+      "cardinality": "single",
+      "description": "Curriculum difficulty band",
+      "id": "01a03a49-0d93-7e8d-90a2-8138e75821fe",
+      "label": "Learning level",
+      "slug": "learning_level"
+    },
+    {
+      "cardinality": "multi",
+      "description": "Where in the delivery lifecycle this applies",
+      "id": "01a03a49-0d93-7f57-8e9f-fa2afd2ee788",
+      "label": "Lifecycle stage",
+      "slug": "lifecycle_stage"
+    },
+    {
+      "cardinality": "single",
+      "description": "Experimental through declining",
+      "id": "01a03a49-0d93-708f-9915-58954634d865",
+      "label": "Maturity",
+      "slug": "maturity"
+    },
+    {
+      "cardinality": "multi",
+      "description": "Class of technical problem addressed",
+      "id": "01a03a49-0d93-71a4-8ef7-179cc2ea6e94",
+      "label": "Problem class",
+      "slug": "problem_class"
+    },
+    {
+      "cardinality": "multi",
+      "description": "Operational concern the item speaks to",
+      "id": "01a03a49-0d93-733b-9069-aca5ea72abe1",
+      "label": "Production concern",
+      "slug": "production_concern"
+    },
+    {
+      "cardinality": "multi",
+      "description": "Class of solution approach",
+      "id": "01a03a49-0d93-783c-ab81-6df2671b61c8",
+      "label": "Solution class",
+      "slug": "solution_class"
+    }
+  ],
+  "generated_at": "2026-08-29T01:44:12.189Z",
+  "relations": [],
+  "schema_version": "ai-engineer-taxonomy-snapshot/1",
+  "terms": [
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0d9d-7ac8-9baf-109319f8c769",
+      "label": "Agent framework",
+      "parent_term_id": null,
+      "slug": "agent-framework",
+      "sort_order": 10
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-7fd8-9086-b2985dc31711",
+      "label": "Orchestration library",
+      "parent_term_id": null,
+      "slug": "orchestration-library",
+      "sort_order": 20
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-7f5b-a13f-4d3ce27e2592",
+      "label": "Evaluation harness",
+      "parent_term_id": null,
+      "slug": "eval-harness",
+      "sort_order": 30
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-7976-98d8-430cc1be281a",
+      "label": "Vector store",
+      "parent_term_id": null,
+      "slug": "vector-store",
+      "sort_order": 40
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-7eb4-bc78-6a8224be3161",
+      "label": "Retrieval library",
+      "parent_term_id": null,
+      "slug": "retrieval-library",
+      "sort_order": 50
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-752f-9439-aac777f3d907",
+      "label": "Model SDK",
+      "parent_term_id": null,
+      "slug": "model-sdk",
+      "sort_order": 60
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-75ae-8556-a230a0c549ab",
+      "label": "Observability tool",
+      "parent_term_id": null,
+      "slug": "observability-tool",
+      "sort_order": 70
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-71fe-b4d5-856c284fecda",
+      "label": "Serving runtime",
+      "parent_term_id": null,
+      "slug": "serving-runtime",
+      "sort_order": 80
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-704f-b76c-67b7fa28a917",
+      "label": "Training library",
+      "parent_term_id": null,
+      "slug": "training-library",
+      "sort_order": 90
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-73b8-8db1-6dae1315fc20",
+      "id": "01a03a49-0da6-7456-911d-1cdacfc68fb0",
+      "label": "Data pipeline",
+      "parent_term_id": null,
+      "slug": "data-pipeline",
+      "sort_order": 100
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7ca1-97ae-0fca8cde136a",
+      "id": "01a03a49-0da8-7b83-898e-65b13b601edb",
+      "label": "Introductory",
+      "parent_term_id": null,
+      "slug": "introductory",
+      "sort_order": 10
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7ca1-97ae-0fca8cde136a",
+      "id": "01a03a49-0da8-75f9-bad7-a58d97b8efcc",
+      "label": "Intermediate",
+      "parent_term_id": null,
+      "slug": "intermediate",
+      "sort_order": 20
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7ca1-97ae-0fca8cde136a",
+      "id": "01a03a49-0da8-7a7a-8725-0d6c077aabcc",
+      "label": "Advanced",
+      "parent_term_id": null,
+      "slug": "advanced",
+      "sort_order": 30
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7ca1-97ae-0fca8cde136a",
+      "id": "01a03a49-0da8-7292-aa2c-9cea7a3bd1d1",
+      "label": "Expert",
+      "parent_term_id": null,
+      "slug": "expert",
+      "sort_order": 40
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7d79-ac2b-ddc4089fbadf",
+      "id": "01a03a49-0da7-742f-80a9-61478452bf15",
+      "label": "Experimental",
+      "parent_term_id": null,
+      "slug": "experimental",
+      "sort_order": 10
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7d79-ac2b-ddc4089fbadf",
+      "id": "01a03a49-0da8-7476-8d8e-644d2b3f7c68",
+      "label": "Emerging",
+      "parent_term_id": null,
+      "slug": "emerging",
+      "sort_order": 20
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7d79-ac2b-ddc4089fbadf",
+      "id": "01a03a49-0da8-7033-ad4f-2a1e8ac21282",
+      "label": "Established",
+      "parent_term_id": null,
+      "slug": "established",
+      "sort_order": 30
+    },
+    {
+      "definition": null,
+      "facet_version_id": "01a03a49-0d9c-7d79-ac2b-ddc4089fbadf",
+      "id": "01a03a49-0da8-7710-9707-efbffe3f14ab",
+      "label": "Declining",
+      "parent_term_id": null,
+      "slug": "declining",
+      "sort_order": 40
+    }
+  ]
+}

@@ -1,0 +1,5768 @@
+[
+  {
+    "columns": [
+      "factory_artifact_id",
+      "factory_episode_id",
+      "artifact_kind",
+      "content_digest",
+      "storage_uri",
+      "media_type",
+      "byte_size",
+      "retention_class",
+      "contains_sensitive_data",
+      "metadata",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_artifact",
+    "path": "schemas/public/tables/factory_artifact.md",
+    "qualified_name": "public.factory_artifact",
+    "related_relations": [
+      "factory_episode"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_assertion_result_id",
+      "factory_episode_id",
+      "assertion_key",
+      "assertion_kind",
+      "evaluator_version",
+      "passed",
+      "hard_gate",
+      "score",
+      "details",
+      "evidence_artifact_ids",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_assertion_result",
+    "path": "schemas/public/tables/factory_assertion_result.md",
+    "qualified_name": "public.factory_assertion_result",
+    "related_relations": [
+      "factory_episode"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_canary_result_id",
+      "promotion_decision_id",
+      "traffic_fraction",
+      "started_at",
+      "finished_at",
+      "status",
+      "metrics",
+      "rollback_reason",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_canary_result",
+    "path": "schemas/public/tables/factory_canary_result.md",
+    "qualified_name": "public.factory_canary_result",
+    "related_relations": [
+      "factory_promotion_decision"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_candidate_id",
+      "parent_candidate_id",
+      "candidate_kind",
+      "content_digest",
+      "source_revision",
+      "proposer",
+      "rationale",
+      "mutation_surface",
+      "component_versions",
+      "status",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_candidate",
+    "path": "schemas/public/tables/factory_candidate.md",
+    "qualified_name": "public.factory_candidate",
+    "related_relations": [
+      "factory_candidate"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "component_version_id",
+      "component_kind",
+      "slug",
+      "version",
+      "content_digest",
+      "source_revision",
+      "storage_uri",
+      "metadata",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_component_version",
+    "path": "schemas/public/tables/factory_component_version.md",
+    "qualified_name": "public.factory_component_version",
+    "related_relations": [],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "environment_version_id",
+      "slug",
+      "version",
+      "task_kind",
+      "image_digest",
+      "verifier_bundle_digest",
+      "reward_contract_version",
+      "protocol_version",
+      "spec",
+      "status",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_environment_version",
+    "path": "schemas/public/tables/factory_environment_version.md",
+    "qualified_name": "public.factory_environment_version",
+    "related_relations": [],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_episode_id",
+      "factory_task_id",
+      "environment_version_id",
+      "factory_candidate_id",
+      "attempt_id",
+      "seed",
+      "idempotency_key",
+      "workflow_run_id",
+      "eve_session_id",
+      "sandbox_provider",
+      "sandbox_session_id",
+      "source_revision",
+      "status",
+      "terminal_state",
+      "started_at",
+      "finished_at",
+      "duration_ms",
+      "model_tokens",
+      "cost_usd",
+      "metadata",
+      "created_at"
+    ],
+    "description": "Immutable-identity app-factory or optimization rollout. External artifacts and OTel traces are referenced by content hash.",
+    "kind": "table",
+    "name": "factory_episode",
+    "path": "schemas/public/tables/factory_episode.md",
+    "qualified_name": "public.factory_episode",
+    "related_relations": [
+      "factory_environment_version",
+      "factory_candidate",
+      "factory_task"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_evolution_proposal_id",
+      "failure_cluster_id",
+      "proposed_candidate_id",
+      "hypothesized_component_kind",
+      "hypothesis",
+      "mutation_surface",
+      "predicted_impact",
+      "risks",
+      "evaluation_plan",
+      "budget",
+      "stop_condition",
+      "rollback_component_version_id",
+      "status",
+      "created_at"
+    ],
+    "description": "Bounded, evidence-backed proposal. The optimizer may propose a candidate but cannot alter verifier, reward, promotion, or production authority.",
+    "kind": "table",
+    "name": "factory_evolution_proposal",
+    "path": "schemas/public/tables/factory_evolution_proposal.md",
+    "qualified_name": "public.factory_evolution_proposal",
+    "related_relations": [
+      "factory_failure_cluster",
+      "factory_candidate",
+      "factory_component_version"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_experiment_id",
+      "evolution_proposal_id",
+      "experiment_version",
+      "split_manifest_digest",
+      "policy",
+      "status",
+      "started_at",
+      "finished_at",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_experiment",
+    "path": "schemas/public/tables/factory_experiment.md",
+    "qualified_name": "public.factory_experiment",
+    "related_relations": [
+      "factory_evolution_proposal"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_experiment_arm_id",
+      "factory_experiment_id",
+      "factory_candidate_id",
+      "arm_name",
+      "assignment_probability",
+      "aggregate_metrics",
+      "episode_ids",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_experiment_arm",
+    "path": "schemas/public/tables/factory_experiment_arm.md",
+    "qualified_name": "public.factory_experiment_arm",
+    "related_relations": [
+      "factory_candidate",
+      "factory_experiment"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_failure_cluster_id",
+      "signature",
+      "title",
+      "taxonomy_code",
+      "severity",
+      "affected_episode_ids",
+      "evidence",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_failure_cluster",
+    "path": "schemas/public/tables/factory_failure_cluster.md",
+    "qualified_name": "public.factory_failure_cluster",
+    "related_relations": [],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_promotion_decision_id",
+      "factory_experiment_id",
+      "baseline_candidate_id",
+      "candidate_id",
+      "decision",
+      "promotion_policy_version",
+      "evidence",
+      "reasons",
+      "decided_by",
+      "rollback_component_version_id",
+      "created_at"
+    ],
+    "description": "Independent signed promotion outcome with evidence and an explicit rollback target.",
+    "kind": "table",
+    "name": "factory_promotion_decision",
+    "path": "schemas/public/tables/factory_promotion_decision.md",
+    "qualified_name": "public.factory_promotion_decision",
+    "related_relations": [
+      "factory_candidate",
+      "factory_candidate",
+      "factory_experiment",
+      "factory_component_version"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "eve_event_id",
+      "factory_episode_id",
+      "eve_session_id",
+      "event_type",
+      "event_data",
+      "event_meta",
+      "payload_sha256",
+      "payload_byte_size",
+      "redaction_version",
+      "payload_truncated",
+      "agent_name",
+      "agent_node_id",
+      "channel_kind",
+      "subagent_name",
+      "call_id",
+      "emitted_at",
+      "ingested_at",
+      "event_ordinal",
+      "repository",
+      "issue_number",
+      "sensitivity_class",
+      "retention_until"
+    ],
+    "description": "Append-only, redacted copy of Eve root-agent durable stream events. Eve event ids provide idempotency; session ids bind events to factory episodes.",
+    "kind": "table",
+    "name": "factory_runtime_event",
+    "path": "schemas/public/tables/factory_runtime_event.md",
+    "qualified_name": "public.factory_runtime_event",
+    "related_relations": [
+      "factory_episode"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_score_vector_id",
+      "factory_episode_id",
+      "reward_contract_version",
+      "vector",
+      "weighted_score",
+      "eligible_for_promotion",
+      "ineligibility_reasons",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_score_vector",
+    "path": "schemas/public/tables/factory_score_vector.md",
+    "qualified_name": "public.factory_score_vector",
+    "related_relations": [
+      "factory_episode"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_task_id",
+      "challenge_id",
+      "parent_task_id",
+      "task_kind",
+      "slug",
+      "version",
+      "spec_digest",
+      "spec",
+      "risk_tier",
+      "data_split",
+      "status",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_task",
+    "path": "schemas/public/tables/factory_task.md",
+    "qualified_name": "public.factory_task",
+    "related_relations": [
+      "factory_task"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "factory_trace_span_ref_id",
+      "factory_episode_id",
+      "trace_id",
+      "span_id",
+      "parent_span_id",
+      "agent_role",
+      "operation_name",
+      "artifact_id",
+      "started_at",
+      "finished_at",
+      "attributes"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "factory_trace_span_ref",
+    "path": "schemas/public/tables/factory_trace_span_ref.md",
+    "qualified_name": "public.factory_trace_span_ref",
+    "related_relations": [
+      "factory_artifact",
+      "factory_episode"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "domain_code",
+      "label",
+      "description",
+      "parent_domain_code",
+      "active",
+      "sort_order"
+    ],
+    "description": "Evolving application-domain lookup. Not a Postgres enum.",
+    "kind": "table",
+    "name": "research_application_domain",
+    "path": "schemas/public/tables/research_application_domain.md",
+    "qualified_name": "public.research_application_domain",
+    "related_relations": [
+      "research_application_domain"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "taxonomy_version_id",
+      "category_code",
+      "label",
+      "description",
+      "inclusion_criteria",
+      "exclusion_criteria",
+      "example_topics",
+      "sort_order"
+    ],
+    "description": "Per-version definitions for the stable engineering category enum.",
+    "kind": "table",
+    "name": "research_category_definition",
+    "path": "schemas/public/tables/research_category_definition.md",
+    "qualified_name": "public.research_category_definition",
+    "related_relations": [
+      "research_taxonomy_version"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "analysis_id",
+      "entity_kind",
+      "name",
+      "normalized_name",
+      "canonical_url",
+      "organization_name",
+      "relationship_to_video",
+      "confidence",
+      "verification_status",
+      "evidence_ids"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_entity_candidate",
+    "path": "schemas/public/tables/research_entity_candidate.md",
+    "qualified_name": "public.research_entity_candidate",
+    "related_relations": [
+      "research_video_analysis"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "evidence_id",
+      "analysis_id",
+      "source_kind",
+      "source_url",
+      "transcript_segment",
+      "start_seconds",
+      "end_seconds",
+      "start_character",
+      "end_character",
+      "short_excerpt",
+      "supports"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_evidence_anchor",
+    "path": "schemas/public/tables/research_evidence_anchor.md",
+    "qualified_name": "public.research_evidence_anchor",
+    "related_relations": [
+      "research_video_analysis"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "intent_id",
+      "run_id",
+      "video_id",
+      "schema_version",
+      "idempotency_key",
+      "storage_bucket",
+      "storage_path",
+      "content_sha256",
+      "status",
+      "validated_at",
+      "applied_at",
+      "rejected_at",
+      "error_detail",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_ingestion_intent",
+    "path": "schemas/public/tables/research_ingestion_intent.md",
+    "qualified_name": "public.research_ingestion_intent",
+    "related_relations": [
+      "research_pre_research_run",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "event_id",
+      "intent_id",
+      "operation_index",
+      "operation_kind",
+      "status",
+      "affected_table",
+      "affected_key",
+      "error_detail",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_ingestion_intent_event",
+    "path": "schemas/public/tables/research_ingestion_intent_event.md",
+    "qualified_name": "public.research_ingestion_intent_event",
+    "related_relations": [
+      "research_ingestion_intent"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "organization_candidate_id",
+      "analysis_id",
+      "video_id",
+      "canonical_name",
+      "normalized_name",
+      "organization_scope",
+      "relationship_roles",
+      "is_primary_featured",
+      "featured_rank",
+      "primary_domain_code",
+      "secondary_domain_codes",
+      "parent_name",
+      "parent_canonical_url",
+      "official_url",
+      "authoritative_summary",
+      "relationship_to_implementation",
+      "current_status",
+      "status_as_of",
+      "video_time_name",
+      "video_time_parent_name",
+      "ownership_changed_since_video",
+      "confidence",
+      "evidence_ids",
+      "generated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_organization_candidate",
+    "path": "schemas/public/tables/research_organization_candidate.md",
+    "qualified_name": "public.research_organization_candidate",
+    "related_relations": [
+      "research_video_analysis",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "domain_code",
+      "label",
+      "description",
+      "inclusion_criteria",
+      "exclusion_criteria",
+      "example_organizations",
+      "active",
+      "sort_order",
+      "definition_version"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_organization_domain_definition",
+    "path": "schemas/public/tables/research_organization_domain_definition.md",
+    "qualified_name": "public.research_organization_domain_definition",
+    "related_relations": [],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "organization_source_id",
+      "organization_candidate_id",
+      "source_rank",
+      "source_role",
+      "authority_tier",
+      "title",
+      "publisher",
+      "url",
+      "normalized_url",
+      "publicly_retrievable",
+      "retrieved_at",
+      "source_published_at",
+      "supports",
+      "verification_status",
+      "is_required_core_source",
+      "evidence_id"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_organization_source",
+    "path": "schemas/public/tables/research_organization_source.md",
+    "qualified_name": "public.research_organization_source",
+    "related_relations": [
+      "research_evidence_anchor",
+      "research_organization_candidate"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "artifact_id",
+      "run_id",
+      "intent_id",
+      "artifact_kind",
+      "schema_version",
+      "storage_bucket",
+      "storage_path",
+      "content_sha256",
+      "byte_count",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_pre_research_artifact",
+    "path": "schemas/public/tables/research_pre_research_artifact.md",
+    "qualified_name": "public.research_pre_research_artifact",
+    "related_relations": [
+      "research_ingestion_intent",
+      "research_pre_research_run"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "run_id",
+      "video_id",
+      "taxonomy_version_id",
+      "status",
+      "attempt",
+      "lease_token",
+      "lease_expires_at",
+      "transcript_sha256",
+      "prompt_bundle_version",
+      "model_id",
+      "workflow_session_id",
+      "started_at",
+      "completed_at",
+      "error_code",
+      "error_detail",
+      "intent_path",
+      "intent_sha256",
+      "created_at",
+      "updated_at",
+      "research_as_of",
+      "packet_schema_version",
+      "packet_storage_prefix",
+      "packet_sha256",
+      "research_session_id",
+      "synthesis_session_id",
+      "research_completed_at",
+      "synthesis_started_at"
+    ],
+    "description": "One claimable orchestration row per video+transcript-hash attempt.",
+    "kind": "table",
+    "name": "research_pre_research_run",
+    "path": "schemas/public/tables/research_pre_research_run.md",
+    "qualified_name": "public.research_pre_research_run",
+    "related_relations": [
+      "research_taxonomy_version",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "pre_research_session_id",
+      "run_id",
+      "phase",
+      "attempt",
+      "eve_session_id",
+      "status",
+      "started_at",
+      "completed_at",
+      "error_code",
+      "error_detail",
+      "result_summary"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_pre_research_session",
+    "path": "schemas/public/tables/research_pre_research_session.md",
+    "qualified_name": "public.research_pre_research_session",
+    "related_relations": [
+      "research_pre_research_run"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "stage_execution_id",
+      "run_id",
+      "stage",
+      "status",
+      "attempt_count",
+      "lease_owner",
+      "lease_token_hash",
+      "lease_expires_at",
+      "retry_after",
+      "input_manifest_bucket",
+      "input_manifest_path",
+      "input_sha256",
+      "output_artifact_kinds",
+      "completed_artifact_sha256s",
+      "model_id",
+      "prompt_bundle_version",
+      "last_error_code",
+      "last_error_detail",
+      "usage_summary",
+      "started_at",
+      "updated_at",
+      "completed_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_pre_research_stage_execution",
+    "path": "schemas/public/tables/research_pre_research_stage_execution.md",
+    "qualified_name": "public.research_pre_research_stage_execution",
+    "related_relations": [
+      "research_pre_research_run"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "video_id",
+      "transcript_sha256",
+      "eligibility_status",
+      "ineligibility_reasons",
+      "duration_seconds",
+      "transcript_object_exists",
+      "evaluated_at",
+      "latest_run_id",
+      "pipeline_status",
+      "pre_research_pipeline_finished",
+      "pre_research_pipeline_finished_at",
+      "finished_transcript_sha256",
+      "finished_intent_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_pre_research_video_state",
+    "path": "schemas/public/tables/research_pre_research_video_state.md",
+    "qualified_name": "public.research_pre_research_video_state",
+    "related_relations": [
+      "research_ingestion_intent",
+      "research_pre_research_run",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "resource_candidate_id",
+      "analysis_id",
+      "resource_type",
+      "title",
+      "url",
+      "normalized_url",
+      "publisher",
+      "relationship_to_video",
+      "why_valuable",
+      "verification_status",
+      "is_first_party",
+      "license",
+      "confidence",
+      "evidence_ids"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_resource_candidate",
+    "path": "schemas/public/tables/research_resource_candidate.md",
+    "qualified_name": "public.research_resource_candidate",
+    "related_relations": [
+      "research_video_analysis"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "video_id",
+      "title",
+      "description",
+      "published_at",
+      "channel_id",
+      "channel_handle",
+      "channel_title",
+      "duration",
+      "duration_seconds",
+      "view_count",
+      "like_count",
+      "comment_count",
+      "thumbnail_url",
+      "url",
+      "source",
+      "catalog_fetched_at",
+      "transcript_status",
+      "transcript_bucket",
+      "transcript_path",
+      "transcript_language",
+      "transcript_char_count",
+      "transcript_error",
+      "transcript_fetched_at",
+      "transcript_text",
+      "metadata",
+      "created_at",
+      "updated_at",
+      "pre_research_complete"
+    ],
+    "description": "Raw AI Engineer channel catalog plus transcript storage pointers. Starter table for the research schema; relationship tables come later.",
+    "kind": "table",
+    "name": "research_starter_videos",
+    "path": "schemas/public/tables/research_starter_videos.md",
+    "qualified_name": "public.research_starter_videos",
+    "related_relations": [],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "taxonomy_version_id",
+      "version",
+      "status",
+      "definition_sha256",
+      "created_at",
+      "activated_at",
+      "retired_at",
+      "notes"
+    ],
+    "description": "Versioned AI engineering taxonomy. Exactly one row may be active.",
+    "kind": "table",
+    "name": "research_taxonomy_version",
+    "path": "schemas/public/tables/research_taxonomy_version.md",
+    "qualified_name": "public.research_taxonomy_version",
+    "related_relations": [],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "analysis_id",
+      "run_id",
+      "video_id",
+      "initial_summary",
+      "structured_summary",
+      "contextualized_abstract",
+      "why_it_matters",
+      "key_takeaways",
+      "concepts",
+      "prerequisites",
+      "learning_outcomes",
+      "limitations",
+      "quantitative_claims",
+      "demonstrations",
+      "curriculum_roles",
+      "challenge_seeds",
+      "difficulty",
+      "content_form",
+      "evidence_level",
+      "overall_confidence",
+      "generated_at"
+    ],
+    "description": "Immutable analysis packet for one completed pre-research run.",
+    "kind": "table",
+    "name": "research_video_analysis",
+    "path": "schemas/public/tables/research_video_analysis.md",
+    "qualified_name": "public.research_video_analysis",
+    "related_relations": [
+      "research_pre_research_run",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "analysis_id",
+      "category_code",
+      "assignment_role",
+      "confidence",
+      "rationale",
+      "alternative_rank"
+    ],
+    "description": "Exactly one primary category and up to three secondary categories per analysis.",
+    "kind": "table",
+    "name": "research_video_category",
+    "path": "schemas/public/tables/research_video_category.md",
+    "qualified_name": "public.research_video_category",
+    "related_relations": [
+      "research_video_analysis"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "analysis_id",
+      "domain_code",
+      "confidence",
+      "rationale"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_video_domain",
+    "path": "schemas/public/tables/research_video_domain.md",
+    "qualified_name": "public.research_video_domain",
+    "related_relations": [
+      "research_video_analysis",
+      "research_application_domain"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "analysis_id",
+      "video_id",
+      "transcript_summary",
+      "software_engineering_concepts",
+      "ai_concepts",
+      "external_context_notes",
+      "temporal_context",
+      "research_as_of",
+      "evidence_ids",
+      "generated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_video_initial_summary",
+    "path": "schemas/public/tables/research_video_initial_summary.md",
+    "qualified_name": "public.research_video_initial_summary",
+    "related_relations": [
+      "research_video_analysis",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "analysis_id",
+      "lifecycle_stage"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_video_lifecycle",
+    "path": "schemas/public/tables/research_video_lifecycle.md",
+    "qualified_name": "public.research_video_lifecycle",
+    "related_relations": [
+      "research_video_analysis"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "technology_summary_id",
+      "analysis_id",
+      "video_id",
+      "family_rank",
+      "family_label",
+      "primary_technology",
+      "primary_technology_kind",
+      "related_technologies",
+      "implementations",
+      "summary",
+      "relationship_rationale",
+      "role_in_video",
+      "current_status",
+      "temporal_status",
+      "video_published_at",
+      "research_as_of",
+      "official_urls",
+      "evidence_ids",
+      "confidence",
+      "generated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_video_technology_summary",
+    "path": "schemas/public/tables/research_video_technology_summary.md",
+    "qualified_name": "public.research_video_technology_summary",
+    "related_relations": [
+      "research_video_analysis",
+      "research_starter_videos"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "search_event_id",
+      "run_id",
+      "subagent",
+      "query",
+      "provider",
+      "searched_at",
+      "result_urls",
+      "selected_urls",
+      "search_purpose"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_web_search_event",
+    "path": "schemas/public/tables/research_web_search_event.md",
+    "qualified_name": "public.research_web_search_event",
+    "related_relations": [
+      "research_pre_research_run"
+    ],
+    "schema": "public"
+  },
+  {
+    "columns": [
+      "id",
+      "name",
+      "slug",
+      "distribution",
+      "description",
+      "skill_format",
+      "format_version",
+      "license_spdx",
+      "lifecycle_state",
+      "latest_release",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "agent_skill_profile",
+    "path": "schemas/api/views/agent_skill_profile.md",
+    "qualified_name": "api.agent_skill_profile",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "claim_type",
+      "statement",
+      "status",
+      "created_at",
+      "evidence"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "claim_with_evidence",
+    "path": "schemas/api/views/claim_with_evidence.md",
+    "qualified_name": "api.claim_with_evidence",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "lesson_id",
+      "slug",
+      "title",
+      "version",
+      "status",
+      "backing_records",
+      "stale_records",
+      "freshness"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "lesson_freshness",
+    "path": "schemas/api/views/lesson_freshness.md",
+    "qualified_name": "api.lesson_freshness",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "id",
+      "ecosystem",
+      "package_name",
+      "display_name",
+      "description",
+      "primary_language",
+      "homepage_url",
+      "first_released_on",
+      "lifecycle_state",
+      "current_license",
+      "maintenance_status",
+      "taxonomy_terms",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "library_profile",
+    "path": "schemas/api/views/library_profile.md",
+    "qualified_name": "api.library_profile",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "id",
+      "name",
+      "description",
+      "registry_id",
+      "ecosystem",
+      "package_name",
+      "distribution_kind",
+      "transport_kinds",
+      "license_spdx",
+      "lifecycle_state",
+      "registry_status",
+      "version_count",
+      "latest_release",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "mcp_server_profile",
+    "path": "schemas/api/views/mcp_server_profile.md",
+    "qualified_name": "api.mcp_server_profile",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "mission_id",
+      "slug",
+      "goal",
+      "status",
+      "started_at",
+      "ended_at",
+      "work_items",
+      "succeeded",
+      "failed",
+      "outstanding",
+      "cost_usd",
+      "budget_cost_usd"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "mission_progress",
+    "path": "schemas/api/views/mission_progress.md",
+    "qualified_name": "api.mission_progress",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "id",
+      "model_slug",
+      "display_name",
+      "family",
+      "modality",
+      "model_kind",
+      "openness",
+      "provider",
+      "latest_version",
+      "latest_released_on",
+      "context_window_tokens",
+      "availability",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "model_profile",
+    "path": "schemas/api/views/model_profile.md",
+    "qualified_name": "api.model_profile",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "review_task_id",
+      "task_kind",
+      "state",
+      "priority",
+      "assignee",
+      "summary",
+      "subject_kind",
+      "quorum_required",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "review_queue",
+    "path": "schemas/api/views/review_queue.md",
+    "qualified_name": "api.review_queue",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "record_kind",
+      "id",
+      "title",
+      "statement",
+      "scope",
+      "maturity",
+      "assurance_level",
+      "confidence",
+      "revalidation_state",
+      "next_revalidation_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "view",
+    "name": "technical_record_search",
+    "path": "schemas/api/views/technical_record_search.md",
+    "qualified_name": "api.technical_record_search",
+    "related_relations": [],
+    "schema": "api"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "eve_session_id",
+      "mission_id",
+      "agent_deployment",
+      "compaction_count",
+      "rotated_from_id",
+      "status",
+      "started_at",
+      "ended_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "agent_session",
+    "path": "schemas/orchestration/tables/agent_session.md",
+    "qualified_name": "orchestration.agent_session",
+    "related_relations": [
+      "orchestration.mission",
+      "orchestration.agent_session"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "artifact_type",
+      "schema_version",
+      "sha256",
+      "bucket_class",
+      "storage_bucket",
+      "object_path",
+      "media_type",
+      "size_bytes",
+      "producer_attempt_id",
+      "mission_id",
+      "superseded_by_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "artifact",
+    "path": "schemas/orchestration/tables/artifact.md",
+    "qualified_name": "orchestration.artifact",
+    "related_relations": [
+      "orchestration.artifact_type",
+      "orchestration.mission",
+      "orchestration.attempt",
+      "orchestration.artifact"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "mission_id",
+      "work_item_id",
+      "required",
+      "produced",
+      "omitted",
+      "failed",
+      "deferred",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "artifact_manifest",
+    "path": "schemas/orchestration/tables/artifact_manifest.md",
+    "qualified_name": "orchestration.artifact_manifest",
+    "related_relations": [
+      "orchestration.mission",
+      "orchestration.work_item"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "code",
+      "description",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "artifact_type",
+    "path": "schemas/orchestration/tables/artifact_type.md",
+    "qualified_name": "orchestration.artifact_type",
+    "related_relations": [],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "work_item_id",
+      "attempt_no",
+      "agent_deployment_id",
+      "agent_session_id",
+      "eve_turn_ids",
+      "remote_child_ids",
+      "outcome",
+      "cost_usd",
+      "latency_ms",
+      "token_input",
+      "token_output",
+      "started_at",
+      "ended_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "attempt",
+    "path": "schemas/orchestration/tables/attempt.md",
+    "qualified_name": "orchestration.attempt",
+    "related_relations": [
+      "orchestration.agent_session",
+      "orchestration.work_item"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "kind",
+      "purpose",
+      "operations",
+      "packages_mcp_server_version_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "capability",
+    "path": "schemas/orchestration/tables/capability.md",
+    "qualified_name": "orchestration.capability",
+    "related_relations": [
+      "orchestration.capability_kind",
+      "corpus.mcp_server_version"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "code",
+      "description",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "capability_kind",
+    "path": "schemas/orchestration/tables/capability_kind.md",
+    "qualified_name": "orchestration.capability_kind",
+    "related_relations": [],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "purpose",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "capability_profile",
+    "path": "schemas/orchestration/tables/capability_profile.md",
+    "qualified_name": "orchestration.capability_profile",
+    "related_relations": [],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "profile_id",
+      "capability_version_id",
+      "activation"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "capability_profile_item",
+    "path": "schemas/orchestration/tables/capability_profile_item.md",
+    "qualified_name": "orchestration.capability_profile_item",
+    "related_relations": [
+      "orchestration.capability_version",
+      "orchestration.capability_profile"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "capability_id",
+      "version_label",
+      "lifecycle",
+      "eval_suite_id",
+      "network_requirements",
+      "secret_requirements",
+      "approval_policy",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "capability_version",
+    "path": "schemas/orchestration/tables/capability_version.md",
+    "qualified_name": "orchestration.capability_version",
+    "related_relations": [
+      "orchestration.capability",
+      "evaluation.eval_dataset"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "mission_id",
+      "agent_session_id",
+      "constraints_section",
+      "decisions",
+      "completed",
+      "active",
+      "blocked",
+      "failed_approaches",
+      "pending_approvals",
+      "digests",
+      "refs",
+      "verification_status",
+      "package_artifact_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "continuation_checkpoint",
+    "path": "schemas/orchestration/tables/continuation_checkpoint.md",
+    "qualified_name": "orchestration.continuation_checkpoint",
+    "related_relations": [
+      "orchestration.agent_session",
+      "orchestration.mission",
+      "orchestration.artifact"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "code",
+      "description",
+      "schema_version",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "intent_type",
+    "path": "schemas/orchestration/tables/intent_type.md",
+    "qualified_name": "orchestration.intent_type",
+    "related_relations": [],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "goal",
+      "research_questions",
+      "acceptance_criteria",
+      "selection_id",
+      "capability_profile_id",
+      "budget_cost_usd",
+      "budget_wall_seconds",
+      "budget_max_fanout",
+      "budget_max_depth",
+      "budget_max_retries",
+      "status",
+      "terminal_reason",
+      "started_at",
+      "ended_at",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mission",
+    "path": "schemas/orchestration/tables/mission.md",
+    "qualified_name": "orchestration.mission",
+    "related_relations": [
+      "orchestration.capability_profile",
+      "ranking.selection"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "mission_id",
+      "from_status",
+      "to_status",
+      "actor",
+      "reason",
+      "causation_id",
+      "payload",
+      "occurred_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mission_event",
+    "path": "schemas/orchestration/tables/mission_event.md",
+    "qualified_name": "orchestration.mission_event",
+    "related_relations": [
+      "orchestration.mission"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "intent_type",
+      "schema_version",
+      "payload",
+      "preconditions",
+      "idempotency_key",
+      "proposed_by_attempt",
+      "mission_id",
+      "approval_state",
+      "policy_decision",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "operation_intent",
+    "path": "schemas/orchestration/tables/operation_intent.md",
+    "qualified_name": "orchestration.operation_intent",
+    "related_relations": [
+      "orchestration.intent_type",
+      "orchestration.mission",
+      "orchestration.attempt"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "intent_id",
+      "executor_version",
+      "precondition_results",
+      "outcome",
+      "changes_summary",
+      "affected_refs",
+      "applied_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "operation_receipt",
+    "path": "schemas/orchestration/tables/operation_receipt.md",
+    "qualified_name": "orchestration.operation_receipt",
+    "related_relations": [
+      "orchestration.operation_intent"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "topic",
+      "payload",
+      "mission_id",
+      "causation_id",
+      "published_at",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "outbox_event",
+    "path": "schemas/orchestration/tables/outbox_event.md",
+    "qualified_name": "orchestration.outbox_event",
+    "related_relations": [
+      "orchestration.mission"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "abstract_operation",
+      "provider",
+      "policy_version",
+      "selection_rules",
+      "priority",
+      "enabled",
+      "failure_rollup",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "provider_route",
+    "path": "schemas/orchestration/tables/provider_route.md",
+    "qualified_name": "orchestration.provider_route",
+    "related_relations": [],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "mission_id",
+      "kind",
+      "spec",
+      "status",
+      "capability_profile_id",
+      "budget_cost_usd",
+      "budget_wall_seconds",
+      "max_attempts",
+      "attempt_count",
+      "terminal_evidence",
+      "created_at",
+      "updated_at",
+      "idempotency_key",
+      "lease_owner",
+      "lease_expires_at",
+      "heartbeat_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "work_item",
+    "path": "schemas/orchestration/tables/work_item.md",
+    "qualified_name": "orchestration.work_item",
+    "related_relations": [
+      "orchestration.capability_profile",
+      "orchestration.work_item_kind",
+      "orchestration.mission"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "work_item_id",
+      "artifact_id",
+      "role"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "work_item_artifact",
+    "path": "schemas/orchestration/tables/work_item_artifact.md",
+    "qualified_name": "orchestration.work_item_artifact",
+    "related_relations": [
+      "orchestration.artifact",
+      "orchestration.work_item"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "work_item_id",
+      "depends_on_id",
+      "dependency_kind",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "work_item_dependency",
+    "path": "schemas/orchestration/tables/work_item_dependency.md",
+    "qualified_name": "orchestration.work_item_dependency",
+    "related_relations": [
+      "orchestration.work_item",
+      "orchestration.work_item"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "work_item_id",
+      "attempt_id",
+      "event_type",
+      "actor",
+      "message",
+      "payload",
+      "occurred_at"
+    ],
+    "description": "Append-only cross-agent progress ledger. Lease state remains on work_item; every transition and checkpoint is recorded here.",
+    "kind": "table",
+    "name": "work_item_event",
+    "path": "schemas/orchestration/tables/work_item_event.md",
+    "qualified_name": "orchestration.work_item_event",
+    "related_relations": [
+      "orchestration.attempt",
+      "orchestration.work_item"
+    ],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "code",
+      "description",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "work_item_kind",
+    "path": "schemas/orchestration/tables/work_item_kind.md",
+    "qualified_name": "orchestration.work_item_kind",
+    "related_relations": [],
+    "schema": "orchestration"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "claim_type",
+      "statement",
+      "structured",
+      "status",
+      "composite",
+      "atomized_from_id",
+      "producer_attempt_id",
+      "superseded_by_id",
+      "created_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim",
+    "path": "schemas/evidence/tables/claim.md",
+    "qualified_name": "evidence.claim",
+    "related_relations": [
+      "evidence.claim",
+      "evidence.claim_type",
+      "orchestration.operation_receipt",
+      "orchestration.attempt",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "agent_skill_version_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_agent_skill_version",
+    "path": "schemas/evidence/tables/claim_agent_skill_version.md",
+    "qualified_name": "evidence.claim_agent_skill_version",
+    "related_relations": [
+      "corpus.agent_skill_version",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "ai_model_version_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_ai_model_version",
+    "path": "schemas/evidence/tables/claim_ai_model_version.md",
+    "qualified_name": "evidence.claim_ai_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "benchmark_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_benchmark",
+    "path": "schemas/evidence/tables/claim_benchmark.md",
+    "qualified_name": "evidence.claim_benchmark",
+    "related_relations": [
+      "corpus.benchmark",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "case_study_id",
+      "role_in_claim"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_case_study",
+    "path": "schemas/evidence/tables/claim_case_study.md",
+    "qualified_name": "evidence.claim_case_study",
+    "related_relations": [
+      "corpus.case_study",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "concept_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_concept",
+    "path": "schemas/evidence/tables/claim_concept.md",
+    "qualified_name": "evidence.claim_concept",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.concept"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "claim_a_id",
+      "claim_b_id",
+      "conflict_kind",
+      "detected_by",
+      "detected_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_conflict",
+    "path": "schemas/evidence/tables/claim_conflict.md",
+    "qualified_name": "evidence.claim_conflict",
+    "related_relations": [
+      "evidence.claim",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "dataset_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_dataset",
+    "path": "schemas/evidence/tables/claim_dataset.md",
+    "qualified_name": "evidence.claim_dataset",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.dataset"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "claim_evidence_link_id",
+      "run_id",
+      "verdict",
+      "authority_assessment",
+      "rationale",
+      "replay_signature_match",
+      "created_at"
+    ],
+    "description": "Append-only, run-scoped verifier assessment of one immutable claim/evidence link.",
+    "kind": "table",
+    "name": "claim_evidence_assessment",
+    "path": "schemas/evidence/tables/claim_evidence_assessment.md",
+    "qualified_name": "evidence.claim_evidence_assessment",
+    "related_relations": [
+      "evidence.claim_evidence_link",
+      "evidence.verification_run"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "claim_id",
+      "locator_id",
+      "role",
+      "support_verdict",
+      "authority_assessment",
+      "verified_by_run_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_evidence_link",
+    "path": "schemas/evidence/tables/claim_evidence_link.md",
+    "qualified_name": "evidence.claim_evidence_link",
+    "related_relations": [
+      "evidence.claim",
+      "evidence.locator",
+      "evidence.verification_run"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "library_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_library",
+    "path": "schemas/evidence/tables/claim_library.md",
+    "qualified_name": "evidence.claim_library",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.library"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "mcp_server_version_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_mcp_server_version",
+    "path": "schemas/evidence/tables/claim_mcp_server_version.md",
+    "qualified_name": "evidence.claim_mcp_server_version",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.mcp_server_version"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "organization_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_organization",
+    "path": "schemas/evidence/tables/claim_organization.md",
+    "qualified_name": "evidence.claim_organization",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.organization"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "paper_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_paper",
+    "path": "schemas/evidence/tables/claim_paper.md",
+    "qualified_name": "evidence.claim_paper",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.paper"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "person_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_person",
+    "path": "schemas/evidence/tables/claim_person.md",
+    "qualified_name": "evidence.claim_person",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.person"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "product_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_product",
+    "path": "schemas/evidence/tables/claim_product.md",
+    "qualified_name": "evidence.claim_product",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.product"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "product_version_id",
+      "role_in_claim"
+    ],
+    "description": "Typed claim association for an exact SaaS or product release/version.",
+    "kind": "table",
+    "name": "claim_product_version",
+    "path": "schemas/evidence/tables/claim_product_version.md",
+    "qualified_name": "evidence.claim_product_version",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.product_version"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "ai_protocol_version_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_protocol_version",
+    "path": "schemas/evidence/tables/claim_protocol_version.md",
+    "qualified_name": "evidence.claim_protocol_version",
+    "related_relations": [
+      "corpus.ai_protocol_version",
+      "evidence.claim"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "repository_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_repository",
+    "path": "schemas/evidence/tables/claim_repository.md",
+    "qualified_name": "evidence.claim_repository",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "talk_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_talk",
+    "path": "schemas/evidence/tables/claim_talk.md",
+    "qualified_name": "evidence.claim_talk",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.talk"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "claim_id",
+      "technical_problem_id",
+      "solution_pattern_id",
+      "advanced_usage_pattern_id",
+      "implementation_example_id",
+      "failure_mode_id",
+      "benchmark_result_id",
+      "compatibility_constraint_id",
+      "operational_practice_id",
+      "security_consideration_id",
+      "record_kind",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_technical_record",
+    "path": "schemas/evidence/tables/claim_technical_record.md",
+    "qualified_name": "evidence.claim_technical_record",
+    "related_relations": [
+      "knowledge.advanced_usage_pattern",
+      "knowledge.benchmark_result",
+      "evidence.claim",
+      "knowledge.compatibility_constraint",
+      "knowledge.failure_mode",
+      "knowledge.implementation_example",
+      "knowledge.operational_practice",
+      "knowledge.security_consideration",
+      "knowledge.solution_pattern",
+      "knowledge.technical_problem"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "code",
+      "description",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_type",
+    "path": "schemas/evidence/tables/claim_type.md",
+    "qualified_name": "evidence.claim_type",
+    "related_relations": [],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "video_id",
+      "role_in_claim",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "claim_video",
+    "path": "schemas/evidence/tables/claim_video.md",
+    "qualified_name": "evidence.claim_video",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.video"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "conflict_id",
+      "outcome",
+      "rationale",
+      "review_task_id",
+      "decided_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "conflict_reconciliation",
+    "path": "schemas/evidence/tables/conflict_reconciliation.md",
+    "qualified_name": "evidence.conflict_reconciliation",
+    "related_relations": [
+      "evidence.claim_conflict",
+      "evaluation.review_task"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "source_id",
+      "reason",
+      "what_was_seen",
+      "attempted_methods",
+      "approved_by_review_task_id",
+      "approved_at",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "degraded_assurance",
+    "path": "schemas/evidence/tables/degraded_assurance.md",
+    "qualified_name": "evidence.degraded_assurance",
+    "related_relations": [
+      "evaluation.review_task",
+      "evidence.source"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "repository_url",
+      "commit_sha",
+      "image_digest",
+      "lockfile_hashes",
+      "commands",
+      "exit_codes",
+      "log_artifact_id",
+      "assurance_level",
+      "trace_id",
+      "executed_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "executable_verification",
+    "path": "schemas/evidence/tables/executable_verification.md",
+    "qualified_name": "evidence.executable_verification",
+    "related_relations": [
+      "orchestration.artifact"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "locator_id",
+      "signature_sha256",
+      "produced_by_attempt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "extraction_signature",
+    "path": "schemas/evidence/tables/extraction_signature.md",
+    "qualified_name": "evidence.extraction_signature",
+    "related_relations": [
+      "evidence.locator",
+      "orchestration.attempt"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "capture_id",
+      "media_type",
+      "selector",
+      "selected_content_sha256",
+      "normalized_value",
+      "context_fingerprint",
+      "extractor_name",
+      "extractor_version",
+      "extraction_params",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "locator",
+    "path": "schemas/evidence/tables/locator.md",
+    "qualified_name": "evidence.locator",
+    "related_relations": [
+      "evidence.source_capture"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "policy_id",
+      "trigger_kind",
+      "affected_refs",
+      "work_item_id",
+      "fired_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "revalidation_event",
+    "path": "schemas/evidence/tables/revalidation_event.md",
+    "qualified_name": "evidence.revalidation_event",
+    "related_relations": [
+      "evidence.revalidation_policy",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "slug",
+      "applies_to",
+      "rules",
+      "max_age",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "revalidation_policy",
+    "path": "schemas/evidence/tables/revalidation_policy.md",
+    "qualified_name": "evidence.revalidation_policy",
+    "related_relations": [],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "source_class",
+      "canonical_url",
+      "url_pattern",
+      "publisher",
+      "sensitivity",
+      "license_spdx",
+      "license_notes",
+      "terms_url",
+      "robots_policy",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "source",
+    "path": "schemas/evidence/tables/source.md",
+    "qualified_name": "evidence.source",
+    "related_relations": [],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "source_id",
+      "artifact_id",
+      "content_sha256",
+      "media_type",
+      "captured_at",
+      "capture_method",
+      "capture_method_version",
+      "request_url",
+      "http_status",
+      "http_headers",
+      "context",
+      "produced_by_attempt_id"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "source_capture",
+    "path": "schemas/evidence/tables/source_capture.md",
+    "qualified_name": "evidence.source_capture",
+    "related_relations": [
+      "orchestration.artifact",
+      "orchestration.attempt",
+      "evidence.source"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "mission_id",
+      "work_item_id",
+      "attempt_id",
+      "provider",
+      "query_text",
+      "purpose",
+      "request_parameters",
+      "response_artifact_id",
+      "query_sha256",
+      "queried_at"
+    ],
+    "description": "Operational source intelligence: exact query, provider parameters, raw response artifact, and intended work-item purpose.",
+    "kind": "table",
+    "name": "source_query",
+    "path": "schemas/evidence/tables/source_query.md",
+    "qualified_name": "evidence.source_query",
+    "related_relations": [
+      "orchestration.attempt",
+      "orchestration.mission",
+      "orchestration.artifact",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "query_id",
+      "source_id",
+      "capture_id",
+      "work_item_id",
+      "attempt_id",
+      "requested_url",
+      "provider_result_id",
+      "result_rank",
+      "retrieval_status",
+      "provider_metadata",
+      "retrieved_at"
+    ],
+    "description": "A query result or direct fetch, including cache outcome and the immutable capture when bytes were obtained.",
+    "kind": "table",
+    "name": "source_retrieval",
+    "path": "schemas/evidence/tables/source_retrieval.md",
+    "qualified_name": "evidence.source_retrieval",
+    "related_relations": [
+      "orchestration.attempt",
+      "evidence.source_capture",
+      "evidence.source_query",
+      "evidence.source",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "retrieval_id",
+      "work_item_id",
+      "operation",
+      "support_role",
+      "statement",
+      "locator_id",
+      "created_at"
+    ],
+    "description": "Why a retrieval mattered to an operation. This is an operational audit statement, not a canonical factual claim.",
+    "kind": "table",
+    "name": "source_support",
+    "path": "schemas/evidence/tables/source_support.md",
+    "qualified_name": "evidence.source_support",
+    "related_relations": [
+      "evidence.locator",
+      "evidence.source_retrieval",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "run_id",
+      "claim_id",
+      "verdict",
+      "rationale",
+      "deterministic",
+      "replay_signature_match",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "verification_finding",
+    "path": "schemas/evidence/tables/verification_finding.md",
+    "qualified_name": "evidence.verification_finding",
+    "related_relations": [
+      "evidence.claim",
+      "evidence.verification_run"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "work_item_id",
+      "verifier_attempt_id",
+      "policy_version",
+      "started_at",
+      "ended_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "verification_run",
+    "path": "schemas/evidence/tables/verification_run.md",
+    "qualified_name": "evidence.verification_run",
+    "related_relations": [
+      "orchestration.attempt",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "term_id",
+      "library_id",
+      "repository_id",
+      "person_id",
+      "organization_id",
+      "paper_id",
+      "talk_id",
+      "video_id",
+      "product_id",
+      "concept_id",
+      "ai_model_id",
+      "ai_protocol_id",
+      "mcp_server_id",
+      "agent_skill_id",
+      "technical_problem_id",
+      "solution_pattern_id",
+      "advanced_usage_pattern_id",
+      "failure_mode_id",
+      "lesson_id",
+      "method",
+      "confidence",
+      "provenance_claim_id",
+      "review_task_id",
+      "valid_from",
+      "valid_to",
+      "created_by_receipt_id",
+      "created_at",
+      "case_study_id",
+      "dataset_id",
+      "benchmark_id",
+      "target_kind"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "assignment",
+    "path": "schemas/taxonomy/tables/assignment.md",
+    "qualified_name": "taxonomy.assignment",
+    "related_relations": [
+      "knowledge.advanced_usage_pattern",
+      "corpus.agent_skill",
+      "corpus.ai_model",
+      "corpus.ai_protocol",
+      "corpus.benchmark",
+      "corpus.case_study",
+      "corpus.concept",
+      "orchestration.operation_receipt",
+      "corpus.dataset",
+      "knowledge.failure_mode",
+      "curriculum.lesson",
+      "corpus.library",
+      "corpus.mcp_server",
+      "corpus.organization",
+      "corpus.paper",
+      "corpus.person",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.repository",
+      "evaluation.review_task",
+      "knowledge.solution_pattern",
+      "corpus.talk",
+      "knowledge.technical_problem",
+      "taxonomy.term",
+      "corpus.video"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "facet_id",
+      "requires_review",
+      "rule",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "assignment_review_requirement",
+    "path": "schemas/taxonomy/tables/assignment_review_requirement.md",
+    "qualified_name": "taxonomy.assignment_review_requirement",
+    "related_relations": [
+      "taxonomy.facet"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "code",
+      "label",
+      "canonical_schema",
+      "canonical_table",
+      "description"
+    ],
+    "description": "Primary canonical AI knowledge entity divisions and their typed corpus tables.",
+    "kind": "table",
+    "name": "entity_kind",
+    "path": "schemas/taxonomy/tables/entity_kind.md",
+    "qualified_name": "taxonomy.entity_kind",
+    "related_relations": [],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "label",
+      "description",
+      "cardinality",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "facet",
+    "path": "schemas/taxonomy/tables/facet.md",
+    "qualified_name": "taxonomy.facet",
+    "related_relations": [],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "id",
+      "facet_id",
+      "version",
+      "status",
+      "notes",
+      "approved_by_review_task_id",
+      "approved_at",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "facet_version",
+    "path": "schemas/taxonomy/tables/facet_version.md",
+    "qualified_name": "taxonomy.facet_version",
+    "related_relations": [
+      "taxonomy.facet",
+      "evaluation.review_task"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "id",
+      "facet_version_id",
+      "slug",
+      "label",
+      "definition",
+      "parent_term_id",
+      "sort_order",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "term",
+    "path": "schemas/taxonomy/tables/term.md",
+    "qualified_name": "taxonomy.term",
+    "related_relations": [
+      "taxonomy.facet_version",
+      "taxonomy.term"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "from_term_id",
+      "to_term_id",
+      "relation_kind",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "term_relation",
+    "path": "schemas/taxonomy/tables/term_relation.md",
+    "qualified_name": "taxonomy.term_relation",
+    "related_relations": [
+      "taxonomy.term",
+      "taxonomy.term"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "term_id",
+      "entity_kind_code",
+      "created_at"
+    ],
+    "description": "Restricts secondary taxonomy terms to compatible primary entity kinds.",
+    "kind": "table",
+    "name": "term_target_kind",
+    "path": "schemas/taxonomy/tables/term_target_kind.md",
+    "qualified_name": "taxonomy.term_target_kind",
+    "related_relations": [
+      "taxonomy.entity_kind",
+      "taxonomy.term"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "name",
+      "slug",
+      "distribution",
+      "description",
+      "skill_format",
+      "format_version",
+      "repository_id",
+      "maintainer_organization_id",
+      "license_spdx",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "agent_skill",
+    "path": "schemas/corpus/tables/agent_skill.md",
+    "qualified_name": "corpus.agent_skill",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "corpus.agent_skill",
+      "corpus.repository",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "agent_skill_id",
+      "mcp_server_id",
+      "min_server_version",
+      "optionality",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "agent_skill_requires_mcp_server",
+    "path": "schemas/corpus/tables/agent_skill_requires_mcp_server.md",
+    "qualified_name": "corpus.agent_skill_requires_mcp_server",
+    "related_relations": [
+      "corpus.agent_skill",
+      "orchestration.operation_receipt",
+      "corpus.mcp_server",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "agent_skill_id",
+      "library_id",
+      "relationship",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "agent_skill_targets_library",
+    "path": "schemas/corpus/tables/agent_skill_targets_library.md",
+    "qualified_name": "corpus.agent_skill_targets_library",
+    "related_relations": [
+      "corpus.agent_skill",
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "agent_skill_id",
+      "version_label",
+      "released_on",
+      "manifest",
+      "bundled_tooling",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "agent_skill_version",
+    "path": "schemas/corpus/tables/agent_skill_version.md",
+    "qualified_name": "corpus.agent_skill_version",
+    "related_relations": [
+      "corpus.agent_skill",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "provider_organization_id",
+      "model_slug",
+      "family",
+      "display_name",
+      "modality",
+      "model_kind",
+      "openness",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_model",
+    "path": "schemas/corpus/tables/ai_model.md",
+    "qualified_name": "corpus.ai_model",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.ai_model",
+      "corpus.organization",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "ai_model_version_id",
+      "availability",
+      "valid_from",
+      "valid_to",
+      "validity",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_model_availability_fact",
+    "path": "schemas/corpus/tables/ai_model_availability_fact.md",
+    "qualified_name": "corpus.ai_model_availability_fact",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "orchestration.operation_receipt",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "from_ai_model_id",
+      "to_ai_model_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_model_relationship",
+    "path": "schemas/corpus/tables/ai_model_relationship.md",
+    "qualified_name": "corpus.ai_model_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.ai_model",
+      "evidence.claim",
+      "corpus.ai_model"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "ai_model_id",
+      "organization_id",
+      "release_role",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_model_released_by_organization",
+    "path": "schemas/corpus/tables/ai_model_released_by_organization.md",
+    "qualified_name": "corpus.ai_model_released_by_organization",
+    "related_relations": [
+      "corpus.ai_model",
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "ai_model_id",
+      "version_label",
+      "released_on",
+      "context_window_tokens",
+      "max_output_tokens",
+      "knowledge_cutoff_on",
+      "deprecation_state",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_model_version",
+    "path": "schemas/corpus/tables/ai_model_version.md",
+    "qualified_name": "corpus.ai_model_version",
+    "related_relations": [
+      "corpus.ai_model",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "name",
+      "purpose",
+      "governing_organization_id",
+      "spec_repository_id",
+      "status",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_protocol",
+    "path": "schemas/corpus/tables/ai_protocol.md",
+    "qualified_name": "corpus.ai_protocol",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "corpus.ai_protocol",
+      "corpus.repository",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "from_ai_protocol_id",
+      "to_ai_protocol_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_protocol_relationship",
+    "path": "schemas/corpus/tables/ai_protocol_relationship.md",
+    "qualified_name": "corpus.ai_protocol_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.ai_protocol",
+      "evidence.claim",
+      "corpus.ai_protocol"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "ai_protocol_id",
+      "version_label",
+      "spec_url",
+      "released_on",
+      "breaking_changes",
+      "summary",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_protocol_version",
+    "path": "schemas/corpus/tables/ai_protocol_version.md",
+    "qualified_name": "corpus.ai_protocol_version",
+    "related_relations": [
+      "corpus.ai_protocol",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "name",
+      "measures",
+      "task_domain",
+      "homepage_url",
+      "retired",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "benchmark",
+    "path": "schemas/corpus/tables/benchmark.md",
+    "qualified_name": "corpus.benchmark",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.benchmark",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "benchmark_id",
+      "ai_model_version_id",
+      "evaluation_role",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": "Semantic benchmark/model link only; quantitative results belong in ranking.metric_observation.",
+    "kind": "table",
+    "name": "benchmark_evaluates_model_version",
+    "path": "schemas/corpus/tables/benchmark_evaluates_model_version.md",
+    "qualified_name": "corpus.benchmark_evaluates_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "corpus.benchmark",
+      "orchestration.operation_receipt",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "benchmark_id",
+      "dataset_id",
+      "usage_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "benchmark_uses_dataset",
+    "path": "schemas/corpus/tables/benchmark_uses_dataset.md",
+    "qualified_name": "corpus.benchmark_uses_dataset",
+    "related_relations": [
+      "corpus.benchmark",
+      "orchestration.operation_receipt",
+      "corpus.dataset",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "title",
+      "case_study_kind",
+      "subject_organization_id",
+      "subject_product_id",
+      "published_on",
+      "source_url",
+      "summary",
+      "structured_outcomes",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study",
+    "path": "schemas/corpus/tables/case_study.md",
+    "qualified_name": "corpus.case_study",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.case_study",
+      "corpus.organization",
+      "corpus.product",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "case_study_id",
+      "benchmark_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study_references_benchmark",
+    "path": "schemas/corpus/tables/case_study_references_benchmark.md",
+    "qualified_name": "corpus.case_study_references_benchmark",
+    "related_relations": [
+      "corpus.benchmark",
+      "corpus.case_study",
+      "orchestration.operation_receipt",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "case_study_id",
+      "library_id",
+      "usage_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study_uses_library",
+    "path": "schemas/corpus/tables/case_study_uses_library.md",
+    "qualified_name": "corpus.case_study_uses_library",
+    "related_relations": [
+      "corpus.case_study",
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "case_study_id",
+      "ai_model_version_id",
+      "usage_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study_uses_model_version",
+    "path": "schemas/corpus/tables/case_study_uses_model_version.md",
+    "qualified_name": "corpus.case_study_uses_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "corpus.case_study",
+      "orchestration.operation_receipt",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "preferred_label",
+      "definition",
+      "concept_kind",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "concept",
+    "path": "schemas/corpus/tables/concept.md",
+    "qualified_name": "corpus.concept",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.concept",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "concept_id",
+      "alias",
+      "alias_kind",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "concept_alias",
+    "path": "schemas/corpus/tables/concept_alias.md",
+    "qualified_name": "corpus.concept_alias",
+    "related_relations": [
+      "corpus.concept",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "host",
+      "external_id",
+      "name",
+      "modality",
+      "license_spdx",
+      "size_descriptor",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "dataset",
+    "path": "schemas/corpus/tables/dataset.md",
+    "qualified_name": "corpus.dataset",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.dataset",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "code",
+      "description"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "distribution_kind",
+    "path": "schemas/corpus/tables/distribution_kind.md",
+    "qualified_name": "corpus.distribution_kind",
+    "related_relations": [],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "entity_kind",
+      "winner_id",
+      "loser_id",
+      "merge_reason",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": "Merge history for canonical entities. The review that authorized a merge is found through evaluation.review_task.entity_merge_id, never by a column here -- corpus must not reference evaluation.",
+    "kind": "table",
+    "name": "entity_merge",
+    "path": "schemas/corpus/tables/entity_merge.md",
+    "qualified_name": "corpus.entity_merge",
+    "related_relations": [
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "ecosystem",
+      "package_name",
+      "display_name",
+      "description",
+      "primary_language",
+      "homepage_url",
+      "first_released_on",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library",
+    "path": "schemas/corpus/tables/library.md",
+    "qualified_name": "corpus.library",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.distribution_kind",
+      "corpus.library",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "video_id",
+      "prominence",
+      "locator_id",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_appeared_in_video",
+    "path": "schemas/corpus/tables/library_appeared_in_video.md",
+    "qualified_name": "corpus.library_appeared_in_video",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.locator",
+      "evidence.claim",
+      "corpus.video"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "repository_id",
+      "relationship_kind",
+      "path_in_repo",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_backed_by_repository",
+    "path": "schemas/corpus/tables/library_backed_by_repository.md",
+    "qualified_name": "corpus.library_backed_by_repository",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "depends_on_id",
+      "dependency_kind",
+      "version_range",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_depends_on_library",
+    "path": "schemas/corpus/tables/library_depends_on_library.md",
+    "qualified_name": "corpus.library_depends_on_library",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "ai_protocol_version_id",
+      "conformance",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_implements_protocol_version",
+    "path": "schemas/corpus/tables/library_implements_protocol_version.md",
+    "qualified_name": "corpus.library_implements_protocol_version",
+    "related_relations": [
+      "corpus.ai_protocol_version",
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "license_spdx",
+      "valid_from",
+      "valid_to",
+      "validity",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_license_fact",
+    "path": "schemas/corpus/tables/library_license_fact.md",
+    "qualified_name": "corpus.library_license_fact",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "person_id",
+      "role",
+      "source",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_maintained_by_person",
+    "path": "schemas/corpus/tables/library_maintained_by_person.md",
+    "qualified_name": "corpus.library_maintained_by_person",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "status",
+      "valid_from",
+      "valid_to",
+      "validity",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_maintenance_status_fact",
+    "path": "schemas/corpus/tables/library_maintenance_status_fact.md",
+    "qualified_name": "corpus.library_maintenance_status_fact",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "library_id",
+      "ai_model_version_id",
+      "integration_kind",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "library_supports_model_version",
+    "path": "schemas/corpus/tables/library_supports_model_version.md",
+    "qualified_name": "corpus.library_supports_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "name",
+      "description",
+      "registry_id",
+      "ecosystem",
+      "package_name",
+      "repository_id",
+      "maintainer_organization_id",
+      "distribution_kind",
+      "transport_kinds",
+      "license_spdx",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server",
+    "path": "schemas/corpus/tables/mcp_server.md",
+    "qualified_name": "corpus.mcp_server",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.distribution_kind",
+      "corpus.distribution_kind",
+      "corpus.organization",
+      "corpus.mcp_server",
+      "corpus.repository",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_id",
+      "repository_id",
+      "relationship_kind",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_backed_by_repository",
+    "path": "schemas/corpus/tables/mcp_server_backed_by_repository.md",
+    "qualified_name": "corpus.mcp_server_backed_by_repository",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_version_id",
+      "name",
+      "arguments",
+      "description",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_prompt",
+    "path": "schemas/corpus/tables/mcp_server_prompt.md",
+    "qualified_name": "corpus.mcp_server_prompt",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server_version"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_id",
+      "status",
+      "valid_from",
+      "valid_to",
+      "validity",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_registry_status_fact",
+    "path": "schemas/corpus/tables/mcp_server_registry_status_fact.md",
+    "qualified_name": "corpus.mcp_server_registry_status_fact",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_version_id",
+      "name",
+      "uri_template",
+      "description",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_resource",
+    "path": "schemas/corpus/tables/mcp_server_resource.md",
+    "qualified_name": "corpus.mcp_server_resource",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server_version"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_version_id",
+      "tool_name",
+      "description",
+      "input_schema",
+      "output_schema",
+      "annotations",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_tool",
+    "path": "schemas/corpus/tables/mcp_server_tool.md",
+    "qualified_name": "corpus.mcp_server_tool",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server_version"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_id",
+      "version_label",
+      "released_on",
+      "protocol_version_id",
+      "auth_model",
+      "packaging_hash",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_version",
+    "path": "schemas/corpus/tables/mcp_server_version.md",
+    "qualified_name": "corpus.mcp_server_version",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server",
+      "corpus.ai_protocol_version"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "mcp_server_id",
+      "product_id",
+      "coverage",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mcp_server_wraps_product",
+    "path": "schemas/corpus/tables/mcp_server_wraps_product.md",
+    "qualified_name": "corpus.mcp_server_wraps_product",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "legal_name",
+      "display_name",
+      "org_kind",
+      "website_url",
+      "founded_on",
+      "description",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "organization",
+    "path": "schemas/corpus/tables/organization.md",
+    "qualified_name": "corpus.organization",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "organization_id",
+      "scheme",
+      "value",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "organization_identifier",
+    "path": "schemas/corpus/tables/organization_identifier.md",
+    "qualified_name": "corpus.organization_identifier",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "organization_id",
+      "product_id",
+      "relationship_kind",
+      "is_primary",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": "Many-to-many organization roles for products; product.vendor_organization_id remains the primary vendor shortcut.",
+    "kind": "table",
+    "name": "organization_product_relationship",
+    "path": "schemas/corpus/tables/organization_product_relationship.md",
+    "qualified_name": "corpus.organization_product_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "from_organization_id",
+      "to_organization_id",
+      "relationship_kind",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "organization_relationship",
+    "path": "schemas/corpus/tables/organization_relationship.md",
+    "qualified_name": "corpus.organization_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "evidence.claim",
+      "corpus.organization"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "title",
+      "abstract",
+      "venue",
+      "published_on",
+      "paper_kind",
+      "doi",
+      "arxiv_id",
+      "openreview_id",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper",
+    "path": "schemas/corpus/tables/paper.md",
+    "qualified_name": "corpus.paper",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.paper",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "paper_id",
+      "talk_id",
+      "treatment",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper_appeared_in_talk",
+    "path": "schemas/corpus/tables/paper_appeared_in_talk.md",
+    "qualified_name": "corpus.paper_appeared_in_talk",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.paper",
+      "evidence.claim",
+      "corpus.talk"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "paper_id",
+      "video_id",
+      "treatment",
+      "locator_id",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper_appeared_in_video",
+    "path": "schemas/corpus/tables/paper_appeared_in_video.md",
+    "qualified_name": "corpus.paper_appeared_in_video",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "evidence.locator",
+      "corpus.paper",
+      "evidence.claim",
+      "corpus.video"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "paper_id",
+      "person_id",
+      "author_position",
+      "corresponding",
+      "affiliation_organization_id",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper_authored_by_person",
+    "path": "schemas/corpus/tables/paper_authored_by_person.md",
+    "qualified_name": "corpus.paper_authored_by_person",
+    "related_relations": [
+      "corpus.organization",
+      "orchestration.operation_receipt",
+      "corpus.paper",
+      "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "paper_id",
+      "ai_model_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper_introduces_model",
+    "path": "schemas/corpus/tables/paper_introduces_model.md",
+    "qualified_name": "corpus.paper_introduces_model",
+    "related_relations": [
+      "corpus.ai_model",
+      "orchestration.operation_receipt",
+      "corpus.paper",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "paper_id",
+      "state",
+      "notice_url",
+      "valid_from",
+      "valid_to",
+      "validity",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper_retraction_fact",
+    "path": "schemas/corpus/tables/paper_retraction_fact.md",
+    "qualified_name": "corpus.paper_retraction_fact",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.paper",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "display_name",
+      "given_name",
+      "family_name",
+      "headline",
+      "primary_role",
+      "primary_organization_id",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person",
+    "path": "schemas/corpus/tables/person.md",
+    "qualified_name": "corpus.person",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.person",
+      "corpus.organization",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "video_id",
+      "appearance_role",
+      "locator_id",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_appeared_in_video",
+    "path": "schemas/corpus/tables/person_appeared_in_video.md",
+    "qualified_name": "corpus.person_appeared_in_video",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "evidence.locator",
+      "corpus.person",
+      "evidence.claim",
+      "corpus.video"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "agent_skill_id",
+      "role",
+      "since",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_created_agent_skill",
+    "path": "schemas/corpus/tables/person_created_agent_skill.md",
+    "qualified_name": "corpus.person_created_agent_skill",
+    "related_relations": [
+      "corpus.agent_skill",
+      "orchestration.operation_receipt",
+      "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "mcp_server_id",
+      "role",
+      "since",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_created_mcp_server",
+    "path": "schemas/corpus/tables/person_created_mcp_server.md",
+    "qualified_name": "corpus.person_created_mcp_server",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.mcp_server",
+      "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "organization_id",
+      "title",
+      "seniority",
+      "employment_kind",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_employed_by_organization",
+    "path": "schemas/corpus/tables/person_employed_by_organization.md",
+    "qualified_name": "corpus.person_employed_by_organization",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "organization_id",
+      "founder_role",
+      "founded_on",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_founded_organization",
+    "path": "schemas/corpus/tables/person_founded_organization.md",
+    "qualified_name": "corpus.person_founded_organization",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "scheme",
+      "value",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_identifier",
+    "path": "schemas/corpus/tables/person_identifier.md",
+    "qualified_name": "corpus.person_identifier",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.person"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "person_id",
+      "talk_id",
+      "speaker_role",
+      "speaker_position",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "person_presented_at_talk",
+    "path": "schemas/corpus/tables/person_presented_at_talk.md",
+    "qualified_name": "corpus.person_presented_at_talk",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.person",
+      "evidence.claim",
+      "corpus.talk"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "display_name",
+      "product_kind",
+      "vendor_organization_id",
+      "launched_on",
+      "homepage_url",
+      "description",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product",
+    "path": "schemas/corpus/tables/product.md",
+    "qualified_name": "corpus.product",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product",
+      "orchestration.operation_receipt",
+      "corpus.organization"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "video_id",
+      "prominence",
+      "locator_id",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_appeared_in_video",
+    "path": "schemas/corpus/tables/product_appeared_in_video.md",
+    "qualified_name": "corpus.product_appeared_in_video",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "evidence.locator",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.video"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "product_id",
+      "repository_id",
+      "relationship_kind",
+      "official",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_backed_by_repository",
+    "path": "schemas/corpus/tables/product_backed_by_repository.md",
+    "qualified_name": "corpus.product_backed_by_repository",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "ai_model_version_id",
+      "usage_kind",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_built_on_model_version",
+    "path": "schemas/corpus/tables/product_built_on_model_version.md",
+    "qualified_name": "corpus.product_built_on_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "orchestration.operation_receipt",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "vendor_organization_id",
+      "slug",
+      "display_name",
+      "description",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_family",
+    "path": "schemas/corpus/tables/product_family.md",
+    "qualified_name": "corpus.product_family",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product_family",
+      "orchestration.operation_receipt",
+      "corpus.organization"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "product_family_id",
+      "product_id",
+      "member_kind",
+      "sort_order",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_family_member",
+    "path": "schemas/corpus/tables/product_family_member.md",
+    "qualified_name": "corpus.product_family_member",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product_family",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "slug",
+      "name",
+      "description",
+      "introduced_in_version_id",
+      "retired_in_version_id",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_feature",
+    "path": "schemas/corpus/tables/product_feature.md",
+    "qualified_name": "corpus.product_feature",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product_version",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.product_version"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "ai_protocol_version_id",
+      "conformance",
+      "client_or_server",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_implements_protocol_version",
+    "path": "schemas/corpus/tables/product_implements_protocol_version.md",
+    "qualified_name": "corpus.product_implements_protocol_version",
+    "related_relations": [
+      "corpus.ai_protocol_version",
+      "orchestration.operation_receipt",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "version_label",
+      "release_channel",
+      "released_on",
+      "ended_on",
+      "release_url",
+      "notes",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_version",
+    "path": "schemas/corpus/tables/product_version.md",
+    "qualified_name": "corpus.product_version",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "host",
+      "owner",
+      "name",
+      "default_branch",
+      "primary_language",
+      "is_fork",
+      "description",
+      "created_at_host",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "repository",
+    "path": "schemas/corpus/tables/repository.md",
+    "qualified_name": "corpus.repository",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.repository",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "repository_id",
+      "host",
+      "owner",
+      "name",
+      "observed_at",
+      "created_by_receipt_id"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "repository_alias",
+    "path": "schemas/corpus/tables/repository_alias.md",
+    "qualified_name": "corpus.repository_alias",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "repository_id",
+      "archived",
+      "valid_from",
+      "valid_to",
+      "validity",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "repository_archival_fact",
+    "path": "schemas/corpus/tables/repository_archival_fact.md",
+    "qualified_name": "corpus.repository_archival_fact",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "repository_id",
+      "paper_id",
+      "fidelity",
+      "notes",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "repository_implements_paper",
+    "path": "schemas/corpus/tables/repository_implements_paper.md",
+    "qualified_name": "corpus.repository_implements_paper",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.paper",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "repository_id",
+      "organization_id",
+      "maintenance_role",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "repository_maintained_by_organization",
+    "path": "schemas/corpus/tables/repository_maintained_by_organization.md",
+    "qualified_name": "corpus.repository_maintained_by_organization",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "title",
+      "event_slug",
+      "event_name",
+      "event_edition",
+      "delivered_on",
+      "recording_video_id",
+      "abstract",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "talk",
+    "path": "schemas/corpus/tables/talk.md",
+    "qualified_name": "corpus.talk",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.talk",
+      "corpus.video",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "talk_id",
+      "concept_id",
+      "depth",
+      "valid_from",
+      "valid_to",
+      "confidence",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "talk_explains_concept",
+    "path": "schemas/corpus/tables/talk_explains_concept.md",
+    "qualified_name": "corpus.talk_explains_concept",
+    "related_relations": [
+      "corpus.concept",
+      "orchestration.operation_receipt",
+      "evidence.claim",
+      "corpus.talk"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "platform",
+      "external_id",
+      "title",
+      "channel",
+      "channel_external_id",
+      "published_at",
+      "duration_seconds",
+      "url",
+      "transcript_artifact_id",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "video",
+    "path": "schemas/corpus/tables/video.md",
+    "qualified_name": "corpus.video",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.video",
+      "orchestration.artifact",
+      "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "candidate_kind",
+      "status",
+      "raw",
+      "discovered_by_attempt_id",
+      "discovery_method",
+      "provider",
+      "capture_id",
+      "locator_id",
+      "mission_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate",
+    "path": "schemas/staging/tables/candidate.md",
+    "qualified_name": "staging.candidate",
+    "related_relations": [
+      "evidence.source_capture",
+      "orchestration.attempt",
+      "evidence.locator",
+      "orchestration.mission"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "name",
+      "slug",
+      "distribution",
+      "repository_url",
+      "skill_format"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_agent_skill",
+    "path": "schemas/staging/tables/candidate_agent_skill.md",
+    "qualified_name": "staging.candidate_agent_skill",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "provider_name",
+      "model_slug",
+      "display_name",
+      "family"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_ai_model",
+    "path": "schemas/staging/tables/candidate_ai_model.md",
+    "qualified_name": "staging.candidate_ai_model",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "slug",
+      "name",
+      "spec_url"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_ai_protocol",
+    "path": "schemas/staging/tables/candidate_ai_protocol.md",
+    "qualified_name": "staging.candidate_ai_protocol",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "name",
+      "task_domain",
+      "homepage_url"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_benchmark",
+    "path": "schemas/staging/tables/candidate_benchmark.md",
+    "qualified_name": "staging.candidate_benchmark",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "slug",
+      "title",
+      "organization_name",
+      "product_name",
+      "published_on",
+      "source_url"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_case_study",
+    "path": "schemas/staging/tables/candidate_case_study.md",
+    "qualified_name": "staging.candidate_case_study",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "preferred_label",
+      "definition",
+      "aliases"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_concept",
+    "path": "schemas/staging/tables/candidate_concept.md",
+    "qualified_name": "staging.candidate_concept",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "host",
+      "external_id",
+      "name"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_dataset",
+    "path": "schemas/staging/tables/candidate_dataset.md",
+    "qualified_name": "staging.candidate_dataset",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "ecosystem",
+      "package_name",
+      "display_name",
+      "homepage_url",
+      "primary_language"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_library",
+    "path": "schemas/staging/tables/candidate_library.md",
+    "qualified_name": "staging.candidate_library",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "name",
+      "registry_id",
+      "ecosystem",
+      "package_name",
+      "repository_url",
+      "transport_kinds"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_mcp_server",
+    "path": "schemas/staging/tables/candidate_mcp_server.md",
+    "qualified_name": "staging.candidate_mcp_server",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "display_name",
+      "legal_name",
+      "website_url",
+      "identifiers"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_organization",
+    "path": "schemas/staging/tables/candidate_organization.md",
+    "qualified_name": "staging.candidate_organization",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "title",
+      "doi",
+      "arxiv_id",
+      "openreview_id",
+      "published_on"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_paper",
+    "path": "schemas/staging/tables/candidate_paper.md",
+    "qualified_name": "staging.candidate_paper",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "display_name",
+      "given_name",
+      "family_name",
+      "headline",
+      "identifiers"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_person",
+    "path": "schemas/staging/tables/candidate_person.md",
+    "qualified_name": "staging.candidate_person",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "display_name",
+      "vendor_name",
+      "homepage_url"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_product",
+    "path": "schemas/staging/tables/candidate_product.md",
+    "qualified_name": "staging.candidate_product",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "host",
+      "owner",
+      "name",
+      "primary_language"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_repository",
+    "path": "schemas/staging/tables/candidate_repository.md",
+    "qualified_name": "staging.candidate_repository",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "title",
+      "event_slug",
+      "event_name",
+      "delivered_on"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_talk",
+    "path": "schemas/staging/tables/candidate_talk.md",
+    "qualified_name": "staging.candidate_talk",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "record_kind",
+      "title",
+      "statement",
+      "structured",
+      "scope"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_technical_record",
+    "path": "schemas/staging/tables/candidate_technical_record.md",
+    "qualified_name": "staging.candidate_technical_record",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "candidate_id",
+      "candidate_kind",
+      "platform",
+      "external_id",
+      "title",
+      "channel",
+      "published_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "candidate_video",
+    "path": "schemas/staging/tables/candidate_video.md",
+    "qualified_name": "staging.candidate_video",
+    "related_relations": [
+      "staging.candidate",
+      "staging.candidate"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "id",
+      "candidate_id",
+      "organization_id",
+      "person_id",
+      "library_id",
+      "repository_id",
+      "paper_id",
+      "talk_id",
+      "video_id",
+      "product_id",
+      "concept_id",
+      "dataset_id",
+      "benchmark_id",
+      "ai_model_id",
+      "ai_protocol_id",
+      "mcp_server_id",
+      "agent_skill_id",
+      "match_method",
+      "score",
+      "decided",
+      "created_at",
+      "case_study_id",
+      "target_kind"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "identity_match",
+    "path": "schemas/staging/tables/identity_match.md",
+    "qualified_name": "staging.identity_match",
+    "related_relations": [
+      "corpus.agent_skill",
+      "corpus.ai_model",
+      "corpus.ai_protocol",
+      "corpus.benchmark",
+      "staging.candidate",
+      "corpus.case_study",
+      "corpus.concept",
+      "corpus.dataset",
+      "corpus.library",
+      "corpus.mcp_server",
+      "corpus.organization",
+      "corpus.paper",
+      "corpus.person",
+      "corpus.product",
+      "corpus.repository",
+      "corpus.talk",
+      "corpus.video"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "id",
+      "candidate_id",
+      "appeared_in_capture_id",
+      "snippet_locator_id",
+      "surface_form",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "mention",
+    "path": "schemas/staging/tables/mention.md",
+    "qualified_name": "staging.mention",
+    "related_relations": [
+      "evidence.source_capture",
+      "staging.candidate",
+      "evidence.locator"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "id",
+      "candidate_id",
+      "identity_match_id",
+      "outcome",
+      "rationale",
+      "intent_id",
+      "decided_by_attempt_id",
+      "decided_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "resolution_decision",
+    "path": "schemas/staging/tables/resolution_decision.md",
+    "qualified_name": "staging.resolution_decision",
+    "related_relations": [
+      "staging.candidate",
+      "orchestration.attempt",
+      "staging.identity_match",
+      "orchestration.operation_intent"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "id",
+      "candidate_id",
+      "outcome",
+      "rationale",
+      "review_task_id",
+      "decided_by_attempt_id",
+      "decided_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "vetting_decision",
+    "path": "schemas/staging/tables/vetting_decision.md",
+    "qualified_name": "staging.vetting_decision",
+    "related_relations": [
+      "staging.candidate",
+      "orchestration.attempt",
+      "evaluation.review_task"
+    ],
+    "schema": "staging"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "entity_kind",
+      "purpose",
+      "definition",
+      "inclusion_rules",
+      "exclusion_rules",
+      "review_state",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "entity_group",
+    "path": "schemas/ranking/tables/entity_group.md",
+    "qualified_name": "ranking.entity_group",
+    "related_relations": [],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "entity_group_id",
+      "version",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "entity_group_version",
+    "path": "schemas/ranking/tables/entity_group_version.md",
+    "qualified_name": "ranking.entity_group_version",
+    "related_relations": [
+      "ranking.entity_group"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "slug",
+      "version",
+      "expression",
+      "inputs",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "feature_definition",
+    "path": "schemas/ranking/tables/feature_definition.md",
+    "qualified_name": "ranking.feature_definition",
+    "related_relations": [],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "feature_definition_id",
+      "entity_kind",
+      "entity_id",
+      "value_numeric",
+      "value_jsonb",
+      "input_lineage",
+      "computed_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "feature_value",
+    "path": "schemas/ranking/tables/feature_value.md",
+    "qualified_name": "ranking.feature_value",
+    "related_relations": [
+      "ranking.feature_definition"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "group_version_id",
+      "library_id",
+      "repository_id",
+      "person_id",
+      "organization_id",
+      "paper_id",
+      "video_id",
+      "ai_model_version_id",
+      "mcp_server_id",
+      "agent_skill_id",
+      "product_id",
+      "entity_kind",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "group_membership",
+    "path": "schemas/ranking/tables/group_membership.md",
+    "qualified_name": "ranking.group_membership",
+    "related_relations": [
+      "corpus.agent_skill",
+      "corpus.ai_model_version",
+      "ranking.entity_group_version",
+      "corpus.library",
+      "corpus.mcp_server",
+      "corpus.organization",
+      "corpus.paper",
+      "corpus.person",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.repository",
+      "corpus.video"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "group_version_id",
+      "policy_version_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "leaderboard",
+    "path": "schemas/ranking/tables/leaderboard.md",
+    "qualified_name": "ranking.leaderboard",
+    "related_relations": [
+      "ranking.entity_group_version",
+      "ranking.ranking_policy_version"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "leaderboard_id",
+      "ranking_run_id",
+      "edition_no",
+      "published_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "leaderboard_edition",
+    "path": "schemas/ranking/tables/leaderboard_edition.md",
+    "qualified_name": "ranking.leaderboard_edition",
+    "related_relations": [
+      "ranking.leaderboard",
+      "ranking.ranking_run"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "group_version_id",
+      "members",
+      "member_count",
+      "frozen_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "membership_snapshot",
+    "path": "schemas/ranking/tables/membership_snapshot.md",
+    "qualified_name": "ranking.membership_snapshot",
+    "related_relations": [
+      "ranking.entity_group_version"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "label",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "metric_definition",
+    "path": "schemas/ranking/tables/metric_definition.md",
+    "qualified_name": "ranking.metric_definition",
+    "related_relations": [],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "metric_definition_id",
+      "version",
+      "semantics",
+      "unit",
+      "source_field",
+      "acquisition",
+      "locator_method",
+      "cadence",
+      "missingness_policy",
+      "gaming_risk",
+      "decay_policy",
+      "permitted_ranking_purposes",
+      "approval_state",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "metric_definition_version",
+    "path": "schemas/ranking/tables/metric_definition_version.md",
+    "qualified_name": "ranking.metric_definition_version",
+    "related_relations": [
+      "ranking.metric_definition"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "definition_version_id",
+      "library_id",
+      "repository_id",
+      "person_id",
+      "organization_id",
+      "paper_id",
+      "video_id",
+      "ai_model_version_id",
+      "mcp_server_id",
+      "agent_skill_id",
+      "product_id",
+      "observed_at",
+      "value_numeric",
+      "value_text",
+      "value_jsonb",
+      "locator_id",
+      "run_id",
+      "created_at",
+      "dataset_id",
+      "benchmark_id",
+      "talk_id",
+      "ai_model_id",
+      "collected_at",
+      "observation_window",
+      "dimensions",
+      "measurement_kind",
+      "is_estimate",
+      "visibility",
+      "access_tier",
+      "raw_capture_id",
+      "collector_version",
+      "source_policy_version",
+      "quality_flags",
+      "provenance",
+      "unavailable_reason",
+      "case_study_id",
+      "entity_kind"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "metric_observation",
+    "path": "schemas/ranking/tables/metric_observation.md",
+    "qualified_name": "ranking.metric_observation",
+    "related_relations": [
+      "corpus.agent_skill",
+      "corpus.ai_model",
+      "corpus.ai_model_version",
+      "corpus.benchmark",
+      "corpus.case_study",
+      "corpus.dataset",
+      "ranking.metric_definition_version",
+      "corpus.library",
+      "evidence.locator",
+      "corpus.mcp_server",
+      "corpus.organization",
+      "corpus.paper",
+      "corpus.person",
+      "corpus.product",
+      "evidence.source_capture",
+      "corpus.repository",
+      "ranking.ranking_run",
+      "corpus.talk",
+      "corpus.video"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "slug",
+      "purpose",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ranking_policy",
+    "path": "schemas/ranking/tables/ranking_policy.md",
+    "qualified_name": "ranking.ranking_policy",
+    "related_relations": [],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "ranking_policy_id",
+      "version",
+      "weights",
+      "penalties",
+      "approval_state",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ranking_policy_version",
+    "path": "schemas/ranking/tables/ranking_policy_version.md",
+    "qualified_name": "ranking.ranking_policy_version",
+    "related_relations": [
+      "ranking.ranking_policy"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "run_id",
+      "entity_kind",
+      "entity_id",
+      "rank",
+      "score",
+      "contributions",
+      "penalties",
+      "uncertainty",
+      "explanation"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ranking_result",
+    "path": "schemas/ranking/tables/ranking_result.md",
+    "qualified_name": "ranking.ranking_result",
+    "related_relations": [
+      "ranking.ranking_run"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "policy_version_id",
+      "snapshot_id",
+      "feature_set_hash",
+      "code_ref",
+      "work_item_id",
+      "executed_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ranking_run",
+    "path": "schemas/ranking/tables/ranking_run.md",
+    "qualified_name": "ranking.ranking_run",
+    "related_relations": [
+      "ranking.ranking_policy_version",
+      "ranking.membership_snapshot",
+      "orchestration.work_item"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "run_id",
+      "purpose",
+      "selected",
+      "diversity_rationale",
+      "coverage_rationale",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "selection",
+    "path": "schemas/ranking/tables/selection.md",
+    "qualified_name": "ranking.selection",
+    "related_relations": [
+      "ranking.ranking_run"
+    ],
+    "schema": "ranking"
+  },
+  {
+    "columns": [
+      "bundle_id",
+      "artifact_id",
+      "role"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "bundle_artifact",
+    "path": "schemas/research/tables/bundle_artifact.md",
+    "qualified_name": "research.bundle_artifact",
+    "related_relations": [
+      "orchestration.artifact",
+      "research.research_bundle"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "id",
+      "mission_id",
+      "title",
+      "entity_kind",
+      "entity_ids",
+      "dimensions",
+      "verdicts",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "comparison",
+    "path": "schemas/research/tables/comparison.md",
+    "qualified_name": "research.comparison",
+    "related_relations": [
+      "orchestration.mission"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "id",
+      "mission_id",
+      "target_pipeline",
+      "payload_artifact_id",
+      "consumed_by_work_item_id",
+      "status",
+      "created_at",
+      "consumed_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "downstream_handoff",
+    "path": "schemas/research/tables/downstream_handoff.md",
+    "qualified_name": "research.downstream_handoff",
+    "related_relations": [
+      "orchestration.work_item",
+      "orchestration.mission",
+      "orchestration.artifact"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "id",
+      "mission_id",
+      "title",
+      "statement",
+      "structured",
+      "proposed_record_kind",
+      "resolution",
+      "resolved_record_id",
+      "rejection_reason",
+      "provenance_claim_id",
+      "created_at",
+      "resolved_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "finding",
+    "path": "schemas/research/tables/finding.md",
+    "qualified_name": "research.finding",
+    "related_relations": [
+      "orchestration.mission",
+      "evidence.claim"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "mission_id",
+      "slug",
+      "title",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "report",
+    "path": "schemas/research/tables/report.md",
+    "qualified_name": "research.report",
+    "related_relations": [
+      "orchestration.mission"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "report_version_id",
+      "claim_id",
+      "role"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "report_claim",
+    "path": "schemas/research/tables/report_claim.md",
+    "qualified_name": "research.report_claim",
+    "related_relations": [
+      "evidence.claim",
+      "research.report_version"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "id",
+      "report_id",
+      "version",
+      "markdown_artifact_id",
+      "json_artifact_id",
+      "synthesis_consistency_eval_id",
+      "assurance_summary",
+      "published_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "report_version",
+    "path": "schemas/research/tables/report_version.md",
+    "qualified_name": "research.report_version",
+    "related_relations": [
+      "evaluation.eval_run",
+      "orchestration.artifact",
+      "orchestration.artifact",
+      "research.report"
+    ],
+    "schema": "research"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "mission_id",
+      "bundle_version",
+      "manifest_artifact_id",
+      "status",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "research_bundle",
+    "path": "schemas/research/tables/research_bundle.md",
+    "qualified_name": "research.research_bundle",
+    "related_relations": [
+      "orchestration.artifact",
+      "orchestration.mission"
+    ],
+    "schema": "research"
+  }
+]

@@ -1,0 +1,1790 @@
+{
+  "columns": [
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "term_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "library_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "person_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "paper_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "talk_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "video_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": true,
+      "position": 11,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "concept_id",
+      "nullable": true,
+      "position": 12,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_id",
+      "nullable": true,
+      "position": 13,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_protocol_id",
+      "nullable": true,
+      "position": 14,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mcp_server_id",
+      "nullable": true,
+      "position": 15,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "agent_skill_id",
+      "nullable": true,
+      "position": 16,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "technical_problem_id",
+      "nullable": true,
+      "position": 17,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "solution_pattern_id",
+      "nullable": true,
+      "position": 18,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "advanced_usage_pattern_id",
+      "nullable": true,
+      "position": 19,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "failure_mode_id",
+      "nullable": true,
+      "position": 20,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lesson_id",
+      "nullable": true,
+      "position": 21,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "method",
+      "nullable": false,
+      "position": 23,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "corpus.confidence",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "confidence",
+      "nullable": true,
+      "position": 24,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 25,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "review_task_id",
+      "nullable": true,
+      "position": 26,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_from",
+      "nullable": false,
+      "position": 27,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_to",
+      "nullable": true,
+      "position": 28,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 29,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 30,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": true,
+      "position": 31,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dataset_id",
+      "nullable": true,
+      "position": 33,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": true,
+      "position": 34,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (lesson_id IS NOT NULL) THEN 'lesson'::text\n    ELSE NULL::text\nEND",
+      "description": null,
+      "generated_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (lesson_id IS NOT NULL) THEN 'lesson'::text\n    ELSE NULL::text\nEND",
+      "identity_kind": null,
+      "name": "target_kind",
+      "nullable": true,
+      "position": 35,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "facet_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "true",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "requires_review",
+      "nullable": false,
+      "position": 2,
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rule",
+      "nullable": false,
+      "position": 3,
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "label",
+      "nullable": false,
+      "position": 2,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'corpus'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "canonical_schema",
+      "nullable": false,
+      "position": 3,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "canonical_table",
+      "nullable": false,
+      "position": 4,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 5,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "label",
+      "nullable": false,
+      "position": 4,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": true,
+      "position": 5,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'multi'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "cardinality",
+      "nullable": false,
+      "position": 6,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "facet_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version",
+      "nullable": false,
+      "position": 3,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "taxonomy.facet_status",
+      "default_expression": "'draft'::taxonomy.facet_status",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "status",
+      "nullable": false,
+      "position": 4,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "notes",
+      "nullable": true,
+      "position": 5,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approved_by_review_task_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "approved_at",
+      "nullable": true,
+      "position": 7,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "facet_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "label",
+      "nullable": false,
+      "position": 4,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "definition",
+      "nullable": true,
+      "position": 5,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "parent_term_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "0",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "sort_order",
+      "nullable": false,
+      "position": 7,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "from_term_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "term_relation",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "to_term_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "term_relation",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relation_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "term_relation",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 4,
+      "relation": "term_relation",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "term_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_kind_code",
+      "nullable": false,
+      "position": 2,
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 3,
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
+    }
+  ],
+  "constraints": [
+    {
+      "definition": "CHECK (num_nonnulls(library_id, repository_id, person_id, organization_id, paper_id, talk_id, video_id, product_id, case_study_id, concept_id, dataset_id, benchmark_id, ai_model_id, ai_protocol_id, mcp_server_id, agent_skill_id, technical_problem_id, solution_pattern_id, advanced_usage_pattern_id, failure_mode_id, lesson_id) = 1)",
+      "name": "assignment_exactly_one_target",
+      "references": null,
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (method = ANY (ARRAY['rule'::text, 'model'::text, 'human'::text]))",
+      "name": "assignment_method_check",
+      "references": null,
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (advanced_usage_pattern_id) REFERENCES knowledge.advanced_usage_pattern(id) ON DELETE CASCADE",
+      "name": "assignment_advanced_usage_pattern_id_fkey",
+      "references": "knowledge.advanced_usage_pattern",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (agent_skill_id) REFERENCES corpus.agent_skill(id) ON DELETE CASCADE",
+      "name": "assignment_agent_skill_id_fkey",
+      "references": "corpus.agent_skill",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE",
+      "name": "assignment_ai_model_id_fkey",
+      "references": "corpus.ai_model",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE",
+      "name": "assignment_ai_protocol_id_fkey",
+      "references": "corpus.ai_protocol",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE",
+      "name": "assignment_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE",
+      "name": "assignment_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (concept_id) REFERENCES corpus.concept(id) ON DELETE CASCADE",
+      "name": "assignment_concept_id_fkey",
+      "references": "corpus.concept",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "assignment_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE",
+      "name": "assignment_dataset_id_fkey",
+      "references": "corpus.dataset",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (failure_mode_id) REFERENCES knowledge.failure_mode(id) ON DELETE CASCADE",
+      "name": "assignment_failure_mode_id_fkey",
+      "references": "knowledge.failure_mode",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (lesson_id) REFERENCES curriculum.lesson(id) ON DELETE CASCADE",
+      "name": "assignment_lesson_id_fkey",
+      "references": "curriculum.lesson",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE",
+      "name": "assignment_library_id_fkey",
+      "references": "corpus.library",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mcp_server_id) REFERENCES corpus.mcp_server(id) ON DELETE CASCADE",
+      "name": "assignment_mcp_server_id_fkey",
+      "references": "corpus.mcp_server",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE",
+      "name": "assignment_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE",
+      "name": "assignment_paper_id_fkey",
+      "references": "corpus.paper",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (person_id) REFERENCES corpus.person(id) ON DELETE CASCADE",
+      "name": "assignment_person_id_fkey",
+      "references": "corpus.person",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "assignment_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "assignment_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE",
+      "name": "assignment_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (review_task_id) REFERENCES evaluation.review_task(id)",
+      "name": "assignment_review_task_id_fkey",
+      "references": "evaluation.review_task",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (solution_pattern_id) REFERENCES knowledge.solution_pattern(id) ON DELETE CASCADE",
+      "name": "assignment_solution_pattern_id_fkey",
+      "references": "knowledge.solution_pattern",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (talk_id) REFERENCES corpus.talk(id) ON DELETE CASCADE",
+      "name": "assignment_talk_id_fkey",
+      "references": "corpus.talk",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (technical_problem_id) REFERENCES knowledge.technical_problem(id) ON DELETE CASCADE",
+      "name": "assignment_technical_problem_id_fkey",
+      "references": "knowledge.technical_problem",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE",
+      "name": "assignment_term_id_fkey",
+      "references": "taxonomy.term",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (video_id) REFERENCES corpus.video(id) ON DELETE CASCADE",
+      "name": "assignment_video_id_fkey",
+      "references": "corpus.video",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "assignment_pkey",
+      "references": null,
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (facet_id) REFERENCES taxonomy.facet(id) ON DELETE CASCADE",
+      "name": "assignment_review_requirement_facet_id_fkey",
+      "references": "taxonomy.facet",
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (facet_id)",
+      "name": "assignment_review_requirement_pkey",
+      "references": null,
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "PRIMARY KEY (code)",
+      "name": "entity_kind_pkey",
+      "references": null,
+      "relation": "entity_kind",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (canonical_schema, canonical_table)",
+      "name": "entity_kind_canonical_schema_canonical_table_key",
+      "references": null,
+      "relation": "entity_kind",
+      "schema": "taxonomy",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (cardinality = ANY (ARRAY['single'::text, 'multi'::text]))",
+      "name": "facet_cardinality_check",
+      "references": null,
+      "relation": "facet",
+      "schema": "taxonomy",
+      "type": "check"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "facet_pkey",
+      "references": null,
+      "relation": "facet",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "facet_tenant_id_slug_key",
+      "references": null,
+      "relation": "facet",
+      "schema": "taxonomy",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (version > 0)",
+      "name": "facet_version_positive",
+      "references": null,
+      "relation": "facet_version",
+      "schema": "taxonomy",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (facet_id) REFERENCES taxonomy.facet(id) ON DELETE CASCADE",
+      "name": "facet_version_facet_id_fkey",
+      "references": "taxonomy.facet",
+      "relation": "facet_version",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (approved_by_review_task_id) REFERENCES evaluation.review_task(id)",
+      "name": "facet_version_review_task_fk",
+      "references": "evaluation.review_task",
+      "relation": "facet_version",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "facet_version_pkey",
+      "references": null,
+      "relation": "facet_version",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (facet_id, version)",
+      "name": "facet_version_facet_id_version_key",
+      "references": null,
+      "relation": "facet_version",
+      "schema": "taxonomy",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (facet_version_id) REFERENCES taxonomy.facet_version(id) ON DELETE CASCADE",
+      "name": "term_facet_version_id_fkey",
+      "references": "taxonomy.facet_version",
+      "relation": "term",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (parent_term_id) REFERENCES taxonomy.term(id)",
+      "name": "term_parent_term_id_fkey",
+      "references": "taxonomy.term",
+      "relation": "term",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "term_pkey",
+      "references": null,
+      "relation": "term",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (facet_version_id, slug)",
+      "name": "term_facet_version_id_slug_key",
+      "references": null,
+      "relation": "term",
+      "schema": "taxonomy",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (from_term_id <> to_term_id)",
+      "name": "term_relation_no_self",
+      "references": null,
+      "relation": "term_relation",
+      "schema": "taxonomy",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (relation_kind = ANY (ARRAY['broader'::text, 'narrower'::text, 'related'::text, 'replaced_by'::text]))",
+      "name": "term_relation_relation_kind_check",
+      "references": null,
+      "relation": "term_relation",
+      "schema": "taxonomy",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (from_term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE",
+      "name": "term_relation_from_term_id_fkey",
+      "references": "taxonomy.term",
+      "relation": "term_relation",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (to_term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE",
+      "name": "term_relation_to_term_id_fkey",
+      "references": "taxonomy.term",
+      "relation": "term_relation",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (from_term_id, to_term_id, relation_kind)",
+      "name": "term_relation_pkey",
+      "references": null,
+      "relation": "term_relation",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (entity_kind_code) REFERENCES taxonomy.entity_kind(code) ON DELETE CASCADE",
+      "name": "term_target_kind_entity_kind_code_fkey",
+      "references": "taxonomy.entity_kind",
+      "relation": "term_target_kind",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE",
+      "name": "term_target_kind_term_id_fkey",
+      "references": "taxonomy.term",
+      "relation": "term_target_kind",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (term_id, entity_kind_code)",
+      "name": "term_target_kind_pkey",
+      "references": null,
+      "relation": "term_target_kind",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    }
+  ],
+  "enums": [
+    {
+      "name": "facet_status",
+      "schema": "taxonomy",
+      "values": [
+        "draft",
+        "active",
+        "retired"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "arguments": "",
+      "description": null,
+      "name": "enforce_facet_cardinality",
+      "returns": "trigger",
+      "schema": "taxonomy",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": null,
+      "name": "enforce_term_target_scope",
+      "returns": "trigger",
+      "schema": "taxonomy",
+      "security_definer": false,
+      "volatility": "volatile"
+    }
+  ],
+  "indexes": [
+    {
+      "definition": "CREATE INDEX assignment_advanced_usage_pattern_id_idx ON taxonomy.assignment USING btree (advanced_usage_pattern_id) WHERE (advanced_usage_pattern_id IS NOT NULL)",
+      "name": "assignment_advanced_usage_pattern_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_agent_skill_id_idx ON taxonomy.assignment USING btree (agent_skill_id) WHERE (agent_skill_id IS NOT NULL)",
+      "name": "assignment_agent_skill_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_ai_model_id_idx ON taxonomy.assignment USING btree (ai_model_id) WHERE (ai_model_id IS NOT NULL)",
+      "name": "assignment_ai_model_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_ai_protocol_id_idx ON taxonomy.assignment USING btree (ai_protocol_id) WHERE (ai_protocol_id IS NOT NULL)",
+      "name": "assignment_ai_protocol_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_benchmark_id_idx ON taxonomy.assignment USING btree (benchmark_id) WHERE (benchmark_id IS NOT NULL)",
+      "name": "assignment_benchmark_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_case_study_id_idx ON taxonomy.assignment USING btree (case_study_id) WHERE (case_study_id IS NOT NULL)",
+      "name": "assignment_case_study_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_concept_id_idx ON taxonomy.assignment USING btree (concept_id) WHERE (concept_id IS NOT NULL)",
+      "name": "assignment_concept_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_current_idx ON taxonomy.assignment USING btree (term_id) WHERE (valid_to IS NULL)",
+      "name": "assignment_current_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_dataset_id_idx ON taxonomy.assignment USING btree (dataset_id) WHERE (dataset_id IS NOT NULL)",
+      "name": "assignment_dataset_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_failure_mode_id_idx ON taxonomy.assignment USING btree (failure_mode_id) WHERE (failure_mode_id IS NOT NULL)",
+      "name": "assignment_failure_mode_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_lesson_id_idx ON taxonomy.assignment USING btree (lesson_id) WHERE (lesson_id IS NOT NULL)",
+      "name": "assignment_lesson_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_library_id_idx ON taxonomy.assignment USING btree (library_id) WHERE (library_id IS NOT NULL)",
+      "name": "assignment_library_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_mcp_server_id_idx ON taxonomy.assignment USING btree (mcp_server_id) WHERE (mcp_server_id IS NOT NULL)",
+      "name": "assignment_mcp_server_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_organization_id_idx ON taxonomy.assignment USING btree (organization_id) WHERE (organization_id IS NOT NULL)",
+      "name": "assignment_organization_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_paper_id_idx ON taxonomy.assignment USING btree (paper_id) WHERE (paper_id IS NOT NULL)",
+      "name": "assignment_paper_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_person_id_idx ON taxonomy.assignment USING btree (person_id) WHERE (person_id IS NOT NULL)",
+      "name": "assignment_person_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX assignment_pkey ON taxonomy.assignment USING btree (id)",
+      "name": "assignment_pkey",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_product_id_idx ON taxonomy.assignment USING btree (product_id) WHERE (product_id IS NOT NULL)",
+      "name": "assignment_product_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_repository_id_idx ON taxonomy.assignment USING btree (repository_id) WHERE (repository_id IS NOT NULL)",
+      "name": "assignment_repository_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_solution_pattern_id_idx ON taxonomy.assignment USING btree (solution_pattern_id) WHERE (solution_pattern_id IS NOT NULL)",
+      "name": "assignment_solution_pattern_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_talk_id_idx ON taxonomy.assignment USING btree (talk_id) WHERE (talk_id IS NOT NULL)",
+      "name": "assignment_talk_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_target_idx ON taxonomy.assignment USING btree (target_kind)",
+      "name": "assignment_target_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_technical_problem_id_idx ON taxonomy.assignment USING btree (technical_problem_id) WHERE (technical_problem_id IS NOT NULL)",
+      "name": "assignment_technical_problem_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_term_idx ON taxonomy.assignment USING btree (term_id)",
+      "name": "assignment_term_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_video_id_idx ON taxonomy.assignment USING btree (video_id) WHERE (video_id IS NOT NULL)",
+      "name": "assignment_video_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX assignment_review_requirement_pkey ON taxonomy.assignment_review_requirement USING btree (facet_id)",
+      "name": "assignment_review_requirement_pkey",
+      "relation": "assignment_review_requirement",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX entity_kind_canonical_schema_canonical_table_key ON taxonomy.entity_kind USING btree (canonical_schema, canonical_table)",
+      "name": "entity_kind_canonical_schema_canonical_table_key",
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX entity_kind_pkey ON taxonomy.entity_kind USING btree (code)",
+      "name": "entity_kind_pkey",
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX facet_pkey ON taxonomy.facet USING btree (id)",
+      "name": "facet_pkey",
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX facet_tenant_id_slug_key ON taxonomy.facet USING btree (tenant_id, slug)",
+      "name": "facet_tenant_id_slug_key",
+      "relation": "facet",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX facet_version_facet_id_version_key ON taxonomy.facet_version USING btree (facet_id, version)",
+      "name": "facet_version_facet_id_version_key",
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX facet_version_one_active ON taxonomy.facet_version USING btree (facet_id) WHERE (status = 'active'::taxonomy.facet_status)",
+      "name": "facet_version_one_active",
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX facet_version_pkey ON taxonomy.facet_version USING btree (id)",
+      "name": "facet_version_pkey",
+      "relation": "facet_version",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX term_facet_version_id_slug_key ON taxonomy.term USING btree (facet_version_id, slug)",
+      "name": "term_facet_version_id_slug_key",
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX term_parent_idx ON taxonomy.term USING btree (parent_term_id)",
+      "name": "term_parent_idx",
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX term_pkey ON taxonomy.term USING btree (id)",
+      "name": "term_pkey",
+      "relation": "term",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX term_relation_pkey ON taxonomy.term_relation USING btree (from_term_id, to_term_id, relation_kind)",
+      "name": "term_relation_pkey",
+      "relation": "term_relation",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX term_target_kind_pkey ON taxonomy.term_target_kind USING btree (term_id, entity_kind_code)",
+      "name": "term_target_kind_pkey",
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
+    }
+  ],
+  "policies": [
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "assignment",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "assignment_review_requirement",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "entity_kind",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "facet",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "facet_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "term",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "term_relation",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "term_target_kind",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    }
+  ],
+  "relations": [
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "assignment",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "assignment_review_requirement",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": "Primary canonical AI knowledge entity divisions and their typed corpus tables.",
+      "kind": "table",
+      "name": "entity_kind",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "facet",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "facet_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "term",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "term_relation",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": "Restricts secondary taxonomy terms to compatible primary entity kinds.",
+      "kind": "table",
+      "name": "term_target_kind",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    }
+  ],
+  "schema": "taxonomy",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER assignment_facet_cardinality BEFORE INSERT OR UPDATE ON taxonomy.assignment FOR EACH ROW EXECUTE FUNCTION taxonomy.enforce_facet_cardinality()",
+      "function_name": "enforce_facet_cardinality",
+      "function_schema": "taxonomy",
+      "name": "assignment_facet_cardinality",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE TRIGGER assignment_term_target_scope BEFORE INSERT OR UPDATE OF term_id, library_id, repository_id, person_id, organization_id, paper_id, product_id, case_study_id, dataset_id, benchmark_id, ai_model_id, ai_protocol_id ON taxonomy.assignment FOR EACH ROW EXECUTE FUNCTION taxonomy.enforce_term_target_scope()",
+      "function_name": "enforce_term_target_scope",
+      "function_schema": "taxonomy",
+      "name": "assignment_term_target_scope",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE TRIGGER facet_set_updated_at BEFORE UPDATE ON taxonomy.facet FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "facet_set_updated_at",
+      "relation": "facet",
+      "schema": "taxonomy"
+    }
+  ]
+}
