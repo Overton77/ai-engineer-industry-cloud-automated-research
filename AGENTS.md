@@ -45,13 +45,21 @@ Queryable stand-ins for the starter / pre-research tables:
 
 ## First research / ingestion video
 
-Last-opened vault target, and the first video whose research nodes were left skipped:
+Last-opened vault target, and the first video whose research DAG nodes were left skipped:
 
 - **Video:** Don't Build Agents, Build Skills Instead — Barry Zhang & Mahesh Murag, Anthropic
 - **YouTube ID:** `CEvIs9y1uog`
 - **URL:** https://www.youtube.com/watch?v=CEvIs9y1uog
-- **Bucket:** `agent_orchestration`
-- **DB inspection:** 18 EXISTS / 0 MISSING as of 2026-05-04; research DAG nodes (`entities.extract`, `research.plan`, `research.people_orgs`, `research.docs_web`, `research.libs_repos_products`, `research.papers_news`, `research.synthesize`, summaries, `course.outline`) were skipped by config
+- **Vault bucket:** `agent_orchestration`
+- **Pre-research primary taxonomy:** `agent_architecture_harnesses` (label: Agent Architecture & Harnesses). Treat this mismatch as real: vault layout uses `agent_orchestration`; share reports use the newer taxonomy.
+- **Published:** 2025-12-08 (event date). Channel: AI Engineer (`@aiDotEngineer`). Duration: 16m22s.
+- **DB inspection:** 18 EXISTS / 0 MISSING as of 2026-05-04 (`chunk_rows_existing: 12`). Entity kinds present: 1 video, 5 orgs, 3 people, 3 libraries, 3 products, 3 repos.
+- **Research DAG nodes skipped by config:** `entities.extract`, `research.plan`, `research.people_orgs`, `research.docs_web`, `research.libs_repos_products`, `research.papers_news`, `research.synthesize`, `summary.initial`, `summary.optimize`, `course.outline`
+- **Pre-research share folder:** `16ulkpHU8LB_ksu1IIoSSuDuokbpP3335` — contains `report.json` (`1JqDhdcMmYX1UmmF2nO07oo8vkSavIh4u`, schema `pre-research-share-report/1.0.0`, run applied 2026-08-21) plus `01-summary`, `02-taxonomy`, `03-organizations`, `04-technologies`, `05-curriculum`, `06-sources-and-evidence`
+- **Local pipeline packets:** `17uYtsCUpiW9PUWoRjh1TDDXjigWhsmNM` → `pre-research` → `v2` (`1ZDQnnFECfIzy7JvR4j_X7MV1tQZQKmeQ`)
+- **Obsidian/vault workspace folder:** `1td2ozTI6OyWoDmeatwWFw63MAWJwbgqM`
+
+Workspace files already on Drive for `CEvIs9y1uog` (do not re-ingest blindly): `_project.md`, `transcript.txt`, `summary.md`, `summary.optimized.md`, `entities.json` (manual+web research, 2026-04-20), `entities.raw.json`, `db_inspection.md`, `chunks.jsonl`, `module-draft.md`, `notes.md`, plus `*.agent-skipped.md` markers for every skipped DAG node. `entities.json` already lists Barry Zhang, Mahesh Murag, Keith Lazuka, Anthropic, Browserbase, Notion, Cadence, Microsoft, Claude Agent SDK, Stagehand, Playwright, Claude Code, and `anthropics/skills`.
 
 ## Workspaces
 
@@ -65,7 +73,7 @@ Last-opened vault target, and the first video whose research nodes were left ski
 | Server | Use for |
 | --- | --- |
 | Google Drive | Catalogs, video workspaces, `db_inspection.md`, share reports |
-| Context7 | Library/API docs. Needs `CONTEXT7_API_KEY` if the free monthly quota is exhausted |
+| Context7 | Library/API docs. `CONTEXT7_API_KEY` is present, but as of 2026-08-29 both `resolve-library-id` and `query-docs` returned **monthly quota exceeded**. Raise the Context7 plan or wait for reset before relying on it in ingestion. |
 | cursor-cloud | Environment info, builds, prior agents |
 | cursor-subscriptions | GitHub CI/PR, Slack, Linear, timers. None are required for the first research run |
 | Native `cursor` tools | Goals and image generation only when the user explicitly asks |
