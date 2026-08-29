@@ -68,6 +68,10 @@ _None._
 | `person_employed_by_organizati_person_id_organization_id_tit_key` | `CREATE UNIQUE INDEX person_employed_by_organizati_person_id_organization_id_tit_key ON corpus.person_employed_by_organization USING btree (person_id, organization_id, title, valid_from)` |
 | `person_employed_by_organization_pkey` | `CREATE UNIQUE INDEX person_employed_by_organization_pkey ON corpus.person_employed_by_organization USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

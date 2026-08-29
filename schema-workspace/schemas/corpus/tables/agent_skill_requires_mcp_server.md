@@ -67,6 +67,10 @@ _None._
 | `agent_skill_requires_mcp_serve_agent_skill_id_mcp_server_id_key` | `CREATE UNIQUE INDEX agent_skill_requires_mcp_serve_agent_skill_id_mcp_server_id_key ON corpus.agent_skill_requires_mcp_server USING btree (agent_skill_id, mcp_server_id)` |
 | `agent_skill_requires_mcp_server_pkey` | `CREATE UNIQUE INDEX agent_skill_requires_mcp_server_pkey ON corpus.agent_skill_requires_mcp_server USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

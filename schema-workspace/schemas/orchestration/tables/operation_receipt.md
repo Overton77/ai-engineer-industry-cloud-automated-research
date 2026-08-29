@@ -58,15 +58,22 @@ Database table orchestration.operation_receipt.
 | [`corpus.ai_model`](../../corpus/tables/ai_model.md) | `ai_model_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_model`](../../corpus/tables/ai_model.md) | `ai_model_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_model_availability_fact`](../../corpus/tables/ai_model_availability_fact.md) | `ai_model_availability_fact_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.ai_model_relationship`](../../corpus/tables/ai_model_relationship.md) | `ai_model_relationship_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_model_released_by_organization`](../../corpus/tables/ai_model_released_by_organization.md) | `ai_model_released_by_organization_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_model_version`](../../corpus/tables/ai_model_version.md) | `ai_model_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_protocol`](../../corpus/tables/ai_protocol.md) | `ai_protocol_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_protocol`](../../corpus/tables/ai_protocol.md) | `ai_protocol_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.ai_protocol_relationship`](../../corpus/tables/ai_protocol_relationship.md) | `ai_protocol_relationship_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.ai_protocol_version`](../../corpus/tables/ai_protocol_version.md) | `ai_protocol_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.benchmark`](../../corpus/tables/benchmark.md) | `benchmark_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.benchmark`](../../corpus/tables/benchmark.md) | `benchmark_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.benchmark_evaluates_model_version`](../../corpus/tables/benchmark_evaluates_model_version.md) | `benchmark_evaluates_model_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.benchmark_uses_dataset`](../../corpus/tables/benchmark_uses_dataset.md) | `benchmark_uses_dataset_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.case_study`](../../corpus/tables/case_study.md) | `case_study_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.case_study`](../../corpus/tables/case_study.md) | `case_study_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.case_study_references_benchmark`](../../corpus/tables/case_study_references_benchmark.md) | `case_study_references_benchmark_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.case_study_uses_library`](../../corpus/tables/case_study_uses_library.md) | `case_study_uses_library_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.case_study_uses_model_version`](../../corpus/tables/case_study_uses_model_version.md) | `case_study_uses_model_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.concept`](../../corpus/tables/concept.md) | `concept_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.concept`](../../corpus/tables/concept.md) | `concept_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.concept_alias`](../../corpus/tables/concept_alias.md) | `concept_alias_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
@@ -95,11 +102,14 @@ Database table orchestration.operation_receipt.
 | [`corpus.organization`](../../corpus/tables/organization.md) | `organization_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.organization`](../../corpus/tables/organization.md) | `organization_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.organization_identifier`](../../corpus/tables/organization_identifier.md) | `organization_identifier_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.organization_product_relationship`](../../corpus/tables/organization_product_relationship.md) | `organization_product_relationship_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.organization_relationship`](../../corpus/tables/organization_relationship.md) | `organization_relationship_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.paper`](../../corpus/tables/paper.md) | `paper_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.paper`](../../corpus/tables/paper.md) | `paper_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.paper_appeared_in_talk`](../../corpus/tables/paper_appeared_in_talk.md) | `paper_appeared_in_talk_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.paper_appeared_in_video`](../../corpus/tables/paper_appeared_in_video.md) | `paper_appeared_in_video_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.paper_authored_by_person`](../../corpus/tables/paper_authored_by_person.md) | `paper_authored_by_person_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.paper_introduces_model`](../../corpus/tables/paper_introduces_model.md) | `paper_introduces_model_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.paper_retraction_fact`](../../corpus/tables/paper_retraction_fact.md) | `paper_retraction_fact_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.person`](../../corpus/tables/person.md) | `person_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.person`](../../corpus/tables/person.md) | `person_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
@@ -113,13 +123,20 @@ Database table orchestration.operation_receipt.
 | [`corpus.product`](../../corpus/tables/product.md) | `product_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.product`](../../corpus/tables/product.md) | `product_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.product_appeared_in_video`](../../corpus/tables/product_appeared_in_video.md) | `product_appeared_in_video_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.product_backed_by_repository`](../../corpus/tables/product_backed_by_repository.md) | `product_backed_by_repository_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.product_built_on_model_version`](../../corpus/tables/product_built_on_model_version.md) | `product_built_on_model_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.product_family`](../../corpus/tables/product_family.md) | `product_family_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.product_family`](../../corpus/tables/product_family.md) | `product_family_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.product_family_member`](../../corpus/tables/product_family_member.md) | `product_family_member_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.product_feature`](../../corpus/tables/product_feature.md) | `product_feature_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.product_implements_protocol_version`](../../corpus/tables/product_implements_protocol_version.md) | `product_implements_protocol_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.product_version`](../../corpus/tables/product_version.md) | `product_version_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.repository`](../../corpus/tables/repository.md) | `repository_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.repository`](../../corpus/tables/repository.md) | `repository_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.repository_alias`](../../corpus/tables/repository_alias.md) | `repository_alias_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.repository_archival_fact`](../../corpus/tables/repository_archival_fact.md) | `repository_archival_fact_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.repository_implements_paper`](../../corpus/tables/repository_implements_paper.md) | `repository_implements_paper_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
+| [`corpus.repository_maintained_by_organization`](../../corpus/tables/repository_maintained_by_organization.md) | `repository_maintained_by_organizatio_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.talk`](../../corpus/tables/talk.md) | `talk_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.talk`](../../corpus/tables/talk.md) | `talk_updated_by_receipt_id_fkey` | `FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
 | [`corpus.talk_explains_concept`](../../corpus/tables/talk_explains_concept.md) | `talk_explains_concept_created_by_receipt_id_fkey` | `FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)` |
@@ -135,6 +152,12 @@ Database table orchestration.operation_receipt.
 | `operation_receipt_applied_idx` | `CREATE INDEX operation_receipt_applied_idx ON orchestration.operation_receipt USING btree (applied_at DESC)` |
 | `operation_receipt_intent_id_key` | `CREATE UNIQUE INDEX operation_receipt_intent_id_key ON orchestration.operation_receipt USING btree (intent_id)` |
 | `operation_receipt_pkey` | `CREATE UNIQUE INDEX operation_receipt_pkey ON orchestration.operation_receipt USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `operation_receipt_immutable` | `util.reject_mutation` | `CREATE TRIGGER operation_receipt_immutable BEFORE DELETE OR UPDATE ON orchestration.operation_receipt FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
 
 ## RLS policies
 

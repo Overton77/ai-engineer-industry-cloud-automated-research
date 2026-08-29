@@ -54,6 +54,10 @@ _None._
 | --- | --- |
 | `candidate_ai_protocol_pkey` | `CREATE UNIQUE INDEX candidate_ai_protocol_pkey ON staging.candidate_ai_protocol USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

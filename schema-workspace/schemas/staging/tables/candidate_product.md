@@ -54,6 +54,10 @@ _None._
 | --- | --- |
 | `candidate_product_pkey` | `CREATE UNIQUE INDEX candidate_product_pkey ON staging.candidate_product USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -71,6 +71,10 @@ _None._
 | `research_organization_source_organization_candidate_id_norm_key` | `CREATE UNIQUE INDEX research_organization_source_organization_candidate_id_norm_key ON public.research_organization_source USING btree (organization_candidate_id, normalized_url)` |
 | `research_organization_source_pkey` | `CREATE UNIQUE INDEX research_organization_source_pkey ON public.research_organization_source USING btree (organization_source_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

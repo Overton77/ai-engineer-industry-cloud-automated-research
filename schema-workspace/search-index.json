@@ -1896,6 +1896,28 @@
   {
     "columns": [
       "id",
+      "claim_evidence_link_id",
+      "run_id",
+      "verdict",
+      "authority_assessment",
+      "rationale",
+      "replay_signature_match",
+      "created_at"
+    ],
+    "description": "Append-only, run-scoped verifier assessment of one immutable claim/evidence link.",
+    "kind": "table",
+    "name": "claim_evidence_assessment",
+    "path": "schemas/evidence/tables/claim_evidence_assessment.md",
+    "qualified_name": "evidence.claim_evidence_assessment",
+    "related_relations": [
+      "evidence.claim_evidence_link",
+      "evidence.verification_run"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
       "claim_id",
       "locator_id",
       "role",
@@ -2021,6 +2043,23 @@
     "related_relations": [
       "evidence.claim",
       "corpus.product"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "claim_id",
+      "product_version_id",
+      "role_in_claim"
+    ],
+    "description": "Typed claim association for an exact SaaS or product release/version.",
+    "kind": "table",
+    "name": "claim_product_version",
+    "path": "schemas/evidence/tables/claim_product_version.md",
+    "qualified_name": "evidence.claim_product_version",
+    "related_relations": [
+      "evidence.claim",
+      "corpus.product_version"
     ],
     "schema": "evidence"
   },
@@ -2348,6 +2387,88 @@
   {
     "columns": [
       "id",
+      "tenant_id",
+      "mission_id",
+      "work_item_id",
+      "attempt_id",
+      "provider",
+      "query_text",
+      "purpose",
+      "request_parameters",
+      "response_artifact_id",
+      "query_sha256",
+      "queried_at"
+    ],
+    "description": "Operational source intelligence: exact query, provider parameters, raw response artifact, and intended work-item purpose.",
+    "kind": "table",
+    "name": "source_query",
+    "path": "schemas/evidence/tables/source_query.md",
+    "qualified_name": "evidence.source_query",
+    "related_relations": [
+      "orchestration.attempt",
+      "orchestration.mission",
+      "orchestration.artifact",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "query_id",
+      "source_id",
+      "capture_id",
+      "work_item_id",
+      "attempt_id",
+      "requested_url",
+      "provider_result_id",
+      "result_rank",
+      "retrieval_status",
+      "provider_metadata",
+      "retrieved_at"
+    ],
+    "description": "A query result or direct fetch, including cache outcome and the immutable capture when bytes were obtained.",
+    "kind": "table",
+    "name": "source_retrieval",
+    "path": "schemas/evidence/tables/source_retrieval.md",
+    "qualified_name": "evidence.source_retrieval",
+    "related_relations": [
+      "orchestration.attempt",
+      "evidence.source_capture",
+      "evidence.source_query",
+      "evidence.source",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
+      "tenant_id",
+      "retrieval_id",
+      "work_item_id",
+      "operation",
+      "support_role",
+      "statement",
+      "locator_id",
+      "created_at"
+    ],
+    "description": "Why a retrieval mattered to an operation. This is an operational audit statement, not a canonical factual claim.",
+    "kind": "table",
+    "name": "source_support",
+    "path": "schemas/evidence/tables/source_support.md",
+    "qualified_name": "evidence.source_support",
+    "related_relations": [
+      "evidence.locator",
+      "evidence.source_retrieval",
+      "orchestration.work_item"
+    ],
+    "schema": "evidence"
+  },
+  {
+    "columns": [
+      "id",
       "run_id",
       "claim_id",
       "verdict",
@@ -2419,6 +2540,8 @@
       "created_by_receipt_id",
       "created_at",
       "case_study_id",
+      "dataset_id",
+      "benchmark_id",
       "target_kind"
     ],
     "description": null,
@@ -2431,9 +2554,11 @@
       "corpus.agent_skill",
       "corpus.ai_model",
       "corpus.ai_protocol",
+      "corpus.benchmark",
       "corpus.case_study",
       "corpus.concept",
       "orchestration.operation_receipt",
+      "corpus.dataset",
       "knowledge.failure_mode",
       "curriculum.lesson",
       "corpus.library",
@@ -2468,6 +2593,22 @@
     "related_relations": [
       "taxonomy.facet"
     ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "code",
+      "label",
+      "canonical_schema",
+      "canonical_table",
+      "description"
+    ],
+    "description": "Primary canonical AI knowledge entity divisions and their typed corpus tables.",
+    "kind": "table",
+    "name": "entity_kind",
+    "path": "schemas/taxonomy/tables/entity_kind.md",
+    "qualified_name": "taxonomy.entity_kind",
+    "related_relations": [],
     "schema": "taxonomy"
   },
   {
@@ -2547,6 +2688,23 @@
     "qualified_name": "taxonomy.term_relation",
     "related_relations": [
       "taxonomy.term",
+      "taxonomy.term"
+    ],
+    "schema": "taxonomy"
+  },
+  {
+    "columns": [
+      "term_id",
+      "entity_kind_code",
+      "created_at"
+    ],
+    "description": "Restricts secondary taxonomy terms to compatible primary entity kinds.",
+    "kind": "table",
+    "name": "term_target_kind",
+    "path": "schemas/taxonomy/tables/term_target_kind.md",
+    "qualified_name": "taxonomy.term_target_kind",
+    "related_relations": [
+      "taxonomy.entity_kind",
       "taxonomy.term"
     ],
     "schema": "taxonomy"
@@ -2721,6 +2879,28 @@
   },
   {
     "columns": [
+      "from_ai_model_id",
+      "to_ai_model_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_model_relationship",
+    "path": "schemas/corpus/tables/ai_model_relationship.md",
+    "qualified_name": "corpus.ai_model_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.ai_model",
+      "evidence.claim",
+      "corpus.ai_model"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
       "id",
       "ai_model_id",
       "organization_id",
@@ -2803,6 +2983,28 @@
   },
   {
     "columns": [
+      "from_ai_protocol_id",
+      "to_ai_protocol_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "ai_protocol_relationship",
+    "path": "schemas/corpus/tables/ai_protocol_relationship.md",
+    "qualified_name": "corpus.ai_protocol_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.ai_protocol",
+      "evidence.claim",
+      "corpus.ai_protocol"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
       "id",
       "ai_protocol_id",
       "version_label",
@@ -2855,6 +3057,50 @@
   },
   {
     "columns": [
+      "benchmark_id",
+      "ai_model_version_id",
+      "evaluation_role",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": "Semantic benchmark/model link only; quantitative results belong in ranking.metric_observation.",
+    "kind": "table",
+    "name": "benchmark_evaluates_model_version",
+    "path": "schemas/corpus/tables/benchmark_evaluates_model_version.md",
+    "qualified_name": "corpus.benchmark_evaluates_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "corpus.benchmark",
+      "orchestration.operation_receipt",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "benchmark_id",
+      "dataset_id",
+      "usage_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "benchmark_uses_dataset",
+    "path": "schemas/corpus/tables/benchmark_uses_dataset.md",
+    "qualified_name": "corpus.benchmark_uses_dataset",
+    "related_relations": [
+      "corpus.benchmark",
+      "orchestration.operation_receipt",
+      "corpus.dataset",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
       "id",
       "tenant_id",
       "slug",
@@ -2884,6 +3130,72 @@
       "corpus.organization",
       "corpus.product",
       "orchestration.operation_receipt"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "case_study_id",
+      "benchmark_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study_references_benchmark",
+    "path": "schemas/corpus/tables/case_study_references_benchmark.md",
+    "qualified_name": "corpus.case_study_references_benchmark",
+    "related_relations": [
+      "corpus.benchmark",
+      "corpus.case_study",
+      "orchestration.operation_receipt",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "case_study_id",
+      "library_id",
+      "usage_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study_uses_library",
+    "path": "schemas/corpus/tables/case_study_uses_library.md",
+    "qualified_name": "corpus.case_study_uses_library",
+    "related_relations": [
+      "corpus.case_study",
+      "orchestration.operation_receipt",
+      "corpus.library",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "case_study_id",
+      "ai_model_version_id",
+      "usage_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "case_study_uses_model_version",
+    "path": "schemas/corpus/tables/case_study_uses_model_version.md",
+    "qualified_name": "corpus.case_study_uses_model_version",
+    "related_relations": [
+      "corpus.ai_model_version",
+      "corpus.case_study",
+      "orchestration.operation_receipt",
+      "evidence.claim"
     ],
     "schema": "corpus"
   },
@@ -3504,6 +3816,55 @@
   },
   {
     "columns": [
+      "organization_id",
+      "product_id",
+      "relationship_kind",
+      "is_primary",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": "Many-to-many organization roles for products; product.vendor_organization_id remains the primary vendor shortcut.",
+    "kind": "table",
+    "name": "organization_product_relationship",
+    "path": "schemas/corpus/tables/organization_product_relationship.md",
+    "qualified_name": "corpus.organization_product_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "from_organization_id",
+      "to_organization_id",
+      "relationship_kind",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "organization_relationship",
+    "path": "schemas/corpus/tables/organization_relationship.md",
+    "qualified_name": "corpus.organization_relationship",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
+      "evidence.claim",
+      "corpus.organization"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
       "id",
       "tenant_id",
       "title",
@@ -3615,6 +3976,28 @@
       "orchestration.operation_receipt",
       "corpus.paper",
       "corpus.person",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "paper_id",
+      "ai_model_id",
+      "relationship_kind",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "paper_introduces_model",
+    "path": "schemas/corpus/tables/paper_introduces_model.md",
+    "qualified_name": "corpus.paper_introduces_model",
+    "related_relations": [
+      "corpus.ai_model",
+      "orchestration.operation_receipt",
+      "corpus.paper",
       "evidence.claim"
     ],
     "schema": "corpus"
@@ -3929,6 +4312,29 @@
   },
   {
     "columns": [
+      "product_id",
+      "repository_id",
+      "relationship_kind",
+      "official",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_backed_by_repository",
+    "path": "schemas/corpus/tables/product_backed_by_repository.md",
+    "qualified_name": "corpus.product_backed_by_repository",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
       "id",
       "product_id",
       "ai_model_version_id",
@@ -3957,6 +4363,86 @@
   {
     "columns": [
       "id",
+      "tenant_id",
+      "vendor_organization_id",
+      "slug",
+      "display_name",
+      "description",
+      "lifecycle_state",
+      "merged_into_id",
+      "created_by_receipt_id",
+      "updated_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_family",
+    "path": "schemas/corpus/tables/product_family.md",
+    "qualified_name": "corpus.product_family",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product_family",
+      "orchestration.operation_receipt",
+      "corpus.organization"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "product_family_id",
+      "product_id",
+      "member_kind",
+      "sort_order",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_family_member",
+    "path": "schemas/corpus/tables/product_family_member.md",
+    "qualified_name": "corpus.product_family_member",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product_family",
+      "corpus.product",
+      "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "slug",
+      "name",
+      "description",
+      "introduced_in_version_id",
+      "retired_in_version_id",
+      "lifecycle_state",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at",
+      "updated_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_feature",
+    "path": "schemas/corpus/tables/product_feature.md",
+    "qualified_name": "corpus.product_feature",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product_version",
+      "corpus.product",
+      "evidence.claim",
+      "corpus.product_version"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
       "product_id",
       "ai_protocol_version_id",
       "conformance",
@@ -3979,6 +4465,30 @@
       "orchestration.operation_receipt",
       "corpus.product",
       "evidence.claim"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "id",
+      "product_id",
+      "version_label",
+      "release_channel",
+      "released_on",
+      "ended_on",
+      "release_url",
+      "notes",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "product_version",
+    "path": "schemas/corpus/tables/product_version.md",
+    "qualified_name": "corpus.product_version",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.product"
     ],
     "schema": "corpus"
   },
@@ -4083,6 +4593,30 @@
     "related_relations": [
       "orchestration.operation_receipt",
       "corpus.paper",
+      "evidence.claim",
+      "corpus.repository"
+    ],
+    "schema": "corpus"
+  },
+  {
+    "columns": [
+      "repository_id",
+      "organization_id",
+      "maintenance_role",
+      "valid_from",
+      "valid_to",
+      "provenance_claim_id",
+      "created_by_receipt_id",
+      "created_at"
+    ],
+    "description": null,
+    "kind": "table",
+    "name": "repository_maintained_by_organization",
+    "path": "schemas/corpus/tables/repository_maintained_by_organization.md",
+    "qualified_name": "corpus.repository_maintained_by_organization",
+    "related_relations": [
+      "orchestration.operation_receipt",
+      "corpus.organization",
       "evidence.claim",
       "corpus.repository"
     ],

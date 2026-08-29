@@ -95,6 +95,12 @@ Database table corpus.mcp_server.
 | `mcp_server_repo_fk_idx` | `CREATE INDEX mcp_server_repo_fk_idx ON corpus.mcp_server USING btree (repository_id)` |
 | `mcp_server_repo_uq` | `CREATE UNIQUE INDEX mcp_server_repo_uq ON corpus.mcp_server USING btree (repository_id) WHERE (repository_id IS NOT NULL)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `mcp_server_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER mcp_server_set_updated_at BEFORE UPDATE ON corpus.mcp_server FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

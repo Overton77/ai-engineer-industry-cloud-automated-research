@@ -52,6 +52,10 @@ _None._
 | `metric_definition_pkey` | `CREATE UNIQUE INDEX metric_definition_pkey ON ranking.metric_definition USING btree (id)` |
 | `metric_definition_tenant_id_slug_key` | `CREATE UNIQUE INDEX metric_definition_tenant_id_slug_key ON ranking.metric_definition USING btree (tenant_id, slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

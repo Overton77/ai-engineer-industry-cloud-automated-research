@@ -53,6 +53,10 @@ _None._
 | `revalidation_policy_pkey` | `CREATE UNIQUE INDEX revalidation_policy_pkey ON evidence.revalidation_policy USING btree (id)` |
 | `revalidation_policy_slug_key` | `CREATE UNIQUE INDEX revalidation_policy_slug_key ON evidence.revalidation_policy USING btree (slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

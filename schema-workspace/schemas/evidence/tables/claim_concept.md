@@ -29,7 +29,7 @@ Database table evidence.claim_concept.
 
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
-| `claim_concept_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))` | — |
+| `claim_concept_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_concept_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
 | `claim_concept_concept_id_fkey` | `foreign_key` | `FOREIGN KEY (concept_id) REFERENCES corpus.concept(id) ON DELETE CASCADE` | [`corpus.concept`](../../corpus/tables/concept.md) |
 | `claim_concept_pkey` | `primary_key` | `PRIMARY KEY (claim_id, concept_id, role_in_claim)` | — |
@@ -53,6 +53,13 @@ _None._
 | --- | --- |
 | `claim_concept_pkey` | `CREATE UNIQUE INDEX claim_concept_pkey ON evidence.claim_concept USING btree (claim_id, concept_id, role_in_claim)` |
 | `claim_concept_target_idx` | `CREATE INDEX claim_concept_target_idx ON evidence.claim_concept USING btree (concept_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_concept FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_concept FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

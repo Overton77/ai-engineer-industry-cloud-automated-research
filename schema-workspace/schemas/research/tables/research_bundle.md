@@ -60,6 +60,12 @@ Database table research.research_bundle.
 | `research_bundle_mission_id_bundle_version_key` | `CREATE UNIQUE INDEX research_bundle_mission_id_bundle_version_key ON research.research_bundle USING btree (mission_id, bundle_version)` |
 | `research_bundle_pkey` | `CREATE UNIQUE INDEX research_bundle_pkey ON research.research_bundle USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `research_bundle_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER research_bundle_set_updated_at BEFORE UPDATE ON research.research_bundle FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

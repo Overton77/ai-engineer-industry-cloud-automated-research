@@ -66,6 +66,7 @@ Database table corpus.paper.
 | [`corpus.paper_appeared_in_talk`](../../corpus/tables/paper_appeared_in_talk.md) | `paper_appeared_in_talk_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
 | [`corpus.paper_appeared_in_video`](../../corpus/tables/paper_appeared_in_video.md) | `paper_appeared_in_video_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
 | [`corpus.paper_authored_by_person`](../../corpus/tables/paper_authored_by_person.md) | `paper_authored_by_person_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
+| [`corpus.paper_introduces_model`](../../corpus/tables/paper_introduces_model.md) | `paper_introduces_model_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
 | [`corpus.paper_retraction_fact`](../../corpus/tables/paper_retraction_fact.md) | `paper_retraction_fact_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
 | [`corpus.repository_implements_paper`](../../corpus/tables/repository_implements_paper.md) | `repository_implements_paper_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
 | [`evidence.claim_paper`](../../evidence/tables/claim_paper.md) | `claim_paper_paper_id_fkey` | `FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE` |
@@ -82,6 +83,12 @@ Database table corpus.paper.
 | `paper_doi_uq` | `CREATE UNIQUE INDEX paper_doi_uq ON corpus.paper USING btree (doi) WHERE (doi IS NOT NULL)` |
 | `paper_openreview_uq` | `CREATE UNIQUE INDEX paper_openreview_uq ON corpus.paper USING btree (openreview_id) WHERE (openreview_id IS NOT NULL)` |
 | `paper_pkey` | `CREATE UNIQUE INDEX paper_pkey ON corpus.paper USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `paper_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER paper_set_updated_at BEFORE UPDATE ON corpus.paper FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

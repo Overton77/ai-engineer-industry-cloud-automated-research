@@ -57,6 +57,10 @@ _None._
 | `research_ingestion_intent_event_intent_idx` | `CREATE INDEX research_ingestion_intent_event_intent_idx ON public.research_ingestion_intent_event USING btree (intent_id, operation_index)` |
 | `research_ingestion_intent_event_pkey` | `CREATE UNIQUE INDEX research_ingestion_intent_event_pkey ON public.research_ingestion_intent_event USING btree (event_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

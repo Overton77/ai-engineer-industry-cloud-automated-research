@@ -65,6 +65,10 @@ _None._
 | `research_pre_research_session_run_id_phase_attempt_key` | `CREATE UNIQUE INDEX research_pre_research_session_run_id_phase_attempt_key ON public.research_pre_research_session USING btree (run_id, phase, attempt)` |
 | `research_pre_research_session_run_idx` | `CREATE INDEX research_pre_research_session_run_idx ON public.research_pre_research_session USING btree (run_id, phase, attempt DESC)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

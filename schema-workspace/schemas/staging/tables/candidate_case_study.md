@@ -58,6 +58,10 @@ _None._
 | `candidate_case_study_kind_fk_idx` | `CREATE INDEX candidate_case_study_kind_fk_idx ON staging.candidate_case_study USING btree (candidate_id, candidate_kind)` |
 | `candidate_case_study_pkey` | `CREATE UNIQUE INDEX candidate_case_study_pkey ON staging.candidate_case_study USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

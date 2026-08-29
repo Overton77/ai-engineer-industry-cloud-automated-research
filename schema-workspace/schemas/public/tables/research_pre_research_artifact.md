@@ -66,6 +66,10 @@ _None._
 | `research_pre_research_artifact_run_idx` | `CREATE INDEX research_pre_research_artifact_run_idx ON public.research_pre_research_artifact USING btree (run_id, artifact_kind)` |
 | `research_pre_research_artifact_storage_bucket_storage_path_key` | `CREATE UNIQUE INDEX research_pre_research_artifact_storage_bucket_storage_path_key ON public.research_pre_research_artifact USING btree (storage_bucket, storage_path)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

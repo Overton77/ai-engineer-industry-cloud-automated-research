@@ -143,13 +143,14 @@ function relatedLink(fromSchema, qualifiedName) {
   return `[${code(qualifiedName)}](../../${schema}/tables/${name}.md)`;
 }
 
-function renderRelation(relation, columns, constraints, indexes, policies, inbound) {
+function renderRelation(relation, columns, constraints, indexes, policies, triggers, inbound) {
   const qualified = `${relation.schema}.${relation.name}`;
   const typeGroup = ["table", "partitioned_table", "foreign_table"].includes(relation.kind) ? "Tables" : "Views";
   const relationConstraints = constraints.filter((item) => item.schema === relation.schema && item.relation === relation.name);
   const outbound = relationConstraints.filter((item) => item.type === "foreign_key");
   const relationIndexes = indexes.filter((item) => item.schema === relation.schema && item.relation === relation.name);
   const relationPolicies = policies.filter((item) => item.schema === relation.schema && item.relation === relation.name);
+  const relationTriggers = triggers.filter((item) => item.schema === relation.schema && item.relation === relation.name);
   const incoming = inbound.get(qualified) ?? [];
   const lines = [
     "---",
@@ -200,6 +201,11 @@ function renderRelation(relation, columns, constraints, indexes, policies, inbou
     "## Indexes",
     "",
     table(["Name", "Definition"], relationIndexes.map((item) => [code(item.name), code(item.definition)])),
+    "## Triggers",
+    "",
+    table(["Trigger", "Function", "Definition"], relationTriggers.map((item) => [
+      code(item.name), code(`${item.function_schema}.${item.function_name}`), code(item.definition),
+    ])),
     "## RLS policies",
     "",
     table(
@@ -212,7 +218,7 @@ function renderRelation(relation, columns, constraints, indexes, policies, inbou
 }
 
 async function loadMetadata(pool) {
-  const [relations, columns, constraints, indexes, policies, functions, enums] = await Promise.all([
+  const [relations, columns, constraints, indexes, policies, triggers, functions, enums] = await Promise.all([
     pool.query(`select n.nspname as schema, c.relname as name,
       case c.relkind when 'r' then 'table' when 'p' then 'partitioned_table' when 'v' then 'view'
         when 'm' then 'materialized_view' when 'f' then 'foreign_table' end as kind,
@@ -244,6 +250,11 @@ async function loadMetadata(pool) {
     pool.query(`select schemaname as schema,tablename as relation,policyname as name,permissive,cmd as command,
       roles::text[] as roles,qual as using_expression,with_check as check_expression
       from pg_policies where schemaname=any($1) order by schemaname,tablename,policyname`, [SCHEMAS]),
+    pool.query(`select n.nspname as schema,c.relname as relation,t.tgname as name,
+      pn.nspname as function_schema,p.proname as function_name,pg_get_triggerdef(t.oid,true) as definition
+      from pg_trigger t join pg_class c on c.oid=t.tgrelid join pg_namespace n on n.oid=c.relnamespace
+      join pg_proc p on p.oid=t.tgfoid join pg_namespace pn on pn.oid=p.pronamespace
+      where n.nspname=any($1) and not t.tgisinternal order by n.nspname,c.relname,t.tgname`, [SCHEMAS]),
     pool.query(`select n.nspname as schema,p.proname as name,pg_get_function_identity_arguments(p.oid) as arguments,
       pg_get_function_result(p.oid) as returns,
       case p.provolatile when 'i' then 'immutable' when 's' then 'stable' else 'volatile' end as volatility,
@@ -260,6 +271,7 @@ async function loadMetadata(pool) {
     constraints: constraints.rows,
     indexes: indexes.rows,
     policies: policies.rows,
+    triggers: triggers.rows,
     functions: functions.rows,
     enums: enums.rows,
   };
@@ -294,7 +306,7 @@ function buildWorkspace(metadata) {
     for (const relation of relations) {
       const columns = metadata.columns.filter((item) => item.schema === schema && item.relation === relation.name);
       const path = resolve(schemaRoot, relationFile(relation));
-      writeAtomic(path, renderRelation(relation, columns, metadata.constraints, metadata.indexes, metadata.policies, inbound));
+      writeAtomic(path, renderRelation(relation, columns, metadata.constraints, metadata.indexes, metadata.policies, metadata.triggers, inbound));
       const related = metadata.constraints
         .filter((item) => item.schema === schema && item.relation === relation.name && item.references)
         .map((item) => item.references);
@@ -325,7 +337,7 @@ function buildWorkspace(metadata) {
 
     const schemaIndex = [
       `# ${schema} schema`, "",
-      `Searchable inventory for ${code(schema)}. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, and RLS policies.`, "",
+      `Searchable inventory for ${code(schema)}. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, triggers, and RLS policies.`, "",
       `- Tables: ${tableRelations.length}`,
       `- Views: ${viewRelations.length}`,
       `- Functions: [${schemaFunctions.length}](functions.md)`,
@@ -350,6 +362,7 @@ function buildWorkspace(metadata) {
       constraints: metadata.constraints.filter((item) => item.schema === schema),
       indexes: metadata.indexes.filter((item) => item.schema === schema),
       policies: metadata.policies.filter((item) => item.schema === schema),
+      triggers: metadata.triggers.filter((item) => item.schema === schema),
       functions: schemaFunctions,
       enums: schemaEnums,
     });
@@ -370,6 +383,7 @@ function buildWorkspace(metadata) {
       constraints: metadata.constraints.length,
       indexes: metadata.indexes.length,
       policies: metadata.policies.length,
+      triggers: metadata.triggers.length,
       functions: metadata.functions.length,
       enums: metadata.enums.length,
     },

@@ -64,6 +64,12 @@ Database table research.report_version.
 | `report_version_pkey` | `CREATE UNIQUE INDEX report_version_pkey ON research.report_version USING btree (id)` |
 | `report_version_report_id_version_key` | `CREATE UNIQUE INDEX report_version_report_id_version_key ON research.report_version USING btree (report_id, version)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `report_version_immutable` | `util.reject_mutation` | `CREATE TRIGGER report_version_immutable BEFORE DELETE OR UPDATE ON research.report_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

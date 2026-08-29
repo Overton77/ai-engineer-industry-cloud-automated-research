@@ -69,6 +69,10 @@ _None._
 | `person_appeared_in_video_person_id_video_id_key` | `CREATE UNIQUE INDEX person_appeared_in_video_person_id_video_id_key ON corpus.person_appeared_in_video USING btree (person_id, video_id)` |
 | `person_appeared_in_video_pkey` | `CREATE UNIQUE INDEX person_appeared_in_video_pkey ON corpus.person_appeared_in_video USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -53,6 +53,10 @@ _None._
 | `report_claim_claim_idx` | `CREATE INDEX report_claim_claim_idx ON research.report_claim USING btree (claim_id)` |
 | `report_claim_pkey` | `CREATE UNIQUE INDEX report_claim_pkey ON research.report_claim USING btree (report_version_id, claim_id, role)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

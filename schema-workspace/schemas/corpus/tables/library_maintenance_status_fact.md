@@ -64,6 +64,10 @@ _None._
 | `library_maintenance_no_overlap` | `CREATE INDEX library_maintenance_no_overlap ON corpus.library_maintenance_status_fact USING gist (library_id, validity) WHERE ((lifecycle_state)::text = 'active'::text)` |
 | `library_maintenance_status_fact_pkey` | `CREATE UNIQUE INDEX library_maintenance_status_fact_pkey ON corpus.library_maintenance_status_fact USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -59,6 +59,10 @@ _None._
 | `factory_experiment_arm_name_uniq` | `CREATE UNIQUE INDEX factory_experiment_arm_name_uniq ON public.factory_experiment_arm USING btree (factory_experiment_id, arm_name)` |
 | `factory_experiment_arm_pkey` | `CREATE UNIQUE INDEX factory_experiment_arm_pkey ON public.factory_experiment_arm USING btree (factory_experiment_arm_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

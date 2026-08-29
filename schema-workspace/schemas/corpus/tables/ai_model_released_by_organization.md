@@ -66,6 +66,10 @@ _None._
 | `ai_model_released_by_organiza_ai_model_id_organization_id_r_key` | `CREATE UNIQUE INDEX ai_model_released_by_organiza_ai_model_id_organization_id_r_key ON corpus.ai_model_released_by_organization USING btree (ai_model_id, organization_id, release_role)` |
 | `ai_model_released_by_organization_pkey` | `CREATE UNIQUE INDEX ai_model_released_by_organization_pkey ON corpus.ai_model_released_by_organization USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

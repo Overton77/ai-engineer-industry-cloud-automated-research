@@ -72,6 +72,10 @@ Database table public.research_ingestion_intent.
 | `research_ingestion_intent_run_id_key` | `CREATE UNIQUE INDEX research_ingestion_intent_run_id_key ON public.research_ingestion_intent USING btree (run_id)` |
 | `research_ingestion_intent_video_id_idx` | `CREATE INDEX research_ingestion_intent_video_id_idx ON public.research_ingestion_intent USING btree (video_id, created_at DESC)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

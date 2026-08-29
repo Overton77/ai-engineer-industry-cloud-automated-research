@@ -63,6 +63,10 @@ _None._
 | `resolution_decision_outcome_idx` | `CREATE INDEX resolution_decision_outcome_idx ON staging.resolution_decision USING btree (outcome, decided_at DESC)` |
 | `resolution_decision_pkey` | `CREATE UNIQUE INDEX resolution_decision_pkey ON staging.resolution_decision USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

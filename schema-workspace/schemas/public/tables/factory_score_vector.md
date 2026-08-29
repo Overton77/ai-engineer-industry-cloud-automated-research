@@ -57,6 +57,10 @@ _None._
 | `factory_score_episode_contract_uniq` | `CREATE UNIQUE INDEX factory_score_episode_contract_uniq ON public.factory_score_vector USING btree (factory_episode_id, reward_contract_version)` |
 | `factory_score_vector_pkey` | `CREATE UNIQUE INDEX factory_score_vector_pkey ON public.factory_score_vector USING btree (factory_score_vector_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

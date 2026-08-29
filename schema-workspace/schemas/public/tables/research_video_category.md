@@ -56,6 +56,10 @@ _None._
 | `research_video_category_one_primary_uidx` | `CREATE UNIQUE INDEX research_video_category_one_primary_uidx ON public.research_video_category USING btree (analysis_id) WHERE (assignment_role = 'primary'::research_category_assignment_role)` |
 | `research_video_category_pkey` | `CREATE UNIQUE INDEX research_video_category_pkey ON public.research_video_category USING btree (analysis_id, category_code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

@@ -29,7 +29,7 @@ Database table evidence.claim_protocol_version.
 
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
-| `claim_protocol_version_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))` | — |
+| `claim_protocol_version_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_protocol_version_ai_protocol_version_id_fkey` | `foreign_key` | `FOREIGN KEY (ai_protocol_version_id) REFERENCES corpus.ai_protocol_version(id) ON DELETE CASCADE` | [`corpus.ai_protocol_version`](../../corpus/tables/ai_protocol_version.md) |
 | `claim_protocol_version_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
 | `claim_protocol_version_pkey` | `primary_key` | `PRIMARY KEY (claim_id, ai_protocol_version_id, role_in_claim)` | — |
@@ -53,6 +53,13 @@ _None._
 | --- | --- |
 | `claim_protocol_version_pkey` | `CREATE UNIQUE INDEX claim_protocol_version_pkey ON evidence.claim_protocol_version USING btree (claim_id, ai_protocol_version_id, role_in_claim)` |
 | `claim_protocol_version_target_idx` | `CREATE INDEX claim_protocol_version_target_idx ON evidence.claim_protocol_version USING btree (ai_protocol_version_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_protocol_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_protocol_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

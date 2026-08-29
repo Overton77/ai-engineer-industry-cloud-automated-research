@@ -19,17 +19,17 @@
     {
       "name": "evidence",
       "path": "schemas/evidence/README.md",
-      "relations": 32
+      "relations": 37
     },
     {
       "name": "taxonomy",
       "path": "schemas/taxonomy/README.md",
-      "relations": 6
+      "relations": 8
     },
     {
       "name": "corpus",
       "path": "schemas/corpus/README.md",
-      "relations": 60
+      "relations": 76
     },
     {
       "name": "staging",
@@ -48,13 +48,14 @@
     }
   ],
   "totals": {
-    "columns": 2143,
-    "constraints": 1069,
+    "columns": 2319,
+    "constraints": 1210,
     "enums": 30,
-    "functions": 9,
-    "indexes": 508,
-    "policies": 167,
-    "relations": 216,
-    "schemas": 9
+    "functions": 15,
+    "indexes": 570,
+    "policies": 190,
+    "relations": 239,
+    "schemas": 9,
+    "triggers": 94
   }
 }

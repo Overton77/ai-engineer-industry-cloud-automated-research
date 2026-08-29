@@ -51,6 +51,10 @@ _None._
 | --- | --- |
 | `bundle_artifact_pkey` | `CREATE UNIQUE INDEX bundle_artifact_pkey ON research.bundle_artifact USING btree (bundle_id, artifact_id, role)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -29,7 +29,7 @@ Database table evidence.claim_library.
 
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
-| `claim_library_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))` | — |
+| `claim_library_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_library_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
 | `claim_library_library_id_fkey` | `foreign_key` | `FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE` | [`corpus.library`](../../corpus/tables/library.md) |
 | `claim_library_pkey` | `primary_key` | `PRIMARY KEY (claim_id, library_id, role_in_claim)` | — |
@@ -53,6 +53,13 @@ _None._
 | --- | --- |
 | `claim_library_pkey` | `CREATE UNIQUE INDEX claim_library_pkey ON evidence.claim_library USING btree (claim_id, library_id, role_in_claim)` |
 | `claim_library_target_idx` | `CREATE INDEX claim_library_target_idx ON evidence.claim_library USING btree (library_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_library FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_library FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

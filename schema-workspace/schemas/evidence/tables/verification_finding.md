@@ -58,6 +58,13 @@ _None._
 | `verification_finding_pkey` | `CREATE UNIQUE INDEX verification_finding_pkey ON evidence.verification_finding USING btree (id)` |
 | `verification_finding_run_id_claim_id_key` | `CREATE UNIQUE INDEX verification_finding_run_id_claim_id_key ON evidence.verification_finding USING btree (run_id, claim_id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `verification_finding_immutable` | `util.reject_mutation` | `CREATE TRIGGER verification_finding_immutable BEFORE DELETE OR UPDATE ON evidence.verification_finding FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `verification_finding_independence` | `evidence.enforce_producer_not_verifier` | `CREATE TRIGGER verification_finding_independence BEFORE INSERT OR UPDATE ON evidence.verification_finding FOR EACH ROW EXECUTE FUNCTION evidence.enforce_producer_not_verifier()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

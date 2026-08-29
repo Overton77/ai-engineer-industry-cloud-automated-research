@@ -64,6 +64,10 @@ _None._
 | `ai_model_availability_fact_pkey` | `CREATE UNIQUE INDEX ai_model_availability_fact_pkey ON corpus.ai_model_availability_fact USING btree (id)` |
 | `ai_model_availability_no_overlap` | `CREATE INDEX ai_model_availability_no_overlap ON corpus.ai_model_availability_fact USING gist (ai_model_version_id, validity) WHERE ((lifecycle_state)::text = 'active'::text)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

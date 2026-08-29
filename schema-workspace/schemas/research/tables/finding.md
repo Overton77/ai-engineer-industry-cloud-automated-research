@@ -65,6 +65,10 @@ _None._
 | `finding_pkey` | `CREATE UNIQUE INDEX finding_pkey ON research.finding USING btree (id)` |
 | `finding_unresolved_idx` | `CREATE INDEX finding_unresolved_idx ON research.finding USING btree (created_at) WHERE (resolution = 'pending'::research.finding_resolution)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

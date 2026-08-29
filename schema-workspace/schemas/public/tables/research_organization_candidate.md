@@ -82,6 +82,10 @@ Database table public.research_organization_candidate.
 | `research_organization_candidate_one_rank1_uidx` | `CREATE UNIQUE INDEX research_organization_candidate_one_rank1_uidx ON public.research_organization_candidate USING btree (analysis_id) WHERE (featured_rank = 1)` |
 | `research_organization_candidate_pkey` | `CREATE UNIQUE INDEX research_organization_candidate_pkey ON public.research_organization_candidate USING btree (organization_candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

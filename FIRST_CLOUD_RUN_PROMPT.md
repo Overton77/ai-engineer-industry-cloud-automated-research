@@ -1,0 +1,44 @@
+# First Cursor Cloud research run
+
+## Goals of this cloud-agent environment
+
+This environment is a bounded, credit-efficient research worker. It is not the production deep-research system. Its goals are:
+
+1. **Entity identity and useful intelligence** — identify the important people, organizations, products, libraries, repositories, papers, models, datasets, benchmarks, talks, and case studies around one starter video; preserve provider identifiers; resolve obvious matches; and stop on ambiguous identity. The target is concise, decision-useful intelligence, not exhaustive deep research.
+2. **Metric probing and discovery** — discover which reach, adoption, endorsement, contribution, and operational metrics are actually observable for resolved entities; preserve definitions, units, windows, timestamps, raw captures, source tier, estimates, quality flags, and explicit unavailable reasons.
+3. **Timeline construction** — maintain a chronological view across videos using distinct event, publication, observation, and retrieval times. Later findings may extend or supersede interpretations without erasing provenance.
+4. **Operational research provenance** — prove that parallel cloud workers can coordinate safely through mission-scoped leases; record each query, retrieval, cache result, and operational support statement; and preserve the final run filesystem in private Supabase Storage.
+5. **Safe canonical handoff** — produce staged findings and deterministic ingestion intents. Research workers do not directly write canonical rows, approve their own intents, or execute unapproved changes.
+
+## Purpose-specific research intents
+
+- `entity_identity_intelligence`: select and resolve the entities that matter most to one video. Optimize for centrality, strategic relevance, evidence strength, and later metric probeability.
+- `metric_probe_discovery`: for an already-resolved entity, determine which metrics exist, what they mean, whether they can be reproduced, and what is unavailable. Never treat a missing value as zero.
+- `rolling_timeline`: extend the cross-video chronology from verified report claims in publication order while keeping event time separate from publication time.
+
+The first real run below intentionally exercises only `entity_identity_intelligence`. It may discover metric candidates and timeline events, but it must not claim the later metric or timeline work items.
+
+## Copy/paste prompt for the first real run
+
+> Read `AGENTS.md`, `CLOUD_AGENT_HANDOFF.md`, `FIRST_CLOUD_RUN_PROMPT.md`, and `.agents/skills/ai-engineer-cloud-research/SKILL.md` before acting. This run is authorized to create or reuse one orchestration mission, claim and finish exactly one `select_entities` work item, call Tavily and Firecrawl, record source provenance, upload attempt artifacts, and clean its run directory. It is not authorized to write canonical corpus/knowledge/ranking rows, submit or execute an ingestion intent, approve anything, claim a second work item, or broaden scope.
+>
+> Use video `dQmseZ6kz8w` (“Announcing the AI Engineer Network: Benjamin Dunphy”) for this first bounded test. The purpose-specific intent is `entity_identity_intelligence`: produce concise, source-attributed entity selection and identity intelligence, not exhaustive deep research.
+>
+> 1. Run `npm run verify:environment`, `npm run verify:secrets`, `npm run verify:research`, `npm run typecheck`, `npm run db:types:check`, and `npm run schema:workspace:check`. Stop without mutation if any check fails.
+> 2. Create a collision-free run ID with Node `crypto.randomUUID()`. Use worker ID `cursor-cloud:<run-id>:entity-selector` and local root `artifacts/runs/<run-id>/`. Put every intermediate response, fetched page, note, result, and terminal payload under that root; do not use `.firecrawl/` or another disposable directory.
+> 3. Inspect the video with `video get`. Run `mission preflight --video-id=dQmseZ6kz8w --output=artifacts/runs/<run-id>/inputs/pre-mission-context.json` and read the saved context before any web research. Explicitly note repeated people/organizations, canonical matches, prior mission state, and ambiguity; normalized-name overlap is not identity proof. Retrieve its private transcript with `transcript get --video-id=dQmseZ6kz8w --output=artifacts/runs/<run-id>/inputs/transcript.txt` and use the existing pre-research plus pre-mission context as the starting point.
+> 4. Dry-run `progress seed --video-id=dQmseZ6kz8w`; confirm that its embedded `pre_mission_retrieval` is current and review the 11-stage graph. Then seed it with actor `cursor-cloud:<run-id>` and `--apply`. Retain the returned mission ID.
+> 5. Run `progress status --mission-id=<mission-id>`. Claim exactly one item with `progress claim --mission-id=<mission-id> --worker=cursor-cloud:<run-id>:entity-selector --lease-seconds=1800 --apply`. If no item is returned, report the mission state and stop. If the claimed kind is not `select_entities`, do not work it; report the mismatch and stop without altering another worker's lease.
+> 6. Rank entity candidates by centrality to the video, strategic relevance, source strength, identity confidence, and later metric probeability. Prefer the transcript and existing pre-research; use only the minimal additional web discovery needed. Delegate only bounded source-intelligence or entity checks if subagents are available, and keep all work within this mission/work item/attempt.
+> 7. For every external search, save the complete provider response under the run root and register it with `source query-record --mission-id=<mission-id> --work-item=<work-item-id> --attempt-id=<attempt-id> --provider=<provider> --query=<exact-query> --purpose=<why-this-query-was-needed> --response-file=<path> --apply`. Save non-default provider parameters to JSON and pass `--parameters-file`.
+> 8. Before fetching an underlying URL, run `source cache-lookup --url=<canonical-url>`. A search snippet is not evidence. Save every selected underlying source under the run root and register it with `source capture-record --mission-id=<mission-id> --work-item=<work-item-id> --attempt-id=<attempt-id> --query-id=<source-query-id-if-any> --url=<canonical-url> --capture-file=<path> --operation=entity_identity_intelligence --support-role=<supports|challenges|context|background|discarded> --supports=<concise-explanation-of-how-it-mattered> --apply`. Preserve ambiguous or negative findings rather than silently discarding them.
+> 9. Heartbeat before lease expiry. Produce `result.json`, `report.md`, and `terminal-payload.json` under the run root. The terminal payload must identify selected and rejected candidates, ambiguity decisions, query IDs, capture/retrieval/support IDs, source URLs, limitations, and the purpose-specific intent.
+> 10. Archive the run root without cleanup first: `artifacts archive --mission-id=<mission-id> --work-item=<work-item-id> --attempt-id=<attempt-id> --root=artifacts/runs/<run-id> --apply`. Retain the returned manifest artifact ID and SHA-256.
+> 11. Finish the item with `progress finish --worker=cursor-cloud:<run-id>:entity-selector --work-item=<work-item-id> --attempt-id=<attempt-id> --outcome=succeeded --payload-file=artifacts/runs/<run-id>/terminal-payload.json --apply`. If the research is genuinely blocked or failed, use that terminal outcome and explain why; do not claim success.
+> 12. Re-run the identical archive command with `--cleanup`. This idempotently verifies the uploaded filesystem state and removes the local run directory only after the archive is registered. Then run `progress status --mission-id=<mission-id>` and report: mission/work/attempt IDs, event trail, selected entities, all query and source provenance IDs, bucket prefix, workspace-manifest artifact ID and SHA-256, cleanup result, and any blocker. Stop without claiming another item.
+
+## Parallel automation rule
+
+Every scheduled run must receive an explicit video or mission scope and generate its own UUID-based worker/run ID. Two agents may start at exactly the same time: `FOR UPDATE SKIP LOCKED` prevents duplicate active claims inside a mission, mission/idempotency keys prevent duplicate seeds, and attempt-scoped storage prefixes prevent object collisions. Do not have parallel agents independently “pick the next video” if you require guaranteed fan-out; assign video IDs in the scheduler or accept that simultaneous selectors may converge on one idempotent mission and one will receive no work.
+
+When an interactive Cloud session is intentionally allowed to choose, run `videos prioritize --strategy=balanced --limit=20` and select one returned candidate before creating the run directory. Scheduled fan-out should run that query once in the scheduler/control plane and distribute distinct video IDs; it should not let each parallel worker rank independently.

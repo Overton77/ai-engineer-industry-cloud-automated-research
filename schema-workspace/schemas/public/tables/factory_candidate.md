@@ -66,6 +66,10 @@ Database table public.factory_candidate.
 | --- | --- |
 | `factory_candidate_pkey` | `CREATE UNIQUE INDEX factory_candidate_pkey ON public.factory_candidate USING btree (factory_candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

@@ -65,10 +65,15 @@ Database table corpus.product.
 | --- | --- | --- |
 | [`corpus.case_study`](../../corpus/tables/case_study.md) | `case_study_subject_product_id_fkey` | `FOREIGN KEY (subject_product_id) REFERENCES corpus.product(id)` |
 | [`corpus.mcp_server_wraps_product`](../../corpus/tables/mcp_server_wraps_product.md) | `mcp_server_wraps_product_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
+| [`corpus.organization_product_relationship`](../../corpus/tables/organization_product_relationship.md) | `organization_product_relationship_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
 | [`corpus.product`](../../corpus/tables/product.md) | `product_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.product(id)` |
 | [`corpus.product_appeared_in_video`](../../corpus/tables/product_appeared_in_video.md) | `product_appeared_in_video_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
+| [`corpus.product_backed_by_repository`](../../corpus/tables/product_backed_by_repository.md) | `product_backed_by_repository_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
 | [`corpus.product_built_on_model_version`](../../corpus/tables/product_built_on_model_version.md) | `product_built_on_model_version_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
+| [`corpus.product_family_member`](../../corpus/tables/product_family_member.md) | `product_family_member_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
+| [`corpus.product_feature`](../../corpus/tables/product_feature.md) | `product_feature_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
 | [`corpus.product_implements_protocol_version`](../../corpus/tables/product_implements_protocol_version.md) | `product_implements_protocol_version_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
+| [`corpus.product_version`](../../corpus/tables/product_version.md) | `product_version_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
 | [`evidence.claim_product`](../../evidence/tables/claim_product.md) | `claim_product_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE` |
 | [`ranking.group_membership`](../../ranking/tables/group_membership.md) | `group_membership_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id)` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_product_id_fkey` | `FOREIGN KEY (product_id) REFERENCES corpus.product(id)` |
@@ -82,6 +87,12 @@ Database table corpus.product.
 | `product_pkey` | `CREATE UNIQUE INDEX product_pkey ON corpus.product USING btree (id)` |
 | `product_tenant_id_slug_key` | `CREATE UNIQUE INDEX product_tenant_id_slug_key ON corpus.product USING btree (tenant_id, slug)` |
 | `product_vendor_idx` | `CREATE INDEX product_vendor_idx ON corpus.product USING btree (vendor_organization_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `product_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER product_set_updated_at BEFORE UPDATE ON corpus.product FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

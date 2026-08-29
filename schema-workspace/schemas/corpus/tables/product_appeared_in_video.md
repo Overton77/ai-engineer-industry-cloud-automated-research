@@ -69,6 +69,10 @@ _None._
 | `product_appeared_in_video_pkey` | `CREATE UNIQUE INDEX product_appeared_in_video_pkey ON corpus.product_appeared_in_video USING btree (id)` |
 | `product_appeared_in_video_product_id_video_id_key` | `CREATE UNIQUE INDEX product_appeared_in_video_product_id_video_id_key ON corpus.product_appeared_in_video USING btree (product_id, video_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

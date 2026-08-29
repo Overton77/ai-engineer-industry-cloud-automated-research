@@ -61,6 +61,12 @@ Database table orchestration.capability.
 | `capability_pkey` | `CREATE UNIQUE INDEX capability_pkey ON orchestration.capability USING btree (id)` |
 | `capability_tenant_id_slug_key` | `CREATE UNIQUE INDEX capability_tenant_id_slug_key ON orchestration.capability USING btree (tenant_id, slug)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `capability_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER capability_set_updated_at BEFORE UPDATE ON orchestration.capability FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -57,6 +57,10 @@ _None._
 | `person_identifier_pkey` | `CREATE UNIQUE INDEX person_identifier_pkey ON corpus.person_identifier USING btree (id)` |
 | `person_identifier_scheme_value_key` | `CREATE UNIQUE INDEX person_identifier_scheme_value_key ON corpus.person_identifier USING btree (scheme, value)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

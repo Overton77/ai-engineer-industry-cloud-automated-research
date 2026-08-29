@@ -58,6 +58,10 @@ _None._
 | `research_web_search_event_pkey` | `CREATE UNIQUE INDEX research_web_search_event_pkey ON public.research_web_search_event USING btree (search_event_id)` |
 | `research_web_search_event_run_idx` | `CREATE INDEX research_web_search_event_run_idx ON public.research_web_search_event USING btree (run_id, searched_at)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

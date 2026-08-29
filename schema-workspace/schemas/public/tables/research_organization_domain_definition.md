@@ -52,6 +52,10 @@ _None._
 | --- | --- |
 | `research_organization_domain_definition_pkey` | `CREATE UNIQUE INDEX research_organization_domain_definition_pkey ON public.research_organization_domain_definition USING btree (domain_code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

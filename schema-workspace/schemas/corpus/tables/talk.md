@@ -78,6 +78,12 @@ Database table corpus.talk.
 | `talk_pkey` | `CREATE UNIQUE INDEX talk_pkey ON corpus.talk USING btree (id)` |
 | `talk_recording_idx` | `CREATE INDEX talk_recording_idx ON corpus.talk USING btree (recording_video_id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `talk_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER talk_set_updated_at BEFORE UPDATE ON corpus.talk FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

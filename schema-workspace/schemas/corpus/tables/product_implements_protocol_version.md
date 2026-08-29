@@ -68,6 +68,10 @@ _None._
 | `product_implements_protocol_v_product_id_ai_protocol_versio_key` | `CREATE UNIQUE INDEX product_implements_protocol_v_product_id_ai_protocol_versio_key ON corpus.product_implements_protocol_version USING btree (product_id, ai_protocol_version_id)` |
 | `product_implements_protocol_version_pkey` | `CREATE UNIQUE INDEX product_implements_protocol_version_pkey ON corpus.product_implements_protocol_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

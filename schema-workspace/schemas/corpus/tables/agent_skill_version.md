@@ -60,6 +60,10 @@ Database table corpus.agent_skill_version.
 | `agent_skill_version_agent_skill_id_version_label_key` | `CREATE UNIQUE INDEX agent_skill_version_agent_skill_id_version_label_key ON corpus.agent_skill_version USING btree (agent_skill_id, version_label)` |
 | `agent_skill_version_pkey` | `CREATE UNIQUE INDEX agent_skill_version_pkey ON corpus.agent_skill_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

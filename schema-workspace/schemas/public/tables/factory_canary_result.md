@@ -57,6 +57,10 @@ _None._
 | --- | --- |
 | `factory_canary_result_pkey` | `CREATE UNIQUE INDEX factory_canary_result_pkey ON public.factory_canary_result USING btree (factory_canary_result_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

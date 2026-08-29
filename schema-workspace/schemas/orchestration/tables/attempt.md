@@ -61,6 +61,8 @@ Database table orchestration.attempt.
 | [`evidence.claim`](../../evidence/tables/claim.md) | `claim_producer_attempt_id_fkey` | `FOREIGN KEY (producer_attempt_id) REFERENCES orchestration.attempt(id)` |
 | [`evidence.extraction_signature`](../../evidence/tables/extraction_signature.md) | `extraction_signature_produced_by_attempt_id_fkey` | `FOREIGN KEY (produced_by_attempt_id) REFERENCES orchestration.attempt(id)` |
 | [`evidence.source_capture`](../../evidence/tables/source_capture.md) | `source_capture_produced_by_attempt_id_fkey` | `FOREIGN KEY (produced_by_attempt_id) REFERENCES orchestration.attempt(id)` |
+| [`evidence.source_query`](../../evidence/tables/source_query.md) | `source_query_attempt_id_fkey` | `FOREIGN KEY (attempt_id) REFERENCES orchestration.attempt(id) ON DELETE CASCADE` |
+| [`evidence.source_retrieval`](../../evidence/tables/source_retrieval.md) | `source_retrieval_attempt_id_fkey` | `FOREIGN KEY (attempt_id) REFERENCES orchestration.attempt(id) ON DELETE CASCADE` |
 | [`evidence.verification_run`](../../evidence/tables/verification_run.md) | `verification_run_verifier_attempt_id_fkey` | `FOREIGN KEY (verifier_attempt_id) REFERENCES orchestration.attempt(id)` |
 | [`orchestration.artifact`](../../orchestration/tables/artifact.md) | `artifact_producer_attempt_id_fkey` | `FOREIGN KEY (producer_attempt_id) REFERENCES orchestration.attempt(id)` |
 | [`orchestration.operation_intent`](../../orchestration/tables/operation_intent.md) | `operation_intent_proposed_by_attempt_fkey` | `FOREIGN KEY (proposed_by_attempt) REFERENCES orchestration.attempt(id)` |
@@ -77,6 +79,12 @@ Database table orchestration.attempt.
 | `attempt_pkey` | `CREATE UNIQUE INDEX attempt_pkey ON orchestration.attempt USING btree (id)` |
 | `attempt_session_idx` | `CREATE INDEX attempt_session_idx ON orchestration.attempt USING btree (agent_session_id)` |
 | `attempt_work_item_id_attempt_no_key` | `CREATE UNIQUE INDEX attempt_work_item_id_attempt_no_key ON orchestration.attempt USING btree (work_item_id, attempt_no)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `attempt_identity_immutable` | `util.reject_mutation` | `CREATE TRIGGER attempt_identity_immutable BEFORE UPDATE OF work_item_id, attempt_no, agent_deployment_id, agent_session_id, started_at ON orchestration.attempt FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
 
 ## RLS policies
 

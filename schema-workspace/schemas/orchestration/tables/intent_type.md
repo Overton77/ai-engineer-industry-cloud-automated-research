@@ -49,6 +49,10 @@ _None._
 | --- | --- |
 | `intent_type_pkey` | `CREATE UNIQUE INDEX intent_type_pkey ON orchestration.intent_type USING btree (code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

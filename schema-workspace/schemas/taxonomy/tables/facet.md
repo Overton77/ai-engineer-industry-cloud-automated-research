@@ -57,6 +57,12 @@ _None._
 | `facet_pkey` | `CREATE UNIQUE INDEX facet_pkey ON taxonomy.facet USING btree (id)` |
 | `facet_tenant_id_slug_key` | `CREATE UNIQUE INDEX facet_tenant_id_slug_key ON taxonomy.facet USING btree (tenant_id, slug)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `facet_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER facet_set_updated_at BEFORE UPDATE ON taxonomy.facet FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

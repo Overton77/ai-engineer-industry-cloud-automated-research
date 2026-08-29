@@ -76,6 +76,12 @@ _None._
 | `factory_runtime_event_session_idx` | `CREATE INDEX factory_runtime_event_session_idx ON public.factory_runtime_event USING btree (eve_session_id, emitted_at, eve_event_id)` |
 | `factory_runtime_event_station_idx` | `CREATE INDEX factory_runtime_event_station_idx ON public.factory_runtime_event USING btree (subagent_name, emitted_at) WHERE (subagent_name IS NOT NULL)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `factory_runtime_event_immutable` | `public.reject_immutable_row_change` | `CREATE TRIGGER factory_runtime_event_immutable BEFORE DELETE OR UPDATE ON factory_runtime_event FOR EACH ROW EXECUTE FUNCTION reject_immutable_row_change()` |
+
 ## RLS policies
 
 _None._

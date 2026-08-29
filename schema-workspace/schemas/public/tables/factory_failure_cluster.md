@@ -59,6 +59,10 @@ _None._
 | `factory_failure_cluster_pkey` | `CREATE UNIQUE INDEX factory_failure_cluster_pkey ON public.factory_failure_cluster USING btree (factory_failure_cluster_id)` |
 | `factory_failure_cluster_signature_key` | `CREATE UNIQUE INDEX factory_failure_cluster_signature_key ON public.factory_failure_cluster USING btree (signature)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

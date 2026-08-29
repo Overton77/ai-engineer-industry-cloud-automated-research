@@ -62,6 +62,10 @@ Database table public.research_evidence_anchor.
 | `research_evidence_anchor_analysis_idx` | `CREATE INDEX research_evidence_anchor_analysis_idx ON public.research_evidence_anchor USING btree (analysis_id, source_kind)` |
 | `research_evidence_anchor_pkey` | `CREATE UNIQUE INDEX research_evidence_anchor_pkey ON public.research_evidence_anchor USING btree (evidence_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

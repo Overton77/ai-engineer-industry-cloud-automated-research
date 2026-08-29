@@ -64,6 +64,10 @@ Database table public.factory_artifact.
 | `factory_artifact_episode_digest_uniq` | `CREATE UNIQUE INDEX factory_artifact_episode_digest_uniq ON public.factory_artifact USING btree (factory_episode_id, artifact_kind, content_digest)` |
 | `factory_artifact_pkey` | `CREATE UNIQUE INDEX factory_artifact_pkey ON public.factory_artifact USING btree (factory_artifact_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

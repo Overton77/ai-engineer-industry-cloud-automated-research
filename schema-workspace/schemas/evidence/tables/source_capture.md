@@ -33,7 +33,7 @@ Database table evidence.source_capture.
 | 11 | `http_status` | `integer` | yes | — | — |
 | 12 | `http_headers` | `jsonb` | yes | — | — |
 | 13 | `context` | `jsonb` | no | `'{}'::jsonb` | — |
-| 14 | `produced_by_attempt_id` | `uuid` | yes | — | — |
+| 14 | `produced_by_attempt_id` | `uuid` | no | — | — |
 
 ## Constraints
 
@@ -60,6 +60,7 @@ Database table evidence.source_capture.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`evidence.locator`](../../evidence/tables/locator.md) | `locator_capture_id_fkey` | `FOREIGN KEY (capture_id) REFERENCES evidence.source_capture(id)` |
+| [`evidence.source_retrieval`](../../evidence/tables/source_retrieval.md) | `source_retrieval_capture_id_fkey` | `FOREIGN KEY (capture_id) REFERENCES evidence.source_capture(id)` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_raw_capture_id_fkey` | `FOREIGN KEY (raw_capture_id) REFERENCES evidence.source_capture(id)` |
 | [`staging.candidate`](../../staging/tables/candidate.md) | `candidate_capture_id_fkey` | `FOREIGN KEY (capture_id) REFERENCES evidence.source_capture(id)` |
 | [`staging.mention`](../../staging/tables/mention.md) | `mention_appeared_in_capture_id_fkey` | `FOREIGN KEY (appeared_in_capture_id) REFERENCES evidence.source_capture(id)` |
@@ -68,9 +69,16 @@ Database table evidence.source_capture.
 
 | Name | Definition |
 | --- | --- |
+| `source_capture_artifact_uq` | `CREATE UNIQUE INDEX source_capture_artifact_uq ON evidence.source_capture USING btree (artifact_id)` |
 | `source_capture_pkey` | `CREATE UNIQUE INDEX source_capture_pkey ON evidence.source_capture USING btree (id)` |
 | `source_capture_sha_idx` | `CREATE INDEX source_capture_sha_idx ON evidence.source_capture USING btree (content_sha256)` |
 | `source_capture_source_idx` | `CREATE INDEX source_capture_source_idx ON evidence.source_capture USING btree (source_id, captured_at DESC)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `source_capture_immutable` | `util.reject_mutation` | `CREATE TRIGGER source_capture_immutable BEFORE DELETE OR UPDATE ON evidence.source_capture FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
 
 ## RLS policies
 

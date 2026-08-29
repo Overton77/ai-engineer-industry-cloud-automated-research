@@ -48,6 +48,10 @@ _None._
 | --- | --- |
 | `work_item_kind_pkey` | `CREATE UNIQUE INDEX work_item_kind_pkey ON orchestration.work_item_kind USING btree (code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

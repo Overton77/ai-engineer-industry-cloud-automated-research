@@ -72,6 +72,12 @@ Database table corpus.concept.
 | `concept_pkey` | `CREATE UNIQUE INDEX concept_pkey ON corpus.concept USING btree (id)` |
 | `concept_tenant_id_slug_key` | `CREATE UNIQUE INDEX concept_tenant_id_slug_key ON corpus.concept USING btree (tenant_id, slug)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `concept_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER concept_set_updated_at BEFORE UPDATE ON corpus.concept FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

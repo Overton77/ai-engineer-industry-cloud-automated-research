@@ -55,6 +55,10 @@ _None._
 | --- | --- |
 | `candidate_repository_pkey` | `CREATE UNIQUE INDEX candidate_repository_pkey ON staging.candidate_repository USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -67,6 +67,10 @@ _None._
 | `continuation_checkpoint_mission_idx` | `CREATE INDEX continuation_checkpoint_mission_idx ON orchestration.continuation_checkpoint USING btree (mission_id, created_at DESC)` |
 | `continuation_checkpoint_pkey` | `CREATE UNIQUE INDEX continuation_checkpoint_pkey ON orchestration.continuation_checkpoint USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

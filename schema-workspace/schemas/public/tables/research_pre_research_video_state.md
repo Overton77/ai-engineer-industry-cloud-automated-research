@@ -71,6 +71,12 @@ _None._
 | `research_pre_research_video_state_eligible_idx` | `CREATE INDEX research_pre_research_video_state_eligible_idx ON public.research_pre_research_video_state USING btree (eligibility_status, pipeline_status)` |
 | `research_pre_research_video_state_pkey` | `CREATE UNIQUE INDEX research_pre_research_video_state_pkey ON public.research_pre_research_video_state USING btree (video_id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `set_research_pre_research_video_state_updated_at` | `public.set_updated_at` | `CREATE TRIGGER set_research_pre_research_video_state_updated_at BEFORE UPDATE ON research_pre_research_video_state FOR EACH ROW EXECUTE FUNCTION set_updated_at()` |
+
 ## RLS policies
 
 _None._

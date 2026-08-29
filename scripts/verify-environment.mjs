@@ -1,5 +1,9 @@
-import { readdirSync } from "node:fs";
+import { existsSync, readdirSync } from "node:fs";
 import { spawnSync } from "node:child_process";
+import { resolve } from "node:path";
+
+const envPath = process.env.AI_ENGINEER_ENV_FILE ?? resolve(".env");
+if (existsSync(envPath) && typeof process.loadEnvFile === "function") process.loadEnvFile(envPath);
 
 const requireSecrets = process.argv.includes("--require-secrets");
 const failures = [];

@@ -40,7 +40,7 @@ Database table evidence.claim_technical_record.
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
 | `claim_technical_record_exactly_one` | `check` | `CHECK (num_nonnulls(technical_problem_id, solution_pattern_id, advanced_usage_pattern_id, implementation_example_id, failure_mode_id, benchmark_result_id, compatibility_constraint_id, operational_practice_id, security_consideration_id) = 1)` | — |
-| `claim_technical_record_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))` | — |
+| `claim_technical_record_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_technical_record_advanced_usage_pattern_id_fkey` | `foreign_key` | `FOREIGN KEY (advanced_usage_pattern_id) REFERENCES knowledge.advanced_usage_pattern(id) ON DELETE CASCADE` | `knowledge.advanced_usage_pattern` |
 | `claim_technical_record_benchmark_result_id_fkey` | `foreign_key` | `FOREIGN KEY (benchmark_result_id) REFERENCES knowledge.benchmark_result(id) ON DELETE CASCADE` | `knowledge.benchmark_result` |
 | `claim_technical_record_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
@@ -81,6 +81,13 @@ _None._
 | `claim_technical_record_claim_idx` | `CREATE INDEX claim_technical_record_claim_idx ON evidence.claim_technical_record USING btree (claim_id)` |
 | `claim_technical_record_kind_idx` | `CREATE INDEX claim_technical_record_kind_idx ON evidence.claim_technical_record USING btree (record_kind)` |
 | `claim_technical_record_pkey` | `CREATE UNIQUE INDEX claim_technical_record_pkey ON evidence.claim_technical_record USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_technical_record FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_technical_record FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

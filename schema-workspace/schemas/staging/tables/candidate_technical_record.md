@@ -57,6 +57,10 @@ _None._
 | --- | --- |
 | `candidate_technical_record_pkey` | `CREATE UNIQUE INDEX candidate_technical_record_pkey ON staging.candidate_technical_record USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -60,6 +60,10 @@ _None._
 | `factory_assertion_episode_key_uniq` | `CREATE UNIQUE INDEX factory_assertion_episode_key_uniq ON public.factory_assertion_result USING btree (factory_episode_id, assertion_key, evaluator_version)` |
 | `factory_assertion_result_pkey` | `CREATE UNIQUE INDEX factory_assertion_result_pkey ON public.factory_assertion_result USING btree (factory_assertion_result_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

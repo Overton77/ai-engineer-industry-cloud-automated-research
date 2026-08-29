@@ -2499,14 +2499,6 @@
       "type": "primary_key"
     },
     {
-      "definition": "UNIQUE (sha256, artifact_type)",
-      "name": "artifact_sha256_artifact_type_key",
-      "references": null,
-      "relation": "artifact",
-      "schema": "orchestration",
-      "type": "unique"
-    },
-    {
       "definition": "UNIQUE (storage_bucket, object_path)",
       "name": "artifact_storage_bucket_object_path_key",
       "references": null,
@@ -3187,8 +3179,8 @@
       "schema": "orchestration"
     },
     {
-      "definition": "CREATE UNIQUE INDEX artifact_sha256_artifact_type_key ON orchestration.artifact USING btree (sha256, artifact_type)",
-      "name": "artifact_sha256_artifact_type_key",
+      "definition": "CREATE INDEX artifact_sha256_type_idx ON orchestration.artifact USING btree (sha256, artifact_type, created_at DESC)",
+      "name": "artifact_sha256_type_idx",
       "relation": "artifact",
       "schema": "orchestration"
     },
@@ -4054,5 +4046,71 @@
       "schema": "orchestration"
     }
   ],
-  "schema": "orchestration"
+  "schema": "orchestration",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER artifact_immutable BEFORE DELETE OR UPDATE ON orchestration.artifact FOR EACH ROW EXECUTE FUNCTION orchestration.artifact_guard()",
+      "function_name": "artifact_guard",
+      "function_schema": "orchestration",
+      "name": "artifact_immutable",
+      "relation": "artifact",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER attempt_identity_immutable BEFORE UPDATE OF work_item_id, attempt_no, agent_deployment_id, agent_session_id, started_at ON orchestration.attempt FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "attempt_identity_immutable",
+      "relation": "attempt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER capability_set_updated_at BEFORE UPDATE ON orchestration.capability FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "capability_set_updated_at",
+      "relation": "capability",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER mission_set_updated_at BEFORE UPDATE ON orchestration.mission FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "mission_set_updated_at",
+      "relation": "mission",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER mission_event_immutable BEFORE DELETE OR UPDATE ON orchestration.mission_event FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "mission_event_immutable",
+      "relation": "mission_event",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER operation_receipt_immutable BEFORE DELETE OR UPDATE ON orchestration.operation_receipt FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "operation_receipt_immutable",
+      "relation": "operation_receipt",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER work_item_set_updated_at BEFORE UPDATE ON orchestration.work_item FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "work_item_set_updated_at",
+      "relation": "work_item",
+      "schema": "orchestration"
+    },
+    {
+      "definition": "CREATE TRIGGER work_item_event_immutable BEFORE DELETE OR UPDATE ON orchestration.work_item_event FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "work_item_event_immutable",
+      "relation": "work_item_event",
+      "schema": "orchestration"
+    }
+  ]
 }

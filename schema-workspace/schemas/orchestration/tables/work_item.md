@@ -65,6 +65,9 @@ Database table orchestration.work_item.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`evidence.revalidation_event`](../../evidence/tables/revalidation_event.md) | `revalidation_event_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id)` |
+| [`evidence.source_query`](../../evidence/tables/source_query.md) | `source_query_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE` |
+| [`evidence.source_retrieval`](../../evidence/tables/source_retrieval.md) | `source_retrieval_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE` |
+| [`evidence.source_support`](../../evidence/tables/source_support.md) | `source_support_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE` |
 | [`evidence.verification_run`](../../evidence/tables/verification_run.md) | `verification_run_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id)` |
 | [`orchestration.artifact_manifest`](../../orchestration/tables/artifact_manifest.md) | `artifact_manifest_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE` |
 | [`orchestration.attempt`](../../orchestration/tables/attempt.md) | `attempt_work_item_id_fkey` | `FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE` |
@@ -84,6 +87,12 @@ Database table orchestration.work_item.
 | `work_item_mission_idx` | `CREATE INDEX work_item_mission_idx ON orchestration.work_item USING btree (mission_id, status)` |
 | `work_item_pkey` | `CREATE UNIQUE INDEX work_item_pkey ON orchestration.work_item USING btree (id)` |
 | `work_item_ready_idx` | `CREATE INDEX work_item_ready_idx ON orchestration.work_item USING btree (status, created_at) WHERE (status = ANY (ARRAY['pending'::orchestration.work_item_status, 'ready'::orchestration.work_item_status]))` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `work_item_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER work_item_set_updated_at BEFORE UPDATE ON orchestration.work_item FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

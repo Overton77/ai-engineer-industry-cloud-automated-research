@@ -19,6 +19,7 @@
     "typecheck": "tsc --noEmit",
     "research:cloud": "node scripts/research-cloud.mjs",
     "test:smoke": "bash scripts/cloud-smoke-test.sh",
+    "test:parallel-claim": "node scripts/verify-parallel-claim.mjs",
     "neo4j:ping": "node scripts/check-neo4j-aura.mjs"
   },
   "dependencies": {

@@ -23,21 +23,30 @@ All skill sources are copied into `.agents/skills` and pinned by `skills-lock.js
 
 ## One-video research automation
 
-The project skill `.agents/skills/ai-engineer-cloud-research` routes the workflow. Its CLI provides live schema snapshots, date-ordered video loading, shared database leases and progress events, private-bucket intent storage, validation, and approved deterministic execution.
+The project skill `.agents/skills/ai-engineer-cloud-research` routes the workflow. Its CLI provides live schema snapshots, eligible video loading, authenticated private transcript retrieval, mission-scoped parallel leases, operational source intelligence, attempt-workspace archival/cleanup, private-bucket intent storage, validation, and approved deterministic execution.
 
 ```bash
 npm run verify:research
-npm run research:cloud -- videos list --order=asc --limit=20
+npm run research:cloud -- videos list --order=asc --limit=20 --eligible --pre-research-complete --without-mission
+npm run research:cloud -- videos prioritize --strategy=balanced --limit=20
+npm run research:cloud -- videos prioritize --strategy=popular-media --limit=20 --output=artifacts/runs/<run-id>/inputs/video-candidates.json
 npm run research:cloud -- video get --video-id=<youtube-id>
+npm run research:cloud -- mission preflight --video-id=<youtube-id> --output=artifacts/runs/<run-id>/inputs/pre-mission-context.json
 npm run research:cloud -- progress seed --video-id=<youtube-id>
 # Review, then repeat the seed command with --apply.
 ```
 
-See `schema-workspace/index.md` and `schema-workspace/READINESS_AUDIT.md`. Mutating commands require `--apply`; intent execution also requires database approval state `approved` or `budgeted`.
+When no video is assigned, use `balanced` for general research or `popular-media` when audience reach should be a stronger starter-packet signal. Both hard-gate transcript and pre-research readiness, and neither treats popularity as identity proof or evidence. See `video-workspace/README.md` for weights, selection modes, and the query playbook. Every `progress seed` performs and returns a fresh pre-mission entity query before any mutation, so cross-video candidates, canonical matches, and prior mission state ground the run.
+
+See `FIRST_CLOUD_RUN_PROMPT.md` for the explicit environment goals, purpose-specific intents, parallelism contract, and copy/paste prompt for the first real run. See `CLOUD_AGENT_HANDOFF.md` for the full operating contract. Mutating commands require `--apply`; intent execution also requires database approval state `approved` or `budgeted`.
+
+See `CLOUD_AGENT_LAUNCH_KIT.md` for the exact Cursor Secrets, current-state materialization contract, launch order, and the two copy/paste prompts for a video-directed researcher plus an autonomous popular-media researcher.
 
 ## Database contract and schema workspace
 
 Cursor Cloud installs a vendored, pinned snapshot of `@aiengineer/database-contract`. The package remains the canonical owner of migrations and Supabase-generated types; `database.types.ts` is an exact synchronized copy for tools that expect the conventional filename at the application root.
+
+The canonical primary/secondary entity model and organization-product ingestion rules are documented in [`ENTITY_TAXONOMY.md`](ENTITY_TAXONOMY.md). Claim work loads `.agents/skills/claim-evidence-workflow/SKILL.md` and uses `.cursor/agents/claim-evidence-specialist.md`; extraction and verification of the same claim require different agent deployments.
 
 ```bash
 npm run db:types

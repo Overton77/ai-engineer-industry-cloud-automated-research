@@ -46,7 +46,6 @@ Database table orchestration.artifact.
 | `artifact_producer_attempt_id_fkey` | `foreign_key` | `FOREIGN KEY (producer_attempt_id) REFERENCES orchestration.attempt(id)` | [`orchestration.attempt`](../../orchestration/tables/attempt.md) |
 | `artifact_superseded_by_id_fkey` | `foreign_key` | `FOREIGN KEY (superseded_by_id) REFERENCES orchestration.artifact(id)` | [`orchestration.artifact`](../../orchestration/tables/artifact.md) |
 | `artifact_pkey` | `primary_key` | `PRIMARY KEY (id)` | — |
-| `artifact_sha256_artifact_type_key` | `unique` | `UNIQUE (sha256, artifact_type)` | — |
 | `artifact_storage_bucket_object_path_key` | `unique` | `UNIQUE (storage_bucket, object_path)` | — |
 
 ## Relationships
@@ -67,6 +66,7 @@ Database table orchestration.artifact.
 | [`corpus.video`](../../corpus/tables/video.md) | `video_transcript_artifact_id_fkey` | `FOREIGN KEY (transcript_artifact_id) REFERENCES orchestration.artifact(id)` |
 | [`evidence.executable_verification`](../../evidence/tables/executable_verification.md) | `executable_verification_log_artifact_id_fkey` | `FOREIGN KEY (log_artifact_id) REFERENCES orchestration.artifact(id)` |
 | [`evidence.source_capture`](../../evidence/tables/source_capture.md) | `source_capture_artifact_id_fkey` | `FOREIGN KEY (artifact_id) REFERENCES orchestration.artifact(id)` |
+| [`evidence.source_query`](../../evidence/tables/source_query.md) | `source_query_response_artifact_id_fkey` | `FOREIGN KEY (response_artifact_id) REFERENCES orchestration.artifact(id)` |
 | [`orchestration.artifact`](../../orchestration/tables/artifact.md) | `artifact_superseded_by_id_fkey` | `FOREIGN KEY (superseded_by_id) REFERENCES orchestration.artifact(id)` |
 | [`orchestration.continuation_checkpoint`](../../orchestration/tables/continuation_checkpoint.md) | `continuation_checkpoint_package_artifact_id_fkey` | `FOREIGN KEY (package_artifact_id) REFERENCES orchestration.artifact(id)` |
 | [`orchestration.work_item_artifact`](../../orchestration/tables/work_item_artifact.md) | `work_item_artifact_artifact_id_fkey` | `FOREIGN KEY (artifact_id) REFERENCES orchestration.artifact(id) ON DELETE CASCADE` |
@@ -82,9 +82,15 @@ Database table orchestration.artifact.
 | --- | --- |
 | `artifact_mission_idx` | `CREATE INDEX artifact_mission_idx ON orchestration.artifact USING btree (mission_id)` |
 | `artifact_pkey` | `CREATE UNIQUE INDEX artifact_pkey ON orchestration.artifact USING btree (id)` |
-| `artifact_sha256_artifact_type_key` | `CREATE UNIQUE INDEX artifact_sha256_artifact_type_key ON orchestration.artifact USING btree (sha256, artifact_type)` |
+| `artifact_sha256_type_idx` | `CREATE INDEX artifact_sha256_type_idx ON orchestration.artifact USING btree (sha256, artifact_type, created_at DESC)` |
 | `artifact_storage_bucket_object_path_key` | `CREATE UNIQUE INDEX artifact_storage_bucket_object_path_key ON orchestration.artifact USING btree (storage_bucket, object_path)` |
 | `artifact_type_idx` | `CREATE INDEX artifact_type_idx ON orchestration.artifact USING btree (artifact_type, created_at DESC)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `artifact_immutable` | `orchestration.artifact_guard` | `CREATE TRIGGER artifact_immutable BEFORE DELETE OR UPDATE ON orchestration.artifact FOR EACH ROW EXECUTE FUNCTION orchestration.artifact_guard()` |
 
 ## RLS policies
 

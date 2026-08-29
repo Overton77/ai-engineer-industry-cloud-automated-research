@@ -29,7 +29,7 @@ Database table evidence.claim_agent_skill_version.
 
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
-| `claim_agent_skill_version_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))` | — |
+| `claim_agent_skill_version_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_agent_skill_version_agent_skill_version_id_fkey` | `foreign_key` | `FOREIGN KEY (agent_skill_version_id) REFERENCES corpus.agent_skill_version(id) ON DELETE CASCADE` | [`corpus.agent_skill_version`](../../corpus/tables/agent_skill_version.md) |
 | `claim_agent_skill_version_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
 | `claim_agent_skill_version_pkey` | `primary_key` | `PRIMARY KEY (claim_id, agent_skill_version_id, role_in_claim)` | — |
@@ -53,6 +53,13 @@ _None._
 | --- | --- |
 | `claim_agent_skill_version_pkey` | `CREATE UNIQUE INDEX claim_agent_skill_version_pkey ON evidence.claim_agent_skill_version USING btree (claim_id, agent_skill_version_id, role_in_claim)` |
 | `claim_agent_skill_version_target_idx` | `CREATE INDEX claim_agent_skill_version_target_idx ON evidence.claim_agent_skill_version USING btree (agent_skill_version_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_agent_skill_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_agent_skill_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

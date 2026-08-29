@@ -66,6 +66,10 @@ Independent signed promotion outcome with evidence and an explicit rollback targ
 | --- | --- |
 | `factory_promotion_decision_pkey` | `CREATE UNIQUE INDEX factory_promotion_decision_pkey ON public.factory_promotion_decision USING btree (factory_promotion_decision_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

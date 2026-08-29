@@ -56,6 +56,10 @@ _None._
 | --- | --- |
 | `degraded_assurance_pkey` | `CREATE UNIQUE INDEX degraded_assurance_pkey ON evidence.degraded_assurance USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -65,6 +65,8 @@ Database table corpus.ai_protocol.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`corpus.ai_protocol`](../../corpus/tables/ai_protocol.md) | `ai_protocol_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.ai_protocol(id)` |
+| [`corpus.ai_protocol_relationship`](../../corpus/tables/ai_protocol_relationship.md) | `ai_protocol_relationship_from_ai_protocol_id_fkey` | `FOREIGN KEY (from_ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE` |
+| [`corpus.ai_protocol_relationship`](../../corpus/tables/ai_protocol_relationship.md) | `ai_protocol_relationship_to_ai_protocol_id_fkey` | `FOREIGN KEY (to_ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE` |
 | [`corpus.ai_protocol_version`](../../corpus/tables/ai_protocol_version.md) | `ai_protocol_version_ai_protocol_id_fkey` | `FOREIGN KEY (ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE` |
 | [`staging.identity_match`](../../staging/tables/identity_match.md) | `identity_match_ai_protocol_id_fkey` | `FOREIGN KEY (ai_protocol_id) REFERENCES corpus.ai_protocol(id)` |
 | [`taxonomy.assignment`](../../taxonomy/tables/assignment.md) | `assignment_ai_protocol_id_fkey` | `FOREIGN KEY (ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE` |
@@ -75,6 +77,12 @@ Database table corpus.ai_protocol.
 | --- | --- |
 | `ai_protocol_pkey` | `CREATE UNIQUE INDEX ai_protocol_pkey ON corpus.ai_protocol USING btree (id)` |
 | `ai_protocol_tenant_id_slug_key` | `CREATE UNIQUE INDEX ai_protocol_tenant_id_slug_key ON corpus.ai_protocol USING btree (tenant_id, slug)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `ai_protocol_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER ai_protocol_set_updated_at BEFORE UPDATE ON corpus.ai_protocol FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

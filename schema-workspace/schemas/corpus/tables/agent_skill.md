@@ -86,6 +86,12 @@ Database table corpus.agent_skill.
 | `agent_skill_repo_fk_idx` | `CREATE INDEX agent_skill_repo_fk_idx ON corpus.agent_skill USING btree (repository_id)` |
 | `agent_skill_repo_uq` | `CREATE UNIQUE INDEX agent_skill_repo_uq ON corpus.agent_skill USING btree (repository_id) WHERE (repository_id IS NOT NULL)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `agent_skill_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER agent_skill_set_updated_at BEFORE UPDATE ON corpus.agent_skill FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

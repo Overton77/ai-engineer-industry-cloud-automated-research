@@ -59,6 +59,10 @@ Database table public.factory_experiment.
 | --- | --- |
 | `factory_experiment_pkey` | `CREATE UNIQUE INDEX factory_experiment_pkey ON public.factory_experiment USING btree (factory_experiment_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

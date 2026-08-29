@@ -63,6 +63,7 @@ Database table corpus.library.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`corpus.agent_skill_targets_library`](../../corpus/tables/agent_skill_targets_library.md) | `agent_skill_targets_library_library_id_fkey` | `FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE` |
+| [`corpus.case_study_uses_library`](../../corpus/tables/case_study_uses_library.md) | `case_study_uses_library_library_id_fkey` | `FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE` |
 | [`corpus.library`](../../corpus/tables/library.md) | `library_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.library(id)` |
 | [`corpus.library_appeared_in_video`](../../corpus/tables/library_appeared_in_video.md) | `library_appeared_in_video_library_id_fkey` | `FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE` |
 | [`corpus.library_backed_by_repository`](../../corpus/tables/library_backed_by_repository.md) | `library_backed_by_repository_library_id_fkey` | `FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE` |
@@ -85,6 +86,12 @@ Database table corpus.library.
 | --- | --- |
 | `library_ecosystem_package_name_key` | `CREATE UNIQUE INDEX library_ecosystem_package_name_key ON corpus.library USING btree (ecosystem, package_name)` |
 | `library_pkey` | `CREATE UNIQUE INDEX library_pkey ON corpus.library USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `library_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER library_set_updated_at BEFORE UPDATE ON corpus.library FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

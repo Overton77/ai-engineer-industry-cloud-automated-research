@@ -60,9 +60,13 @@ Database table corpus.benchmark.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`corpus.benchmark`](../../corpus/tables/benchmark.md) | `benchmark_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.benchmark(id)` |
+| [`corpus.benchmark_evaluates_model_version`](../../corpus/tables/benchmark_evaluates_model_version.md) | `benchmark_evaluates_model_version_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE` |
+| [`corpus.benchmark_uses_dataset`](../../corpus/tables/benchmark_uses_dataset.md) | `benchmark_uses_dataset_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE` |
+| [`corpus.case_study_references_benchmark`](../../corpus/tables/case_study_references_benchmark.md) | `case_study_references_benchmark_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE` |
 | [`evidence.claim_benchmark`](../../evidence/tables/claim_benchmark.md) | `claim_benchmark_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id)` |
 | [`staging.identity_match`](../../staging/tables/identity_match.md) | `identity_match_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id)` |
+| [`taxonomy.assignment`](../../taxonomy/tables/assignment.md) | `assignment_benchmark_id_fkey` | `FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE` |
 
 ## Indexes
 
@@ -70,6 +74,12 @@ Database table corpus.benchmark.
 | --- | --- |
 | `benchmark_pkey` | `CREATE UNIQUE INDEX benchmark_pkey ON corpus.benchmark USING btree (id)` |
 | `benchmark_tenant_id_slug_key` | `CREATE UNIQUE INDEX benchmark_tenant_id_slug_key ON corpus.benchmark USING btree (tenant_id, slug)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `benchmark_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER benchmark_set_updated_at BEFORE UPDATE ON corpus.benchmark FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

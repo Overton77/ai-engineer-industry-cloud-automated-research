@@ -1,6 +1,6 @@
 # research schema
 
-Searchable inventory for `research`. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, and RLS policies.
+Searchable inventory for `research`. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, triggers, and RLS policies.
 
 - Tables: 8
 - Views: 0

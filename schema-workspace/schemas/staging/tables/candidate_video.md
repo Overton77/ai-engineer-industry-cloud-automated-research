@@ -56,6 +56,10 @@ _None._
 | --- | --- |
 | `candidate_video_pkey` | `CREATE UNIQUE INDEX candidate_video_pkey ON staging.candidate_video USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

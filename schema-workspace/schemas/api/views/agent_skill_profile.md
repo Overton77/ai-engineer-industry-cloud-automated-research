@@ -51,6 +51,10 @@ _None._
 
 _None._
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

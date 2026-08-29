@@ -91,6 +91,10 @@ Immutable analysis packet for one completed pre-research run.
 | `research_video_analysis_run_id_key` | `CREATE UNIQUE INDEX research_video_analysis_run_id_key ON public.research_video_analysis USING btree (run_id)` |
 | `research_video_analysis_video_id_idx` | `CREATE INDEX research_video_analysis_video_id_idx ON public.research_video_analysis USING btree (video_id, generated_at DESC)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

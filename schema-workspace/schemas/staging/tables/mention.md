@@ -58,6 +58,10 @@ _None._
 | `mention_capture_idx` | `CREATE INDEX mention_capture_idx ON staging.mention USING btree (appeared_in_capture_id)` |
 | `mention_pkey` | `CREATE UNIQUE INDEX mention_pkey ON staging.mention USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

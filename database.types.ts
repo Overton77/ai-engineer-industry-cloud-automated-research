@@ -605,6 +605,48 @@ export type Database = {
           },
         ]
       }
+      ai_model_relationship: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          from_ai_model_id: string
+          provenance_claim_id: string | null
+          relationship_kind: string
+          to_ai_model_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          from_ai_model_id: string
+          provenance_claim_id?: string | null
+          relationship_kind: string
+          to_ai_model_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          from_ai_model_id?: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+          to_ai_model_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_model_relationship_from_ai_model_id_fkey"
+            columns: ["from_ai_model_id"]
+            isOneToOne: false
+            referencedRelation: "ai_model"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ai_model_relationship_to_ai_model_id_fkey"
+            columns: ["to_ai_model_id"]
+            isOneToOne: false
+            referencedRelation: "ai_model"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ai_model_released_by_organization: {
         Row: {
           ai_model_id: string
@@ -782,6 +824,48 @@ export type Database = {
           },
         ]
       }
+      ai_protocol_relationship: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          from_ai_protocol_id: string
+          provenance_claim_id: string | null
+          relationship_kind: string
+          to_ai_protocol_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          from_ai_protocol_id: string
+          provenance_claim_id?: string | null
+          relationship_kind: string
+          to_ai_protocol_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          from_ai_protocol_id?: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+          to_ai_protocol_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_protocol_relationship_from_ai_protocol_id_fkey"
+            columns: ["from_ai_protocol_id"]
+            isOneToOne: false
+            referencedRelation: "ai_protocol"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ai_protocol_relationship_to_ai_protocol_id_fkey"
+            columns: ["to_ai_protocol_id"]
+            isOneToOne: false
+            referencedRelation: "ai_protocol"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ai_protocol_version: {
         Row: {
           ai_protocol_id: string
@@ -885,6 +969,90 @@ export type Database = {
           },
         ]
       }
+      benchmark_evaluates_model_version: {
+        Row: {
+          ai_model_version_id: string
+          benchmark_id: string
+          created_at: string
+          created_by_receipt_id: string | null
+          evaluation_role: string
+          provenance_claim_id: string | null
+        }
+        Insert: {
+          ai_model_version_id: string
+          benchmark_id: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          evaluation_role?: string
+          provenance_claim_id?: string | null
+        }
+        Update: {
+          ai_model_version_id?: string
+          benchmark_id?: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          evaluation_role?: string
+          provenance_claim_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "benchmark_evaluates_model_version_ai_model_version_id_fkey"
+            columns: ["ai_model_version_id"]
+            isOneToOne: false
+            referencedRelation: "ai_model_version"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "benchmark_evaluates_model_version_benchmark_id_fkey"
+            columns: ["benchmark_id"]
+            isOneToOne: false
+            referencedRelation: "benchmark"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      benchmark_uses_dataset: {
+        Row: {
+          benchmark_id: string
+          created_at: string
+          created_by_receipt_id: string | null
+          dataset_id: string
+          provenance_claim_id: string | null
+          usage_kind: string
+        }
+        Insert: {
+          benchmark_id: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          dataset_id: string
+          provenance_claim_id?: string | null
+          usage_kind?: string
+        }
+        Update: {
+          benchmark_id?: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          dataset_id?: string
+          provenance_claim_id?: string | null
+          usage_kind?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "benchmark_uses_dataset_benchmark_id_fkey"
+            columns: ["benchmark_id"]
+            isOneToOne: false
+            referencedRelation: "benchmark"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "benchmark_uses_dataset_dataset_id_fkey"
+            columns: ["dataset_id"]
+            isOneToOne: false
+            referencedRelation: "dataset"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       case_study: {
         Row: {
           case_study_kind: string
@@ -963,6 +1131,132 @@ export type Database = {
             columns: ["subject_product_id"]
             isOneToOne: false
             referencedRelation: "product"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      case_study_references_benchmark: {
+        Row: {
+          benchmark_id: string
+          case_study_id: string
+          created_at: string
+          created_by_receipt_id: string | null
+          provenance_claim_id: string | null
+          relationship_kind: string
+        }
+        Insert: {
+          benchmark_id: string
+          case_study_id: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+        }
+        Update: {
+          benchmark_id?: string
+          case_study_id?: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "case_study_references_benchmark_benchmark_id_fkey"
+            columns: ["benchmark_id"]
+            isOneToOne: false
+            referencedRelation: "benchmark"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "case_study_references_benchmark_case_study_id_fkey"
+            columns: ["case_study_id"]
+            isOneToOne: false
+            referencedRelation: "case_study"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      case_study_uses_library: {
+        Row: {
+          case_study_id: string
+          created_at: string
+          created_by_receipt_id: string | null
+          library_id: string
+          provenance_claim_id: string | null
+          usage_kind: string
+        }
+        Insert: {
+          case_study_id: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          library_id: string
+          provenance_claim_id?: string | null
+          usage_kind?: string
+        }
+        Update: {
+          case_study_id?: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          library_id?: string
+          provenance_claim_id?: string | null
+          usage_kind?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "case_study_uses_library_case_study_id_fkey"
+            columns: ["case_study_id"]
+            isOneToOne: false
+            referencedRelation: "case_study"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "case_study_uses_library_library_id_fkey"
+            columns: ["library_id"]
+            isOneToOne: false
+            referencedRelation: "library"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      case_study_uses_model_version: {
+        Row: {
+          ai_model_version_id: string
+          case_study_id: string
+          created_at: string
+          created_by_receipt_id: string | null
+          provenance_claim_id: string | null
+          usage_kind: string
+        }
+        Insert: {
+          ai_model_version_id: string
+          case_study_id: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          provenance_claim_id?: string | null
+          usage_kind?: string
+        }
+        Update: {
+          ai_model_version_id?: string
+          case_study_id?: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          provenance_claim_id?: string | null
+          usage_kind?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "case_study_uses_model_version_ai_model_version_id_fkey"
+            columns: ["ai_model_version_id"]
+            isOneToOne: false
+            referencedRelation: "ai_model_version"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "case_study_uses_model_version_case_study_id_fkey"
+            columns: ["case_study_id"]
+            isOneToOne: false
+            referencedRelation: "case_study"
             referencedColumns: ["id"]
           },
         ]
@@ -2213,6 +2507,105 @@ export type Database = {
           },
         ]
       }
+      organization_product_relationship: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          is_primary: boolean
+          organization_id: string
+          product_id: string
+          provenance_claim_id: string | null
+          relationship_kind: string
+          valid_from: string | null
+          valid_to: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          is_primary?: boolean
+          organization_id: string
+          product_id: string
+          provenance_claim_id?: string | null
+          relationship_kind: string
+          valid_from?: string | null
+          valid_to?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          is_primary?: boolean
+          organization_id?: string
+          product_id?: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+          valid_from?: string | null
+          valid_to?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "organization_product_relationship_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organization"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "organization_product_relationship_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organization_relationship: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          from_organization_id: string
+          provenance_claim_id: string | null
+          relationship_kind: string
+          to_organization_id: string
+          valid_from: string | null
+          valid_to: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          from_organization_id: string
+          provenance_claim_id?: string | null
+          relationship_kind: string
+          to_organization_id: string
+          valid_from?: string | null
+          valid_to?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          from_organization_id?: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+          to_organization_id?: string
+          valid_from?: string | null
+          valid_to?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "organization_relationship_from_organization_id_fkey"
+            columns: ["from_organization_id"]
+            isOneToOne: false
+            referencedRelation: "organization"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "organization_relationship_to_organization_id_fkey"
+            columns: ["to_organization_id"]
+            isOneToOne: false
+            referencedRelation: "organization"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       paper: {
         Row: {
           abstract: string | null
@@ -2461,6 +2854,48 @@ export type Database = {
             columns: ["person_id"]
             isOneToOne: false
             referencedRelation: "person"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      paper_introduces_model: {
+        Row: {
+          ai_model_id: string
+          created_at: string
+          created_by_receipt_id: string | null
+          paper_id: string
+          provenance_claim_id: string | null
+          relationship_kind: string
+        }
+        Insert: {
+          ai_model_id: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          paper_id: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+        }
+        Update: {
+          ai_model_id?: string
+          created_at?: string
+          created_by_receipt_id?: string | null
+          paper_id?: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "paper_introduces_model_ai_model_id_fkey"
+            columns: ["ai_model_id"]
+            isOneToOne: false
+            referencedRelation: "ai_model"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "paper_introduces_model_paper_id_fkey"
+            columns: ["paper_id"]
+            isOneToOne: false
+            referencedRelation: "paper"
             referencedColumns: ["id"]
           },
         ]
@@ -3114,6 +3549,51 @@ export type Database = {
           },
         ]
       }
+      product_backed_by_repository: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          official: boolean
+          product_id: string
+          provenance_claim_id: string | null
+          relationship_kind: string
+          repository_id: string
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          official?: boolean
+          product_id: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+          repository_id: string
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          official?: boolean
+          product_id?: string
+          provenance_claim_id?: string | null
+          relationship_kind?: string
+          repository_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_backed_by_repository_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_backed_by_repository_repository_id_fkey"
+            columns: ["repository_id"]
+            isOneToOne: false
+            referencedRelation: "repository"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       product_built_on_model_version: {
         Row: {
           ai_model_version_id: string
@@ -3171,6 +3651,178 @@ export type Database = {
           },
         ]
       }
+      product_family: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string
+          description: string | null
+          display_name: string
+          id: string
+          lifecycle_state: string
+          merged_into_id: string | null
+          slug: string
+          tenant_id: string
+          updated_at: string
+          updated_by_receipt_id: string | null
+          vendor_organization_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id: string
+          description?: string | null
+          display_name: string
+          id?: string
+          lifecycle_state: string
+          merged_into_id?: string | null
+          slug: string
+          tenant_id?: string
+          updated_at?: string
+          updated_by_receipt_id?: string | null
+          vendor_organization_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string
+          description?: string | null
+          display_name?: string
+          id?: string
+          lifecycle_state?: string
+          merged_into_id?: string | null
+          slug?: string
+          tenant_id?: string
+          updated_at?: string
+          updated_by_receipt_id?: string | null
+          vendor_organization_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_family_merged_into_id_fkey"
+            columns: ["merged_into_id"]
+            isOneToOne: false
+            referencedRelation: "product_family"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_family_vendor_organization_id_fkey"
+            columns: ["vendor_organization_id"]
+            isOneToOne: false
+            referencedRelation: "organization"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_family_member: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          member_kind: string
+          product_family_id: string
+          product_id: string
+          provenance_claim_id: string | null
+          sort_order: number
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          member_kind?: string
+          product_family_id: string
+          product_id: string
+          provenance_claim_id?: string | null
+          sort_order?: number
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          member_kind?: string
+          product_family_id?: string
+          product_id?: string
+          provenance_claim_id?: string | null
+          sort_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_family_member_product_family_id_fkey"
+            columns: ["product_family_id"]
+            isOneToOne: false
+            referencedRelation: "product_family"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_family_member_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_feature: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          description: string | null
+          id: string
+          introduced_in_version_id: string | null
+          lifecycle_state: string
+          name: string
+          product_id: string
+          provenance_claim_id: string | null
+          retired_in_version_id: string | null
+          slug: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          description?: string | null
+          id?: string
+          introduced_in_version_id?: string | null
+          lifecycle_state: string
+          name: string
+          product_id: string
+          provenance_claim_id?: string | null
+          retired_in_version_id?: string | null
+          slug: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          description?: string | null
+          id?: string
+          introduced_in_version_id?: string | null
+          lifecycle_state?: string
+          name?: string
+          product_id?: string
+          provenance_claim_id?: string | null
+          retired_in_version_id?: string | null
+          slug?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_feature_introduced_in_version_id_fkey"
+            columns: ["introduced_in_version_id"]
+            isOneToOne: false
+            referencedRelation: "product_version"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_feature_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "product_feature_retired_in_version_id_fkey"
+            columns: ["retired_in_version_id"]
+            isOneToOne: false
+            referencedRelation: "product_version"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       product_implements_protocol_version: {
         Row: {
           ai_protocol_version_id: string
@@ -3224,6 +3876,53 @@ export type Database = {
           },
           {
             foreignKeyName: "product_implements_protocol_version_product_id_fkey"
+            columns: ["product_id"]
+            isOneToOne: false
+            referencedRelation: "product"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      product_version: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string
+          ended_on: string | null
+          id: string
+          notes: string | null
+          product_id: string
+          release_channel: string | null
+          release_url: string | null
+          released_on: string | null
+          version_label: string
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id: string
+          ended_on?: string | null
+          id?: string
+          notes?: string | null
+          product_id: string
+          release_channel?: string | null
+          release_url?: string | null
+          released_on?: string | null
+          version_label: string
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string
+          ended_on?: string | null
+          id?: string
+          notes?: string | null
+          product_id?: string
+          release_channel?: string | null
+          release_url?: string | null
+          released_on?: string | null
+          version_label?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "product_version_product_id_fkey"
             columns: ["product_id"]
             isOneToOne: false
             referencedRelation: "product"
@@ -3437,6 +4136,54 @@ export type Database = {
           },
           {
             foreignKeyName: "repository_implements_paper_repository_id_fkey"
+            columns: ["repository_id"]
+            isOneToOne: false
+            referencedRelation: "repository"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      repository_maintained_by_organization: {
+        Row: {
+          created_at: string
+          created_by_receipt_id: string | null
+          maintenance_role: string
+          organization_id: string
+          provenance_claim_id: string | null
+          repository_id: string
+          valid_from: string | null
+          valid_to: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          maintenance_role?: string
+          organization_id: string
+          provenance_claim_id?: string | null
+          repository_id: string
+          valid_from?: string | null
+          valid_to?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by_receipt_id?: string | null
+          maintenance_role?: string
+          organization_id?: string
+          provenance_claim_id?: string | null
+          repository_id?: string
+          valid_from?: string | null
+          valid_to?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "repository_maintained_by_organization_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organization"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "repository_maintained_by_organization_repository_id_fkey"
             columns: ["repository_id"]
             isOneToOne: false
             referencedRelation: "repository"
@@ -4764,7 +5511,7 @@ export type Database = {
           created_at: string
           created_by_receipt_id: string | null
           id: string
-          producer_attempt_id: string | null
+          producer_attempt_id: string
           statement: string
           status: Database["evidence"]["Enums"]["claim_status"]
           structured: Json | null
@@ -4779,7 +5526,7 @@ export type Database = {
           created_at?: string
           created_by_receipt_id?: string | null
           id?: string
-          producer_attempt_id?: string | null
+          producer_attempt_id: string
           statement: string
           status?: Database["evidence"]["Enums"]["claim_status"]
           structured?: Json | null
@@ -4794,7 +5541,7 @@ export type Database = {
           created_at?: string
           created_by_receipt_id?: string | null
           id?: string
-          producer_attempt_id?: string | null
+          producer_attempt_id?: string
           statement?: string
           status?: Database["evidence"]["Enums"]["claim_status"]
           structured?: Json | null
@@ -5039,6 +5786,54 @@ export type Database = {
           },
         ]
       }
+      claim_evidence_assessment: {
+        Row: {
+          authority_assessment: Json
+          claim_evidence_link_id: string
+          created_at: string
+          id: string
+          rationale: string | null
+          replay_signature_match: boolean
+          run_id: string
+          verdict: Database["evidence"]["Enums"]["support_verdict"]
+        }
+        Insert: {
+          authority_assessment: Json
+          claim_evidence_link_id: string
+          created_at?: string
+          id?: string
+          rationale?: string | null
+          replay_signature_match: boolean
+          run_id: string
+          verdict: Database["evidence"]["Enums"]["support_verdict"]
+        }
+        Update: {
+          authority_assessment?: Json
+          claim_evidence_link_id?: string
+          created_at?: string
+          id?: string
+          rationale?: string | null
+          replay_signature_match?: boolean
+          run_id?: string
+          verdict?: Database["evidence"]["Enums"]["support_verdict"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "claim_evidence_assessment_claim_evidence_link_id_fkey"
+            columns: ["claim_evidence_link_id"]
+            isOneToOne: false
+            referencedRelation: "claim_evidence_link"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "claim_evidence_assessment_run_id_fkey"
+            columns: ["run_id"]
+            isOneToOne: false
+            referencedRelation: "verification_run"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       claim_evidence_link: {
         Row: {
           authority_assessment: Json | null
@@ -5267,6 +6062,32 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "claim_product_claim_id_fkey"
+            columns: ["claim_id"]
+            isOneToOne: false
+            referencedRelation: "claim"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      claim_product_version: {
+        Row: {
+          claim_id: string
+          product_version_id: string
+          role_in_claim: string
+        }
+        Insert: {
+          claim_id: string
+          product_version_id: string
+          role_in_claim?: string
+        }
+        Update: {
+          claim_id?: string
+          product_version_id?: string
+          role_in_claim?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "claim_product_version_claim_id_fkey"
             columns: ["claim_id"]
             isOneToOne: false
             referencedRelation: "claim"
@@ -5590,21 +6411,21 @@ export type Database = {
           created_at: string
           id: string
           locator_id: string
-          produced_by_attempt_id: string | null
+          produced_by_attempt_id: string
           signature_sha256: string
         }
         Insert: {
           created_at?: string
           id?: string
           locator_id: string
-          produced_by_attempt_id?: string | null
+          produced_by_attempt_id: string
           signature_sha256: string
         }
         Update: {
           created_at?: string
           id?: string
           locator_id?: string
-          produced_by_attempt_id?: string | null
+          produced_by_attempt_id?: string
           signature_sha256?: string
         }
         Relationships: [
@@ -5628,7 +6449,7 @@ export type Database = {
           id: string
           media_type: string
           normalized_value: string | null
-          selected_content_sha256: string | null
+          selected_content_sha256: string
           selector: Json
         }
         Insert: {
@@ -5641,7 +6462,7 @@ export type Database = {
           id?: string
           media_type: string
           normalized_value?: string | null
-          selected_content_sha256?: string | null
+          selected_content_sha256: string
           selector: Json
         }
         Update: {
@@ -5654,7 +6475,7 @@ export type Database = {
           id?: string
           media_type?: string
           normalized_value?: string | null
-          selected_content_sha256?: string | null
+          selected_content_sha256?: string
           selector?: Json
         }
         Relationships: [
@@ -5789,7 +6610,7 @@ export type Database = {
           http_status: number | null
           id: string
           media_type: string
-          produced_by_attempt_id: string | null
+          produced_by_attempt_id: string
           request_url: string | null
           source_id: string
           tenant_id: string
@@ -5805,7 +6626,7 @@ export type Database = {
           http_status?: number | null
           id?: string
           media_type: string
-          produced_by_attempt_id?: string | null
+          produced_by_attempt_id: string
           request_url?: string | null
           source_id: string
           tenant_id?: string
@@ -5821,7 +6642,7 @@ export type Database = {
           http_status?: number | null
           id?: string
           media_type?: string
-          produced_by_attempt_id?: string | null
+          produced_by_attempt_id?: string
           request_url?: string | null
           source_id?: string
           tenant_id?: string
@@ -5832,6 +6653,172 @@ export type Database = {
             columns: ["source_id"]
             isOneToOne: false
             referencedRelation: "source"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      source_query: {
+        Row: {
+          attempt_id: string
+          id: string
+          mission_id: string
+          provider: string
+          purpose: string
+          queried_at: string
+          query_sha256: string
+          query_text: string
+          request_parameters: Json
+          response_artifact_id: string | null
+          tenant_id: string
+          work_item_id: string
+        }
+        Insert: {
+          attempt_id: string
+          id?: string
+          mission_id: string
+          provider: string
+          purpose: string
+          queried_at?: string
+          query_sha256: string
+          query_text: string
+          request_parameters?: Json
+          response_artifact_id?: string | null
+          tenant_id?: string
+          work_item_id: string
+        }
+        Update: {
+          attempt_id?: string
+          id?: string
+          mission_id?: string
+          provider?: string
+          purpose?: string
+          queried_at?: string
+          query_sha256?: string
+          query_text?: string
+          request_parameters?: Json
+          response_artifact_id?: string | null
+          tenant_id?: string
+          work_item_id?: string
+        }
+        Relationships: []
+      }
+      source_retrieval: {
+        Row: {
+          attempt_id: string
+          capture_id: string | null
+          id: string
+          provider_metadata: Json
+          provider_result_id: string | null
+          query_id: string | null
+          requested_url: string
+          result_rank: number | null
+          retrieval_status: string
+          retrieved_at: string
+          source_id: string
+          tenant_id: string
+          work_item_id: string
+        }
+        Insert: {
+          attempt_id: string
+          capture_id?: string | null
+          id?: string
+          provider_metadata?: Json
+          provider_result_id?: string | null
+          query_id?: string | null
+          requested_url: string
+          result_rank?: number | null
+          retrieval_status: string
+          retrieved_at?: string
+          source_id: string
+          tenant_id?: string
+          work_item_id: string
+        }
+        Update: {
+          attempt_id?: string
+          capture_id?: string | null
+          id?: string
+          provider_metadata?: Json
+          provider_result_id?: string | null
+          query_id?: string | null
+          requested_url?: string
+          result_rank?: number | null
+          retrieval_status?: string
+          retrieved_at?: string
+          source_id?: string
+          tenant_id?: string
+          work_item_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "source_retrieval_capture_id_fkey"
+            columns: ["capture_id"]
+            isOneToOne: false
+            referencedRelation: "source_capture"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "source_retrieval_query_id_fkey"
+            columns: ["query_id"]
+            isOneToOne: false
+            referencedRelation: "source_query"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "source_retrieval_source_id_fkey"
+            columns: ["source_id"]
+            isOneToOne: false
+            referencedRelation: "source"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      source_support: {
+        Row: {
+          created_at: string
+          id: string
+          locator_id: string | null
+          operation: string
+          retrieval_id: string
+          statement: string
+          support_role: string
+          tenant_id: string
+          work_item_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          locator_id?: string | null
+          operation: string
+          retrieval_id: string
+          statement: string
+          support_role: string
+          tenant_id?: string
+          work_item_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          locator_id?: string | null
+          operation?: string
+          retrieval_id?: string
+          statement?: string
+          support_role?: string
+          tenant_id?: string
+          work_item_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "source_support_locator_id_fkey"
+            columns: ["locator_id"]
+            isOneToOne: false
+            referencedRelation: "locator"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "source_support_retrieval_id_fkey"
+            columns: ["retrieval_id"]
+            isOneToOne: false
+            referencedRelation: "source_retrieval"
             referencedColumns: ["id"]
           },
         ]
@@ -14902,11 +15889,13 @@ export type Database = {
           agent_skill_id: string | null
           ai_model_id: string | null
           ai_protocol_id: string | null
+          benchmark_id: string | null
           case_study_id: string | null
           concept_id: string | null
           confidence: number | null
           created_at: string
           created_by_receipt_id: string | null
+          dataset_id: string | null
           failure_mode_id: string | null
           id: string
           lesson_id: string | null
@@ -14935,11 +15924,13 @@ export type Database = {
           agent_skill_id?: string | null
           ai_model_id?: string | null
           ai_protocol_id?: string | null
+          benchmark_id?: string | null
           case_study_id?: string | null
           concept_id?: string | null
           confidence?: number | null
           created_at?: string
           created_by_receipt_id?: string | null
+          dataset_id?: string | null
           failure_mode_id?: string | null
           id?: string
           lesson_id?: string | null
@@ -14968,11 +15959,13 @@ export type Database = {
           agent_skill_id?: string | null
           ai_model_id?: string | null
           ai_protocol_id?: string | null
+          benchmark_id?: string | null
           case_study_id?: string | null
           concept_id?: string | null
           confidence?: number | null
           created_at?: string
           created_by_receipt_id?: string | null
+          dataset_id?: string | null
           failure_mode_id?: string | null
           id?: string
           lesson_id?: string | null
@@ -15034,6 +16027,30 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      entity_kind: {
+        Row: {
+          canonical_schema: string
+          canonical_table: string
+          code: string
+          description: string
+          label: string
+        }
+        Insert: {
+          canonical_schema?: string
+          canonical_table: string
+          code: string
+          description: string
+          label: string
+        }
+        Update: {
+          canonical_schema?: string
+          canonical_table?: string
+          code?: string
+          description?: string
+          label?: string
+        }
+        Relationships: []
       }
       facet: {
         Row: {
@@ -15187,6 +16204,39 @@ export type Database = {
           {
             foreignKeyName: "term_relation_to_term_id_fkey"
             columns: ["to_term_id"]
+            isOneToOne: false
+            referencedRelation: "term"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      term_target_kind: {
+        Row: {
+          created_at: string
+          entity_kind_code: string
+          term_id: string
+        }
+        Insert: {
+          created_at?: string
+          entity_kind_code: string
+          term_id: string
+        }
+        Update: {
+          created_at?: string
+          entity_kind_code?: string
+          term_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "term_target_kind_entity_kind_code_fkey"
+            columns: ["entity_kind_code"]
+            isOneToOne: false
+            referencedRelation: "entity_kind"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "term_target_kind_term_id_fkey"
+            columns: ["term_id"]
             isOneToOne: false
             referencedRelation: "term"
             referencedColumns: ["id"]

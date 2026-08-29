@@ -890,6 +890,78 @@
     },
     {
       "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "from_ai_model_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "to_ai_model_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
       "default_expression": "util.uuidv7()",
       "description": null,
       "generated_expression": null,
@@ -1310,6 +1382,78 @@
     },
     {
       "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "from_ai_protocol_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "to_ai_protocol_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
       "default_expression": "util.uuidv7()",
       "description": null,
       "generated_expression": null,
@@ -1586,6 +1730,150 @@
     },
     {
       "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'evaluated'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "evaluation_role",
+      "nullable": false,
+      "position": 3,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dataset_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'evaluation'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "usage_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
       "default_expression": "util.uuidv7()",
       "description": null,
       "generated_expression": null,
@@ -1786,6 +2074,222 @@
       "nullable": false,
       "position": 17,
       "relation": "case_study",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'uses'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "library_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'implementation'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "usage_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "case_study_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'production'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "usage_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "case_study_uses_model_version",
       "schema": "corpus"
     },
     {
@@ -4814,6 +5318,210 @@
     },
     {
       "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "false",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "is_primary",
+      "nullable": false,
+      "position": 4,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_from",
+      "nullable": true,
+      "position": 5,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_to",
+      "nullable": true,
+      "position": 6,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "from_organization_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "to_organization_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_from",
+      "nullable": true,
+      "position": 4,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_to",
+      "nullable": true,
+      "position": 5,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
       "default_expression": "util.uuidv7()",
       "description": null,
       "generated_expression": null,
@@ -5434,6 +6142,78 @@
       "nullable": false,
       "position": 13,
       "relation": "paper_authored_by_person",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "paper_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "paper_introduces_model",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ai_model_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "paper_introduces_model",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'introduces'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "paper_introduces_model",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 4,
+      "relation": "paper_introduces_model",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "paper_introduces_model",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 6,
+      "relation": "paper_introduces_model",
       "schema": "corpus"
     },
     {
@@ -7034,6 +7814,90 @@
     },
     {
       "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'source'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "relationship_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": "false",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "official",
+      "nullable": false,
+      "position": 4,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
       "default_expression": "util.uuidv7()",
       "description": null,
       "generated_expression": null,
@@ -7162,6 +8026,378 @@
       "nullable": false,
       "position": 11,
       "relation": "product_built_on_model_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "vendor_organization_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 4,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "display_name",
+      "nullable": false,
+      "position": 5,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": true,
+      "position": 6,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "corpus.lifecycle_state",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lifecycle_state",
+      "nullable": true,
+      "position": 7,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "merged_into_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": false,
+      "position": 9,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_by_receipt_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 11,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_family_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'product'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "member_kind",
+      "nullable": false,
+      "position": 3,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": "0",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "sort_order",
+      "nullable": false,
+      "position": 4,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 7,
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "slug",
+      "nullable": false,
+      "position": 3,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "name",
+      "nullable": false,
+      "position": 4,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": true,
+      "position": 5,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "introduced_in_version_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "retired_in_version_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "corpus.lifecycle_state",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "lifecycle_state",
+      "nullable": true,
+      "position": 8,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 11,
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "updated_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "product_feature",
       "schema": "corpus"
     },
     {
@@ -7306,6 +8542,126 @@
       "nullable": false,
       "position": 12,
       "relation": "product_implements_protocol_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "version_label",
+      "nullable": false,
+      "position": 3,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "release_channel",
+      "nullable": true,
+      "position": 4,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "released_on",
+      "nullable": true,
+      "position": 5,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "ended_on",
+      "nullable": true,
+      "position": 6,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "release_url",
+      "nullable": true,
+      "position": 7,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "notes",
+      "nullable": true,
+      "position": 8,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": false,
+      "position": 9,
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 10,
+      "relation": "product_version",
       "schema": "corpus"
     },
     {
@@ -7858,6 +9214,102 @@
       "nullable": false,
       "position": 12,
       "relation": "repository_implements_paper",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "repository_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "organization_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'maintainer'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "maintenance_role",
+      "nullable": false,
+      "position": 3,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_from",
+      "nullable": true,
+      "position": 4,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "date",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "valid_to",
+      "nullable": true,
+      "position": 5,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provenance_claim_id",
+      "nullable": true,
+      "position": 6,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_by_receipt_id",
+      "nullable": true,
+      "position": 7,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "repository_maintained_by_organization",
       "schema": "corpus"
     },
     {
@@ -8699,6 +10151,62 @@
       "type": "exclusion"
     },
     {
+      "definition": "CHECK (from_ai_model_id <> to_ai_model_id)",
+      "name": "ai_model_relationship_no_self",
+      "references": null,
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['derived_from'::text, 'fine_tuned_from'::text, 'distilled_from'::text, 'quantized_from'::text, 'adapter_for'::text, 'supersedes'::text, 'component_of'::text, 'other'::text]))",
+      "name": "ai_model_relationship_relationship_kind_check",
+      "references": null,
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "ai_model_relationship_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (from_ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE",
+      "name": "ai_model_relationship_from_ai_model_id_fkey",
+      "references": "corpus.ai_model",
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "ai_model_relationship_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (to_ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE",
+      "name": "ai_model_relationship_to_ai_model_id_fkey",
+      "references": "corpus.ai_model",
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (from_ai_model_id, to_ai_model_id, relationship_kind)",
+      "name": "ai_model_relationship_pkey",
+      "references": null,
+      "relation": "ai_model_relationship",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
       "definition": "CHECK (release_role = ANY (ARRAY['developer'::text, 'host'::text, 'distiller'::text, 'funder'::text]))",
       "name": "ai_model_released_by_organization_release_role_check",
       "references": null,
@@ -8859,6 +10367,62 @@
       "type": "unique"
     },
     {
+      "definition": "CHECK (from_ai_protocol_id <> to_ai_protocol_id)",
+      "name": "ai_protocol_relationship_no_self",
+      "references": null,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['extends'::text, 'profiles'::text, 'depends_on'::text, 'supersedes'::text, 'compatible_with'::text, 'competes_with'::text, 'other'::text]))",
+      "name": "ai_protocol_relationship_relationship_kind_check",
+      "references": null,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "ai_protocol_relationship_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (from_ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE",
+      "name": "ai_protocol_relationship_from_ai_protocol_id_fkey",
+      "references": "corpus.ai_protocol",
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "ai_protocol_relationship_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (to_ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE",
+      "name": "ai_protocol_relationship_to_ai_protocol_id_fkey",
+      "references": "corpus.ai_protocol",
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (from_ai_protocol_id, to_ai_protocol_id, relationship_kind)",
+      "name": "ai_protocol_relationship_pkey",
+      "references": null,
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
       "definition": "FOREIGN KEY (ai_protocol_id) REFERENCES corpus.ai_protocol(id) ON DELETE CASCADE",
       "name": "ai_protocol_version_ai_protocol_id_fkey",
       "references": "corpus.ai_protocol",
@@ -8931,6 +10495,102 @@
       "type": "unique"
     },
     {
+      "definition": "CHECK (evaluation_role = ANY (ARRAY['evaluated'::text, 'baseline'::text, 'judge'::text, 'reference'::text]))",
+      "name": "benchmark_evaluates_model_version_evaluation_role_check",
+      "references": null,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE",
+      "name": "benchmark_evaluates_model_version_ai_model_version_id_fkey",
+      "references": "corpus.ai_model_version",
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE",
+      "name": "benchmark_evaluates_model_version_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "benchmark_evaluates_model_version_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "benchmark_evaluates_model_version_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (benchmark_id, ai_model_version_id, evaluation_role)",
+      "name": "benchmark_evaluates_model_version_pkey",
+      "references": null,
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (usage_kind = ANY (ARRAY['evaluation'::text, 'training'::text, 'calibration'::text, 'reference'::text]))",
+      "name": "benchmark_uses_dataset_usage_kind_check",
+      "references": null,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE",
+      "name": "benchmark_uses_dataset_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "benchmark_uses_dataset_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE",
+      "name": "benchmark_uses_dataset_dataset_id_fkey",
+      "references": "corpus.dataset",
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "benchmark_uses_dataset_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (benchmark_id, dataset_id, usage_kind)",
+      "name": "benchmark_uses_dataset_pkey",
+      "references": null,
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
       "definition": "CHECK (case_study_kind = ANY (ARRAY['implementation'::text, 'adoption'::text, 'migration'::text, 'benchmark'::text, 'incident'::text, 'business_outcome'::text, 'other'::text]))",
       "name": "case_study_case_study_kind_check",
       "references": null,
@@ -8993,6 +10653,150 @@
       "relation": "case_study",
       "schema": "corpus",
       "type": "unique"
+    },
+    {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['uses'::text, 'reports'::text, 'compares'::text, 'challenges'::text]))",
+      "name": "case_study_references_benchmark_relationship_kind_check",
+      "references": null,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE",
+      "name": "case_study_references_benchmark_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE",
+      "name": "case_study_references_benchmark_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "case_study_references_benchmark_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "case_study_references_benchmark_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (case_study_id, benchmark_id, relationship_kind)",
+      "name": "case_study_references_benchmark_pkey",
+      "references": null,
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (usage_kind = ANY (ARRAY['implementation'::text, 'integration'::text, 'evaluation'::text, 'migration_source'::text, 'migration_target'::text, 'other'::text]))",
+      "name": "case_study_uses_library_usage_kind_check",
+      "references": null,
+      "relation": "case_study_uses_library",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE",
+      "name": "case_study_uses_library_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "case_study_uses_library",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "case_study_uses_library_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "case_study_uses_library",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (library_id) REFERENCES corpus.library(id) ON DELETE CASCADE",
+      "name": "case_study_uses_library_library_id_fkey",
+      "references": "corpus.library",
+      "relation": "case_study_uses_library",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "case_study_uses_library_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "case_study_uses_library",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (case_study_id, library_id, usage_kind)",
+      "name": "case_study_uses_library_pkey",
+      "references": null,
+      "relation": "case_study_uses_library",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (usage_kind = ANY (ARRAY['production'::text, 'pilot'::text, 'evaluation'::text, 'migration_source'::text, 'migration_target'::text, 'other'::text]))",
+      "name": "case_study_uses_model_version_usage_kind_check",
+      "references": null,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE",
+      "name": "case_study_uses_model_version_ai_model_version_id_fkey",
+      "references": "corpus.ai_model_version",
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE",
+      "name": "case_study_uses_model_version_case_study_id_fkey",
+      "references": "corpus.case_study",
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "case_study_uses_model_version_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "case_study_uses_model_version_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (case_study_id, ai_model_version_id, usage_kind)",
+      "name": "case_study_uses_model_version_pkey",
+      "references": null,
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus",
+      "type": "primary_key"
     },
     {
       "definition": "CHECK (concept_kind = ANY (ARRAY['technique'::text, 'architecture'::text, 'metric'::text, 'artifact'::text, 'role'::text, 'phenomenon'::text, 'other'::text]))",
@@ -10123,6 +11927,126 @@
       "type": "unique"
     },
     {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['developer'::text, 'vendor'::text, 'owner'::text, 'operator'::text, 'distributor'::text, 'implementation_partner'::text, 'customer'::text, 'other'::text]))",
+      "name": "organization_product_relationship_relationship_kind_check",
+      "references": null,
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (valid_to IS NULL OR valid_from IS NULL OR valid_to >= valid_from)",
+      "name": "organization_product_validity",
+      "references": null,
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "organization_product_relationship_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE",
+      "name": "organization_product_relationship_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "organization_product_relationship_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "organization_product_relationship_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (organization_id, product_id, relationship_kind)",
+      "name": "organization_product_relationship_pkey",
+      "references": null,
+      "relation": "organization_product_relationship",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (from_organization_id <> to_organization_id)",
+      "name": "organization_relationship_no_self",
+      "references": null,
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['parent'::text, 'subsidiary'::text, 'acquired'::text, 'merged'::text, 'spinout'::text, 'partner'::text, 'member'::text, 'funder'::text, 'other'::text]))",
+      "name": "organization_relationship_relationship_kind_check",
+      "references": null,
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (valid_to IS NULL OR valid_from IS NULL OR valid_to >= valid_from)",
+      "name": "organization_relationship_validity",
+      "references": null,
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "organization_relationship_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (from_organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE",
+      "name": "organization_relationship_from_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "organization_relationship_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (to_organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE",
+      "name": "organization_relationship_to_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (from_organization_id, to_organization_id, relationship_kind)",
+      "name": "organization_relationship_pkey",
+      "references": null,
+      "relation": "organization_relationship",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
       "definition": "CHECK (num_nonnulls(doi, arxiv_id, openreview_id) >= 1)",
       "name": "paper_has_identity",
       "references": null,
@@ -10345,6 +12269,54 @@
       "relation": "paper_authored_by_person",
       "schema": "corpus",
       "type": "unique"
+    },
+    {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['introduces'::text, 'describes'::text, 'evaluates'::text, 'compares'::text, 'extends'::text]))",
+      "name": "paper_introduces_model_relationship_kind_check",
+      "references": null,
+      "relation": "paper_introduces_model",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE",
+      "name": "paper_introduces_model_ai_model_id_fkey",
+      "references": "corpus.ai_model",
+      "relation": "paper_introduces_model",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "paper_introduces_model_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "paper_introduces_model",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (paper_id) REFERENCES corpus.paper(id) ON DELETE CASCADE",
+      "name": "paper_introduces_model_paper_id_fkey",
+      "references": "corpus.paper",
+      "relation": "paper_introduces_model",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "paper_introduces_model_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "paper_introduces_model",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (paper_id, ai_model_id, relationship_kind)",
+      "name": "paper_introduces_model_pkey",
+      "references": null,
+      "relation": "paper_introduces_model",
+      "schema": "corpus",
+      "type": "primary_key"
     },
     {
       "definition": "CHECK (state = ANY (ARRAY['none'::text, 'correction'::text, 'expression_of_concern'::text, 'retracted'::text]))",
@@ -10939,6 +12911,54 @@
       "type": "unique"
     },
     {
+      "definition": "CHECK (relationship_kind = ANY (ARRAY['source'::text, 'sdk'::text, 'plugin'::text, 'examples'::text, 'documentation'::text, 'mirror'::text, 'other'::text]))",
+      "name": "product_backed_by_repository_relationship_kind_check",
+      "references": null,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "product_backed_by_repository_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "product_backed_by_repository",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "product_backed_by_repository_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "product_backed_by_repository",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "product_backed_by_repository_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "product_backed_by_repository",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE",
+      "name": "product_backed_by_repository_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "product_backed_by_repository",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (product_id, repository_id, relationship_kind)",
+      "name": "product_backed_by_repository_pkey",
+      "references": null,
+      "relation": "product_backed_by_repository",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
       "definition": "CHECK (usage_kind = ANY (ARRAY['default'::text, 'selectable'::text, 'fine_tuned_base'::text, 'fallback'::text]))",
       "name": "product_built_on_model_version_usage_kind_check",
       "references": null,
@@ -10991,6 +13011,158 @@
       "name": "product_built_on_model_versio_product_id_ai_model_version_i_key",
       "references": null,
       "relation": "product_built_on_model_version",
+      "schema": "corpus",
+      "type": "unique"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "product_family_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "product_family",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (merged_into_id) REFERENCES corpus.product_family(id)",
+      "name": "product_family_merged_into_id_fkey",
+      "references": "corpus.product_family",
+      "relation": "product_family",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (updated_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "product_family_updated_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "product_family",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (vendor_organization_id) REFERENCES corpus.organization(id)",
+      "name": "product_family_vendor_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "product_family",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "product_family_pkey",
+      "references": null,
+      "relation": "product_family",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (tenant_id, slug)",
+      "name": "product_family_tenant_id_slug_key",
+      "references": null,
+      "relation": "product_family",
+      "schema": "corpus",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (member_kind = ANY (ARRAY['product'::text, 'edition'::text, 'module'::text, 'service'::text]))",
+      "name": "product_family_member_member_kind_check",
+      "references": null,
+      "relation": "product_family_member",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "product_family_member_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "product_family_member",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_family_id) REFERENCES corpus.product_family(id) ON DELETE CASCADE",
+      "name": "product_family_member_product_family_id_fkey",
+      "references": "corpus.product_family",
+      "relation": "product_family_member",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "product_family_member_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "product_family_member",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "product_family_member_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "product_family_member",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (product_family_id, product_id)",
+      "name": "product_family_member_pkey",
+      "references": null,
+      "relation": "product_family_member",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "product_feature_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "product_feature",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (introduced_in_version_id) REFERENCES corpus.product_version(id)",
+      "name": "product_feature_introduced_in_version_id_fkey",
+      "references": "corpus.product_version",
+      "relation": "product_feature",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "product_feature_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "product_feature",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "product_feature_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "product_feature",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (retired_in_version_id) REFERENCES corpus.product_version(id)",
+      "name": "product_feature_retired_in_version_id_fkey",
+      "references": "corpus.product_version",
+      "relation": "product_feature",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "product_feature_pkey",
+      "references": null,
+      "relation": "product_feature",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (product_id, slug)",
+      "name": "product_feature_product_id_slug_key",
+      "references": null,
+      "relation": "product_feature",
       "schema": "corpus",
       "type": "unique"
     },
@@ -11055,6 +13227,54 @@
       "name": "product_implements_protocol_v_product_id_ai_protocol_versio_key",
       "references": null,
       "relation": "product_implements_protocol_version",
+      "schema": "corpus",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (release_channel = ANY (ARRAY['preview'::text, 'beta'::text, 'stable'::text, 'lts'::text, 'deprecated'::text, 'retired'::text]))",
+      "name": "product_version_release_channel_check",
+      "references": null,
+      "relation": "product_version",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (ended_on IS NULL OR released_on IS NULL OR ended_on >= released_on)",
+      "name": "product_version_validity",
+      "references": null,
+      "relation": "product_version",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "product_version_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "product_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_id) REFERENCES corpus.product(id) ON DELETE CASCADE",
+      "name": "product_version_product_id_fkey",
+      "references": "corpus.product",
+      "relation": "product_version",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "product_version_pkey",
+      "references": null,
+      "relation": "product_version",
+      "schema": "corpus",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (product_id, version_label)",
+      "name": "product_version_product_id_version_label_key",
+      "references": null,
+      "relation": "product_version",
       "schema": "corpus",
       "type": "unique"
     },
@@ -11233,6 +13453,54 @@
       "relation": "repository_implements_paper",
       "schema": "corpus",
       "type": "unique"
+    },
+    {
+      "definition": "CHECK (maintenance_role = ANY (ARRAY['owner'::text, 'maintainer'::text, 'sponsor'::text, 'governance'::text, 'other'::text]))",
+      "name": "repository_maintained_by_organization_maintenance_role_check",
+      "references": null,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
+      "name": "repository_maintained_by_organizatio_created_by_receipt_id_fkey",
+      "references": "orchestration.operation_receipt",
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE",
+      "name": "repository_maintained_by_organization_organization_id_fkey",
+      "references": "corpus.organization",
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (provenance_claim_id) REFERENCES evidence.claim(id)",
+      "name": "repository_maintained_by_organization_provenance_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE",
+      "name": "repository_maintained_by_organization_repository_id_fkey",
+      "references": "corpus.repository",
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (repository_id, organization_id, maintenance_role)",
+      "name": "repository_maintained_by_organization_pkey",
+      "references": null,
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus",
+      "type": "primary_key"
     },
     {
       "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
@@ -11489,6 +13757,18 @@
       "schema": "corpus"
     },
     {
+      "definition": "CREATE UNIQUE INDEX ai_model_relationship_pkey ON corpus.ai_model_relationship USING btree (from_ai_model_id, to_ai_model_id, relationship_kind)",
+      "name": "ai_model_relationship_pkey",
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX ai_model_relationship_to_idx ON corpus.ai_model_relationship USING btree (to_ai_model_id)",
+      "name": "ai_model_relationship_to_idx",
+      "relation": "ai_model_relationship",
+      "schema": "corpus"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX ai_model_released_by_organiza_ai_model_id_organization_id_r_key ON corpus.ai_model_released_by_organization USING btree (ai_model_id, organization_id, release_role)",
       "name": "ai_model_released_by_organiza_ai_model_id_organization_id_r_key",
       "relation": "ai_model_released_by_organization",
@@ -11525,6 +13805,18 @@
       "schema": "corpus"
     },
     {
+      "definition": "CREATE UNIQUE INDEX ai_protocol_relationship_pkey ON corpus.ai_protocol_relationship USING btree (from_ai_protocol_id, to_ai_protocol_id, relationship_kind)",
+      "name": "ai_protocol_relationship_pkey",
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX ai_protocol_relationship_to_idx ON corpus.ai_protocol_relationship USING btree (to_ai_protocol_id)",
+      "name": "ai_protocol_relationship_to_idx",
+      "relation": "ai_protocol_relationship",
+      "schema": "corpus"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX ai_protocol_version_ai_protocol_id_version_label_key ON corpus.ai_protocol_version USING btree (ai_protocol_id, version_label)",
       "name": "ai_protocol_version_ai_protocol_id_version_label_key",
       "relation": "ai_protocol_version",
@@ -11546,6 +13838,30 @@
       "definition": "CREATE UNIQUE INDEX benchmark_tenant_id_slug_key ON corpus.benchmark USING btree (tenant_id, slug)",
       "name": "benchmark_tenant_id_slug_key",
       "relation": "benchmark",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX benchmark_evaluates_model_version_pkey ON corpus.benchmark_evaluates_model_version USING btree (benchmark_id, ai_model_version_id, evaluation_role)",
+      "name": "benchmark_evaluates_model_version_pkey",
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX benchmark_model_version_idx ON corpus.benchmark_evaluates_model_version USING btree (ai_model_version_id)",
+      "name": "benchmark_model_version_idx",
+      "relation": "benchmark_evaluates_model_version",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX benchmark_dataset_idx ON corpus.benchmark_uses_dataset USING btree (dataset_id)",
+      "name": "benchmark_dataset_idx",
+      "relation": "benchmark_uses_dataset",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX benchmark_uses_dataset_pkey ON corpus.benchmark_uses_dataset USING btree (benchmark_id, dataset_id, usage_kind)",
+      "name": "benchmark_uses_dataset_pkey",
+      "relation": "benchmark_uses_dataset",
       "schema": "corpus"
     },
     {
@@ -11588,6 +13904,42 @@
       "definition": "CREATE INDEX case_study_updated_receipt_idx ON corpus.case_study USING btree (updated_by_receipt_id) WHERE (updated_by_receipt_id IS NOT NULL)",
       "name": "case_study_updated_receipt_idx",
       "relation": "case_study",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX case_study_benchmark_idx ON corpus.case_study_references_benchmark USING btree (benchmark_id)",
+      "name": "case_study_benchmark_idx",
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX case_study_references_benchmark_pkey ON corpus.case_study_references_benchmark USING btree (case_study_id, benchmark_id, relationship_kind)",
+      "name": "case_study_references_benchmark_pkey",
+      "relation": "case_study_references_benchmark",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX case_study_library_idx ON corpus.case_study_uses_library USING btree (library_id)",
+      "name": "case_study_library_idx",
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX case_study_uses_library_pkey ON corpus.case_study_uses_library USING btree (case_study_id, library_id, usage_kind)",
+      "name": "case_study_uses_library_pkey",
+      "relation": "case_study_uses_library",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX case_study_model_version_idx ON corpus.case_study_uses_model_version USING btree (ai_model_version_id)",
+      "name": "case_study_model_version_idx",
+      "relation": "case_study_uses_model_version",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX case_study_uses_model_version_pkey ON corpus.case_study_uses_model_version USING btree (case_study_id, ai_model_version_id, usage_kind)",
+      "name": "case_study_uses_model_version_pkey",
+      "relation": "case_study_uses_model_version",
       "schema": "corpus"
     },
     {
@@ -11897,6 +14249,30 @@
       "schema": "corpus"
     },
     {
+      "definition": "CREATE INDEX organization_product_product_idx ON corpus.organization_product_relationship USING btree (product_id)",
+      "name": "organization_product_product_idx",
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX organization_product_relationship_pkey ON corpus.organization_product_relationship USING btree (organization_id, product_id, relationship_kind)",
+      "name": "organization_product_relationship_pkey",
+      "relation": "organization_product_relationship",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX organization_relationship_pkey ON corpus.organization_relationship USING btree (from_organization_id, to_organization_id, relationship_kind)",
+      "name": "organization_relationship_pkey",
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX organization_relationship_to_idx ON corpus.organization_relationship USING btree (to_organization_id)",
+      "name": "organization_relationship_to_idx",
+      "relation": "organization_relationship",
+      "schema": "corpus"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX paper_arxiv_uq ON corpus.paper USING btree (arxiv_id) WHERE (arxiv_id IS NOT NULL)",
       "name": "paper_arxiv_uq",
       "relation": "paper",
@@ -11954,6 +14330,18 @@
       "definition": "CREATE UNIQUE INDEX paper_authored_by_person_pkey ON corpus.paper_authored_by_person USING btree (id)",
       "name": "paper_authored_by_person_pkey",
       "relation": "paper_authored_by_person",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX paper_introduces_model_idx ON corpus.paper_introduces_model USING btree (ai_model_id)",
+      "name": "paper_introduces_model_idx",
+      "relation": "paper_introduces_model",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX paper_introduces_model_pkey ON corpus.paper_introduces_model USING btree (paper_id, ai_model_id, relationship_kind)",
+      "name": "paper_introduces_model_pkey",
+      "relation": "paper_introduces_model",
       "schema": "corpus"
     },
     {
@@ -12101,6 +14489,18 @@
       "schema": "corpus"
     },
     {
+      "definition": "CREATE UNIQUE INDEX product_backed_by_repository_pkey ON corpus.product_backed_by_repository USING btree (product_id, repository_id, relationship_kind)",
+      "name": "product_backed_by_repository_pkey",
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX product_repository_idx ON corpus.product_backed_by_repository USING btree (repository_id)",
+      "name": "product_repository_idx",
+      "relation": "product_backed_by_repository",
+      "schema": "corpus"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX product_built_on_model_versio_product_id_ai_model_version_i_key ON corpus.product_built_on_model_version USING btree (product_id, ai_model_version_id, usage_kind)",
       "name": "product_built_on_model_versio_product_id_ai_model_version_i_key",
       "relation": "product_built_on_model_version",
@@ -12113,6 +14513,54 @@
       "schema": "corpus"
     },
     {
+      "definition": "CREATE UNIQUE INDEX product_family_pkey ON corpus.product_family USING btree (id)",
+      "name": "product_family_pkey",
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX product_family_tenant_id_slug_key ON corpus.product_family USING btree (tenant_id, slug)",
+      "name": "product_family_tenant_id_slug_key",
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX product_family_vendor_idx ON corpus.product_family USING btree (vendor_organization_id)",
+      "name": "product_family_vendor_idx",
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX product_family_member_pkey ON corpus.product_family_member USING btree (product_family_id, product_id)",
+      "name": "product_family_member_pkey",
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX product_family_member_product_idx ON corpus.product_family_member USING btree (product_id)",
+      "name": "product_family_member_product_idx",
+      "relation": "product_family_member",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX product_feature_pkey ON corpus.product_feature USING btree (id)",
+      "name": "product_feature_pkey",
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX product_feature_product_id_slug_key ON corpus.product_feature USING btree (product_id, slug)",
+      "name": "product_feature_product_id_slug_key",
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX product_feature_product_idx ON corpus.product_feature USING btree (product_id)",
+      "name": "product_feature_product_idx",
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX product_implements_protocol_v_product_id_ai_protocol_versio_key ON corpus.product_implements_protocol_version USING btree (product_id, ai_protocol_version_id)",
       "name": "product_implements_protocol_v_product_id_ai_protocol_versio_key",
       "relation": "product_implements_protocol_version",
@@ -12122,6 +14570,24 @@
       "definition": "CREATE UNIQUE INDEX product_implements_protocol_version_pkey ON corpus.product_implements_protocol_version USING btree (id)",
       "name": "product_implements_protocol_version_pkey",
       "relation": "product_implements_protocol_version",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX product_version_pkey ON corpus.product_version USING btree (id)",
+      "name": "product_version_pkey",
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX product_version_product_id_version_label_key ON corpus.product_version USING btree (product_id, version_label)",
+      "name": "product_version_product_id_version_label_key",
+      "relation": "product_version",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX product_version_product_idx ON corpus.product_version USING btree (product_id, released_on DESC)",
+      "name": "product_version_product_idx",
+      "relation": "product_version",
       "schema": "corpus"
     },
     {
@@ -12170,6 +14636,18 @@
       "definition": "CREATE UNIQUE INDEX repository_implements_paper_repository_id_paper_id_key ON corpus.repository_implements_paper USING btree (repository_id, paper_id)",
       "name": "repository_implements_paper_repository_id_paper_id_key",
       "relation": "repository_implements_paper",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX repository_maintained_by_organization_pkey ON corpus.repository_maintained_by_organization USING btree (repository_id, organization_id, maintenance_role)",
+      "name": "repository_maintained_by_organization_pkey",
+      "relation": "repository_maintained_by_organization",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE INDEX repository_maintainer_org_idx ON corpus.repository_maintained_by_organization USING btree (organization_id)",
+      "name": "repository_maintainer_org_idx",
+      "relation": "repository_maintained_by_organization",
       "schema": "corpus"
     },
     {
@@ -12317,6 +14795,22 @@
       "command": "ALL",
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
+      "relation": "ai_model_relationship",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
       "relation": "ai_model_released_by_organization",
       "roles": [
         "app_reader",
@@ -12365,6 +14859,22 @@
       "command": "ALL",
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
+      "relation": "ai_protocol_relationship",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
       "relation": "ai_protocol_version",
       "roles": [
         "app_reader",
@@ -12393,6 +14903,38 @@
       "using_expression": "(tenant_id = util.current_tenant_id())"
     },
     {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "benchmark_evaluates_model_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "benchmark_uses_dataset",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
       "check_expression": "(tenant_id = util.current_tenant_id())",
       "command": "ALL",
       "name": "bounded_role_access",
@@ -12407,6 +14949,54 @@
       ],
       "schema": "corpus",
       "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "case_study_references_benchmark",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "case_study_uses_library",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "case_study_uses_model_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
     },
     {
       "check_expression": "(tenant_id = util.current_tenant_id())",
@@ -12793,6 +15383,38 @@
       "using_expression": "true"
     },
     {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "organization_product_relationship",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "organization_relationship",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
       "check_expression": "(tenant_id = util.current_tenant_id())",
       "command": "ALL",
       "name": "bounded_role_access",
@@ -12846,6 +15468,22 @@
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
       "relation": "paper_authored_by_person",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "paper_introduces_model",
       "roles": [
         "app_reader",
         "control_plane",
@@ -13037,7 +15675,71 @@
       "command": "ALL",
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
+      "relation": "product_backed_by_repository",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
       "relation": "product_built_on_model_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "product_family",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "product_family_member",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "product_feature",
       "roles": [
         "app_reader",
         "control_plane",
@@ -13054,6 +15756,22 @@
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
       "relation": "product_implements_protocol_version",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "product_version",
       "roles": [
         "app_reader",
         "control_plane",
@@ -13118,6 +15836,22 @@
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
       "relation": "repository_implements_paper",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "corpus",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "repository_maintained_by_organization",
       "roles": [
         "app_reader",
         "control_plane",
@@ -13236,6 +15970,15 @@
       "definition": null,
       "description": null,
       "kind": "table",
+      "name": "ai_model_relationship",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
       "name": "ai_model_released_by_organization",
       "rls_enabled": true,
       "rls_forced": false,
@@ -13263,6 +16006,15 @@
       "definition": null,
       "description": null,
       "kind": "table",
+      "name": "ai_protocol_relationship",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
       "name": "ai_protocol_version",
       "rls_enabled": true,
       "rls_forced": false,
@@ -13279,9 +16031,54 @@
     },
     {
       "definition": null,
+      "description": "Semantic benchmark/model link only; quantitative results belong in ranking.metric_observation.",
+      "kind": "table",
+      "name": "benchmark_evaluates_model_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "benchmark_uses_dataset",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
       "description": null,
       "kind": "table",
       "name": "case_study",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "case_study_references_benchmark",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "case_study_uses_library",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "case_study_uses_model_version",
       "rls_enabled": true,
       "rls_forced": false,
       "schema": "corpus"
@@ -13504,6 +16301,24 @@
     },
     {
       "definition": null,
+      "description": "Many-to-many organization roles for products; product.vendor_organization_id remains the primary vendor shortcut.",
+      "kind": "table",
+      "name": "organization_product_relationship",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "organization_relationship",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
       "description": null,
       "kind": "table",
       "name": "paper",
@@ -13534,6 +16349,15 @@
       "description": null,
       "kind": "table",
       "name": "paper_authored_by_person",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "paper_introduces_model",
       "rls_enabled": true,
       "rls_forced": false,
       "schema": "corpus"
@@ -13641,6 +16465,15 @@
       "definition": null,
       "description": null,
       "kind": "table",
+      "name": "product_backed_by_repository",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
       "name": "product_built_on_model_version",
       "rls_enabled": true,
       "rls_forced": false,
@@ -13650,7 +16483,43 @@
       "definition": null,
       "description": null,
       "kind": "table",
+      "name": "product_family",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "product_family_member",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "product_feature",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
       "name": "product_implements_protocol_version",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
+      "name": "product_version",
       "rls_enabled": true,
       "rls_forced": false,
       "schema": "corpus"
@@ -13695,6 +16564,15 @@
       "definition": null,
       "description": null,
       "kind": "table",
+      "name": "repository_maintained_by_organization",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "corpus"
+    },
+    {
+      "definition": null,
+      "description": null,
+      "kind": "table",
       "name": "talk",
       "rls_enabled": true,
       "rls_forced": false,
@@ -13719,5 +16597,151 @@
       "schema": "corpus"
     }
   ],
-  "schema": "corpus"
+  "schema": "corpus",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER agent_skill_set_updated_at BEFORE UPDATE ON corpus.agent_skill FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "agent_skill_set_updated_at",
+      "relation": "agent_skill",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER ai_model_set_updated_at BEFORE UPDATE ON corpus.ai_model FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "ai_model_set_updated_at",
+      "relation": "ai_model",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER ai_protocol_set_updated_at BEFORE UPDATE ON corpus.ai_protocol FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "ai_protocol_set_updated_at",
+      "relation": "ai_protocol",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER benchmark_set_updated_at BEFORE UPDATE ON corpus.benchmark FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "benchmark_set_updated_at",
+      "relation": "benchmark",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER case_study_set_updated_at BEFORE UPDATE ON corpus.case_study FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "case_study_set_updated_at",
+      "relation": "case_study",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER concept_set_updated_at BEFORE UPDATE ON corpus.concept FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "concept_set_updated_at",
+      "relation": "concept",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER dataset_set_updated_at BEFORE UPDATE ON corpus.dataset FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "dataset_set_updated_at",
+      "relation": "dataset",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER library_set_updated_at BEFORE UPDATE ON corpus.library FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "library_set_updated_at",
+      "relation": "library",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER mcp_server_set_updated_at BEFORE UPDATE ON corpus.mcp_server FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "mcp_server_set_updated_at",
+      "relation": "mcp_server",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER organization_set_updated_at BEFORE UPDATE ON corpus.organization FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "organization_set_updated_at",
+      "relation": "organization",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER paper_set_updated_at BEFORE UPDATE ON corpus.paper FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "paper_set_updated_at",
+      "relation": "paper",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER person_set_updated_at BEFORE UPDATE ON corpus.person FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "person_set_updated_at",
+      "relation": "person",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER product_set_updated_at BEFORE UPDATE ON corpus.product FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "product_set_updated_at",
+      "relation": "product",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER product_family_set_updated_at BEFORE UPDATE ON corpus.product_family FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "product_family_set_updated_at",
+      "relation": "product_family",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER product_feature_set_updated_at BEFORE UPDATE ON corpus.product_feature FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "product_feature_set_updated_at",
+      "relation": "product_feature",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER repository_set_updated_at BEFORE UPDATE ON corpus.repository FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "repository_set_updated_at",
+      "relation": "repository",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER talk_set_updated_at BEFORE UPDATE ON corpus.talk FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "talk_set_updated_at",
+      "relation": "talk",
+      "schema": "corpus"
+    },
+    {
+      "definition": "CREATE TRIGGER video_set_updated_at BEFORE UPDATE ON corpus.video FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "video_set_updated_at",
+      "relation": "video",
+      "schema": "corpus"
+    }
+  ]
 }

@@ -64,6 +64,10 @@ _None._
 | `mcp_server_registry_no_overlap` | `CREATE INDEX mcp_server_registry_no_overlap ON corpus.mcp_server_registry_status_fact USING gist (mcp_server_id, validity) WHERE ((lifecycle_state)::text = 'active'::text)` |
 | `mcp_server_registry_status_fact_pkey` | `CREATE UNIQUE INDEX mcp_server_registry_status_fact_pkey ON corpus.mcp_server_registry_status_fact USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

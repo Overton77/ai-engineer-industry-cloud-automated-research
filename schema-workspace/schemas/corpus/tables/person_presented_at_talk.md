@@ -67,6 +67,10 @@ _None._
 | `person_presented_at_talk_person_id_talk_id_speaker_role_key` | `CREATE UNIQUE INDEX person_presented_at_talk_person_id_talk_id_speaker_role_key ON corpus.person_presented_at_talk USING btree (person_id, talk_id, speaker_role)` |
 | `person_presented_at_talk_pkey` | `CREATE UNIQUE INDEX person_presented_at_talk_pkey ON corpus.person_presented_at_talk USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -11,6 +11,10 @@ This file is the continuation point for a new agent session and the operating gu
 
 Do not rebuild the schema contract, agent skill, or workspace from scratch. Inspect and extend the existing implementation.
 
+The explicit environment goals, three purpose-specific research intents, selected low-cost first video, and copy/paste prompt for the first real run are in `FIRST_CLOUD_RUN_PROMPT.md`.
+
+The supervised two-agent launch checklist, run-scoped materialization contract, and copy/paste prompts for a video-directed researcher plus an autonomous popular-media researcher are in `CLOUD_AGENT_LAUNCH_KIT.md`.
+
 ## Executive state
 
 The codebase currently provides:
@@ -18,10 +22,14 @@ The codebase currently provides:
 - a reproducible Node 24 Cursor environment with pinned Tavily, Firecrawl, and Agent Browser CLIs;
 - a vendored `@aiengineer/database-contract` package that installs without a sibling checkout;
 - a conventional `database.types.ts` synchronized byte-for-byte from the contract package;
-- a live, deterministic, search-first schema workspace covering 216 relations in nine application schemas;
+- a live, deterministic, search-first schema workspace covering 239 relations in nine application schemas;
 - a one-video research CLI for readiness checks, starter-video inspection, mission seeding, work leases, heartbeats, completion events, and deterministic ingestion intents;
-- a reusable `ai-engineer-cloud-research` skill and six Cursor subagent definitions;
-- Postgres-backed shared progress and a private content-addressed storage boundary;
+- reusable `ai-engineer-cloud-research` and `claim-evidence-workflow` skills plus eight Cursor subagent definitions, including source-intelligence and claim-evidence specialist roles;
+- mission-scoped, parallel-safe Postgres claiming plus read-only mission status;
+- current, read-only video prioritization plus mandatory pre-mission entity grounding across latest pre-research, related missions, and canonical people/organizations;
+- authenticated transcript retrieval from private `ai-engineer-transcripts/ai-dot-engineer/<video-id>.txt` objects;
+- an operational source ledger for exact queries, retrieval/cache outcomes, immutable captures, and why each source mattered;
+- attempt-scoped, content-addressed workspace archival into the private `ai-engineer-cloud-bucket`, with two-phase verified cleanup;
 - explicit review and approval boundaries before canonical ingestion.
 
 No automation has been configured. No Git commit was created by the implementation sessions.
@@ -34,15 +42,15 @@ No automation has been configured. No Git commit was created by the implementati
 4. Configure the required Cursor Secrets listed below.
 5. Ensure the Cloud Agent performs `npm ci` before invoking repository scripts.
 
-The current `.cursor/environment.json` install hook is:
+The `.cursor/environment.json` install hook is:
 
 ```json
 {
-  "install": "npm run verify:environment"
+  "install": "npm ci && npm run verify:environment"
 }
 ```
 
-That verifies the global CLIs and skill inventory but does not explicitly install local npm dependencies. For the first test, tell the agent to run `npm ci`. A future change may set the install hook to `npm ci && npm run verify:environment` after confirming Cursor does not already install dependencies elsewhere in its environment lifecycle.
+The hook installs the exact lockfile before verifying the global CLIs and skill inventory. The first-run prompt still repeats readiness checks so failures are visible in the task transcript.
 
 ## Required secrets
 
@@ -55,9 +63,10 @@ Configure these in Cursor Secrets, never in committed files:
 | `POSTGRES_URL_NON_POOLING` | Direct server-side Postgres orchestration and metadata access |
 | `SUPABASE_URL` | Supabase project URL |
 | `SUPABASE_SECRET_KEY` | Server-only access to the private storage bucket |
-| `POSTGRES_SSL_ROOT_CERT` | Preferred CA pin for direct Postgres TLS |
 
 `POSTGRES_URL` and legacy `SUPABASE_SERVICE_ROLE_KEY` are supported fallbacks. Do not use `POSTGRES_SSL_MODE=no-verify` in the production cloud environment; it was used only for a known local certificate-chain limitation during development.
+
+Recommended TLS hardening: add `POSTGRES_SSL_ROOT_CERT` when the connection string/provider chain does not already verify cleanly, preserving certificate newlines as `\\n`. Prefer `sslmode=verify-full` semantics. This is not an additional API credential.
 
 Optional integrations are documented in `.env.example`, including Neo4j, GitHub, and Context7.
 
@@ -89,7 +98,7 @@ npm run verify:environment
 
 The agent should read `AGENTS.md`, then load `.agents/skills/ai-engineer-cloud-research/SKILL.md` for research work. The skill routes additional detail through focused references rather than loading the whole database contract.
 
-The six `.cursor/agents/*.md` definitions are roles, not autonomous background processes. They do not all start automatically. The `research-coordinator` must delegate bounded tasks when Cursor supports subagent delegation, or perform the same roles sequentially in a single run.
+The eight `.cursor/agents/*.md` definitions are roles, not autonomous background processes. They do not all start automatically. The `research-coordinator` may delegate bounded tasks when Cursor supports subagent delegation, or perform the same roles sequentially in a single run. Claim extraction and verification for the same claim must use different agent deployments.
 
 ### 4. Authenticated readiness
 
@@ -107,7 +116,10 @@ Expected behavior:
 
 - secrets are reported only as present or missing, never printed;
 - the live progress ledger, case-study contract, metric targets, and provenance columns are present;
-- `ai-engineer-cloud-bucket` exists and remains private;
+- the scoped entity taxonomy, product hierarchy, organization/product graph, model/protocol lineage, and benchmark/case-study joins are present;
+- claim producer provenance, exact locator hashes, typed product-version claims, immutable attempt/verifier identity and links/findings, append-only run-scoped evidence assessments, and the direct same-run verified-status gate are enforced by Postgres;
+- both `ai-engineer-cloud-bucket` and `ai-engineer-transcripts` exist and remain private;
+- the source-query, retrieval, and operational-support ledgers exist;
 - the cloud type file matches the installed database-contract package;
 - the committed schema workspace matches live structural metadata.
 
@@ -144,6 +156,46 @@ The video detail includes starter-video metadata, pre-research runs and analyses
 
 Select exactly one video per mission. Use ascending publication order when validating the rolling timeline workflow.
 
+When the operator does not provide a video, use the balanced workspace policy:
+
+```bash
+npm run research:cloud -- videos prioritize --strategy=balanced --limit=20
+```
+
+When popular media should be a stronger discovery signal, use the still-readiness-gated strategy and persist its exact current-state packet:
+
+```bash
+npm run research:cloud -- videos prioritize --strategy=popular-media --limit=20 \
+  --output=artifacts/runs/<run-id>/inputs/video-candidates.json
+```
+
+The ranking hard-gates readiness, favors oldest-first chronology and cross-video entity continuity, then uses pre-research ambiguity, log-scaled views, engagement, and duration as secondary signals. Alternate chronology and entity-cluster queries are documented in `video-workspace/README.md`.
+
+For a first bounded test, select an eligible, completed pre-research video that has no mission:
+
+```bash
+npm run research:cloud -- videos list --order=asc --limit=20 \
+  --eligible --pre-research-complete --without-mission
+```
+
+Before web research or mission seeding, persist and inspect current entity context:
+
+```bash
+npm run research:cloud -- mission preflight \
+  --video-id=<youtube-id> \
+  --output=artifacts/runs/<run-id>/inputs/pre-mission-context.json
+```
+
+This retrieves the latest candidates, exact same-kind/name occurrences in other latest pre-research packets, related mission state, and exact canonical person/organization matches. It does not promote an identity. `progress seed` repeats and returns the same query as an enforced pre-mutation gate.
+
+Retrieve the private transcript only when useful:
+
+```bash
+npm run research:cloud -- transcript get \
+  --video-id=<youtube-id> \
+  --output=artifacts/runs/<run-id>/inputs/transcript.txt
+```
+
 ### 7. Shared mission creation
 
 Preview mission creation first:
@@ -176,13 +228,18 @@ Database state is the progress truth. Chat history and local notes are not autho
 
 ### 8. Work claiming and leases
 
-A worker claims one ready item:
+A worker first inspects, then claims one ready item inside exactly one mission:
 
 ```bash
-npm run research:cloud -- progress claim --worker=<stable-worker-id> --lease-seconds=1800 --apply
+npm run research:cloud -- progress status --mission-id=<mission-id>
+npm run research:cloud -- progress claim \
+  --mission-id=<mission-id> \
+  --worker=<stable-worker-id> \
+  --lease-seconds=1800 \
+  --apply
 ```
 
-The claim transaction uses row locking with `SKIP LOCKED`, dependency checks, expiring leases, attempt records, and append-only work-item events. Concurrent workers should not receive the same active item.
+The claim transaction requires exactly one of `--mission-id`, `--mission-slug`, or `--video-id`. It uses row locking with `SKIP LOCKED`, dependency checks, attempt limits, expiring leases, attempt records, timeout closure for expired attempts, and append-only work-item events. Concurrent workers cannot receive the same active item, and they cannot drift into another mission.
 
 Long work must heartbeat before expiry:
 
@@ -190,7 +247,6 @@ Long work must heartbeat before expiry:
 npm run research:cloud -- progress heartbeat \
   --worker=<stable-worker-id> \
   --work-item=<uuid> \
-  --attempt=<uuid> \
   --lease-seconds=1800 \
   --apply
 ```
@@ -201,7 +257,7 @@ Finish with a structured JSON payload file:
 npm run research:cloud -- progress finish \
   --worker=<stable-worker-id> \
   --work-item=<uuid> \
-  --attempt=<uuid> \
+  --attempt-id=<uuid> \
   --outcome=succeeded \
   --payload-file=<path-to-json> \
   --apply
@@ -224,6 +280,34 @@ Required evidence behavior:
 - require an independent verifier attempt for claims marked independently verified.
 
 Metric observations preserve entity target, definition version, observed and collected times, measurement kind, dimensions, estimate status, visibility, access tier, raw capture, collector/source-policy versions, quality flags, provenance, and unavailable reason.
+
+### Source cache and operational source intelligence
+
+The cloud environment now keeps a pragmatic operational ledger alongside the deeper canonical evidence model:
+
+- `evidence.source_query`: exact query, provider, request parameters, purpose, raw response artifact, and deterministic query hash;
+- `evidence.source_retrieval`: selected URL, query relationship, source/capture, cache or capture outcome, rank, and provider metadata;
+- `evidence.source_support`: how the retrieval supported, challenged, contextualized, or was discarded for a specific operation.
+
+Use `source cache-lookup` before refetching a canonical URL. Store the complete search response with `source query-record`; store the selected underlying bytes and support statement with `source capture-record`. This ledger is source intelligence for the Cursor execution plane, not a shortcut around canonical locators, claims, and independent verification.
+
+### Workspace archival and cleanup
+
+Every run uses `artifacts/runs/<run-id>/`. Archive paths are collision-free and attempt-scoped:
+
+```text
+missions/<mission-slug>/<mission-id>/
+  work-items/<work-item-id>/
+    attempts/<attempt-no>-<attempt-id>/
+      queries/<provider>/<query-hash>/<response-hash>.<ext>
+      sources/<content-hash>/<filename>
+      workspace/files/<content-hash>/<relative-path>
+      workspace/manifest/<manifest-hash>.json
+```
+
+`artifacts archive` hashes and uploads every regular file with `upsert:false`, verifies any pre-existing object by downloading and hashing it, registers each object, links it to the work item, writes a deterministic workspace manifest, and appends an idempotent checkpoint event. Identical bytes from separate attempts remain separate provenance objects; hash indexes still support cache lookup.
+
+Use the two-phase sequence: archive without cleanup, finish the work item using the still-local terminal payload, then rerun the identical archive with `--cleanup`. Local deletion happens only after all uploads and registry writes commit.
 
 ### 10. Deterministic canonical writes
 
@@ -285,15 +369,15 @@ This prompt intentionally authorizes orchestration writes but not canonical data
 
 > Seed the reviewed mission for video `<youtube-id>` using actor `cursor-cloud:one-shot-01` and `--apply`. Then stop. Do not claim a work item, call web APIs, upload artifacts, submit an intent, or write canonical data. Report the returned mission ID and all work-item IDs. If the mission already exists, demonstrate the idempotent result rather than creating a duplicate.
 
-Success means one mission and eleven idempotent work items exist with created events.
+Success means one mission and eleven idempotent work-item rows exist. Re-seeding may append another audit event, but it must not duplicate the mission or work-item rows.
 
 ### Test 4: one bounded entity-selection attempt
 
 This is the first meaningful agent behavior test:
 
-> Act as `entity-selector` for exactly one ready work item in mission `ai-engineer-video:<youtube-id>`. Use worker ID `cursor-cloud:one-shot-01:entity-selector`. Claim one item with `--apply`, inspect existing pre-research, and perform only the minimal source discovery required to rank entity candidates. Preserve raw outputs and source URLs. Do not write canonical rows, submit or execute an ingestion intent, or claim a second item. Heartbeat if necessary, finish the attempt with a structured payload, and report the work-item event trail and artifacts created.
+> Act as `entity-selector` for exactly one ready work item in mission `ai-engineer-video:<youtube-id>`. Use worker ID `cursor-cloud:<uuid>:entity-selector`. Claim one item with the explicit mission scope and `--apply`, inspect existing pre-research, and perform only the minimal source discovery required to rank entity candidates. Record all queries, captures, and support statements; archive and clean the attempt workspace. Do not write canonical rows, submit or execute an ingestion intent, or claim a second item. Heartbeat if necessary, finish the attempt with a structured payload, and report the work-item event trail and artifacts created.
 
-Success means exactly one item is claimed and terminal, the lease is respected, candidates remain staged/proposed, and every factual statement has an underlying source.
+Success means exactly one intended item is claimed and terminal, the lease is respected, candidates remain staged/proposed, and every factual statement has an underlying source.
 
 ### Test 5: verification separation
 
@@ -323,15 +407,13 @@ Execution prompt, only after an authorized operator approves the intent in the d
 
 ## What is not yet ready for unattended automation
 
-Do not turn on broad recurring automation until these gaps are addressed or deliberately accepted:
+Do not turn on broad recurring automation until these remaining boundaries are deliberately accepted:
 
-1. The CLI has no read-only `progress status/list` command for missions, work items, attempts, leases, and events. Operators currently need direct SQL or additional tooling for a consolidated view.
-2. The CLI has no approval command. This is a useful separation-of-authority property, but an explicit operator workflow must be chosen.
-3. Generic source/report artifact upload and registration is not exposed as a standalone CLI command. Intent JSON upload is implemented; broader artifact ergonomics remain a next step.
-4. No automation scheduler or recurring task is configured in this repository.
-5. The current direct database secret may be more privileged than an unattended researcher needs. Before automation, prefer distinct least-privilege database identities for researcher, verifier, and executor roles.
-6. The Cursor install hook should explicitly include `npm ci` if platform testing confirms dependencies are not installed automatically.
-7. Working tree changes must be committed and pushed before any cloud test can observe them.
+1. The CLI intentionally has no approval command. Choose a separate human/operator approval workflow before any execution automation.
+2. No scheduler is configured in this repository. The CLI now ranks autonomous candidates, but scheduled fan-out must run selection once in the control plane and assign explicit, distinct video or mission scopes; simultaneous “pick next” workers may still converge on one idempotent mission and leave one idle.
+3. The current direct database secret is more privileged than the bounded database roles model. Before unattended automation, issue distinct least-privilege researcher, verifier, control-plane, and executor credentials.
+4. Storage upload and Postgres registration cannot be one cross-service transaction. Paths are deterministic and retries repair registration, but operational monitoring should detect orphaned objects after a process crash.
+5. Working tree changes must be committed and pushed before a cloud test can observe them.
 
 ## Recommended automation rollout
 
@@ -415,8 +497,12 @@ Commit migrations and regenerated contract types together. Then refresh the clou
 | `.cursor/Dockerfile` | Reproducible global research tools |
 | `.cursor/environment.json` | Cursor build/install hook |
 | `.agents/skills/ai-engineer-cloud-research/SKILL.md` | Research workflow router and invariants |
+| `.agents/skills/claim-evidence-workflow/SKILL.md` | Atomic claim extraction and independent verification contract |
+| `ENTITY_TAXONOMY.md` | Human-readable primary/secondary divisions and product-ingestion rules |
+| `video-workspace/README.md` | Autonomous selection policy, ranking modes, and pre-mission retrieval playbook |
 | `.cursor/agents/*.md` | Coordinator and bounded specialist roles |
-| `scripts/research-cloud.mjs` | Readiness, video, progress, and intent CLI |
+| `scripts/research-cloud.mjs` | Readiness, transcript, mission, source-intelligence, workspace-archive, and intent CLI |
+| `FIRST_CLOUD_RUN_PROMPT.md` | Explicit goals, purpose-specific intents, and copy/paste first-run prompt |
 | `scripts/build-schema-workspace.mjs` | Deterministic live schema projection |
 | `scripts/sync-database-types.mjs` | Contract-to-cloud type synchronization |
 | `scripts/vendor-database-contract.mjs` | Self-contained contract package refresh |
@@ -434,8 +520,11 @@ Commit migrations and regenerated contract types together. Then refresh the clou
 - DB-contract generated-type drift check;
 - cloud type parity and TypeScript compilation;
 - deterministic schema generation and repeated drift check;
-- 216 unique search-index entries with zero missing paths;
-- all nine requested application schemas and 255 generated workspace files;
+- 239 unique search-index entries with zero missing paths;
+- all nine requested application schemas and 278 generated workspace files;
+- live source-intelligence migration, parallel artifact constraint change, and private dual-bucket readiness;
+- live transcript retrieval with database-pointer/path validation and SHA-256 reporting;
+- live two-worker `SKIP LOCKED` race: exactly one winner for one ready item, no cross-mission claim, and zero test missions remaining after UUID-scoped cleanup;
 - one local mission seed/claim/heartbeat/finish lifecycle;
 - one local deterministic intent execution and receipt;
 - live dry-run video and progress inspection;
@@ -444,11 +533,9 @@ Commit migrations and regenerated contract types together. Then refresh the clou
 
 The local lifecycle and executor proofs used test/local state where appropriate. Do not infer authorization to repeat a mutating proof against production.
 
-## Continuation prompt for another development agent
+## First real cloud run
 
-Use this prompt in the next coding session:
-
-> Read `CLOUD_AGENT_HANDOFF.md`, `AGENTS.md`, and the current Git status before acting. Preserve existing user changes and do not redo completed schema, type, skill, or workspace work. First verify `npm ci`, type parity, schema-workspace determinism, and live readiness. Then implement the next pre-automation operator surfaces identified in the handoff: a read-only mission/progress status command, a generic content-addressed artifact registration command, and a clearly separated approval workflow proposal. Do not change live schema, approval state, canonical data, or automation schedules without explicit authorization. Add focused tests and update this handoff with verified behavior.
+Use the copy/paste prompt in `FIRST_CLOUD_RUN_PROMPT.md`. It is deliberately bounded to a short starter video and one `entity_identity_intelligence` work item. It exercises authenticated readiness, transcript retrieval, mission-scoped claiming, query/retrieval/source-support provenance, two-phase workspace archive/cleanup, and terminal status without canonical writes or intent execution.
 
 ## Final handoff checklist
 
@@ -456,10 +543,10 @@ Use this prompt in the next coding session:
 - [ ] Review DB-contract diff and applied live migrations.
 - [ ] Commit and push both intended change sets.
 - [ ] Configure required Cursor Secrets.
-- [ ] Confirm whether the environment install hook needs `npm ci` added.
+- [x] Install hook runs `npm ci` before environment verification.
 - [ ] Run Test 0 in a fresh Cloud Agent.
 - [ ] Run Test 1 with authenticated read-only access.
 - [ ] Choose one video and run Tests 2–6 incrementally.
 - [ ] Approve and run Test 7 only after manual review.
-- [ ] Implement or accept the listed automation gaps.
+- [ ] Deliberately accept or resolve the remaining approval, least-privilege credential, scheduler fan-out, and orphan-monitoring boundaries.
 - [ ] Start automation at Phase A, not Phase D.

@@ -67,6 +67,10 @@ _None._
 | `person_created_mcp_server_person_id_mcp_server_id_role_key` | `CREATE UNIQUE INDEX person_created_mcp_server_person_id_mcp_server_id_role_key ON corpus.person_created_mcp_server USING btree (person_id, mcp_server_id, role)` |
 | `person_created_mcp_server_pkey` | `CREATE UNIQUE INDEX person_created_mcp_server_pkey ON corpus.person_created_mcp_server USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

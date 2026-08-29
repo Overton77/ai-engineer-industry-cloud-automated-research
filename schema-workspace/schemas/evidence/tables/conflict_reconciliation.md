@@ -55,6 +55,10 @@ _None._
 | --- | --- |
 | `conflict_reconciliation_pkey` | `CREATE UNIQUE INDEX conflict_reconciliation_pkey ON evidence.conflict_reconciliation USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

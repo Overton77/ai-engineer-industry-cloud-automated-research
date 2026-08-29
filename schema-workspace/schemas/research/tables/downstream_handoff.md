@@ -61,6 +61,10 @@ _None._
 | `downstream_handoff_pending_idx` | `CREATE INDEX downstream_handoff_pending_idx ON research.downstream_handoff USING btree (target_pipeline, created_at) WHERE (status = 'pending'::text)` |
 | `downstream_handoff_pkey` | `CREATE UNIQUE INDEX downstream_handoff_pkey ON research.downstream_handoff USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

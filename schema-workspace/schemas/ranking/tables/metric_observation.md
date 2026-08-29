@@ -144,6 +144,12 @@ _None._
 | `metric_observation_talk_id_idx` | `CREATE INDEX metric_observation_talk_id_idx ON ranking.metric_observation USING btree (talk_id, observed_at DESC) WHERE (talk_id IS NOT NULL)` |
 | `metric_observation_video_id_idx` | `CREATE INDEX metric_observation_video_id_idx ON ranking.metric_observation USING btree (video_id, observed_at DESC) WHERE (video_id IS NOT NULL)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `metric_observation_immutable` | `util.reject_mutation` | `CREATE TRIGGER metric_observation_immutable BEFORE DELETE OR UPDATE ON ranking.metric_observation FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

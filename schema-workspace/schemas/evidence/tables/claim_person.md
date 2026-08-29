@@ -29,7 +29,7 @@ Database table evidence.claim_person.
 
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
-| `claim_person_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))` | — |
+| `claim_person_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_person_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
 | `claim_person_person_id_fkey` | `foreign_key` | `FOREIGN KEY (person_id) REFERENCES corpus.person(id) ON DELETE CASCADE` | [`corpus.person`](../../corpus/tables/person.md) |
 | `claim_person_pkey` | `primary_key` | `PRIMARY KEY (claim_id, person_id, role_in_claim)` | — |
@@ -53,6 +53,13 @@ _None._
 | --- | --- |
 | `claim_person_pkey` | `CREATE UNIQUE INDEX claim_person_pkey ON evidence.claim_person USING btree (claim_id, person_id, role_in_claim)` |
 | `claim_person_target_idx` | `CREATE INDEX claim_person_target_idx ON evidence.claim_person USING btree (person_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_person FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_person FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

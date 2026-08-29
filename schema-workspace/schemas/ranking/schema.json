@@ -3243,5 +3243,31 @@
       "schema": "ranking"
     }
   ],
-  "schema": "ranking"
+  "schema": "ranking",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER membership_snapshot_immutable BEFORE DELETE OR UPDATE ON ranking.membership_snapshot FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "membership_snapshot_immutable",
+      "relation": "membership_snapshot",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE TRIGGER metric_observation_immutable BEFORE DELETE OR UPDATE ON ranking.metric_observation FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "metric_observation_immutable",
+      "relation": "metric_observation",
+      "schema": "ranking"
+    },
+    {
+      "definition": "CREATE TRIGGER ranking_run_immutable BEFORE DELETE OR UPDATE ON ranking.ranking_run FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "ranking_run_immutable",
+      "relation": "ranking_run",
+      "schema": "ranking"
+    }
+  ]
 }

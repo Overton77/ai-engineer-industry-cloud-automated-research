@@ -58,6 +58,10 @@ Database table ranking.leaderboard.
 | `leaderboard_pkey` | `CREATE UNIQUE INDEX leaderboard_pkey ON ranking.leaderboard USING btree (id)` |
 | `leaderboard_tenant_id_slug_key` | `CREATE UNIQUE INDEX leaderboard_tenant_id_slug_key ON ranking.leaderboard USING btree (tenant_id, slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

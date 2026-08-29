@@ -56,6 +56,10 @@ Database table ranking.selection.
 | --- | --- |
 | `selection_pkey` | `CREATE UNIQUE INDEX selection_pkey ON ranking.selection USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

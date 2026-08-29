@@ -48,6 +48,10 @@ _None._
 | --- | --- |
 | `claim_type_pkey` | `CREATE UNIQUE INDEX claim_type_pkey ON evidence.claim_type USING btree (code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

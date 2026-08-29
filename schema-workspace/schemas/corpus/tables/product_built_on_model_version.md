@@ -66,6 +66,10 @@ _None._
 | `product_built_on_model_versio_product_id_ai_model_version_i_key` | `CREATE UNIQUE INDEX product_built_on_model_versio_product_id_ai_model_version_i_key ON corpus.product_built_on_model_version USING btree (product_id, ai_model_version_id, usage_kind)` |
 | `product_built_on_model_version_pkey` | `CREATE UNIQUE INDEX product_built_on_model_version_pkey ON corpus.product_built_on_model_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

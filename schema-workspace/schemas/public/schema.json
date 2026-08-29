@@ -8936,5 +8936,47 @@
       "schema": "public"
     }
   ],
-  "schema": "public"
+  "schema": "public",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER protect_factory_episode_identity_and_terminal BEFORE DELETE OR UPDATE ON factory_episode FOR EACH ROW EXECUTE FUNCTION protect_factory_episode_identity_and_terminal()",
+      "function_name": "protect_factory_episode_identity_and_terminal",
+      "function_schema": "public",
+      "name": "protect_factory_episode_identity_and_terminal",
+      "relation": "factory_episode",
+      "schema": "public"
+    },
+    {
+      "definition": "CREATE TRIGGER factory_runtime_event_immutable BEFORE DELETE OR UPDATE ON factory_runtime_event FOR EACH ROW EXECUTE FUNCTION reject_immutable_row_change()",
+      "function_name": "reject_immutable_row_change",
+      "function_schema": "public",
+      "name": "factory_runtime_event_immutable",
+      "relation": "factory_runtime_event",
+      "schema": "public"
+    },
+    {
+      "definition": "CREATE TRIGGER set_research_pre_research_run_updated_at BEFORE UPDATE ON research_pre_research_run FOR EACH ROW EXECUTE FUNCTION set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "public",
+      "name": "set_research_pre_research_run_updated_at",
+      "relation": "research_pre_research_run",
+      "schema": "public"
+    },
+    {
+      "definition": "CREATE TRIGGER set_research_pre_research_video_state_updated_at BEFORE UPDATE ON research_pre_research_video_state FOR EACH ROW EXECUTE FUNCTION set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "public",
+      "name": "set_research_pre_research_video_state_updated_at",
+      "relation": "research_pre_research_video_state",
+      "schema": "public"
+    },
+    {
+      "definition": "CREATE TRIGGER set_research_starter_videos_updated_at BEFORE UPDATE ON research_starter_videos FOR EACH ROW EXECUTE FUNCTION set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "public",
+      "name": "set_research_starter_videos_updated_at",
+      "relation": "research_starter_videos",
+      "schema": "public"
+    }
+  ]
 }

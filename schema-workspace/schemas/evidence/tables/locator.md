@@ -24,7 +24,7 @@ Database table evidence.locator.
 | 2 | `capture_id` | `uuid` | no | — | — |
 | 3 | `media_type` | `text` | no | — | — |
 | 4 | `selector` | `jsonb` | no | — | — |
-| 5 | `selected_content_sha256` | `text` | yes | — | — |
+| 5 | `selected_content_sha256` | `text` | no | — | — |
 | 6 | `normalized_value` | `text` | yes | — | — |
 | 7 | `context_fingerprint` | `text` | yes | — | — |
 | 8 | `extractor_name` | `text` | no | — | — |
@@ -58,6 +58,7 @@ Database table evidence.locator.
 | [`corpus.product_appeared_in_video`](../../corpus/tables/product_appeared_in_video.md) | `product_appeared_in_video_locator_id_fkey` | `FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)` |
 | [`evidence.claim_evidence_link`](../../evidence/tables/claim_evidence_link.md) | `claim_evidence_link_locator_id_fkey` | `FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)` |
 | [`evidence.extraction_signature`](../../evidence/tables/extraction_signature.md) | `extraction_signature_locator_id_fkey` | `FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)` |
+| [`evidence.source_support`](../../evidence/tables/source_support.md) | `source_support_locator_id_fkey` | `FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_locator_id_fkey` | `FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)` |
 | [`staging.candidate`](../../staging/tables/candidate.md) | `candidate_locator_id_fkey` | `FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)` |
 | [`staging.mention`](../../staging/tables/mention.md) | `mention_snippet_locator_id_fkey` | `FOREIGN KEY (snippet_locator_id) REFERENCES evidence.locator(id)` |
@@ -68,6 +69,12 @@ Database table evidence.locator.
 | --- | --- |
 | `locator_capture_idx` | `CREATE INDEX locator_capture_idx ON evidence.locator USING btree (capture_id)` |
 | `locator_pkey` | `CREATE UNIQUE INDEX locator_pkey ON evidence.locator USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `locator_immutable` | `util.reject_mutation` | `CREATE TRIGGER locator_immutable BEFORE DELETE OR UPDATE ON evidence.locator FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
 
 ## RLS policies
 

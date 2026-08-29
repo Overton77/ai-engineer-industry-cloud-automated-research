@@ -54,6 +54,7 @@ _None._
 | --- | --- | --- |
 | [`evidence.degraded_assurance`](../../evidence/tables/degraded_assurance.md) | `degraded_assurance_source_id_fkey` | `FOREIGN KEY (source_id) REFERENCES evidence.source(id)` |
 | [`evidence.source_capture`](../../evidence/tables/source_capture.md) | `source_capture_source_id_fkey` | `FOREIGN KEY (source_id) REFERENCES evidence.source(id)` |
+| [`evidence.source_retrieval`](../../evidence/tables/source_retrieval.md) | `source_retrieval_source_id_fkey` | `FOREIGN KEY (source_id) REFERENCES evidence.source(id)` |
 
 ## Indexes
 
@@ -61,6 +62,12 @@ _None._
 | --- | --- |
 | `source_canonical_url_uq` | `CREATE UNIQUE INDEX source_canonical_url_uq ON evidence.source USING btree (canonical_url) WHERE (canonical_url IS NOT NULL)` |
 | `source_pkey` | `CREATE UNIQUE INDEX source_pkey ON evidence.source USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `source_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER source_set_updated_at BEFORE UPDATE ON evidence.source FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

@@ -78,6 +78,10 @@ _None._
 | `research_video_technology_summary_analysis_idx` | `CREATE INDEX research_video_technology_summary_analysis_idx ON public.research_video_technology_summary USING btree (analysis_id, family_rank)` |
 | `research_video_technology_summary_pkey` | `CREATE UNIQUE INDEX research_video_technology_summary_pkey ON public.research_video_technology_summary USING btree (technology_summary_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

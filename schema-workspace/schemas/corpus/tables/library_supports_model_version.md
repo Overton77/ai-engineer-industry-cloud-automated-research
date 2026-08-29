@@ -66,6 +66,10 @@ _None._
 | `library_supports_model_versio_library_id_ai_model_version_i_key` | `CREATE UNIQUE INDEX library_supports_model_versio_library_id_ai_model_version_i_key ON corpus.library_supports_model_version USING btree (library_id, ai_model_version_id)` |
 | `library_supports_model_version_pkey` | `CREATE UNIQUE INDEX library_supports_model_version_pkey ON corpus.library_supports_model_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

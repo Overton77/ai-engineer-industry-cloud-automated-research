@@ -59,6 +59,10 @@ _None._
 | `mcp_server_tool_mcp_server_version_id_tool_name_key` | `CREATE UNIQUE INDEX mcp_server_tool_mcp_server_version_id_tool_name_key ON corpus.mcp_server_tool USING btree (mcp_server_version_id, tool_name)` |
 | `mcp_server_tool_pkey` | `CREATE UNIQUE INDEX mcp_server_tool_pkey ON corpus.mcp_server_tool USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

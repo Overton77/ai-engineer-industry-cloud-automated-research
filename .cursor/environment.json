@@ -2,5 +2,5 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
-  "install": "npm run verify:environment"
+  "install": "npm ci && npm run verify:environment"
 }

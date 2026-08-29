@@ -1,6 +1,6 @@
 # public schema
 
-Searchable inventory for `public`. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, and RLS policies.
+Searchable inventory for `public`. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, triggers, and RLS policies.
 
 - Tables: 40
 - Views: 0

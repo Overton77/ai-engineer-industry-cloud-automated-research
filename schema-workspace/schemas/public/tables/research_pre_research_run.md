@@ -92,6 +92,12 @@ One claimable orchestration row per video+transcript-hash attempt.
 | `research_pre_research_run_status_idx` | `CREATE INDEX research_pre_research_run_status_idx ON public.research_pre_research_run USING btree (status, created_at DESC)` |
 | `research_pre_research_run_video_id_idx` | `CREATE INDEX research_pre_research_run_video_id_idx ON public.research_pre_research_run USING btree (video_id, created_at DESC)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `set_research_pre_research_run_updated_at` | `public.set_updated_at` | `CREATE TRIGGER set_research_pre_research_run_updated_at BEFORE UPDATE ON research_pre_research_run FOR EACH ROW EXECUTE FUNCTION set_updated_at()` |
+
 ## RLS policies
 
 _None._

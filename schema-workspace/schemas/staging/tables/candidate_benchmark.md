@@ -54,6 +54,10 @@ _None._
 | --- | --- |
 | `candidate_benchmark_pkey` | `CREATE UNIQUE INDEX candidate_benchmark_pkey ON staging.candidate_benchmark USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

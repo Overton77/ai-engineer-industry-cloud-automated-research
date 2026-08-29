@@ -63,6 +63,10 @@ _None._
 | `repository_archival_fact_pkey` | `CREATE UNIQUE INDEX repository_archival_fact_pkey ON corpus.repository_archival_fact USING btree (id)` |
 | `repository_archival_no_overlap` | `CREATE INDEX repository_archival_no_overlap ON corpus.repository_archival_fact USING gist (repository_id, validity) WHERE ((lifecycle_state)::text = 'active'::text)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

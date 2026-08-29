@@ -60,10 +60,12 @@ Database table corpus.dataset.
 
 | Source | Constraint | Definition |
 | --- | --- | --- |
+| [`corpus.benchmark_uses_dataset`](../../corpus/tables/benchmark_uses_dataset.md) | `benchmark_uses_dataset_dataset_id_fkey` | `FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE` |
 | [`corpus.dataset`](../../corpus/tables/dataset.md) | `dataset_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.dataset(id)` |
 | [`evidence.claim_dataset`](../../evidence/tables/claim_dataset.md) | `claim_dataset_dataset_id_fkey` | `FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_dataset_id_fkey` | `FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id)` |
 | [`staging.identity_match`](../../staging/tables/identity_match.md) | `identity_match_dataset_id_fkey` | `FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id)` |
+| [`taxonomy.assignment`](../../taxonomy/tables/assignment.md) | `assignment_dataset_id_fkey` | `FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE` |
 
 ## Indexes
 
@@ -71,6 +73,12 @@ Database table corpus.dataset.
 | --- | --- |
 | `dataset_host_external_id_key` | `CREATE UNIQUE INDEX dataset_host_external_id_key ON corpus.dataset USING btree (host, external_id)` |
 | `dataset_pkey` | `CREATE UNIQUE INDEX dataset_pkey ON corpus.dataset USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `dataset_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER dataset_set_updated_at BEFORE UPDATE ON corpus.dataset FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

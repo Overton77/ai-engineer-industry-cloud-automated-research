@@ -63,6 +63,7 @@ Database table orchestration.mission.
 
 | Source | Constraint | Definition |
 | --- | --- | --- |
+| [`evidence.source_query`](../../evidence/tables/source_query.md) | `source_query_mission_id_fkey` | `FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE` |
 | [`orchestration.agent_session`](../../orchestration/tables/agent_session.md) | `agent_session_mission_id_fkey` | `FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL` |
 | [`orchestration.artifact`](../../orchestration/tables/artifact.md) | `artifact_mission_id_fkey` | `FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE SET NULL` |
 | [`orchestration.artifact_manifest`](../../orchestration/tables/artifact_manifest.md) | `artifact_manifest_mission_id_fkey` | `FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE` |
@@ -85,6 +86,12 @@ Database table orchestration.mission.
 | `mission_pkey` | `CREATE UNIQUE INDEX mission_pkey ON orchestration.mission USING btree (id)` |
 | `mission_slug_uq` | `CREATE UNIQUE INDEX mission_slug_uq ON orchestration.mission USING btree (tenant_id, slug)` |
 | `mission_status_idx` | `CREATE INDEX mission_status_idx ON orchestration.mission USING btree (status, created_at DESC)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `mission_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER mission_set_updated_at BEFORE UPDATE ON orchestration.mission FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

@@ -55,6 +55,7 @@ Database table taxonomy.term.
 | [`taxonomy.term`](../../taxonomy/tables/term.md) | `term_parent_term_id_fkey` | `FOREIGN KEY (parent_term_id) REFERENCES taxonomy.term(id)` |
 | [`taxonomy.term_relation`](../../taxonomy/tables/term_relation.md) | `term_relation_from_term_id_fkey` | `FOREIGN KEY (from_term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE` |
 | [`taxonomy.term_relation`](../../taxonomy/tables/term_relation.md) | `term_relation_to_term_id_fkey` | `FOREIGN KEY (to_term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE` |
+| [`taxonomy.term_target_kind`](../../taxonomy/tables/term_target_kind.md) | `term_target_kind_term_id_fkey` | `FOREIGN KEY (term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE` |
 
 ## Indexes
 
@@ -63,6 +64,10 @@ Database table taxonomy.term.
 | `term_facet_version_id_slug_key` | `CREATE UNIQUE INDEX term_facet_version_id_slug_key ON taxonomy.term USING btree (facet_version_id, slug)` |
 | `term_parent_idx` | `CREATE INDEX term_parent_idx ON taxonomy.term USING btree (parent_term_id)` |
 | `term_pkey` | `CREATE UNIQUE INDEX term_pkey ON taxonomy.term USING btree (id)` |
+
+## Triggers
+
+_None._
 
 ## RLS policies
 

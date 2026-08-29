@@ -53,6 +53,12 @@ Database table ranking.membership_snapshot.
 | --- | --- |
 | `membership_snapshot_pkey` | `CREATE UNIQUE INDEX membership_snapshot_pkey ON ranking.membership_snapshot USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `membership_snapshot_immutable` | `util.reject_mutation` | `CREATE TRIGGER membership_snapshot_immutable BEFORE DELETE OR UPDATE ON ranking.membership_snapshot FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

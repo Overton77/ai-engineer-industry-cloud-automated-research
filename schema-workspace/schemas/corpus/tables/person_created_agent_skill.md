@@ -67,6 +67,10 @@ _None._
 | `person_created_agent_skill_person_id_agent_skill_id_role_key` | `CREATE UNIQUE INDEX person_created_agent_skill_person_id_agent_skill_id_role_key ON corpus.person_created_agent_skill USING btree (person_id, agent_skill_id, role)` |
 | `person_created_agent_skill_pkey` | `CREATE UNIQUE INDEX person_created_agent_skill_pkey ON corpus.person_created_agent_skill USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

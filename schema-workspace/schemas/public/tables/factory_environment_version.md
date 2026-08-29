@@ -60,6 +60,10 @@ _None._
 | `factory_environment_slug_version_uniq` | `CREATE UNIQUE INDEX factory_environment_slug_version_uniq ON public.factory_environment_version USING btree (slug, version)` |
 | `factory_environment_version_pkey` | `CREATE UNIQUE INDEX factory_environment_version_pkey ON public.factory_environment_version USING btree (environment_version_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

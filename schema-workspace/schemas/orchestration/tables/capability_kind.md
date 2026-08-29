@@ -48,6 +48,10 @@ _None._
 | --- | --- |
 | `capability_kind_pkey` | `CREATE UNIQUE INDEX capability_kind_pkey ON orchestration.capability_kind USING btree (code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

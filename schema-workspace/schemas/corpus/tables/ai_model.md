@@ -65,8 +65,11 @@ Database table corpus.ai_model.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`corpus.ai_model`](../../corpus/tables/ai_model.md) | `ai_model_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.ai_model(id)` |
+| [`corpus.ai_model_relationship`](../../corpus/tables/ai_model_relationship.md) | `ai_model_relationship_from_ai_model_id_fkey` | `FOREIGN KEY (from_ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE` |
+| [`corpus.ai_model_relationship`](../../corpus/tables/ai_model_relationship.md) | `ai_model_relationship_to_ai_model_id_fkey` | `FOREIGN KEY (to_ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE` |
 | [`corpus.ai_model_released_by_organization`](../../corpus/tables/ai_model_released_by_organization.md) | `ai_model_released_by_organization_ai_model_id_fkey` | `FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE` |
 | [`corpus.ai_model_version`](../../corpus/tables/ai_model_version.md) | `ai_model_version_ai_model_id_fkey` | `FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE` |
+| [`corpus.paper_introduces_model`](../../corpus/tables/paper_introduces_model.md) | `paper_introduces_model_ai_model_id_fkey` | `FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_ai_model_id_fkey` | `FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id)` |
 | [`staging.identity_match`](../../staging/tables/identity_match.md) | `identity_match_ai_model_id_fkey` | `FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id)` |
 | [`taxonomy.assignment`](../../taxonomy/tables/assignment.md) | `assignment_ai_model_id_fkey` | `FOREIGN KEY (ai_model_id) REFERENCES corpus.ai_model(id) ON DELETE CASCADE` |
@@ -78,6 +81,12 @@ Database table corpus.ai_model.
 | `ai_model_pkey` | `CREATE UNIQUE INDEX ai_model_pkey ON corpus.ai_model USING btree (id)` |
 | `ai_model_provider_idx` | `CREATE INDEX ai_model_provider_idx ON corpus.ai_model USING btree (provider_organization_id)` |
 | `ai_model_provider_organization_id_model_slug_key` | `CREATE UNIQUE INDEX ai_model_provider_organization_id_model_slug_key ON corpus.ai_model USING btree (provider_organization_id, model_slug)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `ai_model_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER ai_model_set_updated_at BEFORE UPDATE ON corpus.ai_model FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

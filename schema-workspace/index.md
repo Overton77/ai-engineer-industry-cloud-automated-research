@@ -11,9 +11,9 @@ The canonical migration and TypeScript contract is `@aiengineer/database-contrac
 | [`public`](schemas/public/README.md) | 40 | Starter videos and pre-research pipeline |
 | [`api`](schemas/api/README.md) | 9 | Stable application-facing views and functions |
 | [`orchestration`](schemas/orchestration/README.md) | 23 | Missions, work leases, intents, receipts, and artifacts |
-| [`evidence`](schemas/evidence/README.md) | 32 | Sources, captures, locators, claims, and verification |
-| [`taxonomy`](schemas/taxonomy/README.md) | 6 | Versioned facets, terms, relations, and assignments |
-| [`corpus`](schemas/corpus/README.md) | 60 | Canonical industry entities |
+| [`evidence`](schemas/evidence/README.md) | 37 | Sources, captures, locators, claims, and verification |
+| [`taxonomy`](schemas/taxonomy/README.md) | 8 | Versioned facets, terms, relations, and assignments |
+| [`corpus`](schemas/corpus/README.md) | 76 | Canonical industry entities |
 | [`staging`](schemas/staging/README.md) | 22 | Candidates, mentions, identity resolution, and vetting |
 | [`ranking`](schemas/ranking/README.md) | 16 | Metric definitions, observations, features, and scores |
 | [`research`](schemas/research/README.md) | 8 | Bundles, reports, findings, comparisons, and handoffs |

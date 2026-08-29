@@ -67,6 +67,10 @@ Database table public.factory_task.
 | `factory_task_pkey` | `CREATE UNIQUE INDEX factory_task_pkey ON public.factory_task USING btree (factory_task_id)` |
 | `factory_task_slug_version_uniq` | `CREATE UNIQUE INDEX factory_task_slug_version_uniq ON public.factory_task USING btree (slug, version)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

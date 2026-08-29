@@ -62,6 +62,10 @@ Database table orchestration.capability_version.
 | `capability_version_capability_id_version_label_key` | `CREATE UNIQUE INDEX capability_version_capability_id_version_label_key ON orchestration.capability_version USING btree (capability_id, version_label)` |
 | `capability_version_pkey` | `CREATE UNIQUE INDEX capability_version_pkey ON orchestration.capability_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

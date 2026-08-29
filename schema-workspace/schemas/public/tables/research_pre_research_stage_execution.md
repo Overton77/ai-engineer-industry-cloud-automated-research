@@ -78,6 +78,10 @@ _None._
 | `research_pre_research_stage_execution_run_idx` | `CREATE INDEX research_pre_research_stage_execution_run_idx ON public.research_pre_research_stage_execution USING btree (run_id, stage)` |
 | `research_pre_research_stage_execution_run_stage_key` | `CREATE UNIQUE INDEX research_pre_research_stage_execution_run_stage_key ON public.research_pre_research_stage_execution USING btree (run_id, stage)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

@@ -67,6 +67,10 @@ _None._
 | `repository_implements_paper_pkey` | `CREATE UNIQUE INDEX repository_implements_paper_pkey ON corpus.repository_implements_paper USING btree (id)` |
 | `repository_implements_paper_repository_id_paper_id_key` | `CREATE UNIQUE INDEX repository_implements_paper_repository_id_paper_id_key ON corpus.repository_implements_paper USING btree (repository_id, paper_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

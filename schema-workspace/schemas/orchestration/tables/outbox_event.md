@@ -54,6 +54,10 @@ _None._
 | `outbox_event_pkey` | `CREATE UNIQUE INDEX outbox_event_pkey ON orchestration.outbox_event USING btree (id)` |
 | `outbox_event_unpublished_idx` | `CREATE INDEX outbox_event_unpublished_idx ON orchestration.outbox_event USING btree (created_at) WHERE (published_at IS NULL)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

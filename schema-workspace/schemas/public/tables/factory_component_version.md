@@ -58,6 +58,10 @@ _None._
 | `factory_component_slug_version_uniq` | `CREATE UNIQUE INDEX factory_component_slug_version_uniq ON public.factory_component_version USING btree (component_kind, slug, version)` |
 | `factory_component_version_pkey` | `CREATE UNIQUE INDEX factory_component_version_pkey ON public.factory_component_version USING btree (component_version_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

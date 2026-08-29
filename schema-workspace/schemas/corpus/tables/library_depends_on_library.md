@@ -68,6 +68,10 @@ _None._
 | `library_depends_on_library_library_id_depends_on_id_depende_key` | `CREATE UNIQUE INDEX library_depends_on_library_library_id_depends_on_id_depende_key ON corpus.library_depends_on_library USING btree (library_id, depends_on_id, dependency_kind)` |
 | `library_depends_on_library_pkey` | `CREATE UNIQUE INDEX library_depends_on_library_pkey ON corpus.library_depends_on_library USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

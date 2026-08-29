@@ -58,6 +58,10 @@ _None._
 | `research_taxonomy_version_pkey` | `CREATE UNIQUE INDEX research_taxonomy_version_pkey ON public.research_taxonomy_version USING btree (taxonomy_version_id)` |
 | `research_taxonomy_version_version_key` | `CREATE UNIQUE INDEX research_taxonomy_version_version_key ON public.research_taxonomy_version USING btree (version)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

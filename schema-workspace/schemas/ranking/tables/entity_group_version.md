@@ -56,6 +56,10 @@ Database table ranking.entity_group_version.
 | `entity_group_version_entity_group_id_version_key` | `CREATE UNIQUE INDEX entity_group_version_entity_group_id_version_key ON ranking.entity_group_version USING btree (entity_group_id, version)` |
 | `entity_group_version_pkey` | `CREATE UNIQUE INDEX entity_group_version_pkey ON ranking.entity_group_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

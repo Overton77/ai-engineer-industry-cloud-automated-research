@@ -67,6 +67,10 @@ _None._
 | `library_backed_by_repository_library_id_repository_id_relat_key` | `CREATE UNIQUE INDEX library_backed_by_repository_library_id_repository_id_relat_key ON corpus.library_backed_by_repository USING btree (library_id, repository_id, relationship_kind)` |
 | `library_backed_by_repository_pkey` | `CREATE UNIQUE INDEX library_backed_by_repository_pkey ON corpus.library_backed_by_repository USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

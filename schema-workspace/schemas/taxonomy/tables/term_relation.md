@@ -54,6 +54,10 @@ _None._
 | --- | --- |
 | `term_relation_pkey` | `CREATE UNIQUE INDEX term_relation_pkey ON taxonomy.term_relation USING btree (from_term_id, to_term_id, relation_kind)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

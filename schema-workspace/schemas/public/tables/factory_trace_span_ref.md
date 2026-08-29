@@ -61,6 +61,10 @@ _None._
 | `factory_trace_span_ref_pkey` | `CREATE UNIQUE INDEX factory_trace_span_ref_pkey ON public.factory_trace_span_ref USING btree (factory_trace_span_ref_id)` |
 | `factory_trace_span_uniq` | `CREATE UNIQUE INDEX factory_trace_span_uniq ON public.factory_trace_span_ref USING btree (trace_id, span_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

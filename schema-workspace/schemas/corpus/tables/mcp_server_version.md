@@ -67,6 +67,10 @@ Database table corpus.mcp_server_version.
 | `mcp_server_version_mcp_server_id_version_label_key` | `CREATE UNIQUE INDEX mcp_server_version_mcp_server_id_version_label_key ON corpus.mcp_server_version USING btree (mcp_server_id, version_label)` |
 | `mcp_server_version_pkey` | `CREATE UNIQUE INDEX mcp_server_version_pkey ON corpus.mcp_server_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

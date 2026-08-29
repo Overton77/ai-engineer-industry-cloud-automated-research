@@ -57,6 +57,10 @@ _None._
 | `organization_identifier_pkey` | `CREATE UNIQUE INDEX organization_identifier_pkey ON corpus.organization_identifier USING btree (id)` |
 | `organization_identifier_scheme_value_key` | `CREATE UNIQUE INDEX organization_identifier_scheme_value_key ON corpus.organization_identifier USING btree (scheme, value)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -60,6 +60,12 @@ _None._
 | `work_item_event_item_idx` | `CREATE INDEX work_item_event_item_idx ON orchestration.work_item_event USING btree (work_item_id, occurred_at)` |
 | `work_item_event_pkey` | `CREATE UNIQUE INDEX work_item_event_pkey ON orchestration.work_item_event USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `work_item_event_immutable` | `util.reject_mutation` | `CREATE TRIGGER work_item_event_immutable BEFORE DELETE OR UPDATE ON orchestration.work_item_event FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

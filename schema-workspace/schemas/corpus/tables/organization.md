@@ -69,11 +69,16 @@ Database table corpus.organization.
 | [`corpus.mcp_server`](../../corpus/tables/mcp_server.md) | `mcp_server_maintainer_organization_id_fkey` | `FOREIGN KEY (maintainer_organization_id) REFERENCES corpus.organization(id)` |
 | [`corpus.organization`](../../corpus/tables/organization.md) | `organization_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.organization(id)` |
 | [`corpus.organization_identifier`](../../corpus/tables/organization_identifier.md) | `organization_identifier_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
+| [`corpus.organization_product_relationship`](../../corpus/tables/organization_product_relationship.md) | `organization_product_relationship_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
+| [`corpus.organization_relationship`](../../corpus/tables/organization_relationship.md) | `organization_relationship_from_organization_id_fkey` | `FOREIGN KEY (from_organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
+| [`corpus.organization_relationship`](../../corpus/tables/organization_relationship.md) | `organization_relationship_to_organization_id_fkey` | `FOREIGN KEY (to_organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
 | [`corpus.paper_authored_by_person`](../../corpus/tables/paper_authored_by_person.md) | `paper_authored_by_person_affiliation_organization_id_fkey` | `FOREIGN KEY (affiliation_organization_id) REFERENCES corpus.organization(id)` |
 | [`corpus.person`](../../corpus/tables/person.md) | `person_primary_organization_id_fkey` | `FOREIGN KEY (primary_organization_id) REFERENCES corpus.organization(id)` |
 | [`corpus.person_employed_by_organization`](../../corpus/tables/person_employed_by_organization.md) | `person_employed_by_organization_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
 | [`corpus.person_founded_organization`](../../corpus/tables/person_founded_organization.md) | `person_founded_organization_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
 | [`corpus.product`](../../corpus/tables/product.md) | `product_vendor_organization_id_fkey` | `FOREIGN KEY (vendor_organization_id) REFERENCES corpus.organization(id)` |
+| [`corpus.product_family`](../../corpus/tables/product_family.md) | `product_family_vendor_organization_id_fkey` | `FOREIGN KEY (vendor_organization_id) REFERENCES corpus.organization(id)` |
+| [`corpus.repository_maintained_by_organization`](../../corpus/tables/repository_maintained_by_organization.md) | `repository_maintained_by_organization_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
 | [`evidence.claim_organization`](../../evidence/tables/claim_organization.md) | `claim_organization_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id) ON DELETE CASCADE` |
 | [`ranking.group_membership`](../../ranking/tables/group_membership.md) | `group_membership_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id)` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_organization_id_fkey` | `FOREIGN KEY (organization_id) REFERENCES corpus.organization(id)` |
@@ -86,6 +91,12 @@ Database table corpus.organization.
 | --- | --- |
 | `organization_pkey` | `CREATE UNIQUE INDEX organization_pkey ON corpus.organization USING btree (id)` |
 | `organization_tenant_id_slug_key` | `CREATE UNIQUE INDEX organization_tenant_id_slug_key ON corpus.organization USING btree (tenant_id, slug)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `organization_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER organization_set_updated_at BEFORE UPDATE ON corpus.organization FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

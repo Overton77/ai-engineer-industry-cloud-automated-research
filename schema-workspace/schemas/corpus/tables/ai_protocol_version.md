@@ -64,6 +64,10 @@ Database table corpus.ai_protocol_version.
 | `ai_protocol_version_ai_protocol_id_version_label_key` | `CREATE UNIQUE INDEX ai_protocol_version_ai_protocol_id_version_label_key ON corpus.ai_protocol_version USING btree (ai_protocol_id, version_label)` |
 | `ai_protocol_version_pkey` | `CREATE UNIQUE INDEX ai_protocol_version_pkey ON corpus.ai_protocol_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

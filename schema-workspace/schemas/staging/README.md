@@ -1,6 +1,6 @@
 # staging schema
 
-Searchable inventory for `staging`. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, and RLS policies.
+Searchable inventory for `staging`. Every relation has a dedicated file containing columns, constraints, inbound and outbound relationships, indexes, triggers, and RLS policies.
 
 - Tables: 22
 - Views: 0

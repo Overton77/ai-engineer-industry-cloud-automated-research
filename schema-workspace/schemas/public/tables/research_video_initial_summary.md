@@ -62,6 +62,10 @@ _None._
 | `research_video_initial_summary_pkey` | `CREATE UNIQUE INDEX research_video_initial_summary_pkey ON public.research_video_initial_summary USING btree (analysis_id)` |
 | `research_video_initial_summary_video_idx` | `CREATE INDEX research_video_initial_summary_video_idx ON public.research_video_initial_summary USING btree (video_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

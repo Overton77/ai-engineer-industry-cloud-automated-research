@@ -60,6 +60,10 @@ _None._
 | `research_entity_candidate_normalized_idx` | `CREATE INDEX research_entity_candidate_normalized_idx ON public.research_entity_candidate USING btree (normalized_name)` |
 | `research_entity_candidate_pkey` | `CREATE UNIQUE INDEX research_entity_candidate_pkey ON public.research_entity_candidate USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

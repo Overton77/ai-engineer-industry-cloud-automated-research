@@ -70,6 +70,10 @@ Database table orchestration.operation_intent.
 | `operation_intent_pkey` | `CREATE UNIQUE INDEX operation_intent_pkey ON orchestration.operation_intent USING btree (id)` |
 | `operation_intent_state_idx` | `CREATE INDEX operation_intent_state_idx ON orchestration.operation_intent USING btree (approval_state, created_at)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

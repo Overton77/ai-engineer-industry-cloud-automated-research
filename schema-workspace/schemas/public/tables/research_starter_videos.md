@@ -84,6 +84,12 @@ _None._
 | `research_starter_videos_published_at_idx` | `CREATE INDEX research_starter_videos_published_at_idx ON public.research_starter_videos USING btree (published_at DESC NULLS LAST)` |
 | `research_starter_videos_transcript_status_idx` | `CREATE INDEX research_starter_videos_transcript_status_idx ON public.research_starter_videos USING btree (transcript_status)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `set_research_starter_videos_updated_at` | `public.set_updated_at` | `CREATE TRIGGER set_research_starter_videos_updated_at BEFORE UPDATE ON research_starter_videos FOR EACH ROW EXECUTE FUNCTION set_updated_at()` |
+
 ## RLS policies
 
 _None._

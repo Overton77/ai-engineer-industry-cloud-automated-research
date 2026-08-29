@@ -103,7 +103,7 @@
       "generated_expression": null,
       "identity_kind": null,
       "name": "producer_attempt_id",
-      "nullable": true,
+      "nullable": false,
       "position": 9,
       "relation": "claim",
       "schema": "evidence"
@@ -513,6 +513,102 @@
       "name": "id",
       "nullable": false,
       "position": 1,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_evidence_link_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "run_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "evidence.support_verdict",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "verdict",
+      "nullable": false,
+      "position": 4,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "authority_assessment",
+      "nullable": false,
+      "position": 5,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "rationale",
+      "nullable": true,
+      "position": 6,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "boolean",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "replay_signature_match",
+      "nullable": false,
+      "position": 7,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 8,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
       "relation": "claim_evidence_link",
       "schema": "evidence"
     },
@@ -555,7 +651,7 @@
     {
       "data_type": "evidence.support_verdict",
       "default_expression": null,
-      "description": null,
+      "description": "Legacy projection; new verification writes use evidence.claim_evidence_assessment.",
       "generated_expression": null,
       "identity_kind": null,
       "name": "support_verdict",
@@ -567,7 +663,7 @@
     {
       "data_type": "jsonb",
       "default_expression": null,
-      "description": null,
+      "description": "Legacy projection; new verification writes use evidence.claim_evidence_assessment.",
       "generated_expression": null,
       "identity_kind": null,
       "name": "authority_assessment",
@@ -579,7 +675,7 @@
     {
       "data_type": "uuid",
       "default_expression": null,
-      "description": null,
+      "description": "Legacy projection; new verification writes use evidence.claim_evidence_assessment.",
       "generated_expression": null,
       "identity_kind": null,
       "name": "verified_by_run_id",
@@ -886,6 +982,42 @@
       "nullable": false,
       "position": 4,
       "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "claim_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "claim_product_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "product_version_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "claim_product_version",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'subject'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "role_in_claim",
+      "nullable": false,
+      "position": 3,
+      "relation": "claim_product_version",
       "schema": "evidence"
     },
     {
@@ -1627,7 +1759,7 @@
       "generated_expression": null,
       "identity_kind": null,
       "name": "produced_by_attempt_id",
-      "nullable": true,
+      "nullable": false,
       "position": 4,
       "relation": "extraction_signature",
       "schema": "evidence"
@@ -1699,7 +1831,7 @@
       "generated_expression": null,
       "identity_kind": null,
       "name": "selected_content_sha256",
-      "nullable": true,
+      "nullable": false,
       "position": 5,
       "relation": "locator",
       "schema": "evidence"
@@ -2239,9 +2371,417 @@
       "generated_expression": null,
       "identity_kind": null,
       "name": "produced_by_attempt_id",
-      "nullable": true,
+      "nullable": false,
       "position": 14,
       "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "mission_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "attempt_id",
+      "nullable": false,
+      "position": 5,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provider",
+      "nullable": false,
+      "position": 6,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "query_text",
+      "nullable": false,
+      "position": 7,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "purpose",
+      "nullable": false,
+      "position": 8,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "request_parameters",
+      "nullable": false,
+      "position": 9,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "response_artifact_id",
+      "nullable": true,
+      "position": 10,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "query_sha256",
+      "nullable": false,
+      "position": 11,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "queried_at",
+      "nullable": false,
+      "position": 12,
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "query_id",
+      "nullable": true,
+      "position": 3,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "source_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "capture_id",
+      "nullable": true,
+      "position": 5,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 6,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "attempt_id",
+      "nullable": false,
+      "position": 7,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "requested_url",
+      "nullable": false,
+      "position": 8,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provider_result_id",
+      "nullable": true,
+      "position": 9,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "integer",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "result_rank",
+      "nullable": true,
+      "position": 10,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "retrieval_status",
+      "nullable": false,
+      "position": 11,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "jsonb",
+      "default_expression": "'{}'::jsonb",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "provider_metadata",
+      "nullable": false,
+      "position": 12,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "retrieved_at",
+      "nullable": false,
+      "position": 13,
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.uuidv7()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "id",
+      "nullable": false,
+      "position": 1,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": "util.default_tenant_id()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "tenant_id",
+      "nullable": false,
+      "position": 2,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "retrieval_id",
+      "nullable": false,
+      "position": 3,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "work_item_id",
+      "nullable": false,
+      "position": 4,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "operation",
+      "nullable": false,
+      "position": 5,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "support_role",
+      "nullable": false,
+      "position": 6,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "statement",
+      "nullable": false,
+      "position": 7,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "locator_id",
+      "nullable": true,
+      "position": 8,
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 9,
+      "relation": "source_support",
       "schema": "evidence"
     },
     {
@@ -2463,7 +3003,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_agent_skill_version_role_in_claim_check",
       "references": null,
       "relation": "claim_agent_skill_version",
@@ -2495,7 +3035,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_ai_model_version_role_in_claim_check",
       "references": null,
       "relation": "claim_ai_model_version",
@@ -2527,7 +3067,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_benchmark_role_in_claim_check",
       "references": null,
       "relation": "claim_benchmark",
@@ -2559,7 +3099,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'comparison'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_case_study_role_in_claim_check",
       "references": null,
       "relation": "claim_case_study",
@@ -2591,7 +3131,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_concept_role_in_claim_check",
       "references": null,
       "relation": "claim_concept",
@@ -2671,7 +3211,7 @@
       "type": "unique"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_dataset_role_in_claim_check",
       "references": null,
       "relation": "claim_dataset",
@@ -2701,6 +3241,38 @@
       "relation": "claim_dataset",
       "schema": "evidence",
       "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_evidence_link_id) REFERENCES evidence.claim_evidence_link(id) ON DELETE CASCADE",
+      "name": "claim_evidence_assessment_claim_evidence_link_id_fkey",
+      "references": "evidence.claim_evidence_link",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (run_id) REFERENCES evidence.verification_run(id) ON DELETE CASCADE",
+      "name": "claim_evidence_assessment_run_id_fkey",
+      "references": "evidence.verification_run",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "claim_evidence_assessment_pkey",
+      "references": null,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (claim_evidence_link_id, run_id)",
+      "name": "claim_evidence_assessment_claim_evidence_link_id_run_id_key",
+      "references": null,
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence",
+      "type": "unique"
     },
     {
       "definition": "CHECK (role = ANY (ARRAY['supports'::text, 'contradicts'::text, 'qualifies'::text, 'context'::text]))",
@@ -2751,7 +3323,7 @@
       "type": "unique"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_library_role_in_claim_check",
       "references": null,
       "relation": "claim_library",
@@ -2783,7 +3355,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_mcp_server_version_role_in_claim_check",
       "references": null,
       "relation": "claim_mcp_server_version",
@@ -2815,7 +3387,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_organization_role_in_claim_check",
       "references": null,
       "relation": "claim_organization",
@@ -2847,7 +3419,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_paper_role_in_claim_check",
       "references": null,
       "relation": "claim_paper",
@@ -2879,7 +3451,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_person_role_in_claim_check",
       "references": null,
       "relation": "claim_person",
@@ -2911,7 +3483,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_product_role_in_claim_check",
       "references": null,
       "relation": "claim_product",
@@ -2943,7 +3515,39 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
+      "name": "claim_product_version_role_in_claim_check",
+      "references": null,
+      "relation": "claim_product_version",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
+      "name": "claim_product_version_claim_id_fkey",
+      "references": "evidence.claim",
+      "relation": "claim_product_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (product_version_id) REFERENCES corpus.product_version(id) ON DELETE CASCADE",
+      "name": "claim_product_version_product_version_id_fkey",
+      "references": "corpus.product_version",
+      "relation": "claim_product_version",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (claim_id, product_version_id, role_in_claim)",
+      "name": "claim_product_version_pkey",
+      "references": null,
+      "relation": "claim_product_version",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_protocol_version_role_in_claim_check",
       "references": null,
       "relation": "claim_protocol_version",
@@ -2975,7 +3579,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_repository_role_in_claim_check",
       "references": null,
       "relation": "claim_repository",
@@ -3007,7 +3611,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_talk_role_in_claim_check",
       "references": null,
       "relation": "claim_talk",
@@ -3047,7 +3651,7 @@
       "type": "check"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_technical_record_role_in_claim_check",
       "references": null,
       "relation": "claim_technical_record",
@@ -3151,7 +3755,7 @@
       "type": "primary_key"
     },
     {
-      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text]))",
+      "definition": "CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))",
       "name": "claim_video_role_in_claim_check",
       "references": null,
       "relation": "claim_video",
@@ -3431,6 +4035,206 @@
       "type": "primary_key"
     },
     {
+      "definition": "CHECK (btrim(provider) <> ''::text AND btrim(query_text) <> ''::text AND btrim(purpose) <> ''::text)",
+      "name": "source_query_nonempty",
+      "references": null,
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (query_sha256 ~ '^[0-9a-f]{64}$'::text)",
+      "name": "source_query_query_sha256_check",
+      "references": null,
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (attempt_id) REFERENCES orchestration.attempt(id) ON DELETE CASCADE",
+      "name": "source_query_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (mission_id) REFERENCES orchestration.mission(id) ON DELETE CASCADE",
+      "name": "source_query_mission_id_fkey",
+      "references": "orchestration.mission",
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (response_artifact_id) REFERENCES orchestration.artifact(id)",
+      "name": "source_query_response_artifact_id_fkey",
+      "references": "orchestration.artifact",
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "source_query_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "source_query_pkey",
+      "references": null,
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (attempt_id, provider, query_sha256)",
+      "name": "source_query_attempt_id_provider_query_sha256_key",
+      "references": null,
+      "relation": "source_query",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK ((retrieval_status = ANY (ARRAY['cache_hit'::text, 'captured'::text])) AND capture_id IS NOT NULL OR (retrieval_status <> ALL (ARRAY['cache_hit'::text, 'captured'::text])))",
+      "name": "source_retrieval_capture_consistent",
+      "references": null,
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (result_rank IS NULL OR result_rank > 0)",
+      "name": "source_retrieval_result_rank_check",
+      "references": null,
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (retrieval_status = ANY (ARRAY['discovered'::text, 'cache_hit'::text, 'captured'::text, 'failed'::text, 'skipped'::text]))",
+      "name": "source_retrieval_retrieval_status_check",
+      "references": null,
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (attempt_id) REFERENCES orchestration.attempt(id) ON DELETE CASCADE",
+      "name": "source_retrieval_attempt_id_fkey",
+      "references": "orchestration.attempt",
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (capture_id) REFERENCES evidence.source_capture(id)",
+      "name": "source_retrieval_capture_id_fkey",
+      "references": "evidence.source_capture",
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (query_id) REFERENCES evidence.source_query(id) ON DELETE SET NULL",
+      "name": "source_retrieval_query_id_fkey",
+      "references": "evidence.source_query",
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (source_id) REFERENCES evidence.source(id)",
+      "name": "source_retrieval_source_id_fkey",
+      "references": "evidence.source",
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "source_retrieval_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "source_retrieval_pkey",
+      "references": null,
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE NULLS NOT DISTINCT (attempt_id, query_id, capture_id)",
+      "name": "source_retrieval_attempt_id_query_id_capture_id_key",
+      "references": null,
+      "relation": "source_retrieval",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
+      "definition": "CHECK (btrim(operation) <> ''::text AND btrim(statement) <> ''::text)",
+      "name": "source_support_nonempty",
+      "references": null,
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "CHECK (support_role = ANY (ARRAY['supports'::text, 'challenges'::text, 'context'::text, 'background'::text, 'discarded'::text]))",
+      "name": "source_support_support_role_check",
+      "references": null,
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "check"
+    },
+    {
+      "definition": "FOREIGN KEY (locator_id) REFERENCES evidence.locator(id)",
+      "name": "source_support_locator_id_fkey",
+      "references": "evidence.locator",
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (retrieval_id) REFERENCES evidence.source_retrieval(id) ON DELETE CASCADE",
+      "name": "source_support_retrieval_id_fkey",
+      "references": "evidence.source_retrieval",
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (work_item_id) REFERENCES orchestration.work_item(id) ON DELETE CASCADE",
+      "name": "source_support_work_item_id_fkey",
+      "references": "orchestration.work_item",
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (id)",
+      "name": "source_support_pkey",
+      "references": null,
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (retrieval_id, work_item_id, operation, support_role, statement)",
+      "name": "source_support_retrieval_id_work_item_id_operation_support__key",
+      "references": null,
+      "relation": "source_support",
+      "schema": "evidence",
+      "type": "unique"
+    },
+    {
       "definition": "FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE",
       "name": "verification_finding_claim_id_fkey",
       "references": "evidence.claim",
@@ -3517,7 +4321,52 @@
     {
       "arguments": "",
       "description": null,
+      "name": "enforce_assessment_producer_not_verifier",
+      "returns": "trigger",
+      "schema": "evidence",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": "Freezes typed claim meaning before review; later retargeting requires a superseding claim.",
+      "name": "enforce_claim_association_proposed",
+      "returns": "trigger",
+      "schema": "evidence",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": null,
+      "name": "enforce_claim_evidence_finalization",
+      "returns": "trigger",
+      "schema": "evidence",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": null,
       "name": "enforce_producer_not_verifier",
+      "returns": "trigger",
+      "schema": "evidence",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": "Makes verifier identity/policy immutable and permits exactly one completion timestamp transition.",
+      "name": "enforce_verification_run_lifecycle",
+      "returns": "trigger",
+      "schema": "evidence",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": "Promotes only fully and directly supported atomic claims; partial or qualified results require a narrowed or superseding claim.",
+      "name": "enforce_verified_claim_gate",
       "returns": "trigger",
       "schema": "evidence",
       "security_definer": false,
@@ -3634,6 +4483,24 @@
       "schema": "evidence"
     },
     {
+      "definition": "CREATE UNIQUE INDEX claim_evidence_assessment_claim_evidence_link_id_run_id_key ON evidence.claim_evidence_assessment USING btree (claim_evidence_link_id, run_id)",
+      "name": "claim_evidence_assessment_claim_evidence_link_id_run_id_key",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_evidence_assessment_pkey ON evidence.claim_evidence_assessment USING btree (id)",
+      "name": "claim_evidence_assessment_pkey",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_evidence_assessment_run_idx ON evidence.claim_evidence_assessment USING btree (run_id)",
+      "name": "claim_evidence_assessment_run_idx",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX claim_evidence_link_claim_id_locator_id_role_key ON evidence.claim_evidence_link USING btree (claim_id, locator_id, role)",
       "name": "claim_evidence_link_claim_id_locator_id_role_key",
       "relation": "claim_evidence_link",
@@ -3721,6 +4588,18 @@
       "definition": "CREATE INDEX claim_product_target_idx ON evidence.claim_product USING btree (product_id)",
       "name": "claim_product_target_idx",
       "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX claim_product_version_pkey ON evidence.claim_product_version USING btree (claim_id, product_version_id, role_in_claim)",
+      "name": "claim_product_version_pkey",
+      "relation": "claim_product_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX claim_product_version_target_idx ON evidence.claim_product_version USING btree (product_version_id)",
+      "name": "claim_product_version_target_idx",
+      "relation": "claim_product_version",
       "schema": "evidence"
     },
     {
@@ -3874,6 +4753,12 @@
       "schema": "evidence"
     },
     {
+      "definition": "CREATE UNIQUE INDEX source_capture_artifact_uq ON evidence.source_capture USING btree (artifact_id)",
+      "name": "source_capture_artifact_uq",
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX source_capture_pkey ON evidence.source_capture USING btree (id)",
       "name": "source_capture_pkey",
       "relation": "source_capture",
@@ -3889,6 +4774,102 @@
       "definition": "CREATE INDEX source_capture_source_idx ON evidence.source_capture USING btree (source_id, captured_at DESC)",
       "name": "source_capture_source_idx",
       "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_query_attempt_id_provider_query_sha256_key ON evidence.source_query USING btree (attempt_id, provider, query_sha256)",
+      "name": "source_query_attempt_id_provider_query_sha256_key",
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_query_mission_idx ON evidence.source_query USING btree (mission_id, queried_at DESC)",
+      "name": "source_query_mission_idx",
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_query_pkey ON evidence.source_query USING btree (id)",
+      "name": "source_query_pkey",
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_query_response_artifact_idx ON evidence.source_query USING btree (response_artifact_id) WHERE (response_artifact_id IS NOT NULL)",
+      "name": "source_query_response_artifact_idx",
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_query_work_item_idx ON evidence.source_query USING btree (work_item_id, queried_at DESC)",
+      "name": "source_query_work_item_idx",
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_retrieval_attempt_id_query_id_capture_id_key ON evidence.source_retrieval USING btree (attempt_id, query_id, capture_id) NULLS NOT DISTINCT",
+      "name": "source_retrieval_attempt_id_query_id_capture_id_key",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_retrieval_capture_idx ON evidence.source_retrieval USING btree (capture_id) WHERE (capture_id IS NOT NULL)",
+      "name": "source_retrieval_capture_idx",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_retrieval_pkey ON evidence.source_retrieval USING btree (id)",
+      "name": "source_retrieval_pkey",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_retrieval_query_idx ON evidence.source_retrieval USING btree (query_id, result_rank, retrieved_at)",
+      "name": "source_retrieval_query_idx",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_retrieval_source_idx ON evidence.source_retrieval USING btree (source_id, retrieved_at DESC)",
+      "name": "source_retrieval_source_idx",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_retrieval_work_item_idx ON evidence.source_retrieval USING btree (work_item_id, retrieved_at DESC)",
+      "name": "source_retrieval_work_item_idx",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_support_locator_idx ON evidence.source_support USING btree (locator_id) WHERE (locator_id IS NOT NULL)",
+      "name": "source_support_locator_idx",
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_support_pkey ON evidence.source_support USING btree (id)",
+      "name": "source_support_pkey",
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX source_support_retrieval_id_work_item_id_operation_support__key ON evidence.source_support USING btree (retrieval_id, work_item_id, operation, support_role, statement)",
+      "name": "source_support_retrieval_id_work_item_id_operation_support__key",
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_support_retrieval_idx ON evidence.source_support USING btree (retrieval_id)",
+      "name": "source_support_retrieval_idx",
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE INDEX source_support_work_item_idx ON evidence.source_support USING btree (work_item_id, operation, created_at)",
+      "name": "source_support_work_item_idx",
+      "relation": "source_support",
       "schema": "evidence"
     },
     {
@@ -4050,6 +5031,22 @@
       "command": "ALL",
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
+      "relation": "claim_evidence_assessment",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
       "relation": "claim_evidence_link",
       "roles": [
         "app_reader",
@@ -4147,6 +5144,22 @@
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
       "relation": "claim_product",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "claim_product_version",
       "roles": [
         "app_reader",
         "control_plane",
@@ -4398,6 +5411,54 @@
       "using_expression": "(tenant_id = util.current_tenant_id())"
     },
     {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "source_query",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "source_retrieval",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
+      "check_expression": "(tenant_id = util.current_tenant_id())",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "source_support",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "evidence",
+      "using_expression": "(tenant_id = util.current_tenant_id())"
+    },
+    {
       "check_expression": "true",
       "command": "ALL",
       "name": "bounded_role_access",
@@ -4505,6 +5566,15 @@
     },
     {
       "definition": null,
+      "description": "Append-only, run-scoped verifier assessment of one immutable claim/evidence link.",
+      "kind": "table",
+      "name": "claim_evidence_assessment",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
       "description": null,
       "kind": "table",
       "name": "claim_evidence_link",
@@ -4562,6 +5632,15 @@
       "description": null,
       "kind": "table",
       "name": "claim_product",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": "Typed claim association for an exact SaaS or product release/version.",
+      "kind": "table",
+      "name": "claim_product_version",
       "rls_enabled": true,
       "rls_forced": false,
       "schema": "evidence"
@@ -4703,6 +5782,33 @@
     },
     {
       "definition": null,
+      "description": "Operational source intelligence: exact query, provider parameters, raw response artifact, and intended work-item purpose.",
+      "kind": "table",
+      "name": "source_query",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": "A query result or direct fetch, including cache outcome and the immutable capture when bytes were obtained.",
+      "kind": "table",
+      "name": "source_retrieval",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
+      "description": "Why a retrieval mattered to an operation. This is an operational audit statement, not a canonical factual claim.",
+      "kind": "table",
+      "name": "source_support",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "evidence"
+    },
+    {
+      "definition": null,
       "description": null,
       "kind": "table",
       "name": "verification_finding",
@@ -4720,5 +5826,439 @@
       "schema": "evidence"
     }
   ],
-  "schema": "evidence"
+  "schema": "evidence",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER claim_content_provenance_immutable BEFORE UPDATE OF tenant_id, claim_type, statement, structured, composite, atomized_from_id, producer_attempt_id, created_by_receipt_id, created_at ON evidence.claim FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_content_provenance_immutable",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_reviewed_preserved BEFORE DELETE ON evidence.claim FOR EACH ROW WHEN (old.status <> 'proposed'::evidence.claim_status) EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_reviewed_preserved",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_set_updated_at BEFORE UPDATE ON evidence.claim FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "claim_set_updated_at",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_verified_gate BEFORE INSERT OR UPDATE OF status ON evidence.claim FOR EACH ROW EXECUTE FUNCTION evidence.enforce_verified_claim_gate()",
+      "function_name": "enforce_verified_claim_gate",
+      "function_schema": "evidence",
+      "name": "claim_verified_gate",
+      "relation": "claim",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_agent_skill_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_agent_skill_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_agent_skill_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_ai_model_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_ai_model_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_ai_model_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_benchmark FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_benchmark FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_benchmark",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_case_study FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_case_study FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_case_study",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_concept FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_concept FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_concept",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_dataset FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_dataset FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_dataset",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_evidence_assessment_immutable BEFORE DELETE OR UPDATE ON evidence.claim_evidence_assessment FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_evidence_assessment_immutable",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_evidence_assessment_independence BEFORE INSERT ON evidence.claim_evidence_assessment FOR EACH ROW EXECUTE FUNCTION evidence.enforce_assessment_producer_not_verifier()",
+      "function_name": "enforce_assessment_producer_not_verifier",
+      "function_schema": "evidence",
+      "name": "claim_evidence_assessment_independence",
+      "relation": "claim_evidence_assessment",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_evidence_link_immutable BEFORE DELETE OR UPDATE ON evidence.claim_evidence_link FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_evidence_link_immutable",
+      "relation": "claim_evidence_link",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_library FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_library FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_library",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_mcp_server_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_mcp_server_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_mcp_server_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_organization FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_organization FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_organization",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_paper FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_paper FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_paper",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_person FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_person FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_person",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_product FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_product FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_product",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_product_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_product_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_product_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_product_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_protocol_version FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_protocol_version FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_protocol_version",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_repository FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_repository FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_repository",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_talk FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_talk FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_talk",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_technical_record FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_technical_record FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_technical_record",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_video FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "claim_entity_association_immutable",
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_video FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()",
+      "function_name": "enforce_claim_association_proposed",
+      "function_schema": "evidence",
+      "name": "claim_entity_association_proposed",
+      "relation": "claim_video",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER executable_verification_immutable BEFORE DELETE OR UPDATE ON evidence.executable_verification FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "executable_verification_immutable",
+      "relation": "executable_verification",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER extraction_signature_immutable BEFORE DELETE OR UPDATE ON evidence.extraction_signature FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "extraction_signature_immutable",
+      "relation": "extraction_signature",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER locator_immutable BEFORE DELETE OR UPDATE ON evidence.locator FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "locator_immutable",
+      "relation": "locator",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER source_set_updated_at BEFORE UPDATE ON evidence.source FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "source_set_updated_at",
+      "relation": "source",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER source_capture_immutable BEFORE DELETE OR UPDATE ON evidence.source_capture FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "source_capture_immutable",
+      "relation": "source_capture",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER source_query_immutable BEFORE DELETE OR UPDATE ON evidence.source_query FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "source_query_immutable",
+      "relation": "source_query",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER source_retrieval_immutable BEFORE DELETE OR UPDATE ON evidence.source_retrieval FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "source_retrieval_immutable",
+      "relation": "source_retrieval",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER source_support_immutable BEFORE DELETE OR UPDATE ON evidence.source_support FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "source_support_immutable",
+      "relation": "source_support",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER verification_finding_immutable BEFORE DELETE OR UPDATE ON evidence.verification_finding FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()",
+      "function_name": "reject_mutation",
+      "function_schema": "util",
+      "name": "verification_finding_immutable",
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER verification_finding_independence BEFORE INSERT OR UPDATE ON evidence.verification_finding FOR EACH ROW EXECUTE FUNCTION evidence.enforce_producer_not_verifier()",
+      "function_name": "enforce_producer_not_verifier",
+      "function_schema": "evidence",
+      "name": "verification_finding_independence",
+      "relation": "verification_finding",
+      "schema": "evidence"
+    },
+    {
+      "definition": "CREATE TRIGGER verification_run_identity_immutable BEFORE DELETE OR UPDATE ON evidence.verification_run FOR EACH ROW EXECUTE FUNCTION evidence.enforce_verification_run_lifecycle()",
+      "function_name": "enforce_verification_run_lifecycle",
+      "function_schema": "evidence",
+      "name": "verification_run_identity_immutable",
+      "relation": "verification_run",
+      "schema": "evidence"
+    }
+  ]
 }

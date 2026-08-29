@@ -55,6 +55,10 @@ Evolving application-domain lookup. Not a Postgres enum.
 | --- | --- |
 | `research_application_domain_pkey` | `CREATE UNIQUE INDEX research_application_domain_pkey ON public.research_application_domain USING btree (domain_code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

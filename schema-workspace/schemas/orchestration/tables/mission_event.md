@@ -56,6 +56,12 @@ _None._
 | `mission_event_mission_idx` | `CREATE INDEX mission_event_mission_idx ON orchestration.mission_event USING btree (mission_id, occurred_at)` |
 | `mission_event_pkey` | `CREATE UNIQUE INDEX mission_event_pkey ON orchestration.mission_event USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `mission_event_immutable` | `util.reject_mutation` | `CREATE TRIGGER mission_event_immutable BEFORE DELETE OR UPDATE ON orchestration.mission_event FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -24,9 +24,9 @@ Database table evidence.claim_evidence_link.
 | 2 | `claim_id` | `uuid` | no | — | — |
 | 3 | `locator_id` | `uuid` | no | — | — |
 | 4 | `role` | `text` | no | — | — |
-| 5 | `support_verdict` | `evidence.support_verdict` | yes | — | — |
-| 6 | `authority_assessment` | `jsonb` | yes | — | — |
-| 7 | `verified_by_run_id` | `uuid` | yes | — | — |
+| 5 | `support_verdict` | `evidence.support_verdict` | yes | — | Legacy projection; new verification writes use evidence.claim_evidence_assessment. |
+| 6 | `authority_assessment` | `jsonb` | yes | — | Legacy projection; new verification writes use evidence.claim_evidence_assessment. |
+| 7 | `verified_by_run_id` | `uuid` | yes | — | Legacy projection; new verification writes use evidence.claim_evidence_assessment. |
 | 8 | `created_at` | `timestamp with time zone` | no | `now()` | — |
 
 ## Constraints
@@ -52,7 +52,9 @@ Database table evidence.claim_evidence_link.
 
 ### Inbound foreign keys
 
-_None._
+| Source | Constraint | Definition |
+| --- | --- | --- |
+| [`evidence.claim_evidence_assessment`](../../evidence/tables/claim_evidence_assessment.md) | `claim_evidence_assessment_claim_evidence_link_id_fkey` | `FOREIGN KEY (claim_evidence_link_id) REFERENCES evidence.claim_evidence_link(id) ON DELETE CASCADE` |
 
 ## Indexes
 
@@ -61,6 +63,12 @@ _None._
 | `claim_evidence_link_claim_id_locator_id_role_key` | `CREATE UNIQUE INDEX claim_evidence_link_claim_id_locator_id_role_key ON evidence.claim_evidence_link USING btree (claim_id, locator_id, role)` |
 | `claim_evidence_link_locator_idx` | `CREATE INDEX claim_evidence_link_locator_idx ON evidence.claim_evidence_link USING btree (locator_id)` |
 | `claim_evidence_link_pkey` | `CREATE UNIQUE INDEX claim_evidence_link_pkey ON evidence.claim_evidence_link USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_evidence_link_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_evidence_link_immutable BEFORE DELETE OR UPDATE ON evidence.claim_evidence_link FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
 
 ## RLS policies
 

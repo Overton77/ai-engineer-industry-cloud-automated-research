@@ -54,6 +54,10 @@ _None._
 | `provider_route_abstract_operation_provider_policy_version_key` | `CREATE UNIQUE INDEX provider_route_abstract_operation_provider_policy_version_key ON orchestration.provider_route USING btree (abstract_operation, provider, policy_version)` |
 | `provider_route_pkey` | `CREATE UNIQUE INDEX provider_route_pkey ON orchestration.provider_route USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

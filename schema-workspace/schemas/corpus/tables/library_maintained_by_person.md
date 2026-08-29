@@ -67,6 +67,10 @@ _None._
 | `library_maintained_by_person_library_id_person_id_role_vali_key` | `CREATE UNIQUE INDEX library_maintained_by_person_library_id_person_id_role_vali_key ON corpus.library_maintained_by_person USING btree (library_id, person_id, role, valid_from)` |
 | `library_maintained_by_person_pkey` | `CREATE UNIQUE INDEX library_maintained_by_person_pkey ON corpus.library_maintained_by_person USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

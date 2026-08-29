@@ -59,6 +59,10 @@ _None._
 | `vetting_decision_outcome_idx` | `CREATE INDEX vetting_decision_outcome_idx ON staging.vetting_decision USING btree (outcome, decided_at DESC)` |
 | `vetting_decision_pkey` | `CREATE UNIQUE INDEX vetting_decision_pkey ON staging.vetting_decision USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

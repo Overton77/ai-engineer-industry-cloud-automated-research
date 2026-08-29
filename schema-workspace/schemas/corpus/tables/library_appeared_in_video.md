@@ -69,6 +69,10 @@ _None._
 | `library_appeared_in_video_library_id_video_id_key` | `CREATE UNIQUE INDEX library_appeared_in_video_library_id_video_id_key ON corpus.library_appeared_in_video USING btree (library_id, video_id)` |
 | `library_appeared_in_video_pkey` | `CREATE UNIQUE INDEX library_appeared_in_video_pkey ON corpus.library_appeared_in_video USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

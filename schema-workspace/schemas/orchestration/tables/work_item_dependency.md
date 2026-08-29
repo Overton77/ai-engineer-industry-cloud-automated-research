@@ -55,6 +55,10 @@ _None._
 | `work_item_dependency_pkey` | `CREATE UNIQUE INDEX work_item_dependency_pkey ON orchestration.work_item_dependency USING btree (work_item_id, depends_on_id)` |
 | `work_item_dependency_reverse_idx` | `CREATE INDEX work_item_dependency_reverse_idx ON orchestration.work_item_dependency USING btree (depends_on_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

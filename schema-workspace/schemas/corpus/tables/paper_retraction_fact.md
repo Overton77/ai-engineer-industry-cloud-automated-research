@@ -65,6 +65,10 @@ _None._
 | `paper_retraction_fact_pkey` | `CREATE UNIQUE INDEX paper_retraction_fact_pkey ON corpus.paper_retraction_fact USING btree (id)` |
 | `paper_retraction_no_overlap` | `CREATE INDEX paper_retraction_no_overlap ON corpus.paper_retraction_fact USING gist (paper_id, validity) WHERE ((lifecycle_state)::text = 'active'::text)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -55,6 +55,10 @@ _None._
 | `research_category_definition_pkey` | `CREATE UNIQUE INDEX research_category_definition_pkey ON public.research_category_definition USING btree (taxonomy_version_id, category_code)` |
 | `research_category_definition_sort_idx` | `CREATE INDEX research_category_definition_sort_idx ON public.research_category_definition USING btree (taxonomy_version_id, sort_order)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

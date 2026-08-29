@@ -57,6 +57,10 @@ _None._
 | `repository_alias_host_owner_name_key` | `CREATE UNIQUE INDEX repository_alias_host_owner_name_key ON corpus.repository_alias USING btree (host, owner, name)` |
 | `repository_alias_pkey` | `CREATE UNIQUE INDEX repository_alias_pkey ON corpus.repository_alias USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

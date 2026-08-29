@@ -54,6 +54,10 @@ _None._
 | --- | --- |
 | `comparison_pkey` | `CREATE UNIQUE INDEX comparison_pkey ON research.comparison USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

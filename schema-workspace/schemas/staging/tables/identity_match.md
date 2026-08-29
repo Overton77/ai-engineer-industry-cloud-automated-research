@@ -123,6 +123,10 @@ Database table staging.identity_match.
 | `identity_match_target_idx` | `CREATE INDEX identity_match_target_idx ON staging.identity_match USING btree (target_kind)` |
 | `identity_match_video_id_idx` | `CREATE INDEX identity_match_video_id_idx ON staging.identity_match USING btree (video_id) WHERE (video_id IS NOT NULL)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

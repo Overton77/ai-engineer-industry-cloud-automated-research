@@ -61,6 +61,10 @@ _None._
 | `ranking_result_run_id_entity_kind_entity_id_key` | `CREATE UNIQUE INDEX ranking_result_run_id_entity_kind_entity_id_key ON ranking.ranking_result USING btree (run_id, entity_kind, entity_id)` |
 | `ranking_result_run_id_rank_key` | `CREATE UNIQUE INDEX ranking_result_run_id_rank_key ON ranking.ranking_result USING btree (run_id, rank)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

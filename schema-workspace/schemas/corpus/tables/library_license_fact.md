@@ -63,6 +63,10 @@ _None._
 | `library_license_fact_pkey` | `CREATE UNIQUE INDEX library_license_fact_pkey ON corpus.library_license_fact USING btree (id)` |
 | `library_license_no_overlap` | `CREATE INDEX library_license_no_overlap ON corpus.library_license_fact USING gist (library_id, validity) WHERE ((lifecycle_state)::text = 'active'::text)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -52,6 +52,10 @@ _None._
 | --- | --- |
 | `work_item_artifact_pkey` | `CREATE UNIQUE INDEX work_item_artifact_pkey ON orchestration.work_item_artifact USING btree (work_item_id, artifact_id, role)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -63,6 +63,10 @@ _None._
 | `research_resource_candidate_analysis_url_uidx` | `CREATE UNIQUE INDEX research_resource_candidate_analysis_url_uidx ON public.research_resource_candidate USING btree (analysis_id, normalized_url)` |
 | `research_resource_candidate_pkey` | `CREATE UNIQUE INDEX research_resource_candidate_pkey ON public.research_resource_candidate USING btree (resource_candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

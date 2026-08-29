@@ -66,6 +66,10 @@ _None._
 | `agent_skill_targets_library_agent_skill_id_library_id_relat_key` | `CREATE UNIQUE INDEX agent_skill_targets_library_agent_skill_id_library_id_relat_key ON corpus.agent_skill_targets_library USING btree (agent_skill_id, library_id, relationship)` |
 | `agent_skill_targets_library_pkey` | `CREATE UNIQUE INDEX agent_skill_targets_library_pkey ON corpus.agent_skill_targets_library USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -56,6 +56,10 @@ Database table research.report.
 | `report_pkey` | `CREATE UNIQUE INDEX report_pkey ON research.report USING btree (id)` |
 | `report_tenant_id_slug_key` | `CREATE UNIQUE INDEX report_tenant_id_slug_key ON research.report USING btree (tenant_id, slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

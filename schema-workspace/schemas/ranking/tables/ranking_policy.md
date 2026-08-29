@@ -53,6 +53,10 @@ _None._
 | `ranking_policy_pkey` | `CREATE UNIQUE INDEX ranking_policy_pkey ON ranking.ranking_policy USING btree (id)` |
 | `ranking_policy_tenant_id_slug_key` | `CREATE UNIQUE INDEX ranking_policy_tenant_id_slug_key ON ranking.ranking_policy USING btree (tenant_id, slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

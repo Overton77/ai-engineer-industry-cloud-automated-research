@@ -57,6 +57,10 @@ _None._
 | `feature_value_feature_definition_id_entity_kind_entity_id_c_key` | `CREATE UNIQUE INDEX feature_value_feature_definition_id_entity_kind_entity_id_c_key ON ranking.feature_value USING btree (feature_definition_id, entity_kind, entity_id, computed_at)` |
 | `feature_value_pkey` | `CREATE UNIQUE INDEX feature_value_pkey ON ranking.feature_value USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

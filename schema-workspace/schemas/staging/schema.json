@@ -3757,5 +3757,15 @@
       "schema": "staging"
     }
   ],
-  "schema": "staging"
+  "schema": "staging",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER candidate_set_updated_at BEFORE UPDATE ON staging.candidate FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "candidate_set_updated_at",
+      "relation": "candidate",
+      "schema": "staging"
+    }
+  ]
 }

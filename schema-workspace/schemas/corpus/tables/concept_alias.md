@@ -57,6 +57,10 @@ _None._
 | `concept_alias_concept_id_alias_key` | `CREATE UNIQUE INDEX concept_alias_concept_id_alias_key ON corpus.concept_alias USING btree (concept_id, alias)` |
 | `concept_alias_pkey` | `CREATE UNIQUE INDEX concept_alias_pkey ON corpus.concept_alias USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -55,6 +55,8 @@ Database table corpus.ai_model_version.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`corpus.ai_model_availability_fact`](../../corpus/tables/ai_model_availability_fact.md) | `ai_model_availability_fact_ai_model_version_id_fkey` | `FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE` |
+| [`corpus.benchmark_evaluates_model_version`](../../corpus/tables/benchmark_evaluates_model_version.md) | `benchmark_evaluates_model_version_ai_model_version_id_fkey` | `FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE` |
+| [`corpus.case_study_uses_model_version`](../../corpus/tables/case_study_uses_model_version.md) | `case_study_uses_model_version_ai_model_version_id_fkey` | `FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE` |
 | [`corpus.library_supports_model_version`](../../corpus/tables/library_supports_model_version.md) | `library_supports_model_version_ai_model_version_id_fkey` | `FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE` |
 | [`corpus.product_built_on_model_version`](../../corpus/tables/product_built_on_model_version.md) | `product_built_on_model_version_ai_model_version_id_fkey` | `FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE` |
 | [`evidence.claim_ai_model_version`](../../evidence/tables/claim_ai_model_version.md) | `claim_ai_model_version_ai_model_version_id_fkey` | `FOREIGN KEY (ai_model_version_id) REFERENCES corpus.ai_model_version(id) ON DELETE CASCADE` |
@@ -67,6 +69,10 @@ Database table corpus.ai_model_version.
 | --- | --- |
 | `ai_model_version_ai_model_id_version_label_key` | `CREATE UNIQUE INDEX ai_model_version_ai_model_id_version_label_key ON corpus.ai_model_version USING btree (ai_model_id, version_label)` |
 | `ai_model_version_pkey` | `CREATE UNIQUE INDEX ai_model_version_pkey ON corpus.ai_model_version USING btree (id)` |
+
+## Triggers
+
+_None._
 
 ## RLS policies
 

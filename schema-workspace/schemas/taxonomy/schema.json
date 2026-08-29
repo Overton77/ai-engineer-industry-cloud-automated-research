@@ -361,14 +361,38 @@
       "schema": "taxonomy"
     },
     {
-      "data_type": "text",
-      "default_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (lesson_id IS NOT NULL) THEN 'lesson'::text\n    ELSE NULL::text\nEND",
+      "data_type": "uuid",
+      "default_expression": null,
       "description": null,
-      "generated_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (lesson_id IS NOT NULL) THEN 'lesson'::text\n    ELSE NULL::text\nEND",
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "dataset_id",
+      "nullable": true,
+      "position": 33,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "benchmark_id",
+      "nullable": true,
+      "position": 34,
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (lesson_id IS NOT NULL) THEN 'lesson'::text\n    ELSE NULL::text\nEND",
+      "description": null,
+      "generated_expression": "\nCASE\n    WHEN (library_id IS NOT NULL) THEN 'library'::text\n    WHEN (repository_id IS NOT NULL) THEN 'repository'::text\n    WHEN (person_id IS NOT NULL) THEN 'person'::text\n    WHEN (organization_id IS NOT NULL) THEN 'organization'::text\n    WHEN (paper_id IS NOT NULL) THEN 'paper'::text\n    WHEN (talk_id IS NOT NULL) THEN 'talk'::text\n    WHEN (video_id IS NOT NULL) THEN 'video'::text\n    WHEN (product_id IS NOT NULL) THEN 'product'::text\n    WHEN (case_study_id IS NOT NULL) THEN 'case_study'::text\n    WHEN (concept_id IS NOT NULL) THEN 'concept'::text\n    WHEN (dataset_id IS NOT NULL) THEN 'dataset'::text\n    WHEN (benchmark_id IS NOT NULL) THEN 'benchmark'::text\n    WHEN (ai_model_id IS NOT NULL) THEN 'ai_model'::text\n    WHEN (ai_protocol_id IS NOT NULL) THEN 'ai_protocol'::text\n    WHEN (mcp_server_id IS NOT NULL) THEN 'mcp_server'::text\n    WHEN (agent_skill_id IS NOT NULL) THEN 'agent_skill'::text\n    WHEN (technical_problem_id IS NOT NULL) THEN 'technical_problem'::text\n    WHEN (solution_pattern_id IS NOT NULL) THEN 'solution_pattern'::text\n    WHEN (advanced_usage_pattern_id IS NOT NULL) THEN 'advanced_usage_pattern'::text\n    WHEN (failure_mode_id IS NOT NULL) THEN 'failure_mode'::text\n    WHEN (lesson_id IS NOT NULL) THEN 'lesson'::text\n    ELSE NULL::text\nEND",
       "identity_kind": null,
       "name": "target_kind",
       "nullable": true,
-      "position": 32,
+      "position": 35,
       "relation": "assignment",
       "schema": "taxonomy"
     },
@@ -418,6 +442,66 @@
       "nullable": false,
       "position": 4,
       "relation": "assignment_review_requirement",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "code",
+      "nullable": false,
+      "position": 1,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "label",
+      "nullable": false,
+      "position": 2,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": "'corpus'::text",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "canonical_schema",
+      "nullable": false,
+      "position": 3,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "canonical_table",
+      "nullable": false,
+      "position": 4,
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "description",
+      "nullable": false,
+      "position": 5,
+      "relation": "entity_kind",
       "schema": "taxonomy"
     },
     {
@@ -755,11 +839,47 @@
       "position": 4,
       "relation": "term_relation",
       "schema": "taxonomy"
+    },
+    {
+      "data_type": "uuid",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "term_id",
+      "nullable": false,
+      "position": 1,
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "text",
+      "default_expression": null,
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "entity_kind_code",
+      "nullable": false,
+      "position": 2,
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "data_type": "timestamp with time zone",
+      "default_expression": "now()",
+      "description": null,
+      "generated_expression": null,
+      "identity_kind": null,
+      "name": "created_at",
+      "nullable": false,
+      "position": 3,
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
     }
   ],
   "constraints": [
     {
-      "definition": "CHECK (num_nonnulls(library_id, repository_id, person_id, organization_id, paper_id, talk_id, video_id, product_id, case_study_id, concept_id, ai_model_id, ai_protocol_id, mcp_server_id, agent_skill_id, technical_problem_id, solution_pattern_id, advanced_usage_pattern_id, failure_mode_id, lesson_id) = 1)",
+      "definition": "CHECK (num_nonnulls(library_id, repository_id, person_id, organization_id, paper_id, talk_id, video_id, product_id, case_study_id, concept_id, dataset_id, benchmark_id, ai_model_id, ai_protocol_id, mcp_server_id, agent_skill_id, technical_problem_id, solution_pattern_id, advanced_usage_pattern_id, failure_mode_id, lesson_id) = 1)",
       "name": "assignment_exactly_one_target",
       "references": null,
       "relation": "assignment",
@@ -807,6 +927,14 @@
       "type": "foreign_key"
     },
     {
+      "definition": "FOREIGN KEY (benchmark_id) REFERENCES corpus.benchmark(id) ON DELETE CASCADE",
+      "name": "assignment_benchmark_id_fkey",
+      "references": "corpus.benchmark",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
       "definition": "FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE",
       "name": "assignment_case_study_id_fkey",
       "references": "corpus.case_study",
@@ -826,6 +954,14 @@
       "definition": "FOREIGN KEY (created_by_receipt_id) REFERENCES orchestration.operation_receipt(id)",
       "name": "assignment_created_by_receipt_id_fkey",
       "references": "orchestration.operation_receipt",
+      "relation": "assignment",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (dataset_id) REFERENCES corpus.dataset(id) ON DELETE CASCADE",
+      "name": "assignment_dataset_id_fkey",
+      "references": "corpus.dataset",
       "relation": "assignment",
       "schema": "taxonomy",
       "type": "foreign_key"
@@ -983,6 +1119,22 @@
       "type": "primary_key"
     },
     {
+      "definition": "PRIMARY KEY (code)",
+      "name": "entity_kind_pkey",
+      "references": null,
+      "relation": "entity_kind",
+      "schema": "taxonomy",
+      "type": "primary_key"
+    },
+    {
+      "definition": "UNIQUE (canonical_schema, canonical_table)",
+      "name": "entity_kind_canonical_schema_canonical_table_key",
+      "references": null,
+      "relation": "entity_kind",
+      "schema": "taxonomy",
+      "type": "unique"
+    },
+    {
       "definition": "CHECK (cardinality = ANY (ARRAY['single'::text, 'multi'::text]))",
       "name": "facet_cardinality_check",
       "references": null,
@@ -1117,6 +1269,30 @@
       "relation": "term_relation",
       "schema": "taxonomy",
       "type": "primary_key"
+    },
+    {
+      "definition": "FOREIGN KEY (entity_kind_code) REFERENCES taxonomy.entity_kind(code) ON DELETE CASCADE",
+      "name": "term_target_kind_entity_kind_code_fkey",
+      "references": "taxonomy.entity_kind",
+      "relation": "term_target_kind",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "FOREIGN KEY (term_id) REFERENCES taxonomy.term(id) ON DELETE CASCADE",
+      "name": "term_target_kind_term_id_fkey",
+      "references": "taxonomy.term",
+      "relation": "term_target_kind",
+      "schema": "taxonomy",
+      "type": "foreign_key"
+    },
+    {
+      "definition": "PRIMARY KEY (term_id, entity_kind_code)",
+      "name": "term_target_kind_pkey",
+      "references": null,
+      "relation": "term_target_kind",
+      "schema": "taxonomy",
+      "type": "primary_key"
     }
   ],
   "enums": [
@@ -1135,6 +1311,15 @@
       "arguments": "",
       "description": null,
       "name": "enforce_facet_cardinality",
+      "returns": "trigger",
+      "schema": "taxonomy",
+      "security_definer": false,
+      "volatility": "volatile"
+    },
+    {
+      "arguments": "",
+      "description": null,
+      "name": "enforce_term_target_scope",
       "returns": "trigger",
       "schema": "taxonomy",
       "security_definer": false,
@@ -1167,6 +1352,12 @@
       "schema": "taxonomy"
     },
     {
+      "definition": "CREATE INDEX assignment_benchmark_id_idx ON taxonomy.assignment USING btree (benchmark_id) WHERE (benchmark_id IS NOT NULL)",
+      "name": "assignment_benchmark_id_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
       "definition": "CREATE INDEX assignment_case_study_id_idx ON taxonomy.assignment USING btree (case_study_id) WHERE (case_study_id IS NOT NULL)",
       "name": "assignment_case_study_id_idx",
       "relation": "assignment",
@@ -1181,6 +1372,12 @@
     {
       "definition": "CREATE INDEX assignment_current_idx ON taxonomy.assignment USING btree (term_id) WHERE (valid_to IS NULL)",
       "name": "assignment_current_idx",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE INDEX assignment_dataset_id_idx ON taxonomy.assignment USING btree (dataset_id) WHERE (dataset_id IS NOT NULL)",
+      "name": "assignment_dataset_id_idx",
       "relation": "assignment",
       "schema": "taxonomy"
     },
@@ -1287,6 +1484,18 @@
       "schema": "taxonomy"
     },
     {
+      "definition": "CREATE UNIQUE INDEX entity_kind_canonical_schema_canonical_table_key ON taxonomy.entity_kind USING btree (canonical_schema, canonical_table)",
+      "name": "entity_kind_canonical_schema_canonical_table_key",
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX entity_kind_pkey ON taxonomy.entity_kind USING btree (code)",
+      "name": "entity_kind_pkey",
+      "relation": "entity_kind",
+      "schema": "taxonomy"
+    },
+    {
       "definition": "CREATE UNIQUE INDEX facet_pkey ON taxonomy.facet USING btree (id)",
       "name": "facet_pkey",
       "relation": "facet",
@@ -1339,6 +1548,12 @@
       "name": "term_relation_pkey",
       "relation": "term_relation",
       "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE UNIQUE INDEX term_target_kind_pkey ON taxonomy.term_target_kind USING btree (term_id, entity_kind_code)",
+      "name": "term_target_kind_pkey",
+      "relation": "term_target_kind",
+      "schema": "taxonomy"
     }
   ],
   "policies": [
@@ -1364,6 +1579,22 @@
       "name": "bounded_role_access",
       "permissive": "PERMISSIVE",
       "relation": "assignment_review_requirement",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "entity_kind",
       "roles": [
         "app_reader",
         "control_plane",
@@ -1437,6 +1668,22 @@
       ],
       "schema": "taxonomy",
       "using_expression": "true"
+    },
+    {
+      "check_expression": "true",
+      "command": "ALL",
+      "name": "bounded_role_access",
+      "permissive": "PERMISSIVE",
+      "relation": "term_target_kind",
+      "roles": [
+        "app_reader",
+        "control_plane",
+        "executor_service",
+        "pipeline_agent",
+        "verifier_agent"
+      ],
+      "schema": "taxonomy",
+      "using_expression": "true"
     }
   ],
   "relations": [
@@ -1454,6 +1701,15 @@
       "description": null,
       "kind": "table",
       "name": "assignment_review_requirement",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": "Primary canonical AI knowledge entity divisions and their typed corpus tables.",
+      "kind": "table",
+      "name": "entity_kind",
       "rls_enabled": true,
       "rls_forced": false,
       "schema": "taxonomy"
@@ -1493,7 +1749,42 @@
       "rls_enabled": true,
       "rls_forced": false,
       "schema": "taxonomy"
+    },
+    {
+      "definition": null,
+      "description": "Restricts secondary taxonomy terms to compatible primary entity kinds.",
+      "kind": "table",
+      "name": "term_target_kind",
+      "rls_enabled": true,
+      "rls_forced": false,
+      "schema": "taxonomy"
     }
   ],
-  "schema": "taxonomy"
+  "schema": "taxonomy",
+  "triggers": [
+    {
+      "definition": "CREATE TRIGGER assignment_facet_cardinality BEFORE INSERT OR UPDATE ON taxonomy.assignment FOR EACH ROW EXECUTE FUNCTION taxonomy.enforce_facet_cardinality()",
+      "function_name": "enforce_facet_cardinality",
+      "function_schema": "taxonomy",
+      "name": "assignment_facet_cardinality",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE TRIGGER assignment_term_target_scope BEFORE INSERT OR UPDATE OF term_id, library_id, repository_id, person_id, organization_id, paper_id, product_id, case_study_id, dataset_id, benchmark_id, ai_model_id, ai_protocol_id ON taxonomy.assignment FOR EACH ROW EXECUTE FUNCTION taxonomy.enforce_term_target_scope()",
+      "function_name": "enforce_term_target_scope",
+      "function_schema": "taxonomy",
+      "name": "assignment_term_target_scope",
+      "relation": "assignment",
+      "schema": "taxonomy"
+    },
+    {
+      "definition": "CREATE TRIGGER facet_set_updated_at BEFORE UPDATE ON taxonomy.facet FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()",
+      "function_name": "set_updated_at",
+      "function_schema": "util",
+      "name": "facet_set_updated_at",
+      "relation": "facet",
+      "schema": "taxonomy"
+    }
+  ]
 }

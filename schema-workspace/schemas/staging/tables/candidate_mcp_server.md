@@ -57,6 +57,10 @@ _None._
 | --- | --- |
 | `candidate_mcp_server_pkey` | `CREATE UNIQUE INDEX candidate_mcp_server_pkey ON staging.candidate_mcp_server USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

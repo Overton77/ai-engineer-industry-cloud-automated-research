@@ -62,6 +62,12 @@ Database table ranking.ranking_run.
 | --- | --- |
 | `ranking_run_pkey` | `CREATE UNIQUE INDEX ranking_run_pkey ON ranking.ranking_run USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `ranking_run_immutable` | `util.reject_mutation` | `CREATE TRIGGER ranking_run_immutable BEFORE DELETE OR UPDATE ON ranking.ranking_run FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

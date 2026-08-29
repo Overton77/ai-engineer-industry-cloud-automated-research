@@ -48,6 +48,10 @@ _None._
 | --- | --- |
 | `artifact_type_pkey` | `CREATE UNIQUE INDEX artifact_type_pkey ON orchestration.artifact_type USING btree (code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

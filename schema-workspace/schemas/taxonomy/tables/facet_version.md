@@ -62,6 +62,10 @@ Database table taxonomy.facet_version.
 | `facet_version_one_active` | `CREATE UNIQUE INDEX facet_version_one_active ON taxonomy.facet_version USING btree (facet_id) WHERE (status = 'active'::taxonomy.facet_status)` |
 | `facet_version_pkey` | `CREATE UNIQUE INDEX facet_version_pkey ON taxonomy.facet_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

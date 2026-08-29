@@ -66,6 +66,10 @@ _None._
 | `mcp_server_wraps_product_mcp_server_id_product_id_key` | `CREATE UNIQUE INDEX mcp_server_wraps_product_mcp_server_id_product_id_key ON corpus.mcp_server_wraps_product USING btree (mcp_server_id, product_id)` |
 | `mcp_server_wraps_product_pkey` | `CREATE UNIQUE INDEX mcp_server_wraps_product_pkey ON corpus.mcp_server_wraps_product USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -58,6 +58,10 @@ _None._
 | --- | --- |
 | `artifact_manifest_pkey` | `CREATE UNIQUE INDEX artifact_manifest_pkey ON orchestration.artifact_manifest USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -86,6 +86,12 @@ Immutable-identity app-factory or optimization rollout. External artifacts and O
 | `factory_episode_status_idx` | `CREATE INDEX factory_episode_status_idx ON public.factory_episode USING btree (status, created_at)` |
 | `factory_episode_task_idx` | `CREATE INDEX factory_episode_task_idx ON public.factory_episode USING btree (factory_task_id, created_at DESC)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `protect_factory_episode_identity_and_terminal` | `public.protect_factory_episode_identity_and_terminal` | `CREATE TRIGGER protect_factory_episode_identity_and_terminal BEFORE DELETE OR UPDATE ON factory_episode FOR EACH ROW EXECUTE FUNCTION protect_factory_episode_identity_and_terminal()` |
+
 ## RLS policies
 
 _None._

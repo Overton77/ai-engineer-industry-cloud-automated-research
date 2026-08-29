@@ -85,6 +85,12 @@ Database table corpus.video.
 | `video_pkey` | `CREATE UNIQUE INDEX video_pkey ON corpus.video USING btree (id)` |
 | `video_platform_external_id_key` | `CREATE UNIQUE INDEX video_platform_external_id_key ON corpus.video USING btree (platform, external_id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `video_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER video_set_updated_at BEFORE UPDATE ON corpus.video FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

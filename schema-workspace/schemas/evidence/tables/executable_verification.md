@@ -57,6 +57,12 @@ _None._
 | --- | --- |
 | `executable_verification_pkey` | `CREATE UNIQUE INDEX executable_verification_pkey ON evidence.executable_verification USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `executable_verification_immutable` | `util.reject_mutation` | `CREATE TRIGGER executable_verification_immutable BEFORE DELETE OR UPDATE ON evidence.executable_verification FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

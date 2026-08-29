@@ -58,6 +58,10 @@ Database table ranking.ranking_policy_version.
 | `ranking_policy_version_pkey` | `CREATE UNIQUE INDEX ranking_policy_version_pkey ON ranking.ranking_policy_version USING btree (id)` |
 | `ranking_policy_version_ranking_policy_id_version_key` | `CREATE UNIQUE INDEX ranking_policy_version_ranking_policy_id_version_key ON ranking.ranking_policy_version USING btree (ranking_policy_id, version)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

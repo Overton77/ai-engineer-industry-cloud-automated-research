@@ -23,7 +23,7 @@ Database table evidence.extraction_signature.
 | 1 | `id` | `uuid` | no | `util.uuidv7()` | — |
 | 2 | `locator_id` | `uuid` | no | — | — |
 | 3 | `signature_sha256` | `text` | no | — | — |
-| 4 | `produced_by_attempt_id` | `uuid` | yes | — | — |
+| 4 | `produced_by_attempt_id` | `uuid` | no | — | — |
 | 5 | `created_at` | `timestamp with time zone` | no | `now()` | — |
 
 ## Constraints
@@ -55,6 +55,12 @@ _None._
 | --- | --- |
 | `extraction_signature_locator_id_signature_sha256_key` | `CREATE UNIQUE INDEX extraction_signature_locator_id_signature_sha256_key ON evidence.extraction_signature USING btree (locator_id, signature_sha256)` |
 | `extraction_signature_pkey` | `CREATE UNIQUE INDEX extraction_signature_pkey ON evidence.extraction_signature USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `extraction_signature_immutable` | `util.reject_mutation` | `CREATE TRIGGER extraction_signature_immutable BEFORE DELETE OR UPDATE ON evidence.extraction_signature FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
 
 ## RLS policies
 

@@ -49,6 +49,10 @@ _None._
 | --- | --- |
 | `distribution_kind_pkey` | `CREATE UNIQUE INDEX distribution_kind_pkey ON corpus.distribution_kind USING btree (code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

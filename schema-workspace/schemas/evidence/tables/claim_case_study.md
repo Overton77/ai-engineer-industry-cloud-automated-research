@@ -28,7 +28,7 @@ Database table evidence.claim_case_study.
 
 | Name | Type | Definition | References |
 | --- | --- | --- | --- |
-| `claim_case_study_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'comparison'::text]))` | — |
+| `claim_case_study_role_in_claim_check` | `check` | `CHECK (role_in_claim = ANY (ARRAY['subject'::text, 'object'::text, 'context'::text, 'qualifier'::text, 'comparison'::text]))` | — |
 | `claim_case_study_case_study_id_fkey` | `foreign_key` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE` | [`corpus.case_study`](../../corpus/tables/case_study.md) |
 | `claim_case_study_claim_id_fkey` | `foreign_key` | `FOREIGN KEY (claim_id) REFERENCES evidence.claim(id) ON DELETE CASCADE` | [`evidence.claim`](../../evidence/tables/claim.md) |
 | `claim_case_study_pkey` | `primary_key` | `PRIMARY KEY (claim_id, case_study_id, role_in_claim)` | — |
@@ -52,6 +52,13 @@ _None._
 | --- | --- |
 | `claim_case_study_pkey` | `CREATE UNIQUE INDEX claim_case_study_pkey ON evidence.claim_case_study USING btree (claim_id, case_study_id, role_in_claim)` |
 | `claim_case_study_target_idx` | `CREATE INDEX claim_case_study_target_idx ON evidence.claim_case_study USING btree (case_study_id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `claim_entity_association_immutable` | `util.reject_mutation` | `CREATE TRIGGER claim_entity_association_immutable BEFORE DELETE OR UPDATE ON evidence.claim_case_study FOR EACH ROW EXECUTE FUNCTION util.reject_mutation()` |
+| `claim_entity_association_proposed` | `evidence.enforce_claim_association_proposed` | `CREATE TRIGGER claim_entity_association_proposed BEFORE INSERT ON evidence.claim_case_study FOR EACH ROW EXECUTE FUNCTION evidence.enforce_claim_association_proposed()` |
 
 ## RLS policies
 

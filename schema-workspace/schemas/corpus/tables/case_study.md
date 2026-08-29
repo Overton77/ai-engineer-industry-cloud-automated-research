@@ -68,6 +68,9 @@ Database table corpus.case_study.
 | Source | Constraint | Definition |
 | --- | --- | --- |
 | [`corpus.case_study`](../../corpus/tables/case_study.md) | `case_study_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.case_study(id)` |
+| [`corpus.case_study_references_benchmark`](../../corpus/tables/case_study_references_benchmark.md) | `case_study_references_benchmark_case_study_id_fkey` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE` |
+| [`corpus.case_study_uses_library`](../../corpus/tables/case_study_uses_library.md) | `case_study_uses_library_case_study_id_fkey` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE` |
+| [`corpus.case_study_uses_model_version`](../../corpus/tables/case_study_uses_model_version.md) | `case_study_uses_model_version_case_study_id_fkey` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE` |
 | [`evidence.claim_case_study`](../../evidence/tables/claim_case_study.md) | `claim_case_study_case_study_id_fkey` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id) ON DELETE CASCADE` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_case_study_id_fkey` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id)` |
 | [`staging.identity_match`](../../staging/tables/identity_match.md) | `identity_match_case_study_id_fkey` | `FOREIGN KEY (case_study_id) REFERENCES corpus.case_study(id)` |
@@ -84,6 +87,12 @@ Database table corpus.case_study.
 | `case_study_product_idx` | `CREATE INDEX case_study_product_idx ON corpus.case_study USING btree (subject_product_id) WHERE (subject_product_id IS NOT NULL)` |
 | `case_study_tenant_id_slug_key` | `CREATE UNIQUE INDEX case_study_tenant_id_slug_key ON corpus.case_study USING btree (tenant_id, slug)` |
 | `case_study_updated_receipt_idx` | `CREATE INDEX case_study_updated_receipt_idx ON corpus.case_study USING btree (updated_by_receipt_id) WHERE (updated_by_receipt_id IS NOT NULL)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `case_study_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER case_study_set_updated_at BEFORE UPDATE ON corpus.case_study FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

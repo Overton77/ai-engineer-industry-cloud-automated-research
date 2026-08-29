@@ -52,6 +52,10 @@ _None._
 | --- | --- |
 | `capability_profile_item_pkey` | `CREATE UNIQUE INDEX capability_profile_item_pkey ON orchestration.capability_profile_item USING btree (profile_id, capability_version_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

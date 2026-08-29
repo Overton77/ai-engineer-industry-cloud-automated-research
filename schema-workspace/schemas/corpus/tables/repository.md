@@ -67,10 +67,12 @@ Database table corpus.repository.
 | [`corpus.library_backed_by_repository`](../../corpus/tables/library_backed_by_repository.md) | `library_backed_by_repository_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
 | [`corpus.mcp_server`](../../corpus/tables/mcp_server.md) | `mcp_server_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id)` |
 | [`corpus.mcp_server_backed_by_repository`](../../corpus/tables/mcp_server_backed_by_repository.md) | `mcp_server_backed_by_repository_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
+| [`corpus.product_backed_by_repository`](../../corpus/tables/product_backed_by_repository.md) | `product_backed_by_repository_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
 | [`corpus.repository`](../../corpus/tables/repository.md) | `repository_merged_into_id_fkey` | `FOREIGN KEY (merged_into_id) REFERENCES corpus.repository(id)` |
 | [`corpus.repository_alias`](../../corpus/tables/repository_alias.md) | `repository_alias_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
 | [`corpus.repository_archival_fact`](../../corpus/tables/repository_archival_fact.md) | `repository_archival_fact_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
 | [`corpus.repository_implements_paper`](../../corpus/tables/repository_implements_paper.md) | `repository_implements_paper_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
+| [`corpus.repository_maintained_by_organization`](../../corpus/tables/repository_maintained_by_organization.md) | `repository_maintained_by_organization_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
 | [`evidence.claim_repository`](../../evidence/tables/claim_repository.md) | `claim_repository_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id) ON DELETE CASCADE` |
 | [`ranking.group_membership`](../../ranking/tables/group_membership.md) | `group_membership_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id)` |
 | [`ranking.metric_observation`](../../ranking/tables/metric_observation.md) | `metric_observation_repository_id_fkey` | `FOREIGN KEY (repository_id) REFERENCES corpus.repository(id)` |
@@ -83,6 +85,12 @@ Database table corpus.repository.
 | --- | --- |
 | `repository_host_owner_name_key` | `CREATE UNIQUE INDEX repository_host_owner_name_key ON corpus.repository USING btree (host, owner, name)` |
 | `repository_pkey` | `CREATE UNIQUE INDEX repository_pkey ON corpus.repository USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `repository_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER repository_set_updated_at BEFORE UPDATE ON corpus.repository FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
 
 ## RLS policies
 

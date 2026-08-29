@@ -67,6 +67,10 @@ Bounded, evidence-backed proposal. The optimizer may propose a candidate but can
 | --- | --- |
 | `factory_evolution_proposal_pkey` | `CREATE UNIQUE INDEX factory_evolution_proposal_pkey ON public.factory_evolution_proposal USING btree (factory_evolution_proposal_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

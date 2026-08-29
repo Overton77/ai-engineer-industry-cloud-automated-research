@@ -56,6 +56,10 @@ _None._
 | `entity_merge_loser_idx` | `CREATE INDEX entity_merge_loser_idx ON corpus.entity_merge USING btree (entity_kind, loser_id)` |
 | `entity_merge_pkey` | `CREATE UNIQUE INDEX entity_merge_pkey ON corpus.entity_merge USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -86,6 +86,12 @@ Database table corpus.person.
 | `person_primary_org_idx` | `CREATE INDEX person_primary_org_idx ON corpus.person USING btree (primary_organization_id)` |
 | `person_tenant_id_slug_key` | `CREATE UNIQUE INDEX person_tenant_id_slug_key ON corpus.person USING btree (tenant_id, slug)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `person_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER person_set_updated_at BEFORE UPDATE ON corpus.person FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

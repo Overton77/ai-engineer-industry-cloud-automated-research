@@ -55,6 +55,10 @@ _None._
 | --- | --- |
 | `candidate_talk_pkey` | `CREATE UNIQUE INDEX candidate_talk_pkey ON staging.candidate_talk USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

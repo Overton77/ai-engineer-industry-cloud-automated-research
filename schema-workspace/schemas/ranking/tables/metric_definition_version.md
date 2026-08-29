@@ -66,6 +66,10 @@ Database table ranking.metric_definition_version.
 | `metric_definition_version_metric_definition_id_version_key` | `CREATE UNIQUE INDEX metric_definition_version_metric_definition_id_version_key ON ranking.metric_definition_version USING btree (metric_definition_id, version)` |
 | `metric_definition_version_pkey` | `CREATE UNIQUE INDEX metric_definition_version_pkey ON ranking.metric_definition_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

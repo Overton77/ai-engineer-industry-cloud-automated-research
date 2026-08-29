@@ -66,6 +66,10 @@ _None._
 | `mcp_server_backed_by_reposito_mcp_server_id_repository_id_r_key` | `CREATE UNIQUE INDEX mcp_server_backed_by_reposito_mcp_server_id_repository_id_r_key ON corpus.mcp_server_backed_by_repository USING btree (mcp_server_id, repository_id, relationship_kind)` |
 | `mcp_server_backed_by_repository_pkey` | `CREATE UNIQUE INDEX mcp_server_backed_by_repository_pkey ON corpus.mcp_server_backed_by_repository USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

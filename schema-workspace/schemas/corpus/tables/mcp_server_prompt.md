@@ -57,6 +57,10 @@ _None._
 | `mcp_server_prompt_mcp_server_version_id_name_key` | `CREATE UNIQUE INDEX mcp_server_prompt_mcp_server_version_id_name_key ON corpus.mcp_server_prompt USING btree (mcp_server_version_id, name)` |
 | `mcp_server_prompt_pkey` | `CREATE UNIQUE INDEX mcp_server_prompt_pkey ON corpus.mcp_server_prompt USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

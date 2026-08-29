@@ -69,6 +69,10 @@ _None._
 | `paper_appeared_in_video_paper_id_video_id_key` | `CREATE UNIQUE INDEX paper_appeared_in_video_paper_id_video_id_key ON corpus.paper_appeared_in_video USING btree (paper_id, video_id)` |
 | `paper_appeared_in_video_pkey` | `CREATE UNIQUE INDEX paper_appeared_in_video_pkey ON corpus.paper_appeared_in_video USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

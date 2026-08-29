@@ -50,6 +50,10 @@ _None._
 | --- | --- |
 | `assignment_review_requirement_pkey` | `CREATE UNIQUE INDEX assignment_review_requirement_pkey ON taxonomy.assignment_review_requirement USING btree (facet_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -69,6 +69,10 @@ _None._
 | `paper_authored_by_person_paper_id_person_id_key` | `CREATE UNIQUE INDEX paper_authored_by_person_paper_id_person_id_key ON corpus.paper_authored_by_person USING btree (paper_id, person_id)` |
 | `paper_authored_by_person_pkey` | `CREATE UNIQUE INDEX paper_authored_by_person_pkey ON corpus.paper_authored_by_person USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

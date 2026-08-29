@@ -60,6 +60,10 @@ Database table evidence.claim_conflict.
 | `claim_conflict_claim_a_id_claim_b_id_conflict_kind_key` | `CREATE UNIQUE INDEX claim_conflict_claim_a_id_claim_b_id_conflict_kind_key ON evidence.claim_conflict USING btree (claim_a_id, claim_b_id, conflict_kind)` |
 | `claim_conflict_pkey` | `CREATE UNIQUE INDEX claim_conflict_pkey ON evidence.claim_conflict USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

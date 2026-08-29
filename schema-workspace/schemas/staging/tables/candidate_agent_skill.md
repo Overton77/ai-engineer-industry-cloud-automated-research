@@ -56,6 +56,10 @@ _None._
 | --- | --- |
 | `candidate_agent_skill_pkey` | `CREATE UNIQUE INDEX candidate_agent_skill_pkey ON staging.candidate_agent_skill USING btree (candidate_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

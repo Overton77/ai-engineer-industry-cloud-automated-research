@@ -110,6 +110,12 @@ Database table staging.candidate.
 | `candidate_mission_idx` | `CREATE INDEX candidate_mission_idx ON staging.candidate USING btree (mission_id)` |
 | `candidate_pkey` | `CREATE UNIQUE INDEX candidate_pkey ON staging.candidate USING btree (id)` |
 
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `candidate_set_updated_at` | `util.set_updated_at` | `CREATE TRIGGER candidate_set_updated_at BEFORE UPDATE ON staging.candidate FOR EACH ROW EXECUTE FUNCTION util.set_updated_at()` |
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

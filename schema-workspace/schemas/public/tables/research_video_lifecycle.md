@@ -48,6 +48,10 @@ _None._
 | --- | --- |
 | `research_video_lifecycle_pkey` | `CREATE UNIQUE INDEX research_video_lifecycle_pkey ON public.research_video_lifecycle USING btree (analysis_id, lifecycle_stage)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

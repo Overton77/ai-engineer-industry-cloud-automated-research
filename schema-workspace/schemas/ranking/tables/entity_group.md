@@ -57,6 +57,10 @@ _None._
 | `entity_group_pkey` | `CREATE UNIQUE INDEX entity_group_pkey ON ranking.entity_group USING btree (id)` |
 | `entity_group_tenant_id_slug_key` | `CREATE UNIQUE INDEX entity_group_tenant_id_slug_key ON ranking.entity_group USING btree (tenant_id, slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

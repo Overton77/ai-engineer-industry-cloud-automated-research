@@ -54,6 +54,10 @@ _None._
 | `capability_profile_pkey` | `CREATE UNIQUE INDEX capability_profile_pkey ON orchestration.capability_profile USING btree (id)` |
 | `capability_profile_tenant_id_slug_key` | `CREATE UNIQUE INDEX capability_profile_tenant_id_slug_key ON orchestration.capability_profile USING btree (tenant_id, slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

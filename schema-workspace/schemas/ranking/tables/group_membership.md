@@ -87,6 +87,10 @@ _None._
 | `group_membership_pkey` | `CREATE UNIQUE INDEX group_membership_pkey ON ranking.group_membership USING btree (id)` |
 | `group_membership_version_idx` | `CREATE INDEX group_membership_version_idx ON ranking.group_membership USING btree (group_version_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

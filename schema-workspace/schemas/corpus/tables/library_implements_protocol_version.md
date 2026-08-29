@@ -66,6 +66,10 @@ _None._
 | `library_implements_protocol_v_library_id_ai_protocol_versio_key` | `CREATE UNIQUE INDEX library_implements_protocol_v_library_id_ai_protocol_versio_key ON corpus.library_implements_protocol_version USING btree (library_id, ai_protocol_version_id)` |
 | `library_implements_protocol_version_pkey` | `CREATE UNIQUE INDEX library_implements_protocol_version_pkey ON corpus.library_implements_protocol_version USING btree (id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

@@ -53,6 +53,10 @@ _None._
 | --- | --- |
 | `research_video_domain_pkey` | `CREATE UNIQUE INDEX research_video_domain_pkey ON public.research_video_domain USING btree (analysis_id, domain_code)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 _None._

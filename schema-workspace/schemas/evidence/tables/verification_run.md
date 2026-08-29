@@ -48,6 +48,7 @@ Database table evidence.verification_run.
 
 | Source | Constraint | Definition |
 | --- | --- | --- |
+| [`evidence.claim_evidence_assessment`](../../evidence/tables/claim_evidence_assessment.md) | `claim_evidence_assessment_run_id_fkey` | `FOREIGN KEY (run_id) REFERENCES evidence.verification_run(id) ON DELETE CASCADE` |
 | [`evidence.claim_evidence_link`](../../evidence/tables/claim_evidence_link.md) | `claim_evidence_link_verified_by_run_id_fkey` | `FOREIGN KEY (verified_by_run_id) REFERENCES evidence.verification_run(id)` |
 | [`evidence.verification_finding`](../../evidence/tables/verification_finding.md) | `verification_finding_run_id_fkey` | `FOREIGN KEY (run_id) REFERENCES evidence.verification_run(id) ON DELETE CASCADE` |
 
@@ -57,6 +58,12 @@ Database table evidence.verification_run.
 | --- | --- |
 | `verification_run_attempt_idx` | `CREATE INDEX verification_run_attempt_idx ON evidence.verification_run USING btree (verifier_attempt_id)` |
 | `verification_run_pkey` | `CREATE UNIQUE INDEX verification_run_pkey ON evidence.verification_run USING btree (id)` |
+
+## Triggers
+
+| Trigger | Function | Definition |
+| --- | --- | --- |
+| `verification_run_identity_immutable` | `evidence.enforce_verification_run_lifecycle` | `CREATE TRIGGER verification_run_identity_immutable BEFORE DELETE OR UPDATE ON evidence.verification_run FOR EACH ROW EXECUTE FUNCTION evidence.enforce_verification_run_lifecycle()` |
 
 ## RLS policies
 

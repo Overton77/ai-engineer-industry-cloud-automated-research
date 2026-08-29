@@ -53,6 +53,10 @@ _None._
 | `feature_definition_pkey` | `CREATE UNIQUE INDEX feature_definition_pkey ON ranking.feature_definition USING btree (id)` |
 | `feature_definition_slug_key` | `CREATE UNIQUE INDEX feature_definition_slug_key ON ranking.feature_definition USING btree (slug)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |

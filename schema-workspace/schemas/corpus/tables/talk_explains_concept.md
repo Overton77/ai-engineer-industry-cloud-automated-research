@@ -66,6 +66,10 @@ _None._
 | `talk_explains_concept_pkey` | `CREATE UNIQUE INDEX talk_explains_concept_pkey ON corpus.talk_explains_concept USING btree (id)` |
 | `talk_explains_concept_talk_id_concept_id_key` | `CREATE UNIQUE INDEX talk_explains_concept_talk_id_concept_id_key ON corpus.talk_explains_concept USING btree (talk_id, concept_id)` |
 
+## Triggers
+
+_None._
+
 ## RLS policies
 
 | Policy | Mode | Command | Roles | Using | With check |
