@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { resolve } from "node:path";
 
@@ -15,23 +15,53 @@ if (major < 24) {
   console.log(`ok node ${process.version}`);
 }
 
-for (const command of ["tvly", "firecrawl", "agent-browser"]) {
-  const candidates = process.platform === "win32"
-    ? spawnSync("where.exe", [command], { encoding: "utf8" }).stdout?.split(/\r?\n/).filter(Boolean) ?? []
-    : [];
-  const located = candidates.find((candidate) => candidate.toLowerCase().endsWith(".cmd")) ?? candidates[0];
-  const executable = located ?? command;
-  const powershellLiteral = executable.replaceAll("'", "''");
-  const result = process.platform === "win32"
-    ? spawnSync("powershell.exe", ["-NoLogo", "-NoProfile", "-NonInteractive", "-Command", `& '${powershellLiteral}' --version`], { encoding: "utf8" })
-    : spawnSync(executable, ["--version"], { encoding: "utf8" });
+function runVersionCheck(command, args) {
+  if (process.platform === "win32") {
+    const candidates = spawnSync("where.exe", [command], { encoding: "utf8" }).stdout?.split(/\r?\n/).filter(Boolean) ?? [];
+    const located = candidates.find((candidate) => candidate.toLowerCase().endsWith(".cmd")) ?? candidates[0];
+    const executable = located ?? command;
+    const powershellLiteral = executable.replaceAll("'", "''");
+    const argLiteral = args.map((arg) => `'${String(arg).replaceAll("'", "''")}'`).join(" ");
+    return spawnSync("powershell.exe", [
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-Command",
+      `& '${powershellLiteral}' ${argLiteral}`
+    ], { encoding: "utf8" });
+  }
 
-  if (result.status !== 0) {
+  return spawnSync(command, args, { encoding: "utf8" });
+}
+
+const commands = [
+  ["tvly", ["--version"]],
+  ["firecrawl", ["--version"]],
+  ["agent-browser", ["--version"]],
+  ["jq", ["--version"]],
+  ["rg", ["--version"]],
+  ["python3", ["--version"]],
+  ["git", ["--version"]],
+  ["curl", ["--version"]],
+  ["ffmpeg", ["-version"]],
+  ["pdftotext", ["-v"]],
+  ["psql", ["--version"]]
+];
+
+for (const [command, args] of commands) {
+  const result = runVersionCheck(command, args);
+
+  if (result.status !== 0 && result.status !== null) {
+    const combined = `${result.stdout ?? ""}${result.stderr ?? ""}`;
+    if (command === "pdftotext" && /pdftotext/i.test(combined)) {
+      console.log(`ok ${command} ${combined.trim().split("\n")[0]}`);
+      continue;
+    }
     failures.push(`${command} is unavailable or failed its version check`);
     continue;
   }
 
-  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim();
+  const version = `${result.stdout ?? ""}${result.stderr ?? ""}`.trim().split("\n")[0];
   console.log(`ok ${command} ${version}`);
 }
 
@@ -46,11 +76,21 @@ const requiredSkills = [
   "tavily-search"
 ];
 
+try {
+  const lock = JSON.parse(readFileSync("skills-lock.json", "utf8"));
+  for (const skill of Object.keys(lock.skills ?? {})) {
+    if (!requiredSkills.includes(skill)) requiredSkills.push(skill);
+  }
+} catch {
+  failures.push("skills-lock.json is missing or invalid");
+}
+
 let installedSkills = [];
 try {
   installedSkills = readdirSync(".agents/skills", { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
+    .map((entry) => entry.name)
+    .sort();
 } catch {
   failures.push(".agents/skills is missing");
 }
@@ -64,6 +104,14 @@ for (const skill of requiredSkills) {
 if (installedSkills.length > 0) {
   console.log(`ok ${installedSkills.length} project skills discovered`);
 }
+
+for (const dir of ["artifacts", ".firecrawl", "artifacts/smoke", "artifacts/validation"]) {
+  mkdirSync(dir, { recursive: true });
+  if (!existsSync(dir)) {
+    failures.push(`could not create ${dir}`);
+  }
+}
+console.log("ok artifact directories ready");
 
 if (requireSecrets) {
   for (const name of ["TAVILY_API_KEY", "FIRECRAWL_API_KEY", "SUPABASE_URL"]) {
@@ -82,6 +130,11 @@ if (requireSecrets) {
     failures.push("required runtime secret is missing: SUPABASE_SECRET_KEY or SUPABASE_SERVICE_ROLE_KEY");
   } else {
     console.log("ok Supabase server key is set (value hidden)");
+  }
+  if (process.env.CONTEXT7_API_KEY) {
+    console.log("ok CONTEXT7_API_KEY is set (value hidden)");
+  } else {
+    console.log("note CONTEXT7_API_KEY is unset; Context7 MCP may hit the monthly free quota");
   }
 }
 

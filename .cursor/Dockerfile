@@ -9,12 +9,17 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
+        ffmpeg \
         git \
         jq \
         pipx \
+        poppler-utils \
+        postgresql-client \
         python3 \
+        python3-venv \
         ripgrep \
         sudo \
+        unzip \
     && rm -rf /var/lib/apt/lists/*
 
 # Pin every research CLI so a rebuilt Cursor environment is reproducible.
@@ -25,4 +30,7 @@ RUN npm install --global \
     && agent-browser install --with-deps \
     && agent-browser --version \
     && firecrawl --version \
-    && tvly --version
+    && tvly --version \
+    && ffmpeg -version \
+    && pdftotext -v \
+    && psql --version
